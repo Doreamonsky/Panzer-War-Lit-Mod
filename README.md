@@ -14,10 +14,14 @@ Cheater for Training Mode:
 ## How to install Mods
 
 First,Launch game for one time for generating folders for you.
+
 Then,Copy \*.Zip files to Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\Installs\
+
 Finally,Launch the game,you will have it !
 
-Tips:Zip files will be unzip by the game during the installation.
+### Tips
+
+Zip files will be unzip by the game during the installation.
 
 ## Manage Mods by Mod Hub
 
