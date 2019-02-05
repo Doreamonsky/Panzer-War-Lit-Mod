@@ -8,8 +8,9 @@ Here,you can see download various game mods and the source code of them.In the f
 
 ## Mods
 
-Girls und Panzer Voice Pack V2 :
-Cheater for Training Mode:
+Girls und Panzer Voice Pack: [Click To Download](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/releases/tag/GPVoicePack)
+
+Cheater for Training Mode:[Click to Download](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/releases/tag/CFT)
 
 ## How to install Mods
 
