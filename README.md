@@ -1,6 +1,7 @@
 # Panzer War Lit Mod Hub
 
-![ModHub](image.jpg)
+![ModHub](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Pics/ModHub.jpg?raw=true)
+
 This is the Mod Hub Page of the tank game, Panzer War.
 
 Here,you can see download various game mods and the source code of them.In the future,there will be a tutorial for how to make a mod.
