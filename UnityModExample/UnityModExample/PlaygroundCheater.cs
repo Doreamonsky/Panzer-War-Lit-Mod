@@ -50,9 +50,11 @@ namespace UnityModExample
 
         private bool isFastReload = false;
 
-        private Rect winRect = new Rect(45, 45, 400, 600);
+        private Rect winRect = new Rect(45, 45, 400, 500);
 
         private bool isAttackable = true;
+
+        private bool isFolder = false;
 
         private readonly List<string> vehicleSpawn = new List<string>()
         {
@@ -95,9 +97,19 @@ namespace UnityModExample
 
             winRect = GUI.Window(1, winRect, (winID) =>
              {
-                 GUILayout.Label("Author: Doreamonsky 超级哆啦酱.");
+                 isFolder = GUILayout.Toggle(isFolder, "is Fold");
 
-                 GUILayout.Space(25);
+                 if (isFolder)
+                 {
+                     winRect.size = new Vector2(400, 50);
+                     GUI.DragWindow();
+
+                     return;
+                 }
+                 else
+                 {
+                     winRect.size = new Vector2(400, 500);
+                 }
 
                  GUILayout.Label("Property Modfication");
 
@@ -134,6 +146,8 @@ namespace UnityModExample
                              CreateBot(vehicle, PunTeams.Team.blue, isAttackable ? ScriptableObject.CreateInstance<SimpleBotLogic>() as BotLogic : ScriptableObject.CreateInstance<TrainBotLogic>() as BotLogic, navHit.position, Vector3.zero);
                          }
                      }
+
+                     GUILayout.Space(5);
                  }
 
      
