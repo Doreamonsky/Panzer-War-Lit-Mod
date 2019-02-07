@@ -13,18 +13,17 @@ Here,you can see download various game mods and the source code of them.In the f
 
 Mod Download Index: [Click To View](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/wiki/Mod-Index)
 
-
 ## How to install Mods
 
 First,Launch game for one time for generating folders for you.
 
-Then,Copy \*.Zip files to Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\Installs\
+Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\Installs\
 
 Finally,Launch the game,you will have it !
 
 ### Tips
 
-Zip files will be unzip by the game during the installation.
+Modpack files will be unzip by the game during the installation.(Modpack is just a zip file)
 
 ## Manage Mods by Mod Hub
 

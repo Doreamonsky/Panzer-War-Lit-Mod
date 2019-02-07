@@ -19,21 +19,21 @@ namespace UnityModExample
                     {
                         playerVehicle = vehicle;
 
-                        var defaultReloadTime = playerVehicle.vehicleComponents.tankFire.tankFireParams.ReloadTime;
-                        var defaultAdvanceReloadTime = playerVehicle.vehicleComponents.tankFire.tankFireParams.advanceFireClass.LargeReloadTime;
+                        var defaultReloadTime = playerVehicle.vehicleComponents.mainTankFire.tankFireParams.ReloadTime;
+                        var defaultAdvanceReloadTime = playerVehicle.vehicleComponents.mainTankFire.tankFireParams.advanceFireClass.LargeReloadTime;
 
                         //Fast Reload Binding
                         PlaygroundCheater.OnToggleFastReload = (state) =>
                         {
                             if (state)
                             {
-                                playerVehicle.vehicleComponents.tankFire.tankFireParams.ReloadTime = 0.5f;
-                                playerVehicle.vehicleComponents.tankFire.tankFireParams.advanceFireClass.LargeReloadTime = 0.5f;
+                                playerVehicle.vehicleComponents.mainTankFire.tankFireParams.ReloadTime = 0.5f;
+                                playerVehicle.vehicleComponents.mainTankFire.tankFireParams.advanceFireClass.LargeReloadTime = 0.5f;
                             }
                             else
                             {
-                                playerVehicle.vehicleComponents.tankFire.tankFireParams.ReloadTime = defaultReloadTime;
-                                playerVehicle.vehicleComponents.tankFire.tankFireParams.advanceFireClass.LargeReloadTime = defaultAdvanceReloadTime;
+                                playerVehicle.vehicleComponents.mainTankFire.tankFireParams.ReloadTime = defaultReloadTime;
+                                playerVehicle.vehicleComponents.mainTankFire.tankFireParams.advanceFireClass.LargeReloadTime = defaultAdvanceReloadTime;
                             }
                         };
                     }
