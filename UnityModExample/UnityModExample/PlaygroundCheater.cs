@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityMod;
+using ShanghaiWindy.Core;
 
 namespace UnityModExample
 {
@@ -143,7 +144,7 @@ namespace UnityModExample
 
                          if (isHit)
                          {
-                             CreateBot(vehicle, PunTeams.Team.blue, isAttackable ? ScriptableObject.CreateInstance<SimpleBotLogic>() as BotLogic : ScriptableObject.CreateInstance<TrainBotLogic>() as BotLogic, navHit.position, Vector3.zero);
+                             CreateBot(vehicle, TeamManager.Team.blue, isAttackable ? ScriptableObject.CreateInstance<SimpleBotLogic>() as BotLogic : ScriptableObject.CreateInstance<TrainBotLogic>() as BotLogic, navHit.position, Vector3.zero);
                          }
                      }
 
@@ -157,7 +158,7 @@ namespace UnityModExample
              }, "Cheater");
         }
 
-        private void CreateBot(string _vehicle, PunTeams.Team _botTeam, BotLogic botLogic, Vector3 pos, Vector3 euler)
+        private void CreateBot(string _vehicle, TeamManager.Team _botTeam, BotLogic botLogic, Vector3 pos, Vector3 euler)
         {
             TankInitSystem vehicle = new GameObject("Vehicle", typeof(TankInitSystem)).GetComponent<TankInitSystem>();
             vehicle.VehicleName = _vehicle;
