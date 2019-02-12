@@ -1,5 +1,6 @@
 ﻿using ShanghaiWindy.Core;
 using UnityEditor;
+using UnityEngine;
 
 namespace ShanghaiWindy.Editor
 {
@@ -10,14 +11,17 @@ namespace ShanghaiWindy.Editor
         {
             base.OnInspectorGUI();
 
-            var modPackData = target as ModPackageData;
-
-            var importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(modPackData));
-
-            if (importer.assetBundleName != modPackData.name)
+            if (GUILayout.Button("Set AssetBundle Name"))
             {
-                importer.SetAssetBundleNameAndVariant(modPackData.name, "modpackdata");
-                importer.SaveAndReimport();
+                var modPackData = target as ModPackageData;
+
+                var importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(modPackData));
+
+                if (importer.assetBundleName != modPackData.name)
+                {
+                    importer.SetAssetBundleNameAndVariant(modPackData.name, "modpackdata");
+                    importer.SaveAndReimport();
+                }
             }
         }
     }

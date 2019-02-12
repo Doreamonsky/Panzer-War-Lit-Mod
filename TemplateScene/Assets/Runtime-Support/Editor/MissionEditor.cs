@@ -17,8 +17,6 @@ namespace ShanghaiWindy.Editor
 
             //CurrentMission = mission;
 
-            base.BaseGUI();
-
             if (GUILayout.Button("Lock"))
             {
                 LockEditor();

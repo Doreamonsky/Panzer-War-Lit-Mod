@@ -51,8 +51,6 @@ namespace ShanghaiWindy.Editor
         {
             vehicleHitBox = (VehicleHitBox)target;
 
-            BaseGUI();
-
             base.OnInspectorGUI();
 
             if (vehicleHitBox.HitBoxPrefab == null)

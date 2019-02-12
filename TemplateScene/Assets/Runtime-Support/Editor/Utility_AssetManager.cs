@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ShanghaiWindy.Core;
+using ShanghaiWindy.Editor;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
-using ShanghaiWindy.Core;
-using ShanghaiWindy.Editor;
 
 public class Utility_AssetManager : EditorWindow
 {
@@ -100,6 +100,15 @@ public class Utility_AssetManager : EditorWindow
 
         GUILayout.Space(20);
 
+        EditorGUILayout.HelpBox("Create Vehicle asset from here!", MessageType.None, true);
+
+        if (GUILayout.Button("Navigate To Create Vehicle Assets"))
+        {
+            GetWindow(typeof(Utility_CreateDefaultVehicleAssets));
+        }
+
+        GUILayout.Space(20);
+
         EditorGUILayout.HelpBox("Do Not Click Any Button Below!!", MessageType.None, true);
 
         if (GUILayout.Button("Binding Actions"))
@@ -111,8 +120,9 @@ public class Utility_AssetManager : EditorWindow
             CleanBindingActions();
         }
 
-        assetName = EditorGUILayout.TextField(assetName);
-        assetVariant = EditorGUILayout.TextField(assetVariant);
+        
+        assetName = EditorGUILayout.TextField("AssetBundleName:",assetName);
+        assetVariant = EditorGUILayout.TextField("AssetBundleVariant:", assetVariant);
 
         if (GUILayout.Button("Assign Selection AB"))
         {
@@ -207,7 +217,9 @@ public class Utility_AssetManager : EditorWindow
             foreach (var match in matches)
             {
                 if (match.ToString().Contains("Compile"))
+                {
                     continue;
+                }
 
                 path.Add(new FileInfo(match.ToString()));
             }

@@ -58,7 +58,6 @@ namespace ShanghaiWindy.Editor
         {
             raceSet = (RaceSet)target;
 
-            BaseGUI();
 
             if (GUILayout.Button("进入编辑模式") && AidNode == null)
             {

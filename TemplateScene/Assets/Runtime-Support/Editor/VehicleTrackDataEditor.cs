@@ -24,13 +24,13 @@ namespace ShanghaiWindy.Editor
 
             if (EditorTarget == null)
             {
-                EditorTarget = EditorGUILayout.ObjectField("目标编辑对象", EditorTarget, typeof(GameObject), true) as GameObject;
+                EditorTarget = EditorGUILayout.ObjectField("Target Edit Object/目标编辑对象", EditorTarget, typeof(GameObject), true) as GameObject;
             }
             if (TrackTransform == null)
             {
-                if (GUILayout.Button("读取悬挂信息"))
+                if (GUILayout.Button("Load Suspension Data/读取悬挂信息"))
                 {
-                    TrackTransform = EditorTarget.transform.GetChild(0).Find("TankTransform/RightWheel").gameObject;
+                    TrackTransform = EditorTarget.transform.GetChild(0).Find("VehicleDynamics/RightWheel").gameObject;
                     ActiveEditorTracker.sharedTracker.isLocked = true;
                     for (int i = 0; i < vehicleTrackData.AdvanceLeftBones.Length; i++)
                     {
@@ -45,8 +45,8 @@ namespace ShanghaiWindy.Editor
             }
             if (TrackTransform != null)
             {
-                EditorGUILayout.HelpBox("视窗锁定", MessageType.Error);
-                if (GUILayout.Button("取消锁定"))
+                EditorGUILayout.HelpBox("Lock Inspector/视窗锁定", MessageType.Error);
+                if (GUILayout.Button("Unlock Inspector/取消锁定"))
                 {
                     ActiveEditorTracker.sharedTracker.isLocked = false;
                     if (tcPreview != null)
@@ -58,27 +58,27 @@ namespace ShanghaiWindy.Editor
                 {
                     if (Selection.activeGameObject.name.Contains("Node"))
                     {
-                        if (GUILayout.Button("节点重力"))
+                        if (GUILayout.Button("Gravity Affected Node/节点重力"))
                         {
                             vehicleTrackData.SpringNode = ArrayUtil<int>.Add(ref vehicleTrackData.SpringNode, int.Parse(Selection.activeGameObject.name.Replace("Node", null)));
                         }
                     }
                 }
 
-                EditorGUILayout.HelpBox(string.Format("负重轮数量:{0}", TrackTransform.transform.childCount.ToString()), MessageType.None);
-                if (GUILayout.Button("创建节点"))
+                EditorGUILayout.HelpBox(string.Format("Suspension Count/负重轮数量:{0}", TrackTransform.transform.childCount.ToString()), MessageType.None);
+                if (GUILayout.Button("Create Node/创建节点"))
                 {
                     Points.Add(CreatePoint());
                 }
-                if (GUILayout.Button("删除节点"))
+                if (GUILayout.Button("Delete Node/删除节点"))
                 {
                     DeletePoint();
                 }
-                if (GUILayout.Button("保存设置"))
+                if (GUILayout.Button("Save/保存设置"))
                 {
                     Save();
                 }
-                if (GUILayout.Button("实例材质"))
+                if (GUILayout.Button("Turn on Material Instancing/实例材质"))
                 {
                     Material NewInstance = Instantiate(vehicleTrackData.TrackMesh.GetComponentInChildren<MeshRenderer>().sharedMaterial);
                     if (!NewInstance.enableInstancing)
@@ -102,7 +102,7 @@ namespace ShanghaiWindy.Editor
 
                 if (tcPreview == null)
                 {
-                    if (GUILayout.Button("预览悬挂"))
+                    if (GUILayout.Button("Preview Track/预览悬挂"))
                     {
                         Preview();
                         Save();
@@ -110,11 +110,11 @@ namespace ShanghaiWindy.Editor
                 }
                 else
                 {
-                    if (GUILayout.Button("取消预览"))
+                    if (GUILayout.Button("Close Preview/取消预览"))
                     {
                         RemovePreview();
                     }
-                    if (GUILayout.Button("更新预览"))
+                    if (GUILayout.Button("Update Preview/更新预览"))
                     {
                         RemovePreview();
                         Preview();
@@ -127,7 +127,7 @@ namespace ShanghaiWindy.Editor
 
             foreach (GameObject Point in Points)
             {
-                EditorGUILayout.HelpBox(string.Format("序号: {0}  坐标: {1}", Point.name, Point.transform.position.ToString()), MessageType.None);
+                EditorGUILayout.HelpBox(string.Format("ID/序号: {0}  Position/坐标: {1}", Point.name, Point.transform.position.ToString()), MessageType.None);
             }
 
             if (GUI.changed)
@@ -229,7 +229,7 @@ namespace ShanghaiWindy.Editor
             #endregion
 
             #region 生成坐标数据
-            Transform TankTransform = EditorTarget.transform.GetChild(0).Find("TankTransform");
+            Transform TankTransform = EditorTarget.transform.GetChild(0).Find("VehicleDynamics");
             tcPreview.transform.SetParent(TankTransform);
             vehicleTrackData.RightTrackCenter = tcPreview.transform.localPosition;
             vehicleTrackData.LeftTrackCenter = new Vector3(-vehicleTrackData.RightTrackCenter.x, vehicleTrackData.RightTrackCenter.y, vehicleTrackData.RightTrackCenter.z);

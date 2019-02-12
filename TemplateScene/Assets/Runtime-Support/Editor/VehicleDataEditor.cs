@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ShanghaiWindy.Core;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using ShanghaiWindy.Core;
 
 [CustomEditor(typeof(VehicleData))]
 [CanEditMultipleObjects]
@@ -60,8 +60,6 @@ public class VehicleDataEditor : EditorWindowBase
         vehicleData = (VehicleData)target;
 
 
-        BaseGUI();
-
         if (InEditingSceneObject)
         {
             EditorGUILayout.HelpBox("Press Key [K] to save the position and rotation of the selected dump to the cache", MessageType.Error);
@@ -80,7 +78,7 @@ public class VehicleDataEditor : EditorWindowBase
         }
         if (GUILayout.Button("Try Vehicle"))
         {
-            EditorSceneManager.OpenScene("Assets/Tutorials/illustration.unity");
+            EditorSceneManager.OpenScene("Assets/Res/UnitTest/illustration.unity");
         }
         //EditorGUILayout.TextField ("Layout number", gd.);
         base.OnInspectorGUI();
@@ -192,14 +190,14 @@ public class VehicleDataEditor : EditorWindowBase
 
                 //多炮塔毕竟少数
                 var mffpoint = new GameObject("FFPoint").transform;
-                mffpoint.SetParent(mGun.parent);
-                mffpoint.rotation = mGun.parent.rotation;
-                mffpoint.position = mGun.parent.position + mGun.parent.forward * multiTurret.ffPointOffSet;
+                mffpoint.SetParent(mDym.parent);
+                mffpoint.rotation = mDym.parent.rotation;
+                mffpoint.position = mDym.parent.position + mDym.parent.forward * multiTurret.ffPointOffSet;
 
                 var meffectStart = new GameObject("EffectStart").transform;
-                meffectStart.SetParent(mGun.parent);
-                meffectStart.rotation = mGun.parent.rotation;
-                meffectStart.position = mGun.parent.position + mGun.parent.forward * multiTurret.effectStartOffSet;
+                meffectStart.SetParent(mDym.parent);
+                meffectStart.rotation = mDym.parent.rotation;
+                meffectStart.position = mDym.parent.position + mDym.parent.forward * multiTurret.effectStartOffSet;
 
                 //但是 我们依然设置 Icon 方便编辑
                 IconManager.SetIcon(mffpoint.gameObject, IconManager.LabelIcon.Red);

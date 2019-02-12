@@ -5,7 +5,7 @@ public class EditorWindowBase : Editor
     public string EditorHeadline = "ShanghaiWindy...";
     public bool InEditingSceneObject = false;
 
-    public void BaseGUI()
+    private void EditorBaseInspector()
     {
         EditorGUILayout.HelpBox(EditorHeadline, MessageType.Info);
 
@@ -26,7 +26,12 @@ public class EditorWindowBase : Editor
 
     }
 
+    public override void OnInspectorGUI()
+    {
+        EditorBaseInspector();
 
+        base.OnInspectorGUI();
+    }
     public void LockEditor()
     {
         ActiveEditorTracker.sharedTracker.isLocked = true;
