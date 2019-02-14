@@ -123,13 +123,15 @@ namespace ScreenShotHelper
 
         private IEnumerator TakeScreenShot()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             var screenShotId = PlayerPrefs.GetInt("screenShotId", 0) + 1;
 
             ScreenCapture.CaptureScreenshot($"{screenShotId}.png");
 
             PlayerPrefs.SetInt("screenShotId", screenShotId);
+
+            yield return new WaitForSeconds(0.5f);
 
             foreach (var canvas in canvasList)
             {
