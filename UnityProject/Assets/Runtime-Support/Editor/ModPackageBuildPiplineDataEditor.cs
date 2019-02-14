@@ -52,7 +52,7 @@ namespace ShanghaiWindy.Editor
                     buildMap.Add(build);
                 }
 
-                var buildDir = $"Build/Mod-BuildPipline/{buildData.name}/packages/";
+                var buildDir = $"Build/Mod-BuildPipline/{EditorUserBuildSettings.activeBuildTarget}/{buildData.name}/packages/";
 
                 var dir = new DirectoryInfo(buildDir);
 

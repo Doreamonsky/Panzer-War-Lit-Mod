@@ -47,9 +47,9 @@ namespace ShanghaiWindy.Editor
                     AssetDatabase.GetAssetPath(target)
                 };
 
-                var buildDir = $"Build/Mod-Package/{modPackData.name}/Temp/";
+                var buildDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/Temp/";
 
-                var modPackDir = $"Build/Mod-Package/{modPackData.name}/";
+                var modPackDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/";
 
                 var dir = new DirectoryInfo(buildDir);
 
