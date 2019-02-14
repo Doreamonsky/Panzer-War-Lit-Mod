@@ -15,9 +15,19 @@ Mod Download Index: [Click To View](https://github.com/Doreamonsky/Panzer-War-Li
 
 ## How to install Mods
 
+### Android
+
 First,Launch game for one time for generating folders for you.
 
 Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\Installs\
+
+Finally,Launch the game,you will have it !
+
+### PC
+
+First,Launch game for one time for generating folders for you.
+
+Then,Copy \*.modpack files to SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\Installs
 
 Finally,Launch the game,you will have it !
 
