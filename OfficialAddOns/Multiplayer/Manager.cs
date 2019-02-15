@@ -2,9 +2,7 @@
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using NetworkCommsDotNet.Connections.UDP;
-using NetworkCommsDotNet.DPSBase;
 using ShanghaiWindy.Core;
-using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using UnityMod;
@@ -12,8 +10,7 @@ using UnityMod;
 namespace Multiplayer
 {
     /// <summary>
-    /// Currently,I am using the a simple socket contributed by https://github.com/PlaneZhong/PESocket.
-    /// Because the new network system is very raw. 
+    /// I changed the net framework to NetworkCommsDotNet.
     /// 2018/02/15
     /// </summary>
     public class Manager : IGeneralAddOn, IGameModule
@@ -98,6 +95,12 @@ namespace Multiplayer
                     }
                     );
 
+                NetworkComms.AppendGlobalIncomingPacketHandler<ProtobufCustomObject>("Protobuf",
+                         (packetHeader, connection, incomingString) =>
+                         {
+                             Debug.LogError(incomingString);
+                         }
+                         );
                 Connection.StartListening(ConnectionType.UDP, IPEndPoint);
 
                 //NetworkComms.AppendGlobalIncomingPacketHandler<string>("Message", (packetHeader, connection, incomingString) => { Debug.LogError(incomingString); });
@@ -111,9 +114,21 @@ namespace Multiplayer
                 //    NetworkComms.SendObject("Message", "127.0.0.1", 3231, "Hello");
                 //Connection connectionToUse = UDPConnection.GetConnection(new ConnectionInfo(IPEndPoint, ApplicationLayerProtocolStatus.Disabled), UDPOptions.None);
                 var connection = UDPConnection.GetConnection(new ConnectionInfo(IPEndPoint), UDPOptions.Handshake);
-                connection.SendObject("Message", new BinaryFormatterCustomObject(123,"Hi"));
+                connection.SendObject("Message", new BinaryFormatterCustomObject(123, "Hi"));
                 //NetworkComms.SendObject("CustomObject", "127.0.0.1", 3333, new BinaryFormatterCustomObject(123, "Hello World Protobuf"));
                 Debug.LogError("Send Msg");
+            }
+            if (GUILayout.Button("Send Protobuf"))
+            {
+                var connection = UDPConnection.GetConnection(new ConnectionInfo(IPEndPoint), UDPOptions.Handshake);
+                connection.SendObject("Protobuf", new ProtobufCustomObject(12, "Hello World"));
+            }
+            if(GUILayout.Button("Get Connection"))
+            {
+                foreach(var connection in NetworkComms.AllConnectionInfo(false))
+                {
+                    Debug.LogError(connection.NetworkIdentifier);
+                }
             }
         }
     }
