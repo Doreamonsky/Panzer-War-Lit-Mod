@@ -1,4 +1,5 @@
 ﻿using ProtoBuf;
+using ShanghaiWindy.Core;
 
 namespace Multiplayer.Msg
 {
@@ -7,12 +8,15 @@ namespace Multiplayer.Msg
     {
         private GeneratePlayerVehicle()
         {
+
         }
 
-        public GeneratePlayerVehicle(int vehicleID, string vehicleName)
+        public GeneratePlayerVehicle(int vehicleID, string vehicleName, int ownerPlayerID, TankInitSystem tankInitSystem)
         {
             VehicleID = vehicleID;
             VehicleName = vehicleName;
+            OwnerPlayerID = ownerPlayerID;
+            this.tankInitSystem = tankInitSystem;
         }
 
         [ProtoMember(1)]
@@ -20,5 +24,10 @@ namespace Multiplayer.Msg
 
         [ProtoMember(2)]
         public string VehicleName { get; private set; }
+
+        [ProtoMember(3)]
+        public int OwnerPlayerID { get; private set; }
+
+        public TankInitSystem tankInitSystem;
     }
 }

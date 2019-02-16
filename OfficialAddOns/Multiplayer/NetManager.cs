@@ -18,6 +18,8 @@ namespace Multiplayer
         public System.Action<PacketHeader, Connection, PlayerInfo> onRecPlayerInfo;
 
         public System.Action<PacketHeader, Connection, SyncVehicle> onRecSyncVehicle;
+
+        public System.Action<PacketHeader, Connection, GeneratePlayerVehicle> onRecGeneratePlayerVehicle;
     }
 
     public class NetManager
@@ -85,12 +87,19 @@ namespace Multiplayer
                   }
               );
 
-            NetworkComms.AppendGlobalIncomingPacketHandler<SyncVehicle>("SyncVehicle",
+            NetworkComms.AppendGlobalIncomingPacketHandler<GeneratePlayerVehicle>("GeneratePlayerVehicle",
                   (packetHeader, connection, incomingString) =>
                   {
-                      listenerEvent.onRecSyncVehicle?.Invoke(packetHeader, connection, incomingString);
+                      listenerEvent.onRecGeneratePlayerVehicle?.Invoke(packetHeader, connection, incomingString);
                   }
               );
+
+            NetworkComms.AppendGlobalIncomingPacketHandler<SyncVehicle>("SyncVehicle",
+              (packetHeader, connection, incomingString) =>
+              {
+                  listenerEvent.onRecSyncVehicle?.Invoke(packetHeader, connection, incomingString);
+              }
+          );
         }
     }
 }

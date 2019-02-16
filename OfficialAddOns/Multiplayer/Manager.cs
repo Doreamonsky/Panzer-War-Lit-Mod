@@ -40,6 +40,22 @@ namespace Multiplayer
 
         public void OnUpdateGUI()
         {
+            GUILayout.Space(25);
+
+            if (GUILayout.Button("To Mutiplayer"))
+            {
+                GameObject.FindObjectOfType<AssetLoader>().StartCoroutine(AssetBundleManager.RequestScene(MapDataManager.Instance.GetMapData("Ensk"), null, () =>
+                {
+                    PoolManager.Initialize();
+
+                    BattleMainUIModule.Init(this);
+
+                    BattleMainUIModule.instance.onToggleSelectVehicleUIObject(false);
+                }));
+            }
+
+            GUILayout.Space(50);
+
             if (GUILayout.Button("Start As Master Server"))
             {
                 var masterServer = new GameObject("Master", typeof(MasterManager));
@@ -51,19 +67,6 @@ namespace Multiplayer
                 var client = new GameObject("Client", typeof(ClientManager));
                 Object.DontDestroyOnLoad(client);
             }
-
-
-            //if (GUILayout.Button("Start Networking"))
-            //{
-            //   GameObject.FindObjectOfType<AssetLoader>().StartCoroutine(AssetBundleManager.RequestScene(MapDataManager.Instance.GetMapData("Desert"), null, () =>
-            //    {
-            //        PoolManager.Initialize();
-
-            //        BattleMainUIModule.Init(this);
-
-            //        BattleMainUIModule.instance.onToggleSelectVehicleUIObject(false);
-            //    }));
-            //}
 
 
 

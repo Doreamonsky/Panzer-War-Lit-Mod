@@ -9,11 +9,12 @@ namespace Multiplayer.Msg
         {
         }
 
-        public SyncVehicle(int vehicleID, ProtobufVector3 vehiclePosition, ProtobufVector3 vehicleVelocity)
+        public SyncVehicle(int vehicleID, ProtobufVector3 vehiclePosition, ProtobufVector3 vehicleVelocity, ProtobufQuaternion vehicleRotation)
         {
             VehicleID = vehicleID;
             VehiclePosition = vehiclePosition;
             VehicleVelocity = vehicleVelocity;
+            VehicleRotation = vehicleRotation;
         }
 
         [ProtoMember(1)]
@@ -24,5 +25,8 @@ namespace Multiplayer.Msg
 
         [ProtoMember(3)]
         public ProtobufVector3 VehicleVelocity { get; private set; }
+
+        [ProtoMember(4)]
+        public ProtobufQuaternion VehicleRotation { get; private set; }
     }
 }

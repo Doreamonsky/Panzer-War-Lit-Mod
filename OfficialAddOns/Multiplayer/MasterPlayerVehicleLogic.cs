@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Multiplayer
 {
-    public class RemotePlayerLogic : BotLogic
+    public class MasterPlayerVehicleLogic : BotLogic
     {
         public override void Initialize(BotThinkData _thinkData)
         {

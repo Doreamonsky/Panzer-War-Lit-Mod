@@ -4,17 +4,18 @@ using UnityEngine;
 namespace Multiplayer.Msg
 {
     [ProtoContract]
-    public class ProtobufVector3
+    public class ProtobufQuaternion
     {
-        private ProtobufVector3()
+        private ProtobufQuaternion()
         {
         }
 
-        public ProtobufVector3(float x, float y, float z)
+        public ProtobufQuaternion(float x, float y, float z, float w)
         {
             this.x = x;
             this.y = y;
             this.z = z;
+            this.w = w;
         }
 
         [ProtoMember(1)]
@@ -26,9 +27,12 @@ namespace Multiplayer.Msg
         [ProtoMember(3)]
         public float z { get; private set; }
 
-        public Vector3 CovertToUnityV3()
+        [ProtoMember(4)]
+        public float w { get; private set; }
+
+        public Quaternion CovertToUnityProtobufQuaternion()
         {
-            return new Vector3(x, y, z);
+            return new Quaternion(x, y, z, w);
         }
     }
 }
