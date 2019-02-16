@@ -1,6 +1,4 @@
-﻿using Multiplayer.Msg;
-using ShanghaiWindy.Core;
-using System.Collections.Generic;
+﻿using ShanghaiWindy.Core;
 using UnityEngine;
 using UnityMod;
 
@@ -12,9 +10,11 @@ namespace Multiplayer
     /// </summary>
     public class Manager : IGeneralAddOn, IGameModule
     {
-        public static GameObject PlayerPrefab;
+        private bool isMultiplayerMode = false;
 
+        public string serverIP = "127.0.0.1";
 
+        public int serverPort = 6576;
 
         public void OnExitBattle()
         {
@@ -42,31 +42,48 @@ namespace Multiplayer
         {
             GUILayout.Space(25);
 
-            if (GUILayout.Button("To Mutiplayer"))
+            if (!isMultiplayerMode)
             {
-                GameObject.FindObjectOfType<AssetLoader>().StartCoroutine(AssetBundleManager.RequestScene(MapDataManager.Instance.GetMapData("Ensk"), null, () =>
+                if (GUILayout.Button("To Multiplayer Mode"))
                 {
-                    PoolManager.Initialize();
+                    GameObject.FindObjectOfType<AssetLoader>().StartCoroutine(AssetBundleManager.RequestScene(MapDataManager.Instance.GetMapData("Ensk"), null, () =>
+                    {
+                        PoolManager.Initialize();
 
-                    BattleMainUIModule.Init(this);
+                        BattleMainUIModule.Init(this);
 
-                    BattleMainUIModule.instance.onToggleSelectVehicleUIObject(false);
-                }));
+                        BattleMainUIModule.instance.onToggleSelectVehicleUIObject(false);
+
+                        isMultiplayerMode = true;
+                    }));
+                }
             }
-
-            GUILayout.Space(50);
-
-            if (GUILayout.Button("Start As Master Server"))
+            else
             {
-                var masterServer = new GameObject("Master", typeof(MasterManager));
-                Object.DontDestroyOnLoad(masterServer);
+                GUILayout.Label("Server IP");
+                serverIP = GUILayout.TextField(serverIP);
+
+                GUILayout.Label("Server Port");
+                serverPort = int.Parse(GUILayout.TextField(serverPort.ToString()));
+
+                if (GUILayout.Button("Start As Master Server"))
+                {
+                    var masterServer = new GameObject("Master", typeof(MasterManager));
+                    masterServer.GetComponent<MasterManager>().Initialize();
+
+                    Object.DontDestroyOnLoad(masterServer);
+                }
+
+                if (GUILayout.Button("Connect To Master Server"))
+                {
+                    var client = new GameObject("Client", typeof(ClientManager));
+                    client.GetComponent<ClientManager>().Initialize();
+
+                    Object.DontDestroyOnLoad(client);
+                }
             }
 
-            if (GUILayout.Button("Connect To Master"))
-            {
-                var client = new GameObject("Client", typeof(ClientManager));
-                Object.DontDestroyOnLoad(client);
-            }
+
 
 
 

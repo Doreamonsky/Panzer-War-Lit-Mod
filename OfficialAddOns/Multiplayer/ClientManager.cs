@@ -34,9 +34,9 @@ namespace Multiplayer
         private List<VehicleStatus> vehicleStatusList = new List<VehicleStatus>();
 
 
-        private void Start()
+        public void Initialize(string ipAdress = "127.0.0.1", int ipPort = 6576)
         {
-            NetManager.ConnectToMaster("127.0.0.1", 6576, new ClientListenEvents()
+            NetManager.ConnectToMaster(ipAdress, ipPort, new ClientListenEvents()
             {
                 onRecPlayerInfo = (header, connection, playerInfo) =>
                 {
@@ -59,7 +59,7 @@ namespace Multiplayer
 
                         var vehicleStatus = new VehicleStatus()
                         {
-                            isLocalPlayer= isLocalPlayer,
+                            isLocalPlayer = isLocalPlayer,
                             OwnerPlayerID = generatePlayerVehicle.OwnerPlayerID,
                             VehicleID = generatePlayerVehicle.VehicleID,
                             tankInitSystem = vehicle,
@@ -149,7 +149,7 @@ namespace Multiplayer
 
                     lookTarget.position = vehicleStatus.syncVehicle.LookTargetPos.CovertToUnityV3();
                 }
-             
+
                 //Debug.LogError($"VehicleID: {vehicleStatus.VehicleID} OwnerPlayerID: {vehicleStatus.OwnerPlayerID}Sync: {vehicleStatus.syncVehicle.GetHashCode()}");
             }
 

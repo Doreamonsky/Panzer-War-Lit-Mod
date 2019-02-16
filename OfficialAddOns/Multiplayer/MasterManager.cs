@@ -26,7 +26,7 @@ namespace Multiplayer
         /// </summary>
         private Queue<System.Action> mainThreadTasks = new Queue<System.Action>();
 
-        private void Start()
+        public void Initialize(int port = 6576)
         {
             var freeCamera = new GameObject("Free Camera",typeof(FreeCamera),typeof(Camera));
 
@@ -71,7 +71,7 @@ namespace Multiplayer
                 }
             };
 
-            NetManager.StartAsMaster(6576, new ServerListenEvents()
+            NetManager.StartAsMaster(port, new ServerListenEvents()
             {
                 onRecLoginInfo = (header, connection, loginInfo) =>
                 {
