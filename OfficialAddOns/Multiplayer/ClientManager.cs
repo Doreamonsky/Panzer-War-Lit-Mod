@@ -1,6 +1,7 @@
 ﻿using Multiplayer.Msg;
 using NetworkCommsDotNet;
 using ShanghaiWindy.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Multiplayer
     {
         private class VehicleStatus
         {
+            public bool isLocalPlayer;
+
             public int OwnerPlayerID;
 
             public int VehicleID;
@@ -26,6 +29,8 @@ namespace Multiplayer
 
         private PlayerInfo currentPlayerInfo;
 
+        private VehicleStatus currentPlayerVehicleStatus;
+
         private List<VehicleStatus> vehicleStatusList = new List<VehicleStatus>();
 
 
@@ -36,6 +41,8 @@ namespace Multiplayer
                 onRecPlayerInfo = (header, connection, playerInfo) =>
                 {
                     currentPlayerInfo = playerInfo;
+
+                    Debug.LogError($"Sync Player Info  ID: {currentPlayerInfo.PlayerID}");
                 },
                 onRecGeneratePlayerVehicle = (header, connection, generatePlayerVehicle) =>
                 {
@@ -50,13 +57,23 @@ namespace Multiplayer
 
                         generatePlayerVehicle.tankInitSystem = vehicle;
 
-                        vehicleStatusList.Add(new VehicleStatus()
+                        var vehicleStatus = new VehicleStatus()
                         {
+                            isLocalPlayer= isLocalPlayer,
                             OwnerPlayerID = generatePlayerVehicle.OwnerPlayerID,
                             VehicleID = generatePlayerVehicle.VehicleID,
                             tankInitSystem = vehicle,
-                            syncVehicle = new SyncVehicle(generatePlayerVehicle.VehicleID, new ProtobufVector3(0, 0, 0), new ProtobufVector3(0, 0, 0), new ProtobufQuaternion(0, 0, 0, 1))
-                        });
+                            syncVehicle = new SyncVehicle(generatePlayerVehicle.VehicleID, new ProtobufVector3(0, 0, 0), new ProtobufVector3(0, 0, 0), new ProtobufQuaternion(0, 0, 0, 1), new ProtobufVector3(0, 0, 0))
+                        };
+
+                        if (isLocalPlayer)
+                        {
+                            currentPlayerVehicleStatus = vehicleStatus;
+                        }
+
+                        vehicleStatusList.Add(vehicleStatus);
+
+                        Debug.LogError($"isLocalPlayer : {isLocalPlayer} VehicleID {generatePlayerVehicle.VehicleID}");
                     });
                 }
                 ,
@@ -64,18 +81,40 @@ namespace Multiplayer
                 {
                     var toSyncVehicleStatus = vehicleStatusList.Find(val => val.VehicleID == syncVehicle.VehicleID);
 
-                    toSyncVehicleStatus.syncVehicle = syncVehicle;
+                    if (toSyncVehicleStatus != null)
+                    {
+                        toSyncVehicleStatus.syncVehicle = syncVehicle;
+                    }
 
                     //Debug.LogError($"{syncVehicle.VehicleID} {syncVehicle.VehiclePosition.CovertToUnityV3()}");
                 }
             });
+
+            StartCoroutine(SyncInputToMaster());
         }
 
         private void OnDestroy()
         {
             NetworkComms.Shutdown();
         }
+        private IEnumerator SyncInputToMaster()
+        {
+            while (true)
+            {
+                var ptc = currentPlayerVehicleStatus?.tankInitSystem?.vehicleComponents?.playerTracksController;
 
+                if (ptc != null)
+                {
+                    var lookAtPos = currentPlayerVehicleStatus.tankInitSystem.vehicleComponents.mainTurretController.target.position;
+
+                    var playerInput = new SyncPlayerInput(currentPlayerVehicleStatus.VehicleID, ptc.accelG, ptc.steerG, new ProtobufVector3(lookAtPos.x, lookAtPos.y, lookAtPos.z));
+
+                    NetManager.clientConnection.SendObject("SyncPlayerInput", playerInput);
+                }
+
+                yield return new WaitForSeconds(NetManager.UpdateInterval);
+            }
+        }
         private void Update()
         {
             //Sync Vehicle Status /Postion Rotation Velocity
@@ -103,6 +142,13 @@ namespace Multiplayer
 
                 ptcTransform.rotation = Quaternion.Lerp(ptcTransform.rotation, nextRot, Time.deltaTime * 5);
 
+                if (!vehicleStatus.isLocalPlayer)
+                {
+                    var lookTarget = vehicleStatus.tankInitSystem.vehicleComponents.mainTurretController.target;
+
+                    lookTarget.position = vehicleStatus.syncVehicle.LookTargetPos.CovertToUnityV3();
+                }
+             
                 //Debug.LogError($"VehicleID: {vehicleStatus.VehicleID} OwnerPlayerID: {vehicleStatus.OwnerPlayerID}Sync: {vehicleStatus.syncVehicle.GetHashCode()}");
             }
 

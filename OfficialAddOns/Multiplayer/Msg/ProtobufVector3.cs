@@ -17,6 +17,13 @@ namespace Multiplayer.Msg
             this.z = z;
         }
 
+        public ProtobufVector3(Vector3 vector3)
+        {
+            x = vector3.x;
+            y = vector3.y;
+            z = vector3.z;
+        }
+
         [ProtoMember(1)]
         public float x { get; private set; }
 
@@ -30,5 +37,6 @@ namespace Multiplayer.Msg
         {
             return new Vector3(x, y, z);
         }
+
     }
 }
