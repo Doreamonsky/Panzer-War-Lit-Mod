@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using Multiplayer.Msg;
+using ShanghaiWindy.Core;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Multiplayer
 {
     public class MasterManager : MonoBehaviour
     {
+        public List<PlayerInfo> PlayerList = new List<PlayerInfo>();
+
         private void Start()
         {
             NetManager.StartAsMaster(6576, new ServerListenEvents()

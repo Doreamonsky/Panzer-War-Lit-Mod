@@ -14,7 +14,6 @@ namespace Multiplayer
     {
         public static GameObject PlayerPrefab;
 
-        public List<PlayerInfo> PlayerList = new List<PlayerInfo>();
 
 
         public void OnExitBattle()
@@ -44,13 +43,13 @@ namespace Multiplayer
             if (GUILayout.Button("Start As Master Server"))
             {
                 var masterServer = new GameObject("Master", typeof(MasterManager));
-                GameObject.DontDestroyOnLoad(masterServer);
+                Object.DontDestroyOnLoad(masterServer);
             }
 
             if (GUILayout.Button("Connect To Master"))
             {
                 var client = new GameObject("Client", typeof(ClientManager));
-                GameObject.DontDestroyOnLoad(client);
+                Object.DontDestroyOnLoad(client);
             }
 
 
