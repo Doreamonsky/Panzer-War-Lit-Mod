@@ -7,8 +7,9 @@ namespace Multiplayer.Msg
     [ProtoContract]
     public class PlayerInfo
     {
-        public PlayerInfo(int playerID, TeamManager.Team playerTeam, Connection clientConnection)
+        public PlayerInfo(string uid, int playerID, TeamManager.Team playerTeam, Connection clientConnection)
         {
+            Uid = uid;
             PlayerID = playerID;
             PlayerTeam = playerTeam;
             this.clientConnection = clientConnection;
@@ -19,10 +20,13 @@ namespace Multiplayer.Msg
 
         }
 
-    
         [ProtoMember(1)]
-        public int PlayerID { get; private set; }
+        public string Uid { get; private set; }
+
         [ProtoMember(2)]
+        public int PlayerID { get; private set; }
+
+        [ProtoMember(3)]
         public TeamManager.Team PlayerTeam { get; private set; }
 
         public Connection clientConnection { get; private set; }

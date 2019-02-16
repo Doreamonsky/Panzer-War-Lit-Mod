@@ -9,48 +9,89 @@ namespace Multiplayer
 {
     public class MasterManager : MonoBehaviour
     {
+        public System.Action<PlayerInfo> OnPlayerDisconnected;
+
+        public System.Action<PlayerInfo> OnNewPlayerConnected;
+
         public List<PlayerInfo> PlayerList = new List<PlayerInfo>();
 
-        public List<GeneratePlayerVehicle> PlayerVehicles = new List<GeneratePlayerVehicle>();
+        public List<GeneratePlayerVehicle> VehicleList = new List<GeneratePlayerVehicle>();
 
-        private int vehicleIndex = 0;
+        private int allocatedVehicleID = 0;
 
-        private int playerIndex = 0;
+        private int allocatedPlayerID = 0;
 
+        /// <summary>
+        /// All tasks related to UnityEngine should be done on the Main Thread.  qwq.
+        /// </summary>
         private Queue<System.Action> mainThreadTasks = new Queue<System.Action>();
 
         private void Start()
         {
-            var vehicleLogic = ScriptableObject.CreateInstance<MasterPlayerVehicleLogic>();
+            //Notify New Player
+            OnNewPlayerConnected += (playerInfo) =>
+            {
+                Debug.LogError($"New Player With UID:{playerInfo.Uid} Joined the room. Assigned ID : {playerInfo.PlayerID}");
+            };
 
-            var startPoint = GameObject.FindGameObjectWithTag("TeamAStartPoint").transform.position;
+            //Spawn Player Vehicle once They joined. You can change the spawn policy  to your perference
+            OnNewPlayerConnected += (playerInfo) =>
+            {
+                mainThreadTasks.Enqueue(() =>
+                {
+                    StartCoroutine(SpawnVehicle(playerInfo));
+                });
+            };
+
+            //Notfiy New Disconnected
+            OnPlayerDisconnected += (playerInfo) =>
+            {
+                Debug.LogError($"Player: {playerInfo.PlayerID} has left the room!");
+            };
+
+            OnPlayerDisconnected += (playerInfo) =>
+            {
+                PlayerList.Remove(playerInfo);
+
+                var playerVehicle = VehicleList.Find(val => val.OwnerPlayerID == playerInfo.PlayerID);
+
+                //Player Vehicle May Destroyed
+                if (playerVehicle != null)
+                {
+                    Debug.LogError($"Remove Player Vehicle!{playerVehicle.VehicleID}");
+
+                    VehicleList.Remove(playerVehicle);
+                    VehicleUtility.RemoveVehicle(playerVehicle.tankInitSystem);
+                }
+            };
 
             NetManager.StartAsMaster(6576, new ServerListenEvents()
             {
                 onRecLoginInfo = (header, connection, loginInfo) =>
                 {
-                    //New Player Join the game.
-                    Debug.LogError(loginInfo.Uid);
-
                     //Assign PlayerInfo
-                    var playerID = PlayerList.Count; //TODO: Not Consider Removing the player.
+                    var playerID = allocatedPlayerID;
 
-                    var playerInfo = new PlayerInfo(playerID, TeamManager.Team.red, connection);
+                    var playerInfo = new PlayerInfo(loginInfo.Uid, playerID, TeamManager.Team.red, connection);
+
+                    allocatedPlayerID += 1;
 
                     PlayerList.Add(playerInfo);
 
+                    OnNewPlayerConnected?.Invoke(playerInfo);
+
                     connection.SendObject("PlayerInfo", playerInfo);
 
-                    mainThreadTasks.Enqueue(() =>
+                    connection.AppendShutdownHandler(onShutDown =>
                     {
-                        StartCoroutine(SpawnVehicle(connection, vehicleLogic, startPoint, playerInfo));
+                        OnPlayerDisconnected?.Invoke(playerInfo);
                     });
                 },
                 onRecSyncPlayerInput = (header, connection, syncPlayerInput) =>
                {
                    mainThreadTasks.Enqueue(() =>
                    {
-                       var vehicle = PlayerVehicles.Find(v => v.VehicleID == syncPlayerInput.VehicleID);
+                       var vehicle = VehicleList.Find(v => v.VehicleID == syncPlayerInput.VehicleID);
 
                        var ptc = vehicle?.tankInitSystem?.vehicleComponents?.playerTracksController;
 
@@ -74,22 +115,28 @@ namespace Multiplayer
             StartCoroutine(SyncVehicleLoop());
         }
 
-        private IEnumerator SpawnVehicle(NetworkCommsDotNet.Connections.Connection connection, MasterPlayerVehicleLogic vehicleLogic, Vector3 startPoint, PlayerInfo playerInfo)
+        private IEnumerator SpawnVehicle(PlayerInfo playerInfo)
         {
+            var vehicleLogic = ScriptableObject.CreateInstance<MasterPlayerVehicleLogic>();
+
+            var startPoint = GameObject.FindGameObjectWithTag("TeamAStartPoint").transform.position;
+
+            var connection = playerInfo.clientConnection;
+
             if (!connection.ConnectionAlive())
             {
                 connection.EstablishConnection();
-                Debug.LogError($"Establish Connection");
+                Debug.LogError($"Reestablish Connection");
             }
 
             //Notify New Player to Spawn Other Player Vehicle
-            for (int i = 0; i < PlayerVehicles.Count; i++)
+            for (int i = 0; i < VehicleList.Count; i++)
             {
                 yield return new WaitForSeconds(0.25f);
 
-                connection.SendObject("GeneratePlayerVehicle", PlayerVehicles[i]);
+                connection.SendObject("GeneratePlayerVehicle", VehicleList[i]);
 
-                Debug.LogError($"{playerInfo.clientConnection}  Vehicle ID {PlayerVehicles[i].VehicleID} PlayerID {PlayerVehicles[i].OwnerPlayerID} {connection.ConnectionAlive()}");
+                Debug.LogError($"{playerInfo.clientConnection}  Vehicle ID {VehicleList[i].VehicleID} PlayerID {VehicleList[i].OwnerPlayerID} {connection.ConnectionAlive()}");
             }
 
             //Generate Player Vehicle
@@ -97,11 +144,11 @@ namespace Multiplayer
 
             vehicle.transform.position = startPoint;
 
-            var generateData = new GeneratePlayerVehicle(vehicleIndex, "T-34", playerInfo.PlayerID, vehicle);
+            var generateData = new GeneratePlayerVehicle(allocatedVehicleID, "T-34", playerInfo.PlayerID, vehicle);
 
-            PlayerVehicles.Add(generateData);
+            VehicleList.Add(generateData);
 
-            vehicleIndex += 1;
+            allocatedVehicleID += 1;
 
             //Notify All Players To Spawn New Player Vehicle
             foreach (var player in PlayerList)
@@ -125,11 +172,16 @@ namespace Multiplayer
             NetworkComms.Shutdown();
         }
 
+
+        /// <summary>
+        /// Sync Vehicle Position Rotation on server ... to the clients
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator SyncVehicleLoop()
         {
             while (true)
             {
-                foreach (var vehicle in PlayerVehicles)
+                foreach (var vehicle in VehicleList)
                 {
                     if (vehicle?.tankInitSystem?.vehicleComponents?.playerTracksController == null)
                     {
@@ -155,13 +207,12 @@ namespace Multiplayer
 
                     var syncVehicle = new SyncVehicle(vehicle.VehicleID, pos, velocity, rot, targetPos);
 
-                    //Sync Postion To All Players
+
+                    //Sync Position To All Players
                     for (int i = 0; i < PlayerList.Count; i++)
                     {
                         PlayerList[i].clientConnection.SendObject("SyncVehicle", syncVehicle);
-
                     }
-                    //TODO: player.clientConnection.ConnectionAlive()
                 }
                 yield return new WaitForSeconds(NetManager.UpdateInterval);
             }

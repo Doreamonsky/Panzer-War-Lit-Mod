@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using ShanghaiWindy.Core;
 using UnityEngine;
 
 namespace Multiplayer
 {
-    public  class VehicleUtility
+    public class VehicleUtility
     {
         /// <summary>
         /// Currently. I am using BotLogic for remote players.
@@ -16,9 +12,9 @@ namespace Multiplayer
         /// <param name="vehicleName"></param>
         /// <param name="instanceNetType"></param>
         /// <returns></returns>
-        public static TankInitSystem CreateVehicle(string vehicleName,InstanceNetType instanceNetType,BotLogic thinkLogic)
+        public static TankInitSystem CreateVehicle(string vehicleName, InstanceNetType instanceNetType, BotLogic thinkLogic)
         {
-            var vehicle = new GameObject("Vehicle",typeof(TankInitSystem)).GetComponent<TankInitSystem>();
+            var vehicle = new GameObject("Vehicle", typeof(TankInitSystem)).GetComponent<TankInitSystem>();
 
             vehicle.VehicleName = vehicleName;
 
@@ -31,6 +27,24 @@ namespace Multiplayer
             vehicle.InitTankInitSystem();
 
             return vehicle;
+        }
+
+        public static void RemoveVehicle(TankInitSystem vehicle)
+        {
+            var isVehicleLoaded = vehicle.InstanceMesh != null;
+
+            //Be sure to  Avoid AssetBundle Loading Error!
+            if (isVehicleLoaded)
+            {
+                Object.Destroy(vehicle.gameObject);
+            }
+            else
+            {
+                vehicle.onVehicleLoaded += () =>
+                {
+                    Object.Destroy(vehicle.gameObject);
+                };
+            }
         }
     }
 }

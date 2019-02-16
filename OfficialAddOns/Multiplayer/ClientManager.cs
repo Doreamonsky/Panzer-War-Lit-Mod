@@ -95,8 +95,9 @@ namespace Multiplayer
 
         private void OnDestroy()
         {
-            NetworkComms.Shutdown();
+            NetworkComms.CloseAllConnections();
         }
+
         private IEnumerator SyncInputToMaster()
         {
             while (true)
