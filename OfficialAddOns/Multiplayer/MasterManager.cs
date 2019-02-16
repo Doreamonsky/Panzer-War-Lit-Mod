@@ -28,6 +28,8 @@ namespace Multiplayer
 
         private void Start()
         {
+            var freeCamera = new GameObject("Free Camera",typeof(FreeCamera),typeof(Camera));
+
             //Notify New Player
             OnNewPlayerConnected += (playerInfo) =>
             {
@@ -61,7 +63,11 @@ namespace Multiplayer
                     Debug.LogError($"Remove Player Vehicle!{playerVehicle.VehicleID}");
 
                     VehicleList.Remove(playerVehicle);
-                    VehicleUtility.RemoveVehicle(playerVehicle.tankInitSystem);
+
+                    mainThreadTasks.Enqueue(() =>
+                    {
+                        VehicleUtility.RemoveVehicle(playerVehicle.tankInitSystem);
+                    });
                 }
             };
 

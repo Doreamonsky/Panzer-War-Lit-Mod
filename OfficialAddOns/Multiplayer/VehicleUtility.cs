@@ -31,18 +31,18 @@ namespace Multiplayer
 
         public static void RemoveVehicle(TankInitSystem vehicle)
         {
-            var isVehicleLoaded = vehicle.InstanceMesh != null;
+            var isVehicleLoaded = vehicle.vehicleComponents?.playerTracksController != null;
 
             //Be sure to  Avoid AssetBundle Loading Error!
             if (isVehicleLoaded)
             {
-                Object.Destroy(vehicle.gameObject);
+                GameObject.Destroy(vehicle.gameObject);
             }
             else
             {
                 vehicle.onVehicleLoaded += () =>
                 {
-                    Object.Destroy(vehicle.gameObject);
+                    GameObject.Destroy(vehicle.gameObject);
                 };
             }
         }
