@@ -40,3 +40,11 @@ During the process,it will build all the objects in the array linked objects to 
 Then,click the Template-Blank-Vehicle.It will build all related assets to a modpackage with mod info.The generated path(for Android platform) is "UnityProject\Build\Mod-Package\Android\Template-Blank-Vehicle"
 
 And you can install this modpackage on your local device like the officials mods.
+
+If you run the mod successfully,you should be able to find this template-vehicle at the bottom of the vehicle list in the garage.
+
+## For Futher Mod
+
+To be continued.
+
+<!-- Tutorial: [Import a vehicle mod](Vehicle.md) -->
