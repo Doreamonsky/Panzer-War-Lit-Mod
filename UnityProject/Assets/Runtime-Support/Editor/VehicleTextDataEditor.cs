@@ -24,16 +24,6 @@ namespace ShanghaiWindy.Editor
         {
             vehicleTextData = (VehicleTextData)target;
 
-            if (GUILayout.Button("Export Data as Json"))
-            {
-                string path = EditorUtility.SaveFilePanel("Export As Json", "Others/Data/", vehicleTextData.AssetName, "json");
-
-                FileStream fs = new FileStream(path, FileMode.Create);
-                byte[] data = System.Text.Encoding.Default.GetBytes(JsonUtility.ToJson(target));
-                fs.Write(data, 0, data.Length);
-                fs.Flush();
-                fs.Close();
-            }
 
             if (GUILayout.Button("Set Asset Label"))
             {

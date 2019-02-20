@@ -29,7 +29,8 @@ namespace ShanghaiWindy.Editor
 
                     if (importer == null)
                     {
-                        continue;
+                        EditorUtility.DisplayDialog("Fetal Error", $"Missing Assets", "OK");
+                        return;
                     }
 
                     var assetBundleName = importer.assetBundleName;

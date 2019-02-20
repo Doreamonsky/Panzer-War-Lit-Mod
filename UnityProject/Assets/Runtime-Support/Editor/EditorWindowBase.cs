@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.IO;
+using UnityEditor;
 using UnityEngine;
 public class EditorWindowBase : Editor
 {
@@ -8,6 +9,27 @@ public class EditorWindowBase : Editor
     private void EditorBaseInspector()
     {
         EditorGUILayout.HelpBox(EditorHeadline, MessageType.Info);
+
+
+        if (GUILayout.Button("Export Data as Json"))
+        {
+            string path = EditorUtility.SaveFilePanel("Export As Json", "Others/Data/", target.name, "json");
+
+            FileStream fs = new FileStream(path, FileMode.Create);
+            byte[] data = System.Text.Encoding.Default.GetBytes(JsonUtility.ToJson(target));
+            fs.Write(data, 0, data.Length);
+            fs.Flush();
+            fs.Close();
+        }
+        if (GUILayout.Button("Override Data By Json"))
+        {
+            var path = EditorUtility.OpenFilePanel("Export As Json", "Others/Data/", "json");
+
+            var fileSteam = new FileStream(path, FileMode.Open);
+            var streamReader = new StreamReader(fileSteam);
+
+            JsonUtility.FromJsonOverwrite(streamReader.ReadToEnd(), target);
+        }
 
         if (GUILayout.Button("Ping Object"))
         {

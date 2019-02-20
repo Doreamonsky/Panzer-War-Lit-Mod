@@ -81,6 +81,7 @@ public class VehicleDataEditor : EditorWindowBase
             EditorSceneManager.OpenScene("Assets/Res/UnitTest/illustration.unity");
         }
         //EditorGUILayout.TextField ("Layout number", gd.);
+
         base.OnInspectorGUI();
 
         if (GUI.changed)
@@ -340,12 +341,20 @@ public class VehicleDataEditor : EditorWindowBase
         GameObject Prefab = tankInitSystem.transform.GetChild(0).gameObject;
 
         #region 游戏内模型 预制体处理
-        GameObject Origin = PrefabUtility.CreatePrefab(Path + "_Pre.prefab", Prefab); // 要打包的物体
+        var vehiclePrefab = AssetDatabase.LoadAssetAtPath<Object>(Path + "_Pre.prefab");
 
+        if (vehiclePrefab != null)
+        {
+            vehiclePrefab = PrefabUtility.ReplacePrefab(Prefab, vehiclePrefab, ReplacePrefabOptions.ReplaceNameBased);
+        }
+        else
+        {
+            vehiclePrefab = PrefabUtility.SaveAsPrefabAsset(Prefab,Path + "_Pre.prefab");
+        }
 
 
         #region 客户端打包文件
-        AssetImporter assetImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(Origin));
+        AssetImporter assetImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(vehiclePrefab));
         assetImporter.assetBundleName = CurrentAssetName + "_Pre";
         assetImporter.assetBundleVariant = "clientextramesh";
         #endregion

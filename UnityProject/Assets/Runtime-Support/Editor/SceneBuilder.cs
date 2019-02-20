@@ -159,7 +159,6 @@ namespace ShanghaiWindy.Editor
                 {
                     folder.Create();
                 }
-
                 AssetBundleManifest assetbundleMainifest = BuildPipeline.BuildAssetBundles("Build/packages/", BuildAssetBundleOptions.ChunkBasedCompression | BuildAssetBundleOptions.DeterministicAssetBundle, EditorUserBuildSettings.activeBuildTarget);
                 Hashtable Info = new Hashtable();
                 foreach (FileInfo file in folder.GetFiles("*.extramesh"))

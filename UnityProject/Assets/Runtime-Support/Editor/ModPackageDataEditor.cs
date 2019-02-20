@@ -76,11 +76,13 @@ namespace ShanghaiWindy.Editor
                 }
 
                 var zip = new FastZip();
-                zip.CreateZip(modPackDir + modPackData.name + ".modpack", buildDir, false, null);
 
-                EditorUtility.RevealInFinder(modPackDir + modPackData.modName + ".modpack");
+                var zipFileName = $"{modPackDir}/{EditorUserBuildSettings.activeBuildTarget}_{modPackData.name}.modpack";
+
+                zip.CreateZip(zipFileName, buildDir, false, null);
+
+                EditorUtility.RevealInFinder(modPackDir);
             }
-
 
 
             if (GUI.changed)

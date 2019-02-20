@@ -34,6 +34,7 @@ public class Utility_CreateDefaultVehicleAssets : EditorWindow
         }
         else
         {
+            EditorUtility.DisplayDialog("Error", "Same File Exists", "OK");
             return;
         }
 

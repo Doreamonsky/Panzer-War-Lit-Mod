@@ -120,8 +120,8 @@ public class Utility_AssetManager : EditorWindow
             CleanBindingActions();
         }
 
-        
-        assetName = EditorGUILayout.TextField("AssetBundleName:",assetName);
+
+        assetName = EditorGUILayout.TextField("AssetBundleName:", assetName);
         assetVariant = EditorGUILayout.TextField("AssetBundleVariant:", assetVariant);
 
         if (GUILayout.Button("Assign Selection AB"))
@@ -184,11 +184,12 @@ public class Utility_AssetManager : EditorWindow
                  new FileInfo("Temp/bin/Debug/Ionic.Zip.dll"),
                  new FileInfo("Temp/bin/Debug/MaterialUI.dll"),
                  new FileInfo("Temp/bin/Debug/PostProcessing.dll"),
+                 new FileInfo("Temp/bin/Debug/ICSharpCode.SharpZipLib.dll")
             };
 
             var utilityEditor = new DirectoryInfo("Assets/ExtraPlugins/Editor").GetFiles("*.cs");
 
-            var componenetEditor = new DirectoryInfo("Assets/Res/Core/Common/Editor").GetFiles("*.cs");
+            var componenetEditor = new DirectoryInfo("Assets/Res/Core/Editor").GetFiles("*.cs");
 
             var editorList = new List<FileInfo>();
 
@@ -204,6 +205,49 @@ public class Utility_AssetManager : EditorWindow
             {
                 file.CopyTo($"Build/Runtime-Support/Editor/{file.Name}", true);
             }
+        }
+
+        if (GUILayout.Button("Sync Core Source"))
+        {
+            var fileList = new List<FileInfo>
+            {
+                 new FileInfo("Temp/bin/Debug/cInput.dll"),
+                 new FileInfo("Temp/bin/Debug/cInputFirstPasss.dll"),
+                 new FileInfo("Temp/bin/Debug/EasyTouch.dll"),
+                 new FileInfo("Temp/bin/Debug/FogOfWar.dll"),
+                 new FileInfo("Temp/bin/Debug/Ionic.Zip.dll"),
+                 new FileInfo("Temp/bin/Debug/MaterialUI.dll"),
+                 new FileInfo("Temp/bin/Debug/PostProcessing.dll"),
+                 new FileInfo("Temp/bin/Debug/ICSharpCode.SharpZipLib.dll")
+            };
+
+            fileList.AddRange(new DirectoryInfo("Assets/Res/Core/Achievements").GetFiles("*.cs", SearchOption.AllDirectories));
+            fileList.AddRange(new DirectoryInfo("Assets/Res/Core/Common").GetFiles("*.cs", SearchOption.AllDirectories));
+            fileList.AddRange(new DirectoryInfo("Assets/Res/Core/MatchMaker").GetFiles("*.cs", SearchOption.AllDirectories));
+            fileList.AddRange(new DirectoryInfo("Assets/Res/Core/RTSModule").GetFiles("*.cs", SearchOption.AllDirectories));
+
+            var utilityEditor = new DirectoryInfo("Assets/ExtraPlugins/Editor").GetFiles("*.cs");
+
+            var componenetEditor = new DirectoryInfo("Assets/Res/Core/Common/Editor").GetFiles("*.cs");
+
+            var editorList = new List<FileInfo>();
+
+            editorList.AddRange(utilityEditor);
+            editorList.AddRange(componenetEditor);
+
+            foreach (var file in fileList)
+            {
+                file.CopyTo($"Build/Runtime-Officials/{file.Name}", true);
+            }
+
+            foreach (var file in editorList)
+            {
+                file.CopyTo($"Build/Runtime-Officials/Editor/{file.Name}", true);
+            }
+
+            //var editorScripts = new DirectoryInfo($"Build/Runtime-Officials/{file.Name}").GetFiles("Editor", SearchOption.TopDirectoryOnly);
+            
+            EditorUtility.RevealInFinder("Build/Runtime-Officials");
         }
 
         slnText = EditorGUILayout.TextField(slnText);
