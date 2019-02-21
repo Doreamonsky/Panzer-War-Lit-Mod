@@ -1,6 +1,6 @@
 # Get Started
 
-## Download the project from GitHub
+## 1.Download the project from GitHub
 
 ![Download](Download.jpg)
 
@@ -8,19 +8,19 @@ By default,you can click the blue download button and download ZIP.Alternatively
 
 And Unzip what you have downloaded.
 
-## Download the Unity 2018.3.X
+## 2.Download the Unity 2018.3.X
 
 The project is running based on Unity 2018.3.0f2.
 
 [Click Here to Download](https://unity3d.com/get-unity/download?thank-you=update&download_nid=59189&os=Win)
 
-## Open the project
+## 3.Open the project
 
 ![OpenProject](OpenProject.jpg)
 
 Open this folder as the project in the Unity.
 
-## Local Build and test
+## 4.Local Build and test
 
 Press Ctrl + Shift + B to select your desired platform.
 **Remember you can't run mods with a incorrect build platform**
@@ -45,6 +45,6 @@ If you run the mod successfully,you should be able to find this template-vehicle
 
 ## For Futher Mod
 
-To be continued.
+Tutorial: [Import a vehicle mod](Vehicle.md)
 
-<!-- Tutorial: [Import a vehicle mod](Vehicle.md) -->
+To be continued.
