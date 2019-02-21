@@ -17,6 +17,8 @@ Mod Download Index: [Click To View](https://github.com/Doreamonsky/Panzer-War-Li
 
 ### Android
 
+[Watch mod installation tutorial on YouTuBe](https://youtu.be/8vIR9Q39DGg)
+
 First,Launch game for one time for generating folders for you.
 
 Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\Installs\
@@ -24,7 +26,6 @@ Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource
 Finally,Launch the game,you will have it !
 
 ### PC
-[Watch mod installation tutorial on YouTuBe](https://youtu.be/8vIR9Q39DGg)
 
 First,Launch game for one time for generating folders for you.
 
