@@ -38,4 +38,12 @@ Modpack files will be unzip by the game during the installation.(Modpack is just
 ## Manage Mods by Mod Hub
 
 After launching the game,there is a button at the right-top corner named Mod Hub,click it to open.
-Then,by clicking the toggle button,you can enable/disable mods without removing files.
+Then,by clicking the toggle button,you can enable/disable mods without removing files. The modification will take effect after restarting the game.
+
+## Create Mod
+
+Here are some documents for you to crate your own mods. Contribute to the mod community now!
+
+Get Started: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/GetStarted.md)
+
+Create A Vehicle Mod: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/GetStarted.md)
