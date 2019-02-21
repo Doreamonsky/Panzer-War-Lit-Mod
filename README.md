@@ -24,6 +24,7 @@ Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource
 Finally,Launch the game,you will have it !
 
 ### PC
+[Watch mod installation tutorial on YouTuBe](https://youtu.be/8vIR9Q39DGg)
 
 First,Launch game for one time for generating folders for you.
 
