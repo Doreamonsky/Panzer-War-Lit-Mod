@@ -1,5 +1,7 @@
 # Vehicle Mod
 
+**If you have any issue during reading this tutorial,you can send an email to me. My E-mail: 403036847@qq.com Or Contact me on [VK](https://vk.com/doreamonsky)**
+
 ## What do I need to prepare
 
 Assets:
@@ -217,7 +219,7 @@ And click Create Mod Package Button.
 
 ![BuildPiplineSet](BuildPiplineSet.jpg)
 
-Drag your vehicle info and vehicle text data to the linked object. And drag xxxx_Pre located at Assets/Res/Cooked/xxxx_Pre (**Not the one it the dedicatedserver folder.**)to the linked object.(This asset will be missing everytime you click Pact Asset in VehicleData)
+Drag your vehicle info and vehicle text data to the linked object. And drag xxxx_Pre located at Assets/Res/Cooked/xxxx_Pre (**Not the one in the dedicatedserver folder.**)to the linked object.(This asset will be missing everytime you click Pact Asset in VehicleData)
 
 Press Ctrl + Shift + B to select your desired platform.
 **Remember you can't run mods with an incorrect build platform**
@@ -226,6 +228,10 @@ And then,click the Build Linked Objects to AssetBundle button.
 
 Then click the Linked Mod Package.Edit the infos and click Package Now.
 
-You modpackage will be generated at UnityProject\Build\Mod-Package. And its extension is modpackage.
+You modpackage will be generated at UnityProject\Build\Mod-Package. And its extension is modpackage.You can test it with the common installation.
+
+================================
 
 **If you switch the platform. You should go to the BuildPipline and click the Build Linked Objects to AssetBundle button. Then go to the Linked Mod Package and click Package Now.**
+
+If you have any issue during reading this tutorial,you can send an email to me. My E-mail: 403036847@qq.com Or Contact me on [VK](https://vk.com/doreamonsky)
