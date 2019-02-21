@@ -46,4 +46,4 @@ Here are some documents for you to crate your own mods. Contribute to the mod co
 
 Get Started: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/GetStarted.md)
 
-Create A Vehicle Mod: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/GetStarted.md)
+Create A Vehicle Mod: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/Vehicle.md)
