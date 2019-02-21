@@ -23,7 +23,7 @@ Open this folder as the project in the Unity.
 ## 4.Local Build and test
 
 Press Ctrl + Shift + B to select your desired platform.
-**Remember you can't run mods with a incorrect build platform**
+**Remember you can't run mods with an incorrect build platform**
 
 In this demonstration,we will build Template-Blank-Vehicle as an example.
 
