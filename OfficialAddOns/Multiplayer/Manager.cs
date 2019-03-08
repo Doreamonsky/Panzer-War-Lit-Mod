@@ -55,6 +55,8 @@ namespace Multiplayer
                         BattleMainUIModule.instance.onToggleSelectVehicleUIObject(false);
 
                         isMultiplayerMode = true;
+
+                        new GameObject("Debug", typeof(ServerConsole));
                     }));
                 }
             }

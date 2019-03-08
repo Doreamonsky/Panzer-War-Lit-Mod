@@ -42,7 +42,7 @@ namespace Multiplayer
                 {
                     currentPlayerInfo = playerInfo;
 
-                    Debug.LogError($"Sync Player Info  ID: {currentPlayerInfo.PlayerID}");
+                    Debug.Log($"Sync Player Info  ID: {currentPlayerInfo.PlayerID}");
                 },
                 onRecGeneratePlayerVehicle = (header, connection, generatePlayerVehicle) =>
                 {
@@ -73,7 +73,7 @@ namespace Multiplayer
 
                         vehicleStatusList.Add(vehicleStatus);
 
-                        Debug.LogError($"isLocalPlayer : {isLocalPlayer} VehicleID {generatePlayerVehicle.VehicleID}");
+                        Debug.Log($"isLocalPlayer : {isLocalPlayer} VehicleID {generatePlayerVehicle.VehicleID}");
                     });
                 }
                 ,
@@ -85,8 +85,18 @@ namespace Multiplayer
                     {
                         toSyncVehicleStatus.syncVehicle = syncVehicle;
                     }
+                },
+                onRecDestoryPlayerVehicle = (header, connection, destroyInfo) =>
+                {
+                    var vehicle = vehicleStatusList.Find(val => val.VehicleID == destroyInfo.VehicleID);
 
-                    //Debug.LogError($"{syncVehicle.VehicleID} {syncVehicle.VehiclePosition.CovertToUnityV3()}");
+                    if (vehicle != null)
+                    {
+                        mainThreadTasks.Enqueue(() =>
+                        {
+                            Destroy(vehicle.tankInitSystem);
+                        });
+                    }
                 }
             });
 

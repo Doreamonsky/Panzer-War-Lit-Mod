@@ -28,12 +28,12 @@ namespace Multiplayer
 
         public void Initialize(int port = 6576)
         {
-            var freeCamera = new GameObject("Free Camera",typeof(FreeCamera),typeof(Camera));
+            var freeCamera = new GameObject("Free Camera", typeof(FreeCamera), typeof(Camera));
 
             //Notify New Player
             OnNewPlayerConnected += (playerInfo) =>
             {
-                Debug.LogError($"New Player With UID:{playerInfo.Uid} Joined the room. Assigned ID : {playerInfo.PlayerID}");
+                Debug.Log($"New Player With UID:{playerInfo.Uid} Joined the room. Assigned ID : {playerInfo.PlayerID}");
             };
 
             //Spawn Player Vehicle once They joined. You can change the spawn policy  to your perference
@@ -48,7 +48,7 @@ namespace Multiplayer
             //Notfiy New Disconnected
             OnPlayerDisconnected += (playerInfo) =>
             {
-                Debug.LogError($"Player: {playerInfo.PlayerID} has left the room!");
+                Debug.Log($"Player: {playerInfo.PlayerID} has left the room!");
             };
 
             OnPlayerDisconnected += (playerInfo) =>
@@ -60,7 +60,7 @@ namespace Multiplayer
                 //Player Vehicle May Destroyed
                 if (playerVehicle != null)
                 {
-                    Debug.LogError($"Remove Player Vehicle!{playerVehicle.VehicleID}");
+                    Debug.Log($"Remove Player Vehicle!{playerVehicle.VehicleID}");
 
                     VehicleList.Remove(playerVehicle);
 
@@ -68,6 +68,11 @@ namespace Multiplayer
                     {
                         VehicleUtility.RemoveVehicle(playerVehicle.tankInitSystem);
                     });
+                }
+
+                foreach (var player in PlayerList)
+                {
+                    player.clientConnection.SendObject("DestroyPlayerVehicle", new DestroyPlayerVehicle(playerVehicle.VehicleID));
                 }
             };
 
@@ -132,7 +137,7 @@ namespace Multiplayer
             if (!connection.ConnectionAlive())
             {
                 connection.EstablishConnection();
-                Debug.LogError($"Reestablish Connection");
+                Debug.Log($"Reestablish Connection");
             }
 
             //Notify New Player to Spawn Other Player Vehicle
@@ -142,7 +147,7 @@ namespace Multiplayer
 
                 connection.SendObject("GeneratePlayerVehicle", VehicleList[i]);
 
-                Debug.LogError($"{playerInfo.clientConnection}  Vehicle ID {VehicleList[i].VehicleID} PlayerID {VehicleList[i].OwnerPlayerID} {connection.ConnectionAlive()}");
+                Debug.Log($"{playerInfo.clientConnection}  Vehicle ID {VehicleList[i].VehicleID} PlayerID {VehicleList[i].OwnerPlayerID} {connection.ConnectionAlive()}");
             }
 
             //Generate Player Vehicle

@@ -3,7 +3,6 @@ using Multiplayer.Msg;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using NetworkCommsDotNet.Connections.TCP;
-using NetworkCommsDotNet.Tools;
 using System.Net;
 using UnityEngine;
 
@@ -23,6 +22,8 @@ namespace Multiplayer
         public System.Action<PacketHeader, Connection, SyncVehicle> onRecSyncVehicle;
 
         public System.Action<PacketHeader, Connection, GeneratePlayerVehicle> onRecGeneratePlayerVehicle;
+
+        public System.Action<PacketHeader, Connection, DestroyPlayerVehicle> onRecDestoryPlayerVehicle;
     }
 
     public class NetManager
@@ -43,7 +44,7 @@ namespace Multiplayer
 
             clientConnection = TCPConnection.GetConnection(new ConnectionInfo(serverEndPoint));
 
-            Debug.LogError($"Established Connection: \n {clientConnection}");
+            Debug.Log($"Established Connection: \n {clientConnection}");
 
             AppendClientListener(clientListenEvents);
 
@@ -67,7 +68,7 @@ namespace Multiplayer
 
             foreach (IPEndPoint localEndPoint in Connection.ExistingLocalListenEndPoints(ConnectionType.TCP))
             {
-                Debug.LogErrorFormat("Listen At {0}:{1}", localEndPoint.Address, localEndPoint.Port);
+                Debug.LogFormat("Listen At {0}:{1}", localEndPoint.Address, localEndPoint.Port);
             }
         }
 
@@ -112,6 +113,13 @@ namespace Multiplayer
                   listenerEvent.onRecSyncVehicle?.Invoke(packetHeader, connection, incomingString);
               }
           );
+
+            NetworkComms.AppendGlobalIncomingPacketHandler<DestroyPlayerVehicle>("DestroyPlayerVehicle",
+                (packetHeader, connection, incomingString) =>
+                {
+                    listenerEvent.onRecDestoryPlayerVehicle?.Invoke(packetHeader, connection, incomingString);
+                }
+            );
         }
     }
 }
