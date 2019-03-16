@@ -300,6 +300,9 @@ public class VehicleDataEditor : EditorWindowBase
             referenceManager.GunGameObject = GunTransform;
             referenceManager.GunDymGameObject = GunDymTransform;
 
+            CreateWrapper(referenceManager.MainCameraFollowTarget.transform);
+            CreateWrapper(referenceManager.MainCameraGunner.transform);
+
             return initySystem;
         }
         catch (System.Exception exception)

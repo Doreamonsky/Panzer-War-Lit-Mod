@@ -69,11 +69,11 @@ public class Utility_AssetManager : EditorWindow
     {
         UpdateVehicleList();
 
-        EditorGUILayout.HelpBox("This is the General Asset Manager. \n You can run vehicles on the current map. And navigate to other tools from here.", MessageType.None, true);
+        EditorGUILayout.HelpBox("This is the General Asset Manager. /n You can run vehicles on the current map. And navigate to other tools from here.", MessageType.None, true);
 
         GUILayout.Space(20);
 
-        EditorGUILayout.HelpBox("Vehicle Debugger! \n Select a vehicle and enter a map with StartPoints. The vehicle will be spawned at StartPoint.", MessageType.None, true);
+        EditorGUILayout.HelpBox("Vehicle Debugger! /n Select a vehicle and enter a map with StartPoints. The vehicle will be spawned at StartPoint.", MessageType.None, true);
 
         index = EditorGUILayout.Popup(index, vehicleList);
 
@@ -176,15 +176,16 @@ public class Utility_AssetManager : EditorWindow
         {
             var fileList = new List<FileInfo>
             {
-                 new FileInfo("Temp/bin/Debug/cInput.dll"),
-                 new FileInfo("Temp/bin/Debug/cInputFirstPasss.dll"),
-                 new FileInfo("Temp/bin/Debug/Core.dll"),
-                 new FileInfo("Temp/bin/Debug/EasyTouch.dll"),
-                 new FileInfo("Temp/bin/Debug/FogOfWar.dll"),
-                 new FileInfo("Temp/bin/Debug/Ionic.Zip.dll"),
-                 new FileInfo("Temp/bin/Debug/MaterialUI.dll"),
-                 new FileInfo("Temp/bin/Debug/PostProcessing.dll"),
-                 new FileInfo("Temp/bin/Debug/ICSharpCode.SharpZipLib.dll")
+                 new FileInfo("Library/ScriptAssemblies/cInput.dll"),
+                 new FileInfo("Library/ScriptAssemblies/cInputFirstPasss.dll"),
+                 new FileInfo("Library/ScriptAssemblies/Core.dll"),
+                 new FileInfo("Library/ScriptAssemblies/EasyTouch.dll"),
+                 new FileInfo("Library/ScriptAssemblies/FogOfWar.dll"),
+                 new FileInfo("Assets/MaterialUI/Utils/Editor/UnityZip/Ionic.Zip.dll"),
+                 new FileInfo("Library/ScriptAssemblies/MaterialUI.dll"),
+                 new FileInfo("Library/ScriptAssemblies/PostProcessing.dll"),
+                 new FileInfo("Assets/Plugins/ICSharpCode.SharpZipLib.dll"),
+                 new FileInfo("Library/ScriptAssemblies/CameraShake.dll")
             };
 
             var utilityEditor = new DirectoryInfo("Assets/ExtraPlugins/Editor").GetFiles("*.cs");
@@ -211,14 +212,15 @@ public class Utility_AssetManager : EditorWindow
         {
             var fileList = new List<FileInfo>
             {
-                 new FileInfo("Temp/bin/Debug/cInput.dll"),
-                 new FileInfo("Temp/bin/Debug/cInputFirstPasss.dll"),
-                 new FileInfo("Temp/bin/Debug/EasyTouch.dll"),
-                 new FileInfo("Temp/bin/Debug/FogOfWar.dll"),
-                 new FileInfo("Temp/bin/Debug/Ionic.Zip.dll"),
-                 new FileInfo("Temp/bin/Debug/MaterialUI.dll"),
-                 new FileInfo("Temp/bin/Debug/PostProcessing.dll"),
-                 new FileInfo("Temp/bin/Debug/ICSharpCode.SharpZipLib.dll")
+                 new FileInfo("Library/ScriptAssemblies/cInput.dll"),
+                 new FileInfo("Library/ScriptAssemblies/cInputFirstPasss.dll"),
+                 new FileInfo("Library/ScriptAssemblies/EasyTouch.dll"),
+                 new FileInfo("Library/ScriptAssemblies/FogOfWar.dll"),
+                 new FileInfo("Assets/MaterialUI/Utils/Editor/UnityZip/Ionic.Zip.dll"),
+                 new FileInfo("Library/ScriptAssemblies/MaterialUI.dll"),
+                 new FileInfo("Library/ScriptAssemblies/PostProcessing.dll"),
+                 new FileInfo("Assets/Plugins/ICSharpCode.SharpZipLib.dll"),
+                 new FileInfo("Library/ScriptAssemblies/CameraShake.dll")
             };
 
             fileList.AddRange(new DirectoryInfo("Assets/Res/Core/Achievements").GetFiles("*.cs", SearchOption.AllDirectories));
@@ -228,7 +230,7 @@ public class Utility_AssetManager : EditorWindow
 
             var utilityEditor = new DirectoryInfo("Assets/ExtraPlugins/Editor").GetFiles("*.cs");
 
-            var componenetEditor = new DirectoryInfo("Assets/Res/Core/Common/Editor").GetFiles("*.cs");
+            var componenetEditor = new DirectoryInfo("Assets/Res/Core/Editor").GetFiles("*.cs");
 
             var editorList = new List<FileInfo>();
 
@@ -246,32 +248,9 @@ public class Utility_AssetManager : EditorWindow
             }
 
             //var editorScripts = new DirectoryInfo($"Build/Runtime-Officials/{file.Name}").GetFiles("Editor", SearchOption.TopDirectoryOnly);
-            
+
             EditorUtility.RevealInFinder("Build/Runtime-Officials");
         }
 
-        slnText = EditorGUILayout.TextField(slnText);
-
-        if (GUILayout.Button("Copy Files"))
-        {
-            var matches = new Regex("(?<=\").*?(?=\")", RegexOptions.None).Matches(slnText);
-
-            var path = new List<FileInfo>();
-
-            foreach (var match in matches)
-            {
-                if (match.ToString().Contains("Compile"))
-                {
-                    continue;
-                }
-
-                path.Add(new FileInfo(match.ToString()));
-            }
-
-            foreach (var file in path)
-            {
-                file.CopyTo($"Build/Dll/{file.Name}", true);
-            }
-        }
     }
 }

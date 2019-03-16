@@ -12,7 +12,7 @@ public class AssetImportEditor : AssetPostprocessor {
         }
     }
     public void OnPreprocessTexture() {
-
+        return;
         bool isMetallicSmoothness = false;
         bool isAlbedoTransparency = false;
         bool isNormal = false;

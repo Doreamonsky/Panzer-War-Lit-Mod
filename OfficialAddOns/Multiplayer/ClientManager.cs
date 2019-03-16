@@ -88,14 +88,19 @@ namespace Multiplayer
                 },
                 onRecDestoryPlayerVehicle = (header, connection, destroyInfo) =>
                 {
+                    //TODO: Something wrong 
                     var vehicle = vehicleStatusList.Find(val => val.VehicleID == destroyInfo.VehicleID);
 
                     if (vehicle != null)
                     {
                         mainThreadTasks.Enqueue(() =>
                         {
-                            Destroy(vehicle.tankInitSystem);
+                            VehicleUtility.RemoveVehicle(vehicle.tankInitSystem);
+
+                            Debug.Log($"Remove Player {destroyInfo.VehicleID}");
                         });
+
+                        vehicleStatusList.Remove(vehicle);
                     }
                 }
             });
