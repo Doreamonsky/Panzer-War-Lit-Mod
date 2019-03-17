@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using ShanghaiWindy.Core;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityMod;
-using ShanghaiWindy.Core;
 
 namespace UnityModExample
 {
@@ -57,10 +57,9 @@ namespace UnityModExample
 
         private bool isFolder = false;
 
-        private readonly List<string> vehicleSpawn = new List<string>()
-        {
-            "T-34","KV2","T-44","M4_Sherman","T54E1","M36","IS","ISU-152","Leopard1A5","Bat_Chatillon25t"
-        };
+        private List<VehicleInfo> vehicleSpawn = new List<VehicleInfo>();
+
+        private Vector2 scrollPosition;
 
         public void OnFixedUpdate()
         {
@@ -69,12 +68,13 @@ namespace UnityModExample
 
         public void OnInitialized()
         {
-
         }
 
         public void OnNewSceneLoaded(string name)
         {
             currentScene = name;
+
+            vehicleSpawn = VehicleInfoManager.Instance.vehicleList;
         }
 
         public void OnUpdate()
@@ -84,8 +84,6 @@ namespace UnityModExample
 
         public void OnUpdateGUI()
         {
-            GUILayout.Label("Playground Cheater Mod Active. Author:Doreamonsky");
-
             if (!currentScene.Contains("Training"))
             {
                 return;
@@ -95,6 +93,8 @@ namespace UnityModExample
             {
                 return;
             }
+
+            GUILayout.Label("Playground Cheater Mod Active. Author:Doreamonsky");
 
             winRect = GUI.Window(1, winRect, (winID) =>
              {
@@ -129,10 +129,11 @@ namespace UnityModExample
 
                  isAttackable = GUILayout.Toggle(isAttackable, "is Attackable");
 
+                 scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Height(300));
 
                  foreach (var vehicle in vehicleSpawn)
                  {
-                     if (GUILayout.Button($"Spawn: {vehicle}"))
+                     if (GUILayout.Button($"Spawn: {vehicle.vehicleName}"))
                      {
                          var rv = Random.insideUnitCircle;
 
@@ -144,14 +145,15 @@ namespace UnityModExample
 
                          if (isHit)
                          {
-                             CreateBot(vehicle, TeamManager.Team.blue, isAttackable ? ScriptableObject.CreateInstance<SimpleBotLogic>() as BotLogic : ScriptableObject.CreateInstance<TrainBotLogic>() as BotLogic, navHit.position, Vector3.zero);
+                             CreateBot(vehicle.vehicleName, TeamManager.Team.blue, isAttackable ? ScriptableObject.CreateInstance<SimpleBotLogic>() as BotLogic : ScriptableObject.CreateInstance<TrainBotLogic>() as BotLogic, navHit.position, Vector3.zero);
                          }
                      }
 
                      GUILayout.Space(5);
                  }
 
-     
+                 GUILayout.EndScrollView();
+
 
 
                  GUI.DragWindow();
