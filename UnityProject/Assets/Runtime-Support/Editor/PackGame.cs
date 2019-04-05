@@ -90,7 +90,7 @@ namespace WaroftanksSDK.Editor.Pack
         [MenuItem("Tools/ReplaceFont")]
         static void ReplaceFont()
         {
-            Font myFont = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            Font myFont = Resources.Load<Font>("MainFont");//Resources.GetBuiltinResource<Font>("Arial.ttf");
             foreach (UnityEngine.UI.Text textComponent in GameObject.FindObjectsOfType<UnityEngine.UI.Text>())
             {
                 textComponent.font = myFont;
@@ -115,7 +115,7 @@ namespace WaroftanksSDK.Editor.Pack
                     V3_OriginPoints.Add(_PatrolPoint.transform.position);
                     T_OriginPoints.Add(_PatrolPoint.transform);
                 }
-                Vector3 StartPointOffSet = new Vector3(0, 0.5f, 0);
+                Vector3 StartPointOffSet = new Vector3(0, 2f, 0);
                 foreach (GameObject _PatrolPoint in GameObject.FindGameObjectsWithTag("TeamAStartPoint"))
                 {
                     V3_OriginPoints.Add(_PatrolPoint.transform.position);

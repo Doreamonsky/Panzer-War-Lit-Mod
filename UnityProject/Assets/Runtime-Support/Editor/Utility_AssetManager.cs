@@ -251,6 +251,24 @@ public class Utility_AssetManager : EditorWindow
 
             EditorUtility.RevealInFinder("Build/Runtime-Officials");
         }
+    }
+}
 
+namespace ShanghaiWindy.Core
+{
+    public class CheatManager
+    {
+        [MenuItem("Tools/Cheat/Send Equipments")]
+        static void SendEquipments()
+        {
+            //AchievementManager.Instance.AddEquipmentStorage("Coated Optics", false);
+            //AchievementManager.Instance.AddEquipmentStorage("Cyclone Filter", false);
+            //AchievementManager.Instance.AddEquipmentStorage("Fill Tank with CO2", false);
+            //AchievementManager.Instance.AddEquipmentStorage("Spall Liner", false);
+            //AchievementManager.Instance.AddEquipmentStorage("Tank Gun Rammer", false);
+            //AchievementManager.Instance.AddEquipmentStorage("Tool Box", false);
+
+            //AchievementManager.Instance.SaveEquipmentStorageDataList();
+        }
     }
 }

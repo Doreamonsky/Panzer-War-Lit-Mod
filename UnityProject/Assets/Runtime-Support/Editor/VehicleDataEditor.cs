@@ -70,7 +70,7 @@ public class VehicleDataEditor : EditorWindowBase
             LockEditor();
             OpenEditorScene();
 
-            InitTankPrefabs(vehicleData);
+            InitTankPrefabs(vehicleData,true);
         }
         if (GUILayout.Button("Pack Asset"))
         {
@@ -96,7 +96,7 @@ public class VehicleDataEditor : EditorWindowBase
         EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects);
     }
 
-    public static TankInitSystem InitTankPrefabs(VehicleData vehicleData)
+    public static TankInitSystem InitTankPrefabs(VehicleData vehicleData,bool isPreviewMode)
     {
         #region Collision Detect
         if (vehicleData.modelData.MainModel.GetComponentsInChildren<BoxCollider>().Length == 0)
@@ -300,8 +300,12 @@ public class VehicleDataEditor : EditorWindowBase
             referenceManager.GunGameObject = GunTransform;
             referenceManager.GunDymGameObject = GunDymTransform;
 
-            CreateWrapper(referenceManager.MainCameraFollowTarget.transform);
-            CreateWrapper(referenceManager.MainCameraGunner.transform);
+            if (!isPreviewMode)
+            {
+                CreateWrapper(referenceManager.MainCameraFollowTarget.transform);
+                CreateWrapper(referenceManager.MainCameraGunner.transform);
+            }
+         
 
             return initySystem;
         }
@@ -339,7 +343,7 @@ public class VehicleDataEditor : EditorWindowBase
 
         string Path = "Assets/res/Cooked/" + CurrentAssetName.ToLower();
 
-        TankInitSystem tankInitSystem = InitTankPrefabs(vehicleData);
+        TankInitSystem tankInitSystem = InitTankPrefabs(vehicleData,false);
 
         GameObject Prefab = tankInitSystem.transform.GetChild(0).gameObject;
 
