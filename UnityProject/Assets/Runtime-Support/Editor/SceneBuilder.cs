@@ -75,38 +75,30 @@ namespace ShanghaiWindy.Editor
                     //PlayerPrefs.SetString(AssetPathToGUID, assetImporter.assetTimeStamp.ToString());
 
 
-                    //    GameObject Prefab = Instantiate(CurrentAsset);
+                    GameObject Prefab = Instantiate(CurrentAsset);
 
-                    //    #region 服务器打包文件
-                    //    GameObject ClientAsset = PrefabUtility.CreatePrefab("Assets/res/Cooked/" + CurrentAsset.name + ".prefab", Prefab);
-                    //    assetImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(ClientAsset));
-                    //    if (assetImporter.assetBundleName != AssetPathToGUID) {
-                    //        assetImporter.SetAssetBundleNameAndVariant(AssetPathToGUID, "clientsceneobject");
-                    //    }
-
-                    //    #endregion
-
-                    //    #region 服务器资源处理
-
-
-                    //    foreach (MeshRenderer meshRenderer in Prefab.GetComponentsInChildren<MeshRenderer>()) {
-                    //        DestroyImmediate(meshRenderer);
-                    //    }
-                    //    foreach (MeshFilter mesh in Prefab.GetComponentsInChildren<MeshFilter>()) {
-                    //        DestroyImmediate(mesh);
-                    //    }
+                    #region 服务器资源处理
+                    foreach (MeshRenderer meshRenderer in Prefab.GetComponentsInChildren<MeshRenderer>())
+                    {
+                        DestroyImmediate(meshRenderer);
+                    }
+                    foreach (MeshFilter mesh in Prefab.GetComponentsInChildren<MeshFilter>())
+                    {
+                        DestroyImmediate(mesh);
+                    }
 
 
-                    //    #region 服务器打包文件
-                    //    GameObject DelicateAsset = PrefabUtility.CreatePrefab("Assets/res/Cooked/DelicatedServer/" + CurrentAsset.name + ".prefab", Prefab);
-                    //    assetImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(DelicateAsset));
-                    //    if (assetImporter.assetBundleName != AssetPathToGUID) {
-                    //        assetImporter.SetAssetBundleNameAndVariant(AssetPathToGUID, "mastersceneobject");
-                    //    }
-                    //    #endregion
+                    #region 服务器打包文件
+                    GameObject DelicateAsset = PrefabUtility.SaveAsPrefabAsset(Prefab, "Assets/res/Cooked/DelicatedServer/" + CurrentAsset.name + ".prefab");
+                    assetImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(DelicateAsset));
+                    if (assetImporter.assetBundleName != AssetPathToGUID)
+                    {
+                        assetImporter.SetAssetBundleNameAndVariant(AssetPathToGUID, "mastersceneobject");
+                    }
+                    #endregion
 
-                    //    DestroyImmediate(Prefab);
-                    //    #endregion
+                    DestroyImmediate(Prefab);
+                    #endregion
 
                 }
 

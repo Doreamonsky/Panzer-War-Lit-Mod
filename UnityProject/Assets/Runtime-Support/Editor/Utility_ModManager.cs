@@ -36,7 +36,7 @@ namespace ShanghaiWindy.Editor
             EditorGUILayout.HelpBox("Mod Package", MessageType.None, true);
 
             EditorGUILayout.LabelField("Mod Package Name:");
-            modpackName = EditorGUILayout.DelayedTextField(modpackName);
+            modpackName = EditorGUILayout.TextField(modpackName);
             isContainAssetBundle = EditorGUILayout.Toggle("Contain AssetBundle", isContainAssetBundle);
 
             EditorGUILayout.HelpBox("If you are creating a scripting mod. Then,you shouldn't toggle on the Contain AssetBundle", MessageType.None, true);
@@ -71,6 +71,41 @@ namespace ShanghaiWindy.Editor
                 }
 
                 EditorUtility.DisplayDialog("Success", "File Created", "OK");
+            }
+
+            GUILayout.Space(100);
+
+            if (GUILayout.Button("Build Mod Piplines"))
+            {
+                AssetDatabase.Refresh();
+
+                var guidList = AssetDatabase.FindAssets($"t:{typeof(ModPackageBuildPiplineData)}");
+
+                foreach (var guid in guidList)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+
+                    var modPackageBuildPiplineData = AssetDatabase.LoadAssetAtPath<ModPackageBuildPiplineData>(path);
+
+                    if (modPackageBuildPiplineData != null)
+                    {
+                        ModPackageBuildPiplineDataEditor.BuildPipline(modPackageBuildPiplineData);
+                    }
+                }
+
+                guidList = AssetDatabase.FindAssets($"t:{typeof(ModPackageData)}");
+
+                foreach (var guid in guidList)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+
+                    var modPackageData = AssetDatabase.LoadAssetAtPath<ModPackageData>(path);
+
+                    if (modPackageData != null)
+                    {
+                        ModPackageDataEditor.BuildPipline(modPackageData);
+                    }
+                }
             }
         }
     }

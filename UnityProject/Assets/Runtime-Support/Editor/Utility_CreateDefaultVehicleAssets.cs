@@ -43,6 +43,13 @@ public class Utility_CreateDefaultVehicleAssets : EditorWindow
         GameObject wheelCollider = new GameObject(string.Format("{0}_WheelCollider", vehicleName));
 
         WheelCollider wC = wheelCollider.AddComponent<WheelCollider>();
+        wC.suspensionSpring = new JointSpring()
+        {
+            damper = wC.suspensionSpring.damper,
+            spring = wC.suspensionSpring.spring,
+            targetPosition = 0.75f,
+        };
+
         wheelCollider.AddComponent(typeof(Rigidbody)); // Visual Debug
 
         GameObject wheelColliderPrefab = PrefabUtility.CreatePrefab(string.Format("Assets/Res/Vehicles/Ground/Data/Vehicle/{0}/{1}.prefab", vehicleName, wheelCollider.name), wheelCollider);

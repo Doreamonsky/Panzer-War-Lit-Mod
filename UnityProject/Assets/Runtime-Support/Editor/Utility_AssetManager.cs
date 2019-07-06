@@ -2,7 +2,6 @@
 using ShanghaiWindy.Editor;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,7 +12,10 @@ public class Utility_AssetManager : EditorWindow
 
     private static string assetName = "", assetVariant = "";
 
-    private static string slnText = "";
+
+    private static List<GameObject> startPoints = new List<GameObject>();
+
+    private static int currentStartPointIndex = 0;
 
     [MenuItem("Tools/General Asset Manager")]
     static void Init()
@@ -64,6 +66,7 @@ public class Utility_AssetManager : EditorWindow
 
         index = PlayerPrefs.GetInt("illustrationEditor/index", 0);
     }
+
 
     void OnGUI()
     {
@@ -185,9 +188,12 @@ public class Utility_AssetManager : EditorWindow
                  new FileInfo("Library/ScriptAssemblies/MaterialUI.dll"),
                  new FileInfo("Library/ScriptAssemblies/PostProcessing.dll"),
                  new FileInfo("Assets/Plugins/ICSharpCode.SharpZipLib.dll"),
-                 new FileInfo("Library/ScriptAssemblies/CameraShake.dll")
+                 new FileInfo("Assets/Plugins/Newtonsoft.Json.dll"),
+                 new FileInfo("Library/ScriptAssemblies/CameraShake.dll"),
+                 new FileInfo("Library/ScriptAssemblies/Mirror.dll"),
+                 new FileInfo("Assets/Mirror/Runtime/Transport/Telepathy/Telepathy.dll")
             };
-
+           
             var utilityEditor = new DirectoryInfo("Assets/ExtraPlugins/Editor").GetFiles("*.cs");
 
             var componenetEditor = new DirectoryInfo("Assets/Res/Core/Editor").GetFiles("*.cs");
@@ -250,6 +256,41 @@ public class Utility_AssetManager : EditorWindow
             //var editorScripts = new DirectoryInfo($"Build/Runtime-Officials/{file.Name}").GetFiles("Editor", SearchOption.TopDirectoryOnly);
 
             EditorUtility.RevealInFinder("Build/Runtime-Officials");
+
+        }
+
+        if (GUILayout.Button("Find StartPoints"))
+        {
+            if (startPoints.Count == 0)
+            {
+                startPoints.AddRange(GameObject.FindGameObjectsWithTag("TeamAStartPoint"));
+                startPoints.AddRange(GameObject.FindGameObjectsWithTag("TeamBStartPoint"));
+            }
+            else
+            {
+                if (currentStartPointIndex >= startPoints.Count)
+                {
+                    currentStartPointIndex = 0;
+                }
+
+                Selection.activeGameObject = startPoints[currentStartPointIndex];
+
+                currentStartPointIndex += 1;
+            }
+        }
+
+        if (GUILayout.Button("Set Suspension Spring"))
+        {
+            foreach (var active in Selection.gameObjects)
+            {
+                var collider = active.GetComponent<WheelCollider>();
+                collider.suspensionSpring = new JointSpring()
+                {
+                    damper = collider.suspensionSpring.damper,
+                    spring = collider.suspensionSpring.spring,
+                    targetPosition = 0.75f,
+                };
+            }
         }
     }
 }

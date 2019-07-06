@@ -70,7 +70,7 @@ public class VehicleDataEditor : EditorWindowBase
             LockEditor();
             OpenEditorScene();
 
-            InitTankPrefabs(vehicleData,true);
+            InitTankPrefabs(vehicleData, true);
         }
         if (GUILayout.Button("Pack Asset"))
         {
@@ -96,7 +96,7 @@ public class VehicleDataEditor : EditorWindowBase
         EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects);
     }
 
-    public static TankInitSystem InitTankPrefabs(VehicleData vehicleData,bool isPreviewMode)
+    public static TankInitSystem InitTankPrefabs(VehicleData vehicleData, bool isPreviewMode)
     {
         #region Collision Detect
         if (vehicleData.modelData.MainModel.GetComponentsInChildren<BoxCollider>().Length == 0)
@@ -300,12 +300,15 @@ public class VehicleDataEditor : EditorWindowBase
             referenceManager.GunGameObject = GunTransform;
             referenceManager.GunDymGameObject = GunDymTransform;
 
+            var bodyCenter = InstanceMesh.transform.Find("MainBody").GetComponent<MeshRenderer>().bounds.center;
+            referenceManager.CenterOfGravity.transform.position = new Vector3(bodyCenter.x, referenceManager.CenterOfGravity.transform.position.y, bodyCenter.z);
+
             if (!isPreviewMode)
             {
                 CreateWrapper(referenceManager.MainCameraFollowTarget.transform);
                 CreateWrapper(referenceManager.MainCameraGunner.transform);
             }
-         
+
 
             return initySystem;
         }
@@ -343,7 +346,7 @@ public class VehicleDataEditor : EditorWindowBase
 
         string Path = "Assets/res/Cooked/" + CurrentAssetName.ToLower();
 
-        TankInitSystem tankInitSystem = InitTankPrefabs(vehicleData,false);
+        TankInitSystem tankInitSystem = InitTankPrefabs(vehicleData, false);
 
         GameObject Prefab = tankInitSystem.transform.GetChild(0).gameObject;
 
@@ -356,7 +359,7 @@ public class VehicleDataEditor : EditorWindowBase
         }
         else
         {
-            vehiclePrefab = PrefabUtility.SaveAsPrefabAsset(Prefab,Path + "_Pre.prefab");
+            vehiclePrefab = PrefabUtility.SaveAsPrefabAsset(Prefab, Path + "_Pre.prefab");
         }
 
 

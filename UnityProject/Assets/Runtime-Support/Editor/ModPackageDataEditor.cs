@@ -10,6 +10,60 @@ namespace ShanghaiWindy.Editor
     [CanEditMultipleObjects]
     public class ModPackageDataEditor : EditorWindowBase
     {
+        public static void BuildPipline(ModPackageData modPackData, bool revealInFile = false)
+        {
+            var buildMap = new AssetBundleBuild[1];
+
+            buildMap[0].addressableNames = new string[]
+            {
+                    AssetDatabase.GetAssetPath(modPackData)
+            };
+            buildMap[0].assetBundleName = modPackData.name;
+            buildMap[0].assetBundleVariant = "modpackdata";
+            buildMap[0].assetNames = new string[]
+            {
+                    AssetDatabase.GetAssetPath(modPackData)
+            };
+
+            var buildDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/Temp/";
+
+            var modPackDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/";
+
+            var dir = new DirectoryInfo(buildDir);
+
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+
+            BuildPipeline.BuildAssetBundles(buildDir, buildMap, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
+
+            foreach (var uselessAsset in dir.GetFiles("packages"))
+            {
+                uselessAsset.Delete();
+            }
+
+            foreach (var relatedAsset in modPackData.relatedAssets)
+            {
+                var file = new FileInfo(relatedAsset);
+
+                if (file.Exists)
+                {
+                    File.Copy(file.FullName, buildDir + file.Name, true);
+                }
+            }
+
+            var zip = new FastZip();
+
+            var zipFileName = $"{modPackDir}/{EditorUserBuildSettings.activeBuildTarget}_{modPackData.name}.modpack";
+
+            zip.CreateZip(zipFileName, buildDir, false, null);
+
+            if (revealInFile)
+            {
+                EditorUtility.RevealInFinder(modPackDir);
+            }
+        }
         public override void OnInspectorGUI()
         {
 
@@ -35,53 +89,7 @@ namespace ShanghaiWindy.Editor
 
             if (GUILayout.Button("Package Mod Now"))
             {
-                var buildMap = new AssetBundleBuild[1];
-                buildMap[0].addressableNames = new string[]
-                {
-                    AssetDatabase.GetAssetPath(target)
-                };
-                buildMap[0].assetBundleName = modPackData.name;
-                buildMap[0].assetBundleVariant = "modpackdata";
-                buildMap[0].assetNames = new string[]
-                {
-                    AssetDatabase.GetAssetPath(target)
-                };
-
-                var buildDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/Temp/";
-
-                var modPackDir = $"Build/Mod-Package/{EditorUserBuildSettings.activeBuildTarget}/{modPackData.name}/";
-
-                var dir = new DirectoryInfo(buildDir);
-
-                if (!dir.Exists)
-                {
-                    dir.Create();
-                }
-
-                BuildPipeline.BuildAssetBundles(buildDir, buildMap, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
-
-                foreach (var uselessAsset in dir.GetFiles("packages"))
-                {
-                    uselessAsset.Delete();
-                }
-
-                foreach (var relatedAsset in modPackData.relatedAssets)
-                {
-                    var file = new FileInfo(relatedAsset);
-
-                    if (file.Exists)
-                    {
-                        File.Copy(file.FullName, buildDir + file.Name, true);
-                    }
-                }
-
-                var zip = new FastZip();
-
-                var zipFileName = $"{modPackDir}/{EditorUserBuildSettings.activeBuildTarget}_{modPackData.name}.modpack";
-
-                zip.CreateZip(zipFileName, buildDir, false, null);
-
-                EditorUtility.RevealInFinder(modPackDir);
+                BuildPipline(modPackData, true);
             }
 
 

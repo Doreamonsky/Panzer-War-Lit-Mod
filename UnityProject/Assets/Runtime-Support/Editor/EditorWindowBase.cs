@@ -62,7 +62,7 @@ public class EditorWindowBase : Editor
     public void UnlockEditor()
     {
         ActiveEditorTracker.sharedTracker.isLocked = false;
-        InEditingSceneObject = true;
+        InEditingSceneObject = false;
     }
     public virtual void Awake()
     {
