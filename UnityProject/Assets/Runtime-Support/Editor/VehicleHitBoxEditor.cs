@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using System.IO;
 
 namespace ShanghaiWindy.Editor
 {
@@ -148,6 +149,12 @@ namespace ShanghaiWindy.Editor
             new GameObject("Dym").transform.SetParent(HitBoxTransform);
 
 
+            var dir = new DirectoryInfo("Assets/Res/Vehicles/Ground/Data/HitBox/");
+
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
 
             vehicleHitBox.HitBoxPrefab = PrefabUtility.CreatePrefab(string.Format("Assets/Res/Vehicles/Ground/Data/HitBox/{0}.prefab", vehicleHitBox.name), HitBoxTransform.gameObject);
         }
