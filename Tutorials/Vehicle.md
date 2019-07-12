@@ -27,7 +27,7 @@ The child-parent relationship should like this. [Click to view the example vehic
 | MainBody        |           |     |
 | LeftWheel       | l_1-l_n   |     |
 | LeftUpperWheel  | l_1-l_n   |     |
-| LefTrack        |           |     |
+| LeftTrack       |           |     |
 | RightWheel      | r_1-r_n   |     |
 | RightUpperWheel | ru_1-ru_n |     |
 | RightTrack      |           |     |
