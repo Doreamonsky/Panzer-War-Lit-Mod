@@ -18,9 +18,11 @@ And,finish the Step 1-4 in [GetStarted](GetStarted.md)
 
 ![Vehicle-Model](VehicleModel.jpg)
 
-The wheels,turret,gun and dym(barrel) of the vehicle model should have a correct child-parent relationship and naming.
+The wheels,turret,gun and dym(barrel) of the vehicle model should have a correct child-parent relationship and name.
 
 The child-parent relationship should like this. [Click to view the example vehicle model](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/UnityProject/ArtSources/Template-Vehicle.fbx?raw=true)
+
+Also,a well prepared game model with hitbox model is available here.[T110E5 Game Model](Sources/T1110E5.unitypackage) You can try start creating the vehicle mod with this model first to understand all the work flow.
 
 |                 |           |     |
 | --------------- | --------- | --- |
@@ -219,7 +221,7 @@ And click Create Mod Package Button.
 
 ![BuildPiplineSet](BuildPiplineSet.jpg)
 
-Drag your vehicle info and vehicle text data to the linked object. And drag xxxx_Pre located at Assets/Res/Cooked/xxxx_Pre (**Not the one in the dedicatedserver folder.**)to the linked object.(This asset will be missing everytime you click Pact Asset in VehicleData)
+Drag your vehicle info and vehicle text data to the linked object. And drag xxxx_Pre located at Assets/Res/Cooked/ and xxxx_Pre located at Assets/Res/Cooked/DelicatedServer to the linked object.**(This asset will be missing everytime you click Pact Asset in VehicleData in some Unity version)**
 
 Press Ctrl + Shift + B to select your desired platform.
 **Remember you can't run mods with an incorrect build platform**
