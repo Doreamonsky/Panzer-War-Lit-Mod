@@ -13,6 +13,10 @@ Here,you can see download various game mods and the source code of them.In the f
 
 Mod Download Index: [Click To View](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/wiki/Mod-Index)
 
+### Mod Pink Situation
+
+If the mod is pink after installation, install [this](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/issues/4) addon to fix it
+
 ## How to install Mods
 
 ### Android
