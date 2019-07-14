@@ -46,6 +46,8 @@ Then,by clicking the toggle button,you can enable/disable mods without removing 
 
 Here are some documents for you to crate your own mods. Contribute to the mod community now!
 
-Get Started: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/GetStarted.md)
+Get Started: [Click To Learn](Tutorials/GetStarted.md)
 
-Create A Vehicle Mod: [Click To Learn](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/Tutorials/Vehicle.md)
+Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
+
+Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)

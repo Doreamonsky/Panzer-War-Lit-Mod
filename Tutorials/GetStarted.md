@@ -44,5 +44,6 @@ If you run the mod successfully,you should be able to find this template-vehicle
 ## For Futher Mod
 
 Tutorial: [Import a vehicle mod](Vehicle.md)
+Tutorial: [Upload the mod package](ContributeCommunity.md)
 
 To be continued.
