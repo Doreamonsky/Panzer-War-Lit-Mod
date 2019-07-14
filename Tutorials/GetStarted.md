@@ -10,9 +10,7 @@ And Unzip what you have downloaded.
 
 ## 2.Download the Unity 2018.3.X
 
-The project is running based on Unity 2018.3.0f2.
-
-[Click Here to Download](https://unity3d.com/get-unity/download?thank-you=update&download_nid=59189&os=Win)
+The project is running based on Unity 2018.3.14f1. You can download this version from Unity Hub.
 
 ## 3.Open the project
 

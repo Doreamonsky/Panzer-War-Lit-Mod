@@ -237,3 +237,21 @@ You modpackage will be generated at UnityProject\Build\Mod-Package. And its exte
 **If you switch the platform. You should go to the BuildPipline and click the Build Linked Objects to AssetBundle button. Then go to the Linked Mod Package and click Package Now.**
 
 If you have any issue during reading this tutorial,you can send an email to me. My E-mail: 403036847@qq.com Or Contact me on [VK](https://vk.com/doreamonsky)
+
+## Issues You may encounter
+
+### Game can't load the vehicle
+
+![BugDueToPackageNaming](BugDueToPackageNaming.jpg)
+
+In this case,the reason might be that the name of your mod package is the same as the vehicle name. This is not allowed. Try another mod package name. For example,the mod package name can be Vehicle-XXXX (XXXX refer to the vehicle name) eg. Vehicle-T-72
+
+### Game can't load the vehicle correctly
+
+![BugDueToMissingReference](BugDueToMissingReference.jpg)
+
+In this case,the reason might be that your vehicle assets miss some reference. Please check if the following files are set correctly VehicleEngineSoundData,VehicleHitBox,FireSound Asset,Bullet Data Asset,VehicleTextData,VehicleTrack and VehicleData. You can refer to this document and you can refer to the template vehicle in the project.
+
+### Can't elevate the gun
+
+In this case,the reason might be that down max angle can't be negative. It should be positive.
