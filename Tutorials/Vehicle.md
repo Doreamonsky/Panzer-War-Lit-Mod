@@ -238,6 +238,30 @@ You modpackage will be generated at UnityProject\Build\Mod-Package. And its exte
 
 If you have any issue during reading this tutorial,you can send an email to me. My E-mail: 403036847@qq.com Or Contact me on [VK](https://vk.com/doreamonsky)
 
+## Special Vehicle Guidance
+
+### Wheel Vehicles
+
+![WheelVehicleNodes](WheelVehicleNodes.jpg)
+
+For wheel vehicles,you should prepare the model like this. LeftTrack and RightTrack can be an empty gameobject but it can't be missing.
+
+![WheelVehicle](WheelVehicle.jpg)
+
+You can refer this setting for your wheel vehicles.
+
+### Slot Gun
+
+![SlotGun](SlotGun.jpg)
+
+To make gun like M3 Stuart,you can refer this.
+
+### Drum Gun
+
+![DrumGun](DrumGun.jpg)
+
+To make drum gun,you can refer this.
+
 ## Issues You may encounter
 
 ### Game can't load the vehicle

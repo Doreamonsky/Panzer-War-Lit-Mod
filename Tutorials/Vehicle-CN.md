@@ -241,3 +241,45 @@ Bullet VFX 请务必使用内置资源
 **如果你切换平台需要重开始 BuildPipline 的步骤.**
 
 如果你在阅读本教程过程中遇到任何问题，都可以 QQ 联系我 QQ:403036847
+
+## 特别载具指南
+
+### 轮式载具
+
+![WheelVehicleNodes](WheelVehicleNodes.jpg)
+
+模型如上图准备 LeftTrack 和 RightTrack 可以是空物体，但不可缺少
+
+![WheelVehicle](WheelVehicle.jpg)
+
+轮式载具设置可以参考上图
+
+### 机炮
+
+![SlotGun](SlotGun.jpg)
+
+参考上图设置
+
+### 弹夹炮
+
+![DrumGun](DrumGun.jpg)
+
+参考上图设置
+
+## 常见问题
+
+### 载具不加载
+
+![BugDueToPackageNaming](BugDueToPackageNaming.jpg)
+
+原因可能如下：Mod Package 的名字应该与载具的名称不同。尝试更换 Mod Package 的名称。 **你不能以载具名称来命名！！！会加载错误！！！.** 你应该用以下方式来命名 Vehicle-XXXX (其中 XXXX 是你的坦克名称).
+
+### 载具加载不正确
+
+![BugDueToMissingReference](BugDueToMissingReference.jpg)
+
+原因可能如下：载具含有空引用数据 请检查 VehicleEngineSoundData,VehicleHitBox,FireSound Asset,Bullet Data Asset,VehicleTextData,VehicleTrack and VehicleData.你可以参考案例载具
+
+### 炮管无俯仰角
+
+原因可能如下： down max angle 应该填正数
