@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: UserSightData
+  m_EditorClassIdentifier: 
+  drawCentralLineVert: 1
+  drawCentralLineHorz: 1
+  centralLineVertThickness: 1
+  centralLineHorzThickness: 1
+  ballistics:
+  - defaultVelocity: 690
+    dynamicVelocity: 1
+    crosshairDistances:
+    - range: 200
+      number: 0
+      notchSize: 0
+    - range: 400
+      number: 0.4
+      notchSize: -0.005
+    - range: 600
+      number: 0
+      notchSize: 0
+    - range: 800
+      number: 0.8
+      notchSize: -0.005
+    - range: 1000
+      number: 0
+      notchSize: 0
+    - range: 1200
+      number: 1.2
+      notchSize: -0.005
+    horzOffSet: -0.01
+    textHorzOffSet: 0
+    textVertOffSet: 0
+  lines: []
+  specificVehicle: T-34
