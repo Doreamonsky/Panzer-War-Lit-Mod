@@ -37,6 +37,12 @@ Then,Copy \*.modpack files to SteamLibrary\steamapps\common\Cry of War\dlc\Panze
 
 Finally,Launch the game,you will have it !
 
+### Sight
+
+Create a folder named Sight in Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\ [PC: SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\].
+
+Then,Copy \*.sightJson files into the folder.
+
 ### Tips
 
 Modpack files will be unzip by the game during the installation.(Modpack is just a zip file)
@@ -53,5 +59,7 @@ Here are some documents for you to crate your own mods. Contribute to the mod co
 Get Started: [Click To Learn](Tutorials/GetStarted.md)
 
 Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
+
+Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
 
 Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
