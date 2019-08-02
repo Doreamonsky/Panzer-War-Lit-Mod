@@ -19,4 +19,6 @@ Notch Size is how much to increase the length of the notch from the left.
 
 If you want to draw custom lines,then you can toggle off drawCentralLineVert and drawCentralLineHorz.
 
+Attention! Specific Vehicle is for setting the name of your vehicle which needs custom sight.
+
 For exporting,click the button 'export sightdata for players'.

@@ -19,4 +19,6 @@ Notch Size 指的是 Notch 往左突出的距离
 
 如果你要绘制自定义的标线，你可以关闭 drawCentralLineVert 以及 drawCentralLineHorz
 
+注意 Specific Vehicle 请填写 你要自定义瞄准镜的载具名称。
+
 导出点击按钮 'export sightdata for players'.
