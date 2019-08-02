@@ -29,6 +29,12 @@ Then,Copy \*.modpack files to Android\data\com.shanghaiwindy.PanzerWarOpenSource
 
 Finally,Launch the game,you will have it !
 
+#### Android - User Sight
+
+Create a folder named Sight in Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\
+
+Then,Copy \*.sightJson files into the folder.
+
 ### PC
 
 First,Launch game for one time for generating folders for you.
@@ -37,9 +43,9 @@ Then,Copy \*.modpack files to SteamLibrary\steamapps\common\Cry of War\dlc\Panze
 
 Finally,Launch the game,you will have it !
 
-### Sight
+#### PC - User Sight
 
-Create a folder named Sight in Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\ [PC: SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\].
+Create a folder named Sight in SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\
 
 Then,Copy \*.sightJson files into the folder.
 
