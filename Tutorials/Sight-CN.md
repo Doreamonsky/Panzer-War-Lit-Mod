@@ -15,6 +15,10 @@ Range 指的是 Notch 表示的下坠距离
 Number 指的是 Notch 显示的数字
 Notch Size 指的是 Notch 往左突出的距离
 
+![PreviewSight](PreviewSight.jpg)
+
+你可以在编辑器中预览观察镜。只要点击 Preview in Editor 按钮，然后点击播放按钮
+
 ![SightExport](SightExport.jpg)
 
 如果你要绘制自定义的标线，你可以关闭 drawCentralLineVert 以及 drawCentralLineHorz

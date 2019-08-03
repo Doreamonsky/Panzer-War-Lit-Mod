@@ -15,6 +15,10 @@ Range is the distance to the target at which the notch will be drawn.
 Number is which text will be placed by the notch.
 Notch Size is how much to increase the length of the notch from the left.
 
+![PreviewSight](PreviewSight.jpg)
+
+You can preview the sight in the editor. Just click Preview in Editor Button. And then click Play.
+
 ![SightExport](SightExport.jpg)
 
 If you want to draw custom lines,then you can toggle off drawCentralLineVert and drawCentralLineHorz.
