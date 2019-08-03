@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Pzgr 39 Sight
+  m_EditorClassIdentifier: 
+  drawCentralLineVert: 0
+  drawCentralLineHorz: 0
+  centralLineVertThickness: 1
+  centralLineHorzThickness: 1
+  ballistics:
+  - defaultVelocity: 480
+    dynamicVelocity: 1
+    crosshairDistances:
+    - range: 0
+      number: 0
+      notchSize: 0.025
+    - range: 100
+      number: 1
+      notchSize: 0
+    - range: 200
+      number: 2
+      notchSize: 0.025
+    - range: 300
+      number: 3
+      notchSize: 0
+    - range: 400
+      number: 4
+      notchSize: 0.025
+    - range: 500
+      number: 5
+      notchSize: 0
+    - range: 600
+      number: 6
+      notchSize: 0.025
+    - range: 700
+      number: 7
+      notchSize: 0
+    - range: 800
+      number: 8
+      notchSize: 0.025
+    - range: 900
+      number: 9
+      notchSize: 0
+    - range: 1000
+      number: 10
+      notchSize: 0.025
+    - range: 1100
+      number: 11
+      notchSize: 0
+    - range: 1200
+      number: 12
+      notchSize: 0.025
+    - range: 1300
+      number: 13
+      notchSize: 0
+    - range: 1400
+      number: 14
+      notchSize: 0.025
+    - range: 1500
+      number: 15
+      notchSize: 0
+    horzOffSet: 0
+    textHorzOffSet: 0
+    textVertOffSet: 0
+  lines:
+  - points:
+    - {x: 0.5, y: 0.5}
+    - {x: 0.495, y: 0.485}
+    - {x: 0.505, y: 0.485}
+    - {x: 0.5, y: 0.5}
+    thickness: 1
+    isRelativeSize: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 1}
+  - points:
+    - {x: 0.5, y: 1}
+    - {x: 0.5, y: 0.95}
+    thickness: 4
+    isRelativeSize: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 1}
+  radialCenter: {x: 0, y: 0}
+  radialAngle: 180
+  initialRadialAngle: 90
+  circleMode: 1
+  radialStretch: 1
+  circleEdge: 0.7
+  circleTextOffSet: 0.07
+  circleNotchOffSet: 0.025
+  specificVehicle: null

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: UserSightData
+  m_Name: Common Sight
   m_EditorClassIdentifier: 
   drawCentralLineVert: 1
   drawCentralLineHorz: 1
   centralLineVertThickness: 1
   centralLineHorzThickness: 1
   ballistics:
-  - defaultVelocity: 690
+  - defaultVelocity: 480
     dynamicVelocity: 1
     crosshairDistances:
     - range: 200
@@ -38,8 +38,16 @@ MonoBehaviour:
     - range: 1200
       number: 1.2
       notchSize: -0.005
-    horzOffSet: -0.01
-    textHorzOffSet: 0
-    textVertOffSet: 0
+    horzOffSet: 0
+    textHorzOffSet: -0.006
+    textVertOffSet: -0.004
   lines: []
-  specificVehicle: T-34
+  radialCenter: {x: 0, y: 0}
+  radialAngle: 180
+  initialRadialAngle: 90
+  circleMode: 0
+  radialStretch: 1
+  circleEdge: 0.7
+  circleTextOffSet: 0.05
+  circleNotchOffSet: 0.025
+  specificVehicle: null
