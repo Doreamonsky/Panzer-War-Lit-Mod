@@ -31,23 +31,19 @@ Finally,Launch the game,you will have it !
 
 #### Android - User Sight
 
-Create a folder named Sight in Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\
-
-Then,Copy \*.sightJson files into the folder.
+Copy sight files (.txt / .json /.jsonSight) into the folder Android\data\com.shanghaiwindy.PanzerWarOpenSource\files\mods\User Sight.
 
 ### PC
 
 First,Launch game for one time for generating folders for you.
 
-Then,Copy \*.modpack files to SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\Installs
+Then,Copy \*.modpack files to steamapps\common\Cry of War\dlc\PanzerWar\mods\Installs
 
 Finally,Launch the game,you will have it !
 
 #### PC - User Sight
 
-Create a folder named Sight in SteamLibrary\steamapps\common\Cry of War\dlc\PanzerWar\mods\
-
-Then,Copy \*.sightJson files into the folder.
+Copy sight files (.txt / .json /.jsonSight) into the folder steamapps\common\Cry of War\dlc\PanzerWar\mods\User Sight.
 
 ### Tips
 
