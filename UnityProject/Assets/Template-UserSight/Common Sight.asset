@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Common Sight
   m_EditorClassIdentifier: 
+  thousandth: 0
   drawCentralLineVert: 1
   drawCentralLineHorz: 1
   centralLineVertThickness: 1
@@ -41,11 +42,67 @@ MonoBehaviour:
     horzOffSet: 0
     textHorzOffSet: -0.006
     textVertOffSet: -0.004
+    crosshairHorRanges:
+    - range: 4
+      number: 0
+      notchSize: 0.005
+    - range: 8
+      number: 8
+      notchSize: 0.015
+    - range: 12
+      number: 0
+      notchSize: 0.005
+    - range: 16
+      number: 16
+      notchSize: 0.015
+    - range: 20
+      number: 0
+      notchSize: 0.005
+    - range: 24
+      number: 24
+      notchSize: 0.015
+    - range: 28
+      number: 0
+      notchSize: 0.005
+    - range: 32
+      number: 32
+      notchSize: 0.015
+    - range: -4
+      number: 0
+      notchSize: 0.005
+    - range: -8
+      number: 8
+      notchSize: 0.015
+    - range: -12
+      number: 0
+      notchSize: 0.005
+    - range: -16
+      number: 16
+      notchSize: 0.015
+    - range: -20
+      number: 0
+      notchSize: 0.005
+    - range: -24
+      number: 24
+      notchSize: 0.015
+    - range: -28
+      number: 0
+      notchSize: 0.005
+    - range: -32
+      number: 32
+      notchSize: 0.015
+    crosshairHorRangeVertOffSet: 0
+    textHorRangeVertOffSet: 0.015
   lines: []
+  circles: []
+  uiTexts: []
+  lineThousandths: []
   radialCenter: {x: 0, y: 0}
   radialAngle: 180
   initialRadialAngle: 90
   circleMode: 0
+  drawCircle: 1
+  drawCircleLines: 1
   radialStretch: 1
   circleEdge: 0.7
   circleTextOffSet: 0.05

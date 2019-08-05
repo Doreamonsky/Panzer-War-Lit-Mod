@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Pzgr 39 Sight
   m_EditorClassIdentifier: 
+  thousandth: 1
   drawCentralLineVert: 0
   drawCentralLineHorz: 0
   centralLineVertThickness: 1
@@ -71,6 +72,9 @@ MonoBehaviour:
     horzOffSet: 0
     textHorzOffSet: 0
     textVertOffSet: 0
+    crosshairHorRanges: []
+    crosshairHorRangeVertOffSet: 0
+    textHorRangeVertOffSet: 0
   lines:
   - points:
     - {x: 0.5, y: 0.5}
@@ -88,10 +92,79 @@ MonoBehaviour:
     isRelativeSize: 1
     isOverrideColor: 0
     color: {r: 0, g: 0, b: 0, a: 1}
+  circles: []
+  uiTexts: []
+  lineThousandths:
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: 4
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: 8
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: 12
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: 16
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: -4
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: -8
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: -12
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - points:
+    - {x: -0.004, y: -0.008}
+    - {x: 0, y: 0}
+    - {x: 0.004, y: -0.008}
+    range: -16
+    thickness: 1
+    isOverrideColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
   radialCenter: {x: 0, y: 0}
   radialAngle: 180
   initialRadialAngle: 90
   circleMode: 1
+  drawCircle: 1
+  drawCircleLines: 1
   radialStretch: 1
   circleEdge: 0.7
   circleTextOffSet: 0.07
