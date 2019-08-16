@@ -110,6 +110,11 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
+  switchQueueControlMemory: 16384
+  switchQueueComputeMemory: 262144
+  switchNVNShaderPoolsGranularity: 33554432
+  switchNVNDefaultPoolsGranularity: 16777216
+  switchNVNOtherPoolsGranularity: 16777216
   vulkanEnableSetSRGBWrite: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -160,7 +165,7 @@ PlayerSettings:
   buildNumber:
     iOS: 1
   AndroidBundleVersionCode: 20290265
-  AndroidMinSdkVersion: 16
+  AndroidMinSdkVersion: 18
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -590,6 +595,7 @@ PlayerSettings:
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
   switchUserAccountLockEnabled: 0
+  switchSystemResourceMemory: 16777216
   switchSupportedNpadStyles: 3
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
@@ -711,7 +717,7 @@ PlayerSettings:
   platformArchitecture:
     iOS: 2
   scriptingBackend:
-    Android: 0
+    Android: 1
     Metro: 2
     Standalone: 0
     WP8: 2
@@ -720,7 +726,7 @@ PlayerSettings:
     iOS: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
-    Android: 0
+    Android: 1
   incrementalIl2cppBuild:
     iOS: 1
   allowUnsafeCode: 0
