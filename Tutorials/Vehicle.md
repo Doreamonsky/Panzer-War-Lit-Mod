@@ -262,6 +262,22 @@ To make gun like M3 Stuart,you can refer this.
 
 To make drum gun,you can refer this.
 
+### Multi-Turret
+
+For example,bmd-1 is using the multi-turret mechanic to shoot common bullets and atgm.
+
+![MultiTurretModel](MultiTurretModel.jpg)
+
+You should first perpare model like this.
+
+![MultiTurretConfigure](MultiTurretConfigure.jpg)
+
+Then, configure like this.
+
+![MultiTurretDumpObject](MultiTurretDumpObject.jpg)
+
+Be caution! The position of ffpoint and fireeffect can only be set in the inspector.
+
 ## Issues You may encounter
 
 ### Game can't load the vehicle
