@@ -71,3 +71,7 @@ Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
 Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
 
 Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
+
+Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
+
+Create a ReplaceableEffect : [Click To Learn](Tutorials/ReplaceableEffect.md)
