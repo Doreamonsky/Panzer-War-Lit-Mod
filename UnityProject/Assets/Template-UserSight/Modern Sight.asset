@@ -18,58 +18,46 @@ MonoBehaviour:
   centralLineVertThickness: 1
   centralLineHorzThickness: 1
   ballistics:
-  - defaultVelocity: 480
+  - defaultVelocity: 640
     dynamicVelocity: 1
     crosshairDistances:
-    - range: 0
-      number: 0
-      notchSize: 0.025
-    - range: 100
-      number: 1
-      notchSize: 0
     - range: 200
-      number: 2
-      notchSize: 0.025
-    - range: 300
-      number: 3
+      number: 0
       notchSize: 0
     - range: 400
       number: 4
-      notchSize: 0.025
-    - range: 500
-      number: 5
       notchSize: 0
     - range: 600
-      number: 6
-      notchSize: 0.025
-    - range: 700
-      number: 7
+      number: 0
       notchSize: 0
     - range: 800
       number: 8
-      notchSize: 0.025
-    - range: 900
-      number: 9
       notchSize: 0
     - range: 1000
-      number: 10
-      notchSize: 0.025
-    - range: 1100
-      number: 11
+      number: 0
       notchSize: 0
     - range: 1200
       number: 12
-      notchSize: 0.025
-    - range: 1300
-      number: 13
       notchSize: 0
     - range: 1400
-      number: 14
-      notchSize: 0.025
-    - range: 1500
-      number: 15
+      number: 0
       notchSize: 0
-    horzOffSet: 0
+    - range: 1600
+      number: 16
+      notchSize: 0
+    - range: 1800
+      number: 18
+      notchSize: 0
+    - range: 2000
+      number: 0
+      notchSize: 0
+    - range: 2200
+      number: 22
+      notchSize: 0
+    - range: 2400
+      number: 24
+      notchSize: 0
+    horzOffSet: -0.15
     textHorzOffSet: 0
     textVertOffSet: 0
     crosshairHorRanges: []
@@ -77,96 +65,89 @@ MonoBehaviour:
     textHorRangeVertOffSet: 0
   lines:
   - points:
-    - {x: 0.5, y: 0.5}
-    - {x: 0.495, y: 0.485}
-    - {x: 0.505, y: 0.485}
-    - {x: 0.5, y: 0.5}
+    - {x: 0.45, y: 0.5}
+    - {x: 0.485, y: 0.5}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.55, y: 0.5}
+    - {x: 0.515, y: 0.5}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.5, y: 0.57}
+    - {x: 0.5, y: 0.6}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.5, y: 0.43}
+    - {x: 0.5, y: 0.4}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.35, y: 0.3}
+    - {x: 0.3, y: 0.3}
+    - {x: 0.3, y: 0.35}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.65, y: 0.7}
+    - {x: 0.7, y: 0.7}
+    - {x: 0.7, y: 0.65}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.35, y: 0.7}
+    - {x: 0.3, y: 0.7}
+    - {x: 0.3, y: 0.65}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.65, y: 0.3}
+    - {x: 0.7, y: 0.3}
+    - {x: 0.7, y: 0.35}
+    thickness: 2
+    isRelativeSize: 1
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+  - points:
+    - {x: 0.38, y: 0.5}
+    - {x: 0.32, y: 0.5}
     thickness: 1
     isRelativeSize: 1
-    isOverrideColor: 0
+    isOverrideColor: 1
     color: {r: 0, g: 0, b: 0, a: 1}
-  - points:
-    - {x: 0.5, y: 1}
-    - {x: 0.5, y: 0.95}
-    thickness: 4
-    isRelativeSize: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 1}
-  circles: []
+  circles:
+  - radius: 0.01
+    pos: {x: 0.5, y: 0.5}
+    thickness: 2
+    isOverrideColor: 1
+    color: {r: 0.17938554, g: 1, b: 0, a: 1}
+    isFill: 0
   uiTexts: []
-  lineThousandths:
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: 4
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: 8
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: 12
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: 16
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: -4
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: -8
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: -12
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
-  - points:
-    - {x: -0.004, y: -0.008}
-    - {x: 0, y: 0}
-    - {x: 0.004, y: -0.008}
-    range: -16
-    thickness: 1
-    isOverrideColor: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
+  lineThousandths: []
   radialCenter: {x: 0, y: 0}
   radialAngle: 180
   initialRadialAngle: 90
-  circleMode: 1
+  circleMode: 0
   drawCircle: 1
   drawCircleLines: 1
   radialStretch: 1
   circleEdge: 0.7
-  circleTextOffSet: 0.07
+  circleTextOffSet: 0.05
   circleNotchOffSet: 0.025
   specificVehicle: null
