@@ -1,6 +1,6 @@
 # Local Decal
 
-[English Document](EN) [中文文档](CN)
+[English Document](#EN) [中文文档](#CN)
 
 ## EN
 
@@ -20,7 +20,7 @@ Put it at steamapps\common\Cry of War\dlc\PanzerWar\mods\Decal Texture\
 
 你可以使用本地文件作为载具的贴花。
 
-需要：一张png格式的图片。
+需要：一张 png 格式的图片。
 
 ## 安卓版
 
