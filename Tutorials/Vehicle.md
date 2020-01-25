@@ -2,6 +2,23 @@
 
 **If you have any issue during reading this tutorial,you can send an email to me. My E-mail: 403036847@qq.com Or Contact me on [VK](https://vk.com/doreamonsky)**
 
+You can watch this official tutorial to help you. <https://www.youtube.com/watch?v=0gxlC311Sh4>
+
+---
+
+Also,the community provides the following Russian tutorials.
+
+ВидеоУрок по созданию модов в Panzer War. Blender. На русском языке
+<https://www.youtube.com/watch?v=WxOBuP6ZG2o>
+
+ВидеоУрок по созданию модов в Panzer War.Unity.На русском языке
+<https://www.youtube.com/watch?v=byVBs777WEc>
+
+Видео урок по созданию своей озвучки в Panzer War.На русском языке
+<https://www.youtube.com/watch?v=8PSHSI_pXM8>
+
+---
+
 ## What do I need to prepare
 
 Assets:
@@ -14,9 +31,21 @@ Assets:
 
 And,finish the Step 1-4 in [GetStarted](GetStarted.md)
 
+SoftWares:
+
+Unity 2019.2.13f1 (You **can't** use higher version!!!)
+
+Blender 2.7
+
+Substance Painter & Photoshop
+
 ## Step.1 Process the Vehicle Model
 
 ![Vehicle-Model](VehicleModel.jpg)
+
+Before get started,you should learn about the 3D model softwares.Blender is recommended because it is free and small.The following tutorial will use Blender as the modeling software.You can download it from <https://www.blender.org/download/>
+
+### Child-Parent Relationship
 
 The wheels,turret,gun and dym(barrel) of the vehicle model should have a correct child-parent relationship and name.
 

@@ -15,13 +15,25 @@ Here,you can see download various game mods and the source code of them.In the f
 
 [View English Document](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/blob/master/README.md)
 
+## Create Mod
+
+Here are some documents for you to crate your own mods. Contribute to the mod community now!
+
+**Important!!** Get Started: [Click To Learn](Tutorials/GetStarted.md)
+
+Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
+
+Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
+
+Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
+
+Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
+
+Create a ReplaceableEffect : [Click To Learn](Tutorials/ReplaceableEffect.md)
+
 ## Mods
 
 Mod Download Index: [Click To View](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/wiki/Mod-Index)
-
-### Mod Pink Situation
-
-If the mod is pink after installation, install [this](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/issues/4) addon to fix it
 
 ## How to install Mods
 
@@ -59,19 +71,3 @@ Modpack files will be unzip by the game during the installation.(Modpack is just
 
 After launching the game,there is a button at the right-top corner named Mod Hub,click it to open.
 Then,by clicking the toggle button,you can enable/disable mods without removing files. The modification will take effect after restarting the game.
-
-## Create Mod
-
-Here are some documents for you to crate your own mods. Contribute to the mod community now!
-
-Get Started: [Click To Learn](Tutorials/GetStarted.md)
-
-Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
-
-Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
-
-Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
-
-Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
-
-Create a ReplaceableEffect : [Click To Learn](Tutorials/ReplaceableEffect.md)
