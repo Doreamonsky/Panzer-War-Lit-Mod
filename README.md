@@ -23,6 +23,8 @@ Here are some documents for you to crate your own mods. Contribute to the mod co
 
 Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
 
+Create A Map Mod: [Click To Learn](Tutorials/MapWizard.md)
+
 Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
 
 Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
