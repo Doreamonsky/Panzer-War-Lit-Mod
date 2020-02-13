@@ -71,6 +71,8 @@ MonoBehaviour:
     minSpeed: 22
     steerTorque: 4
     maxAngularVelocity: 36
+    isWheelVehicle: 0
+    steerableWheels: []
     wheelRotateAxis: 0
   TFParameter:
     ReloadTime: 4.8
@@ -78,19 +80,31 @@ MonoBehaviour:
     hasSlot: 0
     slotCount: 0
     slotDuration: 0
+    fireDymScale: 0
+    isFireDymIfExtraTurret: 0
+    dispersion: 0
     bulletSound: {fileID: 11400000, guid: 1c107d664be3f8841b60f6a3a42b012f, type: 2}
     bulletData:
     - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
     muzzleFire: 0
+    overrideMuzzleFire: {fileID: 0}
     fireState: 0
     advanceFireClass:
       LargeFinish: 0
       LargeNowTime: 0
-      LargeReloadTime: 0
       smallNowTime: 0
       SmallReloadTime: 0
-      MaxSmallAmmo: 0
+      LargeReloadTime: 0
       SmallAmmoLeft: 0
+      MaxSmallAmmo: 0
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      reloadNowTime: 0
+      reloadDurationNowTime: 0
+      reloadState: 
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
   ExtraTF: 0
   MultiFireSystemData: []
   MTParameter:
@@ -100,9 +114,12 @@ MonoBehaviour:
     turretDegreesPerSecond: 35
     gunDegreesPerSecond: 20
     offset: 0
+    actionData: {fileID: 0}
   PSParameter:
     Health: 1200
-    engineType: 2
     nationType: 4
     vehicleType: 1
     viewRange: 440
+    isCustomExplodeParticle: 0
+    customExplodeParticle: {fileID: 0}
+    repairCoff: 1
