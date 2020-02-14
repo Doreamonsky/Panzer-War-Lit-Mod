@@ -307,7 +307,27 @@ Then, configure like this.
 
 Be caution! The position of ffpoint and fireeffect can only be set in the inspector.
 
-## Issues You may encounter
+#### T-35 example
+
+Hierachy:
+
+![T-35Turrets-Hierarchy](T-35Turrets-Hierarchy.jpg)
+
+Vehicle Text Data:
+
+![T-35-Turrets](T-35-Turrets.jpg)
+
+### Two barrel example ST-II
+
+Hierachy:
+
+![ST-II-Hierarchy](ST-II-Hierarchy.jpg)
+
+Vehicle Text Data:
+
+![ST-II-TextData](ST-II-TextData.jpg)
+
+## Issues you may encounter
 
 ### Game can't load the vehicle
 
