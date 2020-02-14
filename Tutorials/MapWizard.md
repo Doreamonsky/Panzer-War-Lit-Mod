@@ -33,3 +33,9 @@ You can find the BuildPipline file in the folder "ModManager". It names BuildPip
 You can find the ModPackage file in the folder "ModManager". It names Map-YourMapName. Click Package Mod Now. And you can get the .modpack file.
 
 ![MapWizardPackage](MapWizardPackage.jpg)
+
+## Extra - Point function
+
+![PointFunction](PointFunction.jpg)
+
+You can add repair and supply point in the map.
