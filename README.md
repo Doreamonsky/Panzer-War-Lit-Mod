@@ -21,17 +21,33 @@ Here are some documents for you to crate your own mods. Contribute to the mod co
 
 **Important!!** Get Started: [Click To Learn](Tutorials/GetStarted.md)
 
+Vehicles:
+
 Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
+
+Make the thumbnail of vehicle: [Click To Learn](Tutorials/Vehicle-Thumbnail.md)
+
+Wheel Collider Configure Tips:[Click To Learn](Tutorials/WheelColliderTip.md)
+
+Maps:
 
 Create A Map Mod: [Click To Learn](Tutorials/MapWizard.md)
 
+Sight:
+
 Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
+
+Effects:
+
+Create a Replaceable Effect : [Click To Learn](Tutorials/ReplaceableEffect.md)
+
+Upload:
 
 Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
 
-Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
+Make Profits:
 
-Create a ReplaceableEffect : [Click To Learn](Tutorials/ReplaceableEffect.md)
+Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
 
 ## Mods
 

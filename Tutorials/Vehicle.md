@@ -176,6 +176,10 @@ Drag the WheelCollider and the main model into the scene so that you can edit th
 
 ![WheelCollider](WheelCollider.jpg)
 
+You can refer to this picture to set the fiction of the wheel collider.
+
+![WheelCollider](WheelColliderTip.jpg)
+
 ### 5. VehicleData
 
 ![VehicleDataEditor](VehicleDataEditor.jpg)
