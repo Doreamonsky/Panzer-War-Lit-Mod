@@ -293,7 +293,13 @@ To make gun like M3 Stuart,you can refer this.
 
 ![DrumGun](DrumGun.jpg)
 
-To make drum gun,you can refer this.
+To make drum gun like Progetto 65,you can refer this.
+
+### Advance Gun
+
+![AdvanceGun](AdvanceGun.jpg)
+
+To make advance gun like Bat 25t,you can refer this.
 
 ### Multi-Turret
 
