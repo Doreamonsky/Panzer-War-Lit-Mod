@@ -21,7 +21,30 @@ MonoBehaviour:
   combatFlap: 0.4
   landingFlap: 1
   takeOffFlap: 1
-  flightFireDatas: []
+  flightFireDatas:
+  - weaponName: '2 x 20 mm MG FF/M cannon '
+    firePoints:
+    - Cannon_L
+    - Cannon_R
+    keyType: 1
+    bulletAssemble: {fileID: 11400000, guid: 9afdc4072858c8a4dac51619b76128af, type: 2}
+    capacity: 180
+    fireRate: 0.1
+    fireEndureTime: 3
+    dispersion: 0.1
+    fireClip: {fileID: 8300000, guid: e595b95608ac3a2408220137c877b77b, type: 3}
+    fireVolume: 0.75
+  - weaponName: '2 x 500 kg SC500K bombs '
+    firePoints:
+    - Bomb
+    keyType: 2
+    bulletAssemble: {fileID: 11400000, guid: 98f3305372e59e343897dbeff29b08c1, type: 2}
+    capacity: 2
+    fireRate: 0.1
+    fireEndureTime: 0
+    dispersion: 0
+    fireClip: {fileID: 8300000, guid: 1a1eb74b30462ec42bb9f16d3bcf2e11, type: 3}
+    fireVolume: 1
   HP: 320
   defaultHeight: 300
   flyingAnimationName: Flying
