@@ -7,18 +7,18 @@
 		_Color("Main Color", Color) = (1,1,1,1)
 			//_MetallicGlossMap("Metallic", 2D) = "white" { }
 	}
-	
-	SubShader
-	{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
 
-		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows
+		SubShader
+		{
+			Tags { "RenderType" = "Opaque" }
+			LOD 200
 
-		#pragma target 3.0
+			CGPROGRAM
+			#pragma surface surf Standard fullforwardshadows
 
-		sampler2D _MainTex;
+			#pragma target 3.0
+
+			sampler2D _MainTex;
 		//sampler2D _MetallicGlossMap;
 		sampler2D _BumpMap;
 		float4 _Color;
@@ -44,7 +44,7 @@
 			o.Alpha = c.a;
 		}
 		ENDCG
-	}
-	
-	FallBack "Diffuse"
+		}
+
+			FallBack "Diffuse"
 }
