@@ -85,7 +85,7 @@ PlayerSettings:
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
-  graphicsJobs: 1
+  graphicsJobs: 0
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
   xboxEnableKinect: 0
@@ -121,24 +121,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 2020.3.2.1
-  preloadedAssets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -422,8 +405,8 @@ PlayerSettings:
       m_SubKind: 
   m_BuildTargetBatching:
   - m_BuildTarget: Android
-    m_StaticBatching: 1
-    m_DynamicBatching: 1
+    m_StaticBatching: 0
+    m_DynamicBatching: 0
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 150000000b00000008000000
@@ -495,7 +478,7 @@ PlayerSettings:
   vuforiaEnabled: 0
   m_TemplateCustomTags: {}
   mobileMTRendering:
-    Android: 1
+    Android: 0
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
@@ -738,10 +721,10 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: MIRROR_3_0_OR_NEWER;ModSupport;ClientCode;Paid;MIRROR;MIRROR_1726_OR_NEWER
+    1: MIRROR_3_0_OR_NEWER;ModSupport;ClientCode;Paid;MIRROR;MIRROR_1726_OR_NEWER;__MICROSPLAT__
     2: ClientCode;CROSS_PLATFORM_INPUT
     4: ClientCode;MIRROR;MIRROR_1726_OR_NEWER;MIRROR_3_0_OR_NEWER
-    7: ClientCode;UNITY_POST_PROCESSING_STACK_V2;ModSupport;Paid;DISABLESTEAMWORKS
+    7: ClientCode;UNITY_POST_PROCESSING_STACK_V2;ModSupport;Paid;DISABLESTEAMWORKS;__MICROSPLAT__
     13: UNITY_POST_PROCESSING_STACK_V2
     14: MOBILE_INPUT;UNITY_POST_PROCESSING_STACK_V2
     17: MOBILE_INPUT
