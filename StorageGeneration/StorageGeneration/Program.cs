@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -5,73 +7,128 @@ namespace StorageGeneration
 {
     class Program
     {
-        static void Main(string[] args)
+        [System.Serializable]
+        public class Links
+        {
+            public List<DownloadLink> downloadLinks = new List<DownloadLink>();
+        }
+
+        [System.Serializable]
+        public class DownloadLink
+        {
+            public string packName;
+
+            public string link;
+
+            public string editTime;
+
+            public string size;
+
+            public string description;
+
+            public string platform;
+
+            public string author;
+        }
+
+        public static Links links = new Links();
+
+        private static void Main(string[] args)
         {
             var directory = new DirectoryInfo("./");
 
             var authorDirs = directory.GetDirectories();
 
-            var stringBuilder = new StringBuilder();
+            var readMeBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine("# Mod Download / 模组下载一览");
-            stringBuilder.AppendLine();
+            readMeBuilder.AppendLine("# Mod Download");
+            readMeBuilder.AppendLine();
 
-            stringBuilder.AppendLine("[How to install the mod? Click Here](https://github.com/Doreamonsky/Panzer-War-Lit-Mod)");
-            stringBuilder.AppendLine("[如何安装模组? 点击这里](https://github.com/Doreamonsky/Panzer-War-Lit-Mod/wiki/%E6%A8%A1%E7%BB%84%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97)");
+            readMeBuilder.AppendLine("[How to install the mod? Click Here](https://github.com/Doreamonsky/Panzer-War-Lit-Mod)");
 
             foreach (var authorDir in authorDirs)
             {
-                if (authorDir.Name == ".git")
+                if (authorDir.Name == ".git" || authorDir.Name == "Hidden")
                 {
                     continue;
                 }
 
-                stringBuilder.AppendLine($"## {authorDir.Name}");
-                stringBuilder.AppendLine();
+
+                readMeBuilder.AppendLine($"## {authorDir.Name}");
+                readMeBuilder.AppendLine();
 
                 foreach (var file in authorDir.GetFiles("*.modpack"))
                 {
-                    stringBuilder.AppendLine($"### {Path.GetFileNameWithoutExtension(file.Name)}");
-                    stringBuilder.AppendLine();
+                    readMeBuilder.AppendLine($"### {Path.GetFileNameWithoutExtension(file.Name)}");
+                    readMeBuilder.AppendLine();
 
-                    var modRMStream = new FileStream($"{authorDir}/{Path.GetFileNameWithoutExtension(file.Name)}.md", FileMode.OpenOrCreate);
+                    var mdName = Path.GetFileNameWithoutExtension(file.Name.Replace("Android_", "").Replace("StandaloneWindows64_", ""));
+                    var modRMStream = new FileStream($"{authorDir}/{mdName}.md", FileMode.OpenOrCreate);
                     var streamReader = new StreamReader(modRMStream);
-                    stringBuilder.Append(streamReader.ReadToEnd());
-                    stringBuilder.AppendLine();
+                    readMeBuilder.Append(streamReader.ReadToEnd());
+                    readMeBuilder.AppendLine();
+
 
                     var picPath = $"{authorDir}/{Path.GetFileNameWithoutExtension(file.Name)}.jpg";
                     var pic = new FileInfo(picPath);
 
                     var size = file.Length / 1024f / 1024f;
-                    stringBuilder.AppendLine("Size/大小:" + size.ToString("f2") + "MB");
+                    readMeBuilder.AppendLine("Size:" + size.ToString("f2") + "MB");
 
                     if (pic.Exists)
                     {
-                        stringBuilder.AppendLine($"![pic]({picPath})");
-                        stringBuilder.AppendLine();
+                        readMeBuilder.AppendLine($"![pic]({picPath})");
+                        readMeBuilder.AppendLine();
                     }
+
+                    var platform = "";
 
                     if (file.Name.Contains("Android"))
                     {
-                        stringBuilder.AppendLine($"Platform:Android / 支持平台:安卓");
+                        readMeBuilder.AppendLine($"Platform:Android");
+                        platform = "Android";
                     }
 
                     if (file.Name.Contains("Windows"))
                     {
-                        stringBuilder.AppendLine($"Platform:Windows / 支持平台:电脑");
+                        readMeBuilder.AppendLine($"Platform:Windows");
+                        platform = "Windows64";
                     }
 
-                    stringBuilder.AppendLine($"[Click To Download/点击下载](https://github.com/Doreamonsky/Panzer-War-Mod-Storage/blob/master/{authorDir.Name}/{file.Name}?raw=true)");
-                    stringBuilder.AppendLine();
+                    readMeBuilder.AppendLine($"[Click To Download](https://github.com/Doreamonsky/Panzer-War-Mod-Storage/blob/master/{authorDir.Name}/{file.Name}?raw=true)");
+                    readMeBuilder.AppendLine();
+
+
+                    links.downloadLinks.Add(new DownloadLink()
+                    {
+                        link = $"{authorDir.Name}/{file.Name}",
+                        packName = Path.GetFileNameWithoutExtension(file.Name),
+                        size = size.ToString("f1"),
+                        description = $"������ģ�� / Game Mod {streamReader.ReadToEnd()}",
+                        platform = platform,
+                        editTime = $"{file.LastWriteTime.Year}/{file.LastWriteTime.Month}/{file.LastWriteTime.Day}",
+                        author = authorDir.Name
+                    });
+
+                    streamReader.Close();
+                    modRMStream.Close();
                 }
             }
 
             var fileStream = new FileStream("ReadMe.md", FileMode.Create);
 
-            var bytes = Encoding.UTF8.GetBytes(stringBuilder.ToString());
+            var bytes = Encoding.UTF8.GetBytes(readMeBuilder.ToString());
 
             fileStream.Write(bytes, 0, bytes.Length);
             fileStream.Close();
+
+
+            var jsonStream = new FileStream("Source.json", FileMode.Create);
+            bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(links));
+
+            jsonStream.Write(bytes, 0, bytes.Length);
+            jsonStream.Close();
+
         }
     }
 }
