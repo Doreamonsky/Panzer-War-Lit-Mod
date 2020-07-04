@@ -1,5 +1,7 @@
 # PaidPackage
 
+Agreement: The paid mod is a way to encourage modders to create high quality mods. You can sell the paid mods to player if you created your mod without copyright issues. In detail,you can't use models from other games such as World of Tanks / War Thunder to make paid mods.If you sell paid mods with copyright issues,the developer has rights to close your account and revoke all the keys you have generated.
+
 Before get started,you need to contact the game developer to get the access to the manage page.
 Contact me via email:403036847@qq.com
 
