@@ -72,8 +72,8 @@ MonoBehaviour:
     steerTorque: 4
     maxAngularVelocity: 36
     isWheelVehicle: 0
+    markWidth: 0.8
     steerableWheels: []
-    wheelRotateAxis: 0
   TFParameter:
     ReloadTime: 4.8
     AmmoCount: 66
@@ -81,13 +81,14 @@ MonoBehaviour:
     slotCount: 0
     slotDuration: 0
     fireDymScale: 0
+    fireCycleTime: 0
     isFireDymIfExtraTurret: 0
     dispersion: 0
     bulletSound: {fileID: 11400000, guid: 1c107d664be3f8841b60f6a3a42b012f, type: 2}
     bulletData:
     - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
     muzzleFire: 0
-    overrideMuzzleFire: {fileID: 0}
+    overrideMuzzleFire: 
     fireState: 0
     advanceFireClass:
       LargeFinish: 0
@@ -121,5 +122,5 @@ MonoBehaviour:
     vehicleType: 1
     viewRange: 440
     isCustomExplodeParticle: 0
-    customExplodeParticle: {fileID: 0}
+    customExplodeParticle: 
     repairCoff: 1
