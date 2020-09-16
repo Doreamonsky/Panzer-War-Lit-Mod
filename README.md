@@ -41,6 +41,11 @@ Effects:
 
 Create a Replaceable Effect : [Click To Learn](Tutorials/ReplaceableEffect.md)
 
+Camouflage:
+
+Create A Camouflage Mod: [Click To Learn](Tutorials/Camouflage.md)
+
+
 Upload:
 
 Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
