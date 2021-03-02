@@ -19,6 +19,7 @@ MonoBehaviour:
     vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
       type: 2}
     TrackData: {fileID: 11400000, guid: 112824190b93c64409f2d49d1271cebd, type: 2}
+    trackAxis: 0
     Mass: 44000
     engineTorqueCurve:
       serializedVersion: 2
@@ -88,7 +89,7 @@ MonoBehaviour:
     bulletData:
     - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
     muzzleFire: 0
-    overrideMuzzleFire: 
+    overrideMuzzleFires: []
     fireState: 0
     advanceFireClass:
       LargeFinish: 0
@@ -110,17 +111,20 @@ MonoBehaviour:
   MultiFireSystemData: []
   MTParameter:
     maxTurretAngle: 180
+    ffPointAlignType: 0
     UpMaxDegree: 26
     DownMaxDegree: 5
     turretDegreesPerSecond: 35
     gunDegreesPerSecond: 20
     offset: 0
     actionData: {fileID: 0}
+    spgDistanceAdjustRatio: 0
+    overrideRanges: []
   PSParameter:
     Health: 1200
     nationType: 4
     vehicleType: 1
     viewRange: 440
     isCustomExplodeParticle: 0
-    customExplodeParticle: 
+    customExplodeParticles: []
     repairCoff: 1
