@@ -105,10 +105,9 @@ MonoBehaviour:
       reloadNowTime: 0
       reloadDurationNowTime: 0
       reloadState: 
+    isInRangeFire: 0
     fireActionData: {fileID: 0}
     customSightData: {fileID: 0}
-  ExtraTF: 0
-  MultiFireSystemData: []
   MTParameter:
     maxTurretAngle: 180
     ffPointAlignType: 0
@@ -120,11 +119,45 @@ MonoBehaviour:
     actionData: {fileID: 0}
     spgDistanceAdjustRatio: 0
     overrideRanges: []
+    moduleData:
+      hasOverride: 0
+      turretDegreesPerSecond: 0
+      gunDegreesPerSecond: 0
+  MultiFireSystemData: []
+  simpleVehicleFireSystemParameters: []
   PSParameter:
     Health: 1200
+    extraCameraDistance: 0
     nationType: 4
     vehicleType: 1
+    isOverrideBotVehicleTypeLogic: 0
+    overrideBotTypeLogic: 0
     viewRange: 440
     isCustomExplodeParticle: 0
     customExplodeParticles: []
     repairCoff: 1
+    ammunitionStoreType: 0
+    hasThermalVision: 0
+    isMech: 0
+  MechParameter:
+    isMech: 0
+    autoCreateEssentialTransforms: 1
+    walkClip: {fileID: 0}
+    overridePlayWalkClip: 0
+    hasWalkSoundEvent: 0
+    hasWalkParticle: 0
+    walkParticleYOffset: 0
+    isOverrideWalkParticle: 0
+    overrideWalkParticles: []
+    isFlyable: 0
+    hasFlyAnimation: 0
+    flyVelocity: 5
+    modeToggleDuration: 1
+    flyUpwardVelocity: 5
+    flyDownwardVelocity: 5
+    maxFlyHeight: 15
+    flyDrag: 0.5
+    flyAngularVelocity: 135
+    fireBurstVFX: {fileID: 0}
+    fuelTime: 15
+    chargeCDTime: 5
