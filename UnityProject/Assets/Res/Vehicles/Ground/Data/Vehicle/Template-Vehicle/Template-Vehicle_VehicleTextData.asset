@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: Template-Vehicle_VehicleTextData
   m_EditorClassIdentifier: 
   AssetName: Template-Vehicle
+  PSParameter:
+    Health: 1200
+    extraCameraDistance: 0
+    nationType: 4
+    vehicleType: 1
+    isOverrideBotVehicleTypeLogic: 0
+    overrideBotTypeLogic: 0
+    viewRange: 440
+    isCustomExplodeParticle: 0
+    customExplodeParticles: []
+    repairCoff: 1
+    ammunitionStoreType: 0
+    hasThermalVision: 0
+    isMech: 0
   PTCParameter:
     TankWheelCollider: {fileID: 9129519116861611582, guid: 50fb5c45a8510044b882765828f2827e,
       type: 3}
@@ -75,6 +89,7 @@ MonoBehaviour:
     isWheelVehicle: 0
     markWidth: 0.8
     steerableWheels: []
+    transmissionFlowType: 0
   TFParameter:
     ReloadTime: 4.8
     AmmoCount: 66
@@ -125,20 +140,6 @@ MonoBehaviour:
       gunDegreesPerSecond: 0
   MultiFireSystemData: []
   simpleVehicleFireSystemParameters: []
-  PSParameter:
-    Health: 1200
-    extraCameraDistance: 0
-    nationType: 4
-    vehicleType: 1
-    isOverrideBotVehicleTypeLogic: 0
-    overrideBotTypeLogic: 0
-    viewRange: 440
-    isCustomExplodeParticle: 0
-    customExplodeParticles: []
-    repairCoff: 1
-    ammunitionStoreType: 0
-    hasThermalVision: 0
-    isMech: 0
   MechParameter:
     isMech: 0
     autoCreateEssentialTransforms: 1
