@@ -30,11 +30,15 @@ MonoBehaviour:
   PTCParameter:
     TankWheelCollider: {fileID: 9129519116861611582, guid: 50fb5c45a8510044b882765828f2827e,
       type: 3}
-    vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
-      type: 2}
+    Mass: 44000
     TrackData: {fileID: 11400000, guid: 112824190b93c64409f2d49d1271cebd, type: 2}
     trackAxis: 0
-    Mass: 44000
+    isWheelVehicle: 0
+    markWidth: 0.8
+    steerableWheels: []
+    sharedEngineData: {fileID: 0}
+    vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
+      type: 2}
     engineTorqueCurve:
       serializedVersion: 2
       m_Curve:
@@ -86,10 +90,8 @@ MonoBehaviour:
     minSpeed: 22
     steerTorque: 4
     maxAngularVelocity: 36
-    isWheelVehicle: 0
-    markWidth: 0.8
-    steerableWheels: []
     transmissionFlowType: 0
+  sharedGunData: {fileID: 0}
   TFParameter:
     ReloadTime: 4.8
     AmmoCount: 66
@@ -123,6 +125,7 @@ MonoBehaviour:
     isInRangeFire: 0
     fireActionData: {fileID: 0}
     customSightData: {fileID: 0}
+  sharedTurretData: {fileID: 0}
   MTParameter:
     maxTurretAngle: 180
     ffPointAlignType: 0
