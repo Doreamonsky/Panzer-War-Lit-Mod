@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2040949085, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Template-Hull
+  m_EditorClassIdentifier: 
+  itemGUID: fb2d07c5-82db-4704-a186-da308281013a
+  displayName:
+    defaultName: Template hull
+    items: []
+  description:
+    defaultName: hull
+    items: []
+  icon: {fileID: 21300000, guid: 95103e890613c134e990eb6cad2242d4, type: 3}
+  rank: 8
+  isModuleReady: 0
+  slotInfos:
+  - position: {x: 0, y: 1.26, z: 0}
+    forwardAxis: 2
+    isAttachToGun: 0
+  renderType: 0
+  visualModelFilePath: Assets/Template-DIY/Hull/Template-Vehicle.prefab
+  hitBoxFilePath: Assets/Template-DIY/Hull/Template-Hull-HitBox.asset
+  prefabFilePath: Assets\Template-DIY\Hull/fb2d07c582db4704a186da308281013a_pre.prefab
+  EngineSound:
+    localPosition: {x: 0, y: 0.71, z: -2.33}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  EngineSmoke:
+    localPosition: {x: 1.08, y: 0.83, z: -1.77}
+    localEulerAngle: {x: 0, y: 90, z: 0}
+  CenterOfGravity:
+    localPosition: {x: 0, y: 0.7, z: 0}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  BotPoint:
+    localPosition: {x: 0, y: 1, z: 0}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  tankControllerParameter:
+    TankWheelCollider: {fileID: 9129519116861611582, guid: 50fb5c45a8510044b882765828f2827e,
+      type: 3}
+    Mass: 44000
+    TrackData: {fileID: 11400000, guid: 112824190b93c64409f2d49d1271cebd, type: 2}
+    trackAxis: 0
+    isWheelVehicle: 0
+    markWidth: 0.8
+    steerableWheels: []
+    sharedEngineData: {fileID: 0}
+    vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
+      type: 2}
+    engineTorqueCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.5
+        inSlope: -0.1
+        outSlope: -0.1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: Infinity
+        outSlope: 0.0009124496
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.12988073
+      - serializedVersion: 3
+        time: 22
+        value: 0.8
+        inSlope: -0.030739471
+        outSlope: -0.030739471
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.11627568
+      - serializedVersion: 3
+        time: 36
+        value: 0
+        inSlope: -0.07568217
+        outSlope: -0.07568217
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.09616846
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    engineTorque: 4200
+    reversingEngineTorque: 4100
+    brakeTorque: 42000
+    minEngineRPM: 1000
+    maxEngineRPM: 5000
+    maxSpeed: 36
+    minSpeed: 22
+    steerTorque: 4
+    maxAngularVelocity: 36
+    transmissionFlowType: 1
+    isSupportPhysicTrack: 0

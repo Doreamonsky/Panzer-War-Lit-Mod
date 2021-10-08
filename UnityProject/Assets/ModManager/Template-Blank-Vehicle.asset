@@ -21,13 +21,16 @@ MonoBehaviour:
   buildTarget: Android
   isAuthorizeOwnerShip: 0
   packUuid: 
-  relatedAssets:
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/packages
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/packages.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.data
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.data.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.vehicleinfo
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.vehicleinfo.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle_pre.clientextramesh
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle_pre.clientextramesh.manifest
+  buildCaches:
+  - targetPlatform: Android
+    relatedAssets:
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/packages
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/packages.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.data
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.data.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.vehicleinfo
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle.vehicleinfo.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle_pre.clientextramesh
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-Vehicle/packages/template-vehicle_pre.clientextramesh.manifest
+  luaScripts: []
   installedDirectory: Assigned-Runtime

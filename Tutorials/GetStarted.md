@@ -8,9 +8,9 @@ By default,you can click the blue download button and download ZIP.Alternatively
 
 And Unzip what you have downloaded.
 
-## 2.Download the Unity 2019.2.13f1
+## 2.Download the Unity 2019.4.22f1
 
-The project is running based on Unity **2019.2.13f1**. You can download this version from Unity Hub.
+The project is running based on Unity **2019.4.22f1**. You can download this version from Unity Hub.
 
 ## 3.Open the project
 
