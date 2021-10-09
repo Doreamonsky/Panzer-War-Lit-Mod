@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 437276983, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Template-Turret
+  m_EditorClassIdentifier: 
+  itemGUID: 472d7626-1bf4-442c-8f8d-2c79b0b6da93
+  displayName:
+    defaultName: Template Turret
+    items: []
+  description:
+    defaultName: Template Turret
+    items: []
+  icon: {fileID: 21300000, guid: 8a191120667c05e45b327a2fa86446a0, type: 3}
+  rank: 6
+  isModuleReady: 1
+  slotInfos:
+  - position: {x: 0, y: 0.34, z: 1.37}
+    forwardAxis: 2
+    isAttachToGun: 1
+  renderType: 0
+  visualModelFilePath: Assets/Template-DIY/Turret/Template-Turret.prefab
+  hitBoxFilePath: Assets/Template-DIY/Turret/Template-Turret-HitBox.asset
+  prefabFilePath: Assets\Template-DIY\Turret/472d76261bf4442c8f8d2c79b0b6da93_pre.prefab
+  MainCameraFollowTarget:
+    localPosition: {x: 0, y: 1.2, z: 0}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  MainCameraGunner:
+    localPosition: {x: 0, y: 0.35, z: 0}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  turretParameter:
+    maxTurretAngle: 180
+    ffPointAlignType: 0
+    UpMaxDegree: 26
+    DownMaxDegree: 5
+    turretDegreesPerSecond: 35
+    gunDegreesPerSecond: 20
+    offset: 0
+    actionData: {fileID: 0}
+    spgDistanceAdjustRatio: 0
+    overrideRanges: []
+    moduleData:
+      hasOverride: 0
+      turretDegreesPerSecond: 0
+      gunDegreesPerSecond: 0

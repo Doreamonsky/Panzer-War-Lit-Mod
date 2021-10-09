@@ -16,7 +16,18 @@ MonoBehaviour:
   LeftTrackMesh: {fileID: 0}
   TrackDistance: 0.12
   SpringNode: 
+  PairNodes: []
+  suspensionYOffSet: 0
   TrackCenterOffSet: {x: 0, y: 0.3, z: 0}
+  wheelBoneYOffset: 0.08
+  firstWheelBoneYOffset: 0
+  lastWheelBoneYOffset: 0
+  firstWheelBoneZOffset: 0.65
+  lastWheelBoneZOffset: 0.65
+  hasTrackDeform: 0
+  trackDeformRadius: 0.5
+  physicTrackDataGuid: 
+  physicTrackOffSet: {x: 0, y: 0, z: 0}
   AdvanceLeftBones:
   - {x: 1.4033562, y: 0.07745075, z: 1.6523061}
   - {x: 1.4033562, y: 0.07745072, z: 0.4209985}
@@ -73,3 +84,7 @@ MonoBehaviour:
   - {x: 0, y: 0.411, z: 3.274}
   - {x: 0, y: 0.15599999, z: 2.872}
   - {x: 0, y: -0.038000017, z: 2.52}
+  leftTrackDeformCache: []
+  leftTrackInitalVerts: []
+  rightTrackDeformCache: []
+  rightTrackInitalVerts: []

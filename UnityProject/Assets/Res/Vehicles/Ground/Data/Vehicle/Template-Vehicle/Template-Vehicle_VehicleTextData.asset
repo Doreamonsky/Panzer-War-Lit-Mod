@@ -26,6 +26,7 @@ MonoBehaviour:
     repairCoff: 1
     ammunitionStoreType: 0
     hasThermalVision: 0
+    overrideFireCrossData: {fileID: 0}
     isMech: 0
   PTCParameter:
     TankWheelCollider: {fileID: 9129519116861611582, guid: 50fb5c45a8510044b882765828f2827e,
@@ -91,6 +92,7 @@ MonoBehaviour:
     steerTorque: 4
     maxAngularVelocity: 36
     transmissionFlowType: 0
+    isSupportPhysicTrack: 0
   sharedGunData: {fileID: 0}
   TFParameter:
     ReloadTime: 4.8
@@ -125,6 +127,7 @@ MonoBehaviour:
     isInRangeFire: 0
     fireActionData: {fileID: 0}
     customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
   sharedTurretData: {fileID: 0}
   MTParameter:
     maxTurretAngle: 180
