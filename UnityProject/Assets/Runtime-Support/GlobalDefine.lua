@@ -51,6 +51,7 @@ MouseLockModule = Core.MouseLockModule
 
 --- @class DIYUserDefined
 --- @field rules List<Rule>
+--- @field overrideRank number
 --- @field perferredRank number
 --- @field definedName string
 DIYUserDefined = CS.ShanghaiWindy.Core.Data.DIYUserDefined
@@ -61,9 +62,13 @@ DIYUserDefined = CS.ShanghaiWindy.Core.Data.DIYUserDefined
 --- @field isMain boolean
 --- @field parentRuleGuid string
 --- @field targetSlotIndex number
+--- @field scaleSize SerializeVector3
+--- @field deltaPos SerializeVector3
+--- @field localEulerAngles SerializeVector3
 DIYRule = CS.ShanghaiWindy.Core.Data.DIYUserDefined.Rule
 
 DIYDataEnum = CS.ShanghaiWindy.Core.Data.DIYDataEnum
+SerializeVector3 = CS.ShanghaiWindy.Core.Data.SerializeVector3
 
 -- UnityEngine
 --- @class GameObject
@@ -71,7 +76,13 @@ DIYDataEnum = CS.ShanghaiWindy.Core.Data.DIYDataEnum
 --- @field Destroy fun()
 GameObject = CS.UnityEngine.GameObject
 AudioListener = CS.UnityEngine.AudioListener
+Vector2 = CS.UnityEngine.Vector2
 Vector3 = CS.UnityEngine.Vector3
+Color = CS.UnityEngine.Color
+
+--- @class JsonUtility
+--- @field ToJson fun(object:obj) Generate a JSON representation of the public fields of an object.
+JsonUtility = CS.UnityEngine.JsonUtility
 
 -- UGUI
 Text = CS.UnityEngine.UI.Text

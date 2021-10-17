@@ -16,20 +16,23 @@ MonoBehaviour:
   description: The Description of the mod
   author: Your Name
   supportURL: https://yourWebSite.com
-  modVersion: 1.0
+  modVersion: 1
   testedGameVersion: 2020.1
   buildTarget: Android
   isAuthorizeOwnerShip: 0
   packUuid: 
-  relatedAssets:
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.data
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.data.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.vehicleinfo
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.vehicleinfo.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.clientextramesh
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.clientextramesh.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.masterextramesh
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.masterextramesh.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/packages
-  - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/packages.manifest
+  buildCaches:
+  - targetPlatform: Android
+    relatedAssets:
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.data
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.data.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.vehicleinfo
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c.vehicleinfo.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.clientextramesh
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.clientextramesh.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.masterextramesh
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/bf-110-c_pre.masterextramesh.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/packages
+    - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/packages.manifest
+  luaScripts: []
   installedDirectory: Assigned-Runtime
