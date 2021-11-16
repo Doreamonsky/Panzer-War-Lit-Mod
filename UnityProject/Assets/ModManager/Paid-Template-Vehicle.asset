@@ -16,18 +16,25 @@ MonoBehaviour:
   description: The Description of the mod
   author: Your Name
   supportURL: https://yourWebSite.com
-  modVersion: 1.0
+  modVersion: 1
   testedGameVersion: 2019.6.0.0 Vista
   buildTarget: StandaloneWindows64
   isAuthorizeOwnerShip: 1
   packUuid: 7ef314b9-3d42-4d09-996b-830bdadc2e2a
-  relatedAssets:
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/packages
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/packages.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle.data
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle.data.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle.vehicleinfo
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle.vehicleinfo.manifest
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle_pre.clientextramesh
-  - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/template-vehicle_pre.clientextramesh.manifest
+  buildCaches:
+  - targetPlatform: Android
+    relatedAssets:
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f.data
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f.data.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_pre.clientextramesh
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_pre.clientextramesh.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_pre.masterextramesh
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_pre.masterextramesh.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_vehicleinfo.vehicleinfo
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/da1633b5-7cf9-4c73-bc9d-6f998e9a811f_vehicleinfo.vehicleinfo.manifest
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/manifest.mark
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/packages
+    - Build/Mod-BuildPipline/Android/BuildPipline-Paid-Template-Vehicle/packages/Encryption/packages.manifest
+  isLoadManifest: 1
+  luaScripts: []
   installedDirectory: Assigned-Runtime
