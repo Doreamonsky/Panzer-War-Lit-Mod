@@ -21,42 +21,9 @@ Here,you can see download various game mods and the source code of them.In the f
 
 ## Create Mod
 
-Here are some documents for you to crate your own mods. Contribute to the mod community now!
+Learn how to create mod click this [link](https://www.yuque.com/chaojiduolajiang/panzerwar/abep3y)
 
-**Important!!** Get Started: [Click To Learn](Tutorials/GetStarted.md). Project is now running on Unity 2019.4.22f1.
-
-Vehicles:
-
-Create A Vehicle Mod: [Click To Learn](Tutorials/Vehicle.md)
-
-Make the thumbnail of vehicle: [Click To Learn](Tutorials/Vehicle-Thumbnail.md)
-
-Wheel Collider Configure Tips:[Click To Learn](Tutorials/WheelColliderTip.md)
-
-Maps:
-
-Create A Map Mod: [Click To Learn](Tutorials/MapWizard.md)
-
-Sight:
-
-Create A Sight Mod: [Click To Learn](Tutorials/Sight.md)
-
-Effects:
-
-Create a Replaceable Effect : [Click To Learn](Tutorials/ReplaceableEffect.md)
-
-Camouflage:
-
-Create A Camouflage Mod: [Click To Learn](Tutorials/Camouflage.md)
-
-
-Upload:
-
-Upload the mod package: [Click To Learn](Tutorials/ContributeCommunity.md)
-
-Make Profits:
-
-Create a paid mod: [Click To Learn](Tutorials/PaidPackage.md)
+学习如何创建模组，点击此 [链接](https://www.yuque.com/chaojiduolajiang/panzerwar/abep3y)
 
 ## Mods
 
