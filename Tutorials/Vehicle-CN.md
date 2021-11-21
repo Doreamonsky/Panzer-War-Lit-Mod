@@ -225,7 +225,7 @@ Bullet VFX 请务必使用内置资源
 
 ![BuildPiplineSet](BuildPiplineSet.jpg)
 
-将 vehicle info 和 vehicle text data 加入到 linked object. 再加入位于 Assets/Res/Cooked/ 下的 xxxx_Pre 和位于 Assets/Res/Cooked/DelicatedServer 加入到 linked object 中.
+将 vehicle info 加入到 linked object 中.
 
 点击 Ctrl + Shift + B 切换你要的平台.
 **模组必须使用相同的平台才能运行**

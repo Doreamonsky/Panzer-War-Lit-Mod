@@ -254,7 +254,7 @@ And click Create Mod Package Button.
 
 ![BuildPiplineSet](BuildPiplineSet.jpg)
 
-Drag your vehicle info and vehicle text data to the linked object. And drag xxxx_Pre located at Assets/Res/Cooked/ and xxxx_Pre located at Assets/Res/Cooked/DelicatedServer to the linked object.**(This asset will be missing everytime you click Pact Asset in VehicleData in some Unity version)**
+Drag your vehicle info to the linked object to the linked object.
 
 Press Ctrl + Shift + B to select your desired platform.
 **Remember you can't run mods with an incorrect build platform**
