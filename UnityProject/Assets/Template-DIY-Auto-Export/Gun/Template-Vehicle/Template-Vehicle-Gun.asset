@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -715765724, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Template-Vehicle-Gun
+  m_EditorClassIdentifier: 
+  itemGUID: 05ab986f-02ad-4668-8566-b3e971c05eb5
+  displayName:
+    defaultName: Template-Vehicle
+    items: []
+  description:
+    defaultName: Template-Vehicle
+    items: []
+  icon: {fileID: 0}
+  rank: 1
+  hp: 300
+  isModuleReady: 0
+  slotInfos: []
+  renderType: 0
+  visualModelFilePath: Assets/Template-DIY-Auto-Export/Gun/Template-Vehicle/Template-Vehicle-Gun.prefab
+  hitBoxFilePath: Assets/Template-DIY-Auto-Export/Gun/Template-Vehicle/Template-Vehicle-Gun-HitBox.asset
+  prefabFilePath: 
+  firePoints:
+  - ffPointPath: FFPoint
+    fireEffectPointPath: FireEffect
+  FireForceFeedbackPoint:
+    localPosition: {x: 0, y: 0, z: 0}
+    localEulerAngle: {x: 0, y: 0, z: 0}
+  TFParameter:
+    ReloadTime: 4.8
+    AmmoCount: 66
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    fireDymScale: 0
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    dispersion: 0
+    bulletSound: {fileID: 11400000, guid: 1c107d664be3f8841b60f6a3a42b012f, type: 2}
+    bulletData:
+    - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
+    muzzleFire: 0
+    overrideMuzzleFires: []
+    fireState: 0
+    advanceFireClass:
+      LargeFinish: 0
+      LargeNowTime: 0
+      smallNowTime: 0
+      SmallReloadTime: 0
+      LargeReloadTime: 0
+      SmallAmmoLeft: 0
+      MaxSmallAmmo: 0
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      reloadNowTime: 0
+      reloadDurationNowTime: 0
+      reloadState: 
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
