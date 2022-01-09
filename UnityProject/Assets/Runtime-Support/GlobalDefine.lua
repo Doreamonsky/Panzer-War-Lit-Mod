@@ -15,6 +15,9 @@
 ---@field SetRuleAsMain fun(userDefined:DIYUserDefined,mainRuleGuid:string) 设置 Rule 为 Main
 ---@field ExportShareCode fun(userDefined:DIYUserDefined,onComplete:System.Action<string>)
 ---@field ImportShareCode fun(shareId:string,onComplete:System.Action<DIYUserDefined>)
+---@field OnEquipDetailClicked UnityEvent
+---@field OnEquipInstallClicked UnityEvent
+---@field OnEquipUninstallClicked UnityEvent
 ---@field OnLuaExitModeReq UnityEvent
 CSharpAPI = CS.ShanghaiWindy.Core.LuaCallCSharpHelper
 
@@ -83,6 +86,14 @@ InternalModule = CS.ShanghaiWindy.Core.InternalModule
 --- @class uGUI_Localsize
 --- @field GetContent fun(_Key:string):void
 uGUI_Localsize = CS.ShanghaiWindy.Core.uGUI_Localsize
+
+--- @class GameObjectPool
+--- @field Init fun(prototype:GameObject,count:int):void
+--- @field InstantiateObject fun():GameObject
+--- @field DestroyObject fun(o:GameObject):void
+--- @field Dispose fun():void
+GameObjectPool = CS.ShanghaiWindy.Core.Utils.GameObjectPool
+
 -- UnityEngine
 --- @class GameObject
 --- @field Instantiate fun() 实例化

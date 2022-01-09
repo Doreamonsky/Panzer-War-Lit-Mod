@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: German TD Common Sight
   m_EditorClassIdentifier: 
+  displayName:
+    defaultName: 
+    items: []
+  guid: da596dec-2abf-4894-a109-b1fb2f983767
   thousandth: 1
   drawCentralLineVert: 0
   drawCentralLineHorz: 0
   centralLineVertThickness: 1
   centralLineHorzThickness: 1
   ballistics:
-  - defaultVelocity: 480
+  - defaultGravity: 9.8
+    dynamicGravity: 1
+    defaultVelocity: 480
     dynamicVelocity: 1
     crosshairDistances:
     - range: 200
@@ -57,6 +63,7 @@ MonoBehaviour:
     crosshairHorRanges: []
     crosshairHorRangeVertOffSet: 0
     textHorRangeVertOffSet: 0
+    drawCircle: 1
   lines:
   - points:
     - {x: 0.5, y: 0.5}
@@ -202,10 +209,8 @@ MonoBehaviour:
   radialAngle: 180
   initialRadialAngle: 90
   circleMode: 0
-  drawCircle: 1
   drawCircleLines: 1
   radialStretch: 1
   circleEdge: 0.7
   circleTextOffSet: 0.07
   circleNotchOffSet: 0.025
-  specificVehicle: null

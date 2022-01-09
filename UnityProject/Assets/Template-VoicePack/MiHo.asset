@@ -10,37 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -2012724472, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: GER
+  m_Name: MiHo
   m_EditorClassIdentifier: 
-  ArmorRicochet:
-  - {fileID: 8300000, guid: 01f6cd7acfc12744881b2e36aa035271, type: 3}
-  - {fileID: 8300000, guid: 10c8d31b92a55b347b9746b2fd088108, type: 3}
-  - {fileID: 8300000, guid: 56084075739302844a3a5dea50d057d3, type: 3}
-  - {fileID: 8300000, guid: 42f620fa398ad4345bc1c154ccb99abd, type: 3}
-  EnemyKilled:
-  - {fileID: 8300000, guid: b97060d1bb25459408cfb961d237ad55, type: 3}
-  - {fileID: 8300000, guid: ee6287a0ebc6bdd468a187d870a5a648, type: 3}
-  - {fileID: 8300000, guid: ba2dfa15833848d45a3e576e5b269ddb, type: 3}
-  - {fileID: 8300000, guid: 3287ba9cc42af63469919c1e9b3a8469, type: 3}
-  - {fileID: 8300000, guid: e4535bab49a45fb409758a44778848d0, type: 3}
-  - {fileID: 8300000, guid: 45ab50fbb6a112f4ca64b2d0628a3461, type: 3}
-  - {fileID: 8300000, guid: c3eabde319853fa4fa6c9c7de2b835e4, type: 3}
-  - {fileID: 8300000, guid: 16b4639f99668994c8370ae299136e68, type: 3}
-  - {fileID: 8300000, guid: 269c140c68502614c87f1b982f13d322, type: 3}
-  - {fileID: 8300000, guid: 6868270a9ec640846921ede7fbd1164d, type: 3}
+  voiceName:
+    defaultName: Gup-Miho
+    items:
+    - lang: 0
+      localizedName: "\u897F\u4F4F\u7F8E\u60E0"
+  nationType: 0
   StartBattle:
   - {fileID: 8300000, guid: 16f1c86fbf7509942abfc459e2d19c91, type: 3}
   - {fileID: 8300000, guid: 7a53ad8aaac065a43a463c5743397090, type: 3}
   - {fileID: 8300000, guid: 75533622e9a8ab149a8b74ecf10490fd, type: 3}
   - {fileID: 8300000, guid: 0f241841f8ac5b646a59e961eb1e5db2, type: 3}
   - {fileID: 8300000, guid: 16c716705dcc57f45829efbd2bcbfc75, type: 3}
-  VehicleDestroyed:
-  - {fileID: 8300000, guid: 1338c0bd794007a4f82c8066741d5eb8, type: 3}
-  - {fileID: 8300000, guid: 90feae18deaf9f34c8b80762c70edb6e, type: 3}
-  - {fileID: 8300000, guid: e6b32d6dfe0ea6143921e9af05134c82, type: 3}
-  - {fileID: 8300000, guid: 2683945ba9528a5499d45519fd46b019, type: 3}
-  - {fileID: 8300000, guid: 9059ed4d4c7928f4584bc9824430520c, type: 3}
-  - {fileID: 8300000, guid: 652e06104bbb9a24580698874f785980, type: 3}
   ArmorPierced:
   - {fileID: 8300000, guid: 2fb43c0fe44fca944a350a0e88b0a07f, type: 3}
   - {fileID: 8300000, guid: 2a51b33710689c44fbec4d35809c1943, type: 3}
@@ -58,8 +41,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d1e75934f426f5c4892d10d0a54af3c5, type: 3}
   - {fileID: 8300000, guid: 81b16265199fe78449be52eadf3be722, type: 3}
   - {fileID: 8300000, guid: 22fcaf2d0cb2fef44b60fdf1283696a4, type: 3}
+  EnemyKilled:
+  - {fileID: 8300000, guid: b97060d1bb25459408cfb961d237ad55, type: 3}
+  - {fileID: 8300000, guid: ee6287a0ebc6bdd468a187d870a5a648, type: 3}
+  - {fileID: 8300000, guid: ba2dfa15833848d45a3e576e5b269ddb, type: 3}
+  - {fileID: 8300000, guid: 3287ba9cc42af63469919c1e9b3a8469, type: 3}
+  - {fileID: 8300000, guid: e4535bab49a45fb409758a44778848d0, type: 3}
+  - {fileID: 8300000, guid: 45ab50fbb6a112f4ca64b2d0628a3461, type: 3}
+  - {fileID: 8300000, guid: c3eabde319853fa4fa6c9c7de2b835e4, type: 3}
+  - {fileID: 8300000, guid: 16b4639f99668994c8370ae299136e68, type: 3}
+  - {fileID: 8300000, guid: 269c140c68502614c87f1b982f13d322, type: 3}
+  - {fileID: 8300000, guid: 6868270a9ec640846921ede7fbd1164d, type: 3}
   ArmorNotPierced:
   - {fileID: 8300000, guid: bc8d5edbe3e610f4eb39722d3cf8e051, type: 3}
   - {fileID: 8300000, guid: 9632473684c9c244ebf84122add8e489, type: 3}
   - {fileID: 8300000, guid: 7bf434fb495a982458aa9322d5596d33, type: 3}
   - {fileID: 8300000, guid: 49b35f8bbf369ed498bba5ceb23f12a1, type: 3}
+  ArmorRicochet:
+  - {fileID: 8300000, guid: 01f6cd7acfc12744881b2e36aa035271, type: 3}
+  - {fileID: 8300000, guid: 10c8d31b92a55b347b9746b2fd088108, type: 3}
+  - {fileID: 8300000, guid: 56084075739302844a3a5dea50d057d3, type: 3}
+  - {fileID: 8300000, guid: 42f620fa398ad4345bc1c154ccb99abd, type: 3}
+  VehicleDestroyed:
+  - {fileID: 8300000, guid: 1338c0bd794007a4f82c8066741d5eb8, type: 3}
+  - {fileID: 8300000, guid: 90feae18deaf9f34c8b80762c70edb6e, type: 3}
+  - {fileID: 8300000, guid: e6b32d6dfe0ea6143921e9af05134c82, type: 3}
+  - {fileID: 8300000, guid: 2683945ba9528a5499d45519fd46b019, type: 3}
+  - {fileID: 8300000, guid: 9059ed4d4c7928f4584bc9824430520c, type: 3}
+  - {fileID: 8300000, guid: 652e06104bbb9a24580698874f785980, type: 3}
+  guid: 78cbd6c9-392e-4383-a57e-5f19580d76b4
