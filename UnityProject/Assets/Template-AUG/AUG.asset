@@ -1,0 +1,554 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6999856786891747708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 136203270, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-FPWeaponVisualData
+  m_EditorClassIdentifier: 
+  visualType: 3
+  fpWeaponSkin:
+    FPMesh: {fileID: 0}
+    FPMaterials: []
+  fpWeaponPrefab: {fileID: 0}
+  fpWeaponPrefabLocalPos: {x: 0, y: 0, z: 0}
+  fpWeaponPrefabLocalEulerAngles: {x: 0, y: 0, z: 0}
+  fpCustomWeaponHandler: {fileID: 6618339297256447594, guid: 814854d8b80b2694782e65b42fdfbda8,
+    type: 3}
+  fpOverrideClips:
+    m_Controller: {fileID: 9100000, guid: 22f6b0cc64f02e64aac257cf9db333c5, type: 2}
+    m_Clips:
+    - Original: {fileID: 7400000, guid: 6fcd4ef4b0dd5df49a09e341d846c3d2, type: 2}
+      Override: {fileID: 4563440270601980087, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+    - Original: {fileID: 7400000, guid: 4966c1d6c082a3d46a96afb0b9716e91, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: 40ac6268f5185674e8efb76cb3242b46, type: 2}
+      Override: {fileID: -5327254314708142243, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+    - Original: {fileID: 7400000, guid: b9bdb7571c978a549aed39a9bf5809cb, type: 2}
+      Override: {fileID: -5327254314708142243, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+    - Original: {fileID: 7400000, guid: 196e3d56bfa17d8488292b5cfbd13e94, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: a1c706a393d038a43bff5b74a05bd474, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: 7e96b7effe8621246b3d57a166c0c7f0, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: fafc89f205e7dff4d9233b2807b20dd9, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: 63aa47c646e95c7489628d5eef2a35e8, type: 2}
+      Override: {fileID: 8873536616490621666, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+    - Original: {fileID: 7400000, guid: 9a14336492c80dc458aa7ef450933bfb, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: 3d62d1c9d9ec9f5458163e03cc42e520, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: dfb21d525b06b5c4c993856c9f4a42b1, type: 2}
+      Override: {fileID: 0}
+    - Original: {fileID: 7400000, guid: 4840586a7b8754540ad3832bd81aa20f, type: 2}
+      Override: {fileID: -11087753984389711, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+    - Original: {fileID: 7400000, guid: 1cee0a70c42f89f44ba4b62f9490d37d, type: 2}
+      Override: {fileID: -11087753984389711, guid: 2cdaab5b845f7924890e8705b97c7dd2,
+        type: 3}
+--- !u!114 &-3338663065583011352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1689531979, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-FPWeaponPhysicsData
+  m_EditorClassIdentifier: 
+  GeneralSettings:
+    PivotPosition: {x: 0, y: 0, z: 0}
+    BasePosOffset: {x: -0.04, y: -0.08, z: 0.08}
+    BaseRotOffset: {x: 0, y: 0, z: 0}
+  IdleState:
+    PositionSpring:
+      Stiffness: {x: 0.012, y: 0.012, z: 0.012}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    RotationSpring:
+      Stiffness: {x: 0.015, y: 0.015, z: 0.015}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    HasEntryOffset: 0
+    EntryOffsetDuration: 1
+    LerpToDefaultOffestSpeed: 2
+    EntryOffset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Offset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Bob:
+      Enabled: 1
+      PositionAmplitude: {x: 0.35, y: 0.5, z: 0}
+      RotationAmplitude: {x: 0.35, y: 0.5, z: 0}
+    Noise:
+      MaxJitter: 0.1
+      NoiseSpeed: 1.3
+      PosNoiseAmplitude: {x: 0.02, y: 0.04, z: 0.015}
+      RotNoiseAmplitude: {x: 0.08, y: 0.1, z: 0.1}
+    EnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 1
+    ExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 1
+    PosEnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 1
+    PosExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 1
+  WalkState:
+    PositionSpring:
+      Stiffness: {x: 0.012, y: 0.012, z: 0.012}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    RotationSpring:
+      Stiffness: {x: 0.015, y: 0.015, z: 0.015}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    HasEntryOffset: 0
+    EntryOffsetDuration: 1
+    LerpToDefaultOffestSpeed: 2
+    EntryOffset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Offset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Bob:
+      Enabled: 1
+      PositionAmplitude: {x: 2, y: -3, z: 0}
+      RotationAmplitude: {x: 5, y: 4, z: 7}
+    Noise:
+      MaxJitter: 0
+      NoiseSpeed: 1
+      PosNoiseAmplitude: {x: 0.04, y: 0.04, z: 0.025}
+      RotNoiseAmplitude: {x: 0.1, y: 0.2, z: 0.15}
+    EnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    ExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    PosEnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    PosExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+  RunState:
+    PositionSpring:
+      Stiffness: {x: 0.02, y: 0.02, z: 0.02}
+      Damping: {x: 0.4, y: 0.4, z: 0.4}
+    RotationSpring:
+      Stiffness: {x: 0.02, y: 0.04, z: 0.02}
+      Damping: {x: 0.4, y: 0.3, z: 0.4}
+    HasEntryOffset: 1
+    EntryOffsetDuration: 0.7
+    LerpToDefaultOffestSpeed: 4
+    EntryOffset:
+      Enabled: 1
+      PositionOffset: {x: -2, y: -0.7, z: -10}
+      RotationOffset: {x: 5, y: 0, z: 4}
+    Offset:
+      Enabled: 1
+      PositionOffset: {x: -3, y: -2, z: -15}
+      RotationOffset: {x: 14, y: -40, z: 20}
+    Bob:
+      Enabled: 1
+      PositionAmplitude: {x: -20, y: -35, z: -5}
+      RotationAmplitude: {x: 55, y: 85, z: 75}
+    Noise:
+      MaxJitter: 0
+      NoiseSpeed: 0.01
+      PosNoiseAmplitude: {x: 0, y: 0, z: 0}
+      RotNoiseAmplitude: {x: 0, y: 0, z: 0}
+    EnterForce:
+      Force: {x: -0.5, y: 0, z: 0}
+      Distribution: 10
+    ExitForce:
+      Force: {x: 0.6, y: -0.2, z: 1}
+      Distribution: 10
+    PosEnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    PosExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+  AimState:
+    PositionSpring:
+      Stiffness: {x: 0.04, y: 0.04, z: 0.03}
+      Damping: {x: 0.4, y: 0.4, z: 0.4}
+    RotationSpring:
+      Stiffness: {x: 0.02, y: 0.01, z: 0.01}
+      Damping: {x: 0.25, y: 0.25, z: 0.25}
+    HasEntryOffset: 0
+    EntryOffsetDuration: 1
+    LerpToDefaultOffestSpeed: 2
+    EntryOffset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Offset:
+      Enabled: 1
+      PositionOffset: {x: -30.07, y: 4.72, z: 20.5}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Bob:
+      Enabled: 1
+      PositionAmplitude: {x: 0.5, y: 2, z: 0}
+      RotationAmplitude: {x: 0.5, y: 1, z: -1.5}
+    Noise:
+      MaxJitter: 0.1
+      NoiseSpeed: 1
+      PosNoiseAmplitude: {x: 0.01, y: 0.02, z: 0.0075}
+      RotNoiseAmplitude: {x: 0.04, y: 0.02, z: 0.05}
+    EnterForce:
+      Force: {x: 0.3, y: 0.22, z: -0.4}
+      Distribution: 5
+    ExitForce:
+      Force: {x: -0.1, y: -0.3, z: 0.8}
+      Distribution: 5
+    PosEnterForce:
+      Force: {x: -0.0005, y: 0, z: 0}
+      Distribution: 3
+    PosExitForce:
+      Force: {x: -0.0006, y: -0.0005, z: 0}
+      Distribution: 3
+  CrouchState:
+    PositionSpring:
+      Stiffness: {x: 0.012, y: 0.012, z: 0.012}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    RotationSpring:
+      Stiffness: {x: 0.015, y: 0.015, z: 0.015}
+      Damping: {x: 0.28, y: 0.28, z: 0.28}
+    HasEntryOffset: 0
+    EntryOffsetDuration: 1
+    LerpToDefaultOffestSpeed: 2
+    EntryOffset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: 0, z: 0}
+      RotationOffset: {x: 0, y: 0, z: 0}
+    Offset:
+      Enabled: 1
+      PositionOffset: {x: 0, y: -0.7, z: -1}
+      RotationOffset: {x: -2, y: -1.3, z: 3}
+    Bob:
+      Enabled: 1
+      PositionAmplitude: {x: 0, y: -5, z: 0}
+      RotationAmplitude: {x: -5, y: 5, z: 0}
+    Noise:
+      MaxJitter: 0.1
+      NoiseSpeed: 1.75
+      PosNoiseAmplitude: {x: 0.02, y: 0.02, z: 0.0075}
+      RotNoiseAmplitude: {x: 0.02, y: 0.07, z: 0.05}
+    EnterForce:
+      Force: {x: -0.3, y: 0.1, z: 0.5}
+      Distribution: 5
+    ExitForce:
+      Force: {x: 0.5, y: 0, z: -0.5}
+      Distribution: 4
+    PosEnterForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+    PosExitForce:
+      Force: {x: 0, y: 0, z: 0}
+      Distribution: 0
+  isDefaultCommonData: 1
+  commonData: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 308447777, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG
+  m_EditorClassIdentifier: 
+  prettyInternalWeaponName: AUG
+  itemGUID: 1cbc9de0-cc2e-4237-8b7f-6dc933af9e36
+  tpsWeaponPrefab: {fileID: 4952471585289593396, guid: 151a07226b673614994eaf5fa6ccf3b9,
+    type: 3}
+  tpsFFPointLocation: 
+  tpsFireEffectLocation: 
+  tpsFireShellLocation: 
+  weaponInfo: {fileID: 11400000, guid: 72812f29fa91b324f9139306b69f79bf, type: 2}
+  mainPropertyData: {fileID: 848920755914730943}
+  fpCrossHairData: {fileID: 6871314429010484799}
+  fpVisualData: {fileID: -6999856786891747708}
+  fpRecoilData: {fileID: 1285911459219634559}
+  fpPhysicData: {fileID: -3338663065583011352}
+  fpMiscData: {fileID: 1165994832993512495}
+--- !u!114 &848920755914730943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -494410347, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-MainProperty
+  m_EditorClassIdentifier: 
+  coolDown: 0.1
+  clipMaxBulletCount: 30
+  bulletData: {fileID: 11400000, guid: efd7f10f1a5128942ae0f0528ae23d48, type: 2}
+  reloadTime: 1
+  hasEmptyReload: 0
+  emptyReloadTime: 1
+  SpreadOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AimSpreadFactor: 0.8
+  CrouchSpreadFactor: 0.95
+  IdleSpreadFactor: 1
+  WalkSpreadFactor: 0.95
+  RunSpreadFactor: 0.95
+  JumpSpreadFactor: 1.5
+--- !u!114 &1165994832993512495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1725313798, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-FPWeaponMiscData
+  m_EditorClassIdentifier: 
+  ReloadSounds: []
+  ReloadStartSounds: []
+  ReloadEndSounds: []
+  EmptyReloadSounds: []
+  FireSounds: []
+  ReloadLoopCamForces: []
+  ReloadStartCamForces: []
+  ReloadEndCamForces: []
+  EmptyReloadLoopCamForces: []
+  HandlingCamForces: []
+  MuzzleFlashVFX:
+    vfxName: FPS_Muzzle_Rifle
+  MuzzleFlashOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1285911459219634559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 289569920, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-FPWeaponRecoilData
+  m_EditorClassIdentifier: 
+  fpCameraRecoil:
+    AimMultiplier: 0.9
+    RecoilPatternMultiplier: 1.3
+    RecoilPattern:
+    - {x: -4.5, y: 1}
+    - {x: -4.5, y: 0}
+    - {x: -7.5, y: 1}
+    - {x: -6, y: 0}
+    - {x: -7, y: -1}
+    - {x: -6, y: 1}
+    - {x: -7, y: 4}
+    - {x: -4.5, y: -2}
+    - {x: -5, y: -3}
+    - {x: -4.5, y: 5}
+    - {x: -3, y: 2}
+    - {x: -2, y: 1.5}
+    - {x: -1, y: 4}
+    - {x: 2, y: 1}
+    - {x: 3, y: 2}
+    - {x: 4, y: 5}
+    - {x: -2.5, y: -1}
+    - {x: -4, y: -2}
+    - {x: -6, y: -4}
+    - {x: -3, y: 0}
+    - {x: -3, y: 0}
+    - {x: -4, y: -2}
+    - {x: -2, y: -3}
+    - {x: 2, y: 2}
+    - {x: -1, y: 3}
+    - {x: -5, y: 2}
+    - {x: -6, y: 1}
+    - {x: -6, y: 3}
+    - {x: -5, y: 1}
+    - {x: -2, y: 0}
+    RecoilControlEasing: 30
+    RecoilControlDelay: 0.1
+    RecoilControlDuration: 2
+    SpringData:
+      Stiffness: {x: 0.1, y: 0.1, z: 0.1}
+      Damping: {x: 0.4, y: 0.3, z: 0.3}
+    ShootForce:
+      RotForce: {x: -0.7, y: 0, z: -0.25}
+      PosForce: {x: 0, y: 0, z: -1}
+      Distribution: 2
+      JitterForce:
+        xJitter: 0.3
+        yJitter: 0.3
+        zJitter: 0.2
+    ShootShake:
+      PositionAmplitude: {x: 0, y: 0, z: 0}
+      RotationAmplitude: {x: 0, y: 0, z: 0}
+      Decay:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      Duration: 2
+      Speed: 1
+  fpWeaponModelRecoil:
+    RecoilOverTime:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.00527966
+        value: 0.09973171
+        inSlope: 1.5422992
+        outSlope: 1.5422992
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.175
+      - serializedVersion: 3
+        time: 0.9772186
+        value: 0.89678574
+        inSlope: 0.034449577
+        outSlope: 0.034449577
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.2500099
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    PositionSpring:
+      Stiffness: {x: 0.03, y: 0.03, z: 0.02}
+      Damping: {x: 0.3, y: 0.3, z: 0.3}
+    RotationSpring:
+      Stiffness: {x: 0.03, y: 0.02, z: 0.03}
+      Damping: {x: 0.3, y: 0.3, z: 0.3}
+    ShootForce:
+      RotForce: {x: -0.25, y: -0.1, z: -0.125}
+      PosForce: {x: 0, y: -0.1, z: -0.5}
+      Distribution: 3
+      JitterForce:
+        xJitter: 0.25
+        yJitter: 0.35
+        zJitter: 0.25
+    AimShootForce:
+      RotForce: {x: 0, y: -0.02, z: 0}
+      PosForce: {x: 0.02, y: 0, z: -0.5}
+      Distribution: 3
+      JitterForce:
+        xJitter: 0.2
+        yJitter: 1
+        zJitter: 0.2
+    DryFireForce:
+      RotForce: {x: 0.12, y: 0, z: -0.1}
+      PosForce: {x: 0, y: 0, z: 0}
+      Distribution: 5
+      JitterForce:
+        xJitter: 0
+        yJitter: 0
+        zJitter: 0
+    ChangeFireModeForce:
+      RotForce: {x: -0.15, y: 0.15, z: 0.4}
+      PosForce: {x: -0.04, y: -0.08, z: -0.1}
+      Distribution: 8
+      JitterForce:
+        xJitter: 0.2
+        yJitter: 0.2
+        zJitter: 0.2
+--- !u!114 &6871314429010484799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -201026791, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: AUG-FPWeaponCrosshairData
+  m_EditorClassIdentifier: 
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  OnEntityColor: {r: 1, g: 0, b: 0, a: 1}
+  ShowWhenAiming: 0
+  crossHairType: 0
+  StaticCrosshair:
+    overrideSprite: {fileID: 0}
+    size: {x: 64, y: 64}
+  DynamicCrosshair:
+    isShowUp: 0
+    overrideUpSprite: {fileID: 0}
+    isShowDown: 0
+    overrideDownSprite: {fileID: 0}
+    isShowRight: 0
+    overrideRightSprite: {fileID: 0}
+    isShowLeft: 0
+    overrideLeftSprite: {fileID: 0}
+  PunchSize: 2
+  MoveSpeed: 3
