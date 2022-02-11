@@ -12,4 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 1152498088, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Sounds
   m_EditorClassIdentifier: 
-  spawnReses: []
+  identifier: {fileID: 11400000, guid: 17344bdf1aa1e2d438b7049d4e35f91d, type: 2}
+  spawnReses:
+  - spawnName: ShellReload
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 2
+  - spawnName: KillAchievementSound
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 2
+  - spawnName: ap_critical_hit_small
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 5
+  - spawnName: ap_critical_hit_medium
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 5
+  - spawnName: ap_critical_hit_huge
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 5
+  - spawnName: apcr_ricochet_main
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 5
+  - spawnName: ap_armor_not_pierce_main
+    spawnObject: {fileID: 0}
+    isBuff: 0
+    instanceCount: -1
+    lifeTime: 5
