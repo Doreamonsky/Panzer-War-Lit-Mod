@@ -6,7 +6,7 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.StateMachines
 {
 
-    /// Base class for fsm nodes that are actually states
+    ///<summary> Base class for fsm nodes that are actually states</summary>
     abstract public class FSMState : FSMNode, IState
     {
 
@@ -32,7 +32,7 @@ namespace NodeCanvas.StateMachines
             set { _transitionEvaluation = value; }
         }
 
-        ///Returns all transitions of the state
+        ///<summary>Returns all transitions of the state</summary>
         public FSMConnection[] GetTransitions() {
             var result = new FSMConnection[outConnections.Count];
             for ( var i = 0; i < outConnections.Count; i++ ) {
@@ -41,7 +41,7 @@ namespace NodeCanvas.StateMachines
             return result;
         }
 
-        ///Declares that the state has finished
+        ///<summary>Declares that the state has finished</summary>
         public void Finish() { Finish(Status.Success); }
         public void Finish(bool inSuccess) { Finish(inSuccess ? Status.Success : Status.Failure); }
         public void Finish(Status status) { this.status = status; }
@@ -104,7 +104,7 @@ namespace NodeCanvas.StateMachines
             }
         }
 
-        ///Returns true if a transitions was valid and thus made
+        ///<summary>Returns true if a transitions was valid and thus made</summary>
         public bool CheckTransitions() {
 
             for ( var i = 0; i < outConnections.Count; i++ ) {

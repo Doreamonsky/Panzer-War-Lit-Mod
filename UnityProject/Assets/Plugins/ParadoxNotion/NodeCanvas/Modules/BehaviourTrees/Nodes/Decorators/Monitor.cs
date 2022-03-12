@@ -8,7 +8,7 @@ namespace NodeCanvas.BehaviourTrees
 {
 
     [Category("Decorators")]
-    [Icon("Eye")]
+    [ParadoxNotion.Design.Icon("Eye")]
     [Description("Monitors the decorated child node for a returned Status and executes an Action when that is the case.\nThe final Status returned to the parent can either be the original Decorated Child Node Status, or the new Decorator Action Status.")]
     public class Monitor : BTDecorator, ITaskAssignable<ActionTask>
     {

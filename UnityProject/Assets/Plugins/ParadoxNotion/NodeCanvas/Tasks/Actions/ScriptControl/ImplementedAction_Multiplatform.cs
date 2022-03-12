@@ -86,6 +86,7 @@ namespace NodeCanvas.Tasks.Actions
 
         void SetMethod(MethodInfo method) {
             if ( method != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 this.method = new SerializedMethodInfo(method);
                 this.parameters.Clear();
                 foreach ( var p in method.GetParameters() ) {

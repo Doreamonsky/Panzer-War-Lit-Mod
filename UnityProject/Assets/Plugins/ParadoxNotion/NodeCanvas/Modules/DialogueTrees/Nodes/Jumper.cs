@@ -8,7 +8,7 @@ namespace NodeCanvas.DialogueTrees
     [Name("JUMP")]
     [Description("Select a target node to jump to.\nFor your convenience in identifying nodes in the dropdown, please give a Tag name to the nodes you want to use in this way.")]
     [Category("Control")]
-    [Icon("Set")]
+    [ParadoxNotion.Design.Icon("Set")]
     [Color("00b9e8")]
     public class Jumper : DTNode, IHaveNodeReference
     {

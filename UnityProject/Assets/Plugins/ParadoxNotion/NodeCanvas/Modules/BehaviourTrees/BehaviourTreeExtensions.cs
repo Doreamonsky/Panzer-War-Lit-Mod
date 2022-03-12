@@ -11,7 +11,7 @@ namespace NodeCanvas.BehaviourTrees
     public static class BehaviourTreeExtensions
     {
 
-        ///Replace the node with another
+        ///<summary>Replace the node with another</summary>
         public static Node ReplaceWith(this Node node, System.Type t) {
 
             var newNode = node.graph.AddNode(t, node.position);
@@ -38,10 +38,10 @@ namespace NodeCanvas.BehaviourTrees
             return newNode;
         }
 
-        ///Create a new SubTree out of the branch of the provided root node
+        ///<summary>Create a new SubTree out of the branch of the provided root node</summary>
         public static BehaviourTree ConvertToSubTree(this BTNode root) {
 
-            if ( !UnityEditor.EditorUtility.DisplayDialog("Convert to SubTree", "This will create a new SubTree out of this branch.\nThe SubTree can NOT be unpacked later on.\nAre you sure?", "Yes", "No!") ) {
+            if ( !UnityEditor.EditorUtility.DisplayDialog("Convert to SubTree", "This will create a new SubTree out of this branch.\nAre you sure?", "Yes", "No!") ) {
                 return null;
             }
 
@@ -66,7 +66,7 @@ namespace NodeCanvas.BehaviourTrees
             return newBT;
         }
 
-        ///Delete the whole branch of provided root node along with the root node
+        ///<summary>Delete the whole branch of provided root node along with the root node</summary>
         public static void DeleteBranch(this BTNode root) {
             var graph = root.graph;
             foreach ( var node in root.GetAllChildNodesRecursively(true).ToArray() ) {
@@ -74,7 +74,7 @@ namespace NodeCanvas.BehaviourTrees
             }
         }
 
-        ///Duplicate a node along with all children hierarchy
+        ///<summary>Duplicate a node along with all children hierarchy</summary>
         public static Node DuplicateBranch(this BTNode root, Graph targetGraph) {
 
             if ( targetGraph == null ) {
@@ -93,7 +93,7 @@ namespace NodeCanvas.BehaviourTrees
             return newNode;
         }
 
-        ///Decorates BT node with decorator type
+        ///<summary>Decorates BT node with decorator type</summary>
         public static Node DecorateWith(this BTNode node, System.Type t) {
             var newNode = node.graph.AddNode(t, node.position + new UnityEngine.Vector2(0, -80));
             if ( node.inConnections.Count == 0 ) {
@@ -110,8 +110,7 @@ namespace NodeCanvas.BehaviourTrees
             return newNode;
         }
 
-        ///Fetch all child nodes of the node recursively, optionaly including this.
-        ///In other words, this fetches the whole branch.
+        ///<summary>Fetch all child nodes of the node recursively, optionaly including this. In other words, this fetches the whole branch.</summary>
         public static List<BTNode> GetAllChildNodesRecursively(this BTNode root, bool includeThis) {
 
             var childList = new List<BTNode>();
@@ -126,8 +125,7 @@ namespace NodeCanvas.BehaviourTrees
             return childList;
         }
 
-        ///Fetch all child nodes of this node with their depth in regards to this node.
-        ///So, first level children will have a depth of 1 while second level a depth of 2
+        ///<summary>Fetch all child nodes of this node with their depth in regards to this node. So, first level children will have a depth of 1 while second level a depth of 2</summary>
         public static Dictionary<BTNode, int> GetAllChildNodesWithDepthRecursively(this BTNode root, bool includeThis, int startIndex) {
 
             var childList = new Dictionary<BTNode, int>();

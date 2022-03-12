@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ParadoxNotion.Serialization
 {
 
-    ///Serialized MethodInfo
+    ///<summary>Serialized MethodInfo</summary>
     [Serializable]
     public class SerializedMethodInfo : ISerializedMethodBaseInfo
     {
@@ -23,7 +23,7 @@ namespace ParadoxNotion.Serialization
         [NonSerialized]
         private bool _hasChanged;
 
-        ///serialize to strings info
+        ///<summary>serialize to strings info</summary>
         void ISerializationCallbackReceiver.OnBeforeSerialize() {
             _hasChanged = false;
             if ( _method != null ) {
@@ -104,7 +104,7 @@ namespace ParadoxNotion.Serialization
 
         //required
         public SerializedMethodInfo() { }
-        ///Serialize a new MethodInfo
+        ///<summary>Serialize a new MethodInfo</summary>
         public SerializedMethodInfo(MethodInfo method) {
             _hasChanged = false;
             _method = method;

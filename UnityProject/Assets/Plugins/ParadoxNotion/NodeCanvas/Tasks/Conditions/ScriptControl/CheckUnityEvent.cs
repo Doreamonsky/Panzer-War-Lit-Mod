@@ -11,7 +11,7 @@ using ParadoxNotion.Serialization.FullSerializer;
 namespace NodeCanvas.Tasks.Conditions
 {
     ///----------------------------------------------------------------------------------------------
-    ///previous versions
+    //previous versions
     class CheckUnityEvent_0
     {
         [SerializeField] public System.Type targetType = null;
@@ -91,12 +91,14 @@ namespace NodeCanvas.Tasks.Conditions
         protected override bool OnCheck() { return false; }
 
         void SetTargetEvent(MemberInfo newMember) {
-            if ( newMember != null ) { _eventInfo = new SerializedUnityEventInfo(newMember); }
+            if ( newMember != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
+                _eventInfo = new SerializedUnityEventInfo(newMember);
+            }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {
@@ -204,9 +206,8 @@ namespace NodeCanvas.Tasks.Conditions
             if ( newMember != null ) { _eventInfo = new SerializedUnityEventInfo(newMember); }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {
@@ -316,9 +317,8 @@ namespace NodeCanvas.Tasks.Conditions
             if ( newMember != null ) { _eventInfo = new SerializedUnityEventInfo(newMember); }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

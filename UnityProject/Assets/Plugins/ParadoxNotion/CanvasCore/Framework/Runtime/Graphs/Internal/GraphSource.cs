@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace NodeCanvas.Framework.Internal
 {
-    ///Graph data and model used for serialization
+    ///<summary>Graph data and model used for serialization</summary>
     [System.Serializable, fsDeserializeOverwrite]
     public class GraphSource : ISerializationCollector
     {
 
         ///----------------------------------------------------------------------------------------------
-        ///We are already parsing everything on serialization/deserialization, so we might just as well collect things at the same time.
+        ///<summary>We are already parsing everything on serialization/deserialization, so we might just as well collect things at the same time.</summary>
         public List<Task> allTasks { get; private set; }
         public List<BBParameter> allParameters { get; private set; }
 
@@ -28,7 +28,7 @@ namespace NodeCanvas.Framework.Internal
         ///----------------------------------------------------------------------------------------------
 
 
-        public const float FRAMEWORK_VERSION = 3.20f;
+        public const float FRAMEWORK_VERSION = 3.22f;
 
         [SerializeField, fsSerializeAs("version"), fsWriteOnly, fsIgnoreInBuild]
         private float _version;
@@ -79,7 +79,7 @@ namespace NodeCanvas.Framework.Internal
             localBlackboard = new BlackboardSource();
         }
 
-        ///Must Pack *BEFORE* any serialization
+        ///<summary>Must Pack *BEFORE* any serialization</summary>
         public GraphSource Pack(Graph graph) {
 
             this.version = FRAMEWORK_VERSION;
@@ -99,7 +99,7 @@ namespace NodeCanvas.Framework.Internal
             return this;
         }
 
-        ///Must Unpack *AFTER* any deserialization
+        ///<summary>Must Unpack *AFTER* any deserialization</summary>
         public GraphSource Unpack(Graph graph) {
 
             //check serialization versions here in the future if needed
@@ -126,7 +126,7 @@ namespace NodeCanvas.Framework.Internal
             return this;
         }
 
-        ///Sets only the meta-data from another GraphSource and returns itself
+        ///<summary>Sets only the meta-data from another GraphSource and returns itself</summary>
         public GraphSource SetMetaData(GraphSource source) {
             version = source.version;
             category = source.category;

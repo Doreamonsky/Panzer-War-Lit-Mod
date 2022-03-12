@@ -10,7 +10,7 @@ using System.Linq;
 namespace ParadoxNotion.Design
 {
 
-    ///An editor for preferred types
+    ///<summary>An editor for preferred types</summary>
     public class TypePrefsEditorWindow : EditorWindow
     {
 
@@ -18,7 +18,7 @@ namespace ParadoxNotion.Design
         private List<System.Type> alltypes;
         private Vector2 scrollPos;
 
-        ///Open window
+        ///<summary>Open window</summary>
         public static void ShowWindow() {
             var window = GetWindow<TypePrefsEditorWindow>();
             window.Show();
@@ -57,7 +57,7 @@ namespace ParadoxNotion.Design
                 menu.AddItem(new GUIContent("Classes/System/Object"), false, Selected, typeof(object));
                 foreach ( var t in alltypes ) {
                     var a = ( string.IsNullOrEmpty(t.Namespace) ? "No Namespace/" : t.Namespace.Replace(".", "/") + "/" ) + t.FriendlyName();
-                    var b = string.IsNullOrEmpty(t.Namespace)? string.Empty : " (" + t.Namespace + ")";
+                    var b = string.IsNullOrEmpty(t.Namespace) ? string.Empty : " (" + t.Namespace + ")";
                     var friendlyName = a + b;
                     var category = "Classes/";
                     if ( t.IsValueType ) category = "Structs/";
@@ -188,7 +188,7 @@ namespace ParadoxNotion.Design
             }
         }
 
-        ///Add a type
+        ///<summary>Add a type</summary>
         void AddType(System.Type t) {
             if ( !typeList.Contains(t) ) {
                 typeList.Add(t);
@@ -200,14 +200,14 @@ namespace ParadoxNotion.Design
             ShowNotification(new GUIContent(string.Format("Type '{0}' is already in the list.", t.FriendlyName())));
         }
 
-        ///Remove a type
+        ///<summary>Remove a type</summary>
         void RemoveType(System.Type t) {
             typeList.Remove(t);
             Save();
             ShowNotification(new GUIContent(string.Format("Type '{0}' Removed.", t.FriendlyName())));
         }
 
-        ///Save changes
+        ///<summary>Save changes</summary>
         void Save() {
             TypePrefs.SetPreferedTypesList(typeList);
         }

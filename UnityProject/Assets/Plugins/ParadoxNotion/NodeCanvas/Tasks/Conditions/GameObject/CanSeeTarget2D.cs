@@ -13,7 +13,9 @@ namespace NodeCanvas.Tasks.Conditions
 
         [RequiredField]
         public BBParameter<GameObject> target;
+        [Tooltip("Distance within which to look out for.")]
         public BBParameter<float> maxDistance = 50;
+        [Tooltip("Distance within which the target can be seen (or rather sensed) regardless of view angle.")]
         public BBParameter<float> awarnessDistance = 0f;
         [SliderField(1, 180)]
         public BBParameter<float> viewAngle = 70f;
@@ -28,24 +30,33 @@ namespace NodeCanvas.Tasks.Conditions
         protected override bool OnCheck() {
 
             var t = target.value.transform;
+
+            if ( !t.gameObject.activeInHierarchy ) {
+                return false;
+            }
+
+            if ( Vector2.Distance(agent.position, t.position) <= awarnessDistance.value ) {
+                var hit = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
+                if ( hit.collider != t.GetComponent<Collider2D>() ) {
+                    return false;
+                }
+                return true;
+            }
+
             if ( Vector2.Distance(agent.position, t.position) > maxDistance.value ) {
                 return false;
             }
 
-            var hit = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
-            if ( hit.collider != t.GetComponent<Collider2D>() ) {
+            if ( Vector2.Angle((Vector2)t.position - (Vector2)agent.position, agent.right) > viewAngle.value ) {
                 return false;
             }
 
-            if ( Vector2.Angle((Vector2)t.position - (Vector2)agent.position, agent.right) < viewAngle.value ) {
-                return true;
+            var hit2 = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
+            if ( hit2.collider != t.GetComponent<Collider2D>() ) {
+                return false;
             }
 
-            if ( Vector2.Distance(agent.position, t.position) < awarnessDistance.value ) {
-                return true;
-            }
-
-            return false;
+            return true;
         }
 
         public override void OnDrawGizmosSelected() {

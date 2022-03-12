@@ -19,58 +19,58 @@ namespace NodeCanvas.DialogueTrees
         Transform IDialogueActor.transform => transform;
 
 
-        ///Start the DialogueTree without an Instigator
+        ///<summary>Start the DialogueTree without an Instigator</summary>
         public void StartDialogue() {
             StartDialogue(this, null);
         }
 
-        ///Start the DialogueTree with a callback for when its finished
+        ///<summary>Start the DialogueTree with a callback for when its finished</summary>
         public void StartDialogue(Action<bool> callback) {
             StartDialogue(this, callback);
         }
 
-        ///Start the DialogueTree with provided actor as Instigator
+        ///<summary>Start the DialogueTree with provided actor as Instigator</summary>
         public void StartDialogue(IDialogueActor instigator) {
             StartDialogue(instigator, null);
         }
 
-        ///Assign a new DialogueTree and Start it
+        ///<summary>Assign a new DialogueTree and Start it</summary>
         public void StartDialogue(DialogueTree newTree, IDialogueActor instigator, Action<bool> callback) {
             graph = newTree;
             StartDialogue(instigator, callback);
         }
 
-        ///Start the already assgined DialogueTree with provided actor as instigator and callback
+        ///<summary>Start the already assgined DialogueTree with provided actor as instigator and callback</summary>
         public void StartDialogue(IDialogueActor instigator, Action<bool> callback) {
             graph = GetInstance(graph);
             graph.StartGraph(instigator is Component ? (Component)instigator : instigator.transform, blackboard, updateMode, callback);
         }
 
-        ///Pause the DialogueTree
+        ///<summary>Pause the DialogueTree</summary>
         public void PauseDialogue() {
             graph.Pause();
         }
 
-        ///Stop the DialogueTree
+        ///<summary>Stop the DialogueTree</summary>
         public void StopDialogue() {
             graph.Stop();
         }
 
-        ///Set an actor reference by parameter name
+        ///<summary>Set an actor reference by parameter name</summary>
         public void SetActorReference(string paramName, IDialogueActor actor) {
             if ( behaviour != null ) {
                 behaviour.SetActorReference(paramName, actor);
             }
         }
 
-        ///Set all actor reference parameters at once
+        ///<summary>Set all actor reference parameters at once</summary>
         public void SetActorReferences(Dictionary<string, IDialogueActor> actors) {
             if ( behaviour != null ) {
                 behaviour.SetActorReferences(actors);
             }
         }
 
-        ///Get the actor reference by parameter name
+        ///<summary>Get the actor reference by parameter name</summary>
         public IDialogueActor GetActorReferenceByName(string paramName) {
             return behaviour != null ? behaviour.GetActorReferenceByName(paramName) : null;
         }

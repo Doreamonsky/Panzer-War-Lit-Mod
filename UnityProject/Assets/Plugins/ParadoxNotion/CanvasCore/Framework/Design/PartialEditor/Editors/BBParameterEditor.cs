@@ -13,19 +13,19 @@ namespace NodeCanvas.Editor
     public static class BBParameterEditor
     {
 
-        ///An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.
+        ///<summary>An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.</summary>
         public static BBParameter ParameterField(string name, BBParameter bbParam, UnityEngine.Object context) {
             return ParameterField(name, bbParam, false, context);
         }
 
-        ///An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.
+        ///<summary>An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.</summary>
         public static BBParameter ParameterField(string name, BBParameter bbParam, bool blackboardOnly = false, UnityEngine.Object context = null) {
             var info = new InspectedFieldInfo();
             info.unityObjectContext = context;
             return ParameterField(string.IsNullOrEmpty(name) ? GUIContent.none : EditorUtils.GetTempContent(name), bbParam, blackboardOnly, false, info);
         }
 
-        ///An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.
+        ///<summary>An editor for BBParameter type to let user choose either a constant value or link to a Blackboard Variable.</summary>
         public static BBParameter ParameterField(GUIContent content, BBParameter bbParam, bool blackboardOnly = false, bool required = false, InspectedFieldInfo info = default(InspectedFieldInfo)) {
 
             if ( bbParam == null ) {
@@ -75,7 +75,7 @@ namespace NodeCanvas.Editor
                         if ( bbParam.isPresumedDynamic ) { EditorUtils.MarkLastFieldWarning($"Dynamic Variable. Type of '{bbParam.varType.FriendlyName()}'"); }
                     } else {
                         if ( required && bbParam.isNone ) { EditorUtils.MarkLastFieldError("An instance is required"); }
-                        if ( required && !string.IsNullOrEmpty(bbParam.name) && bbParam.isNull ) { EditorUtils.MarkLastFieldWarning("An instance is required but currently resolves to null. If it is set in runtime you can ignore this warning."); }
+                        if ( required && !string.IsNullOrEmpty(bbParam.name) && !bbParam.isDefined && bbParam.isNull ) { EditorUtils.MarkLastFieldWarning("An instance is required but currently resolves to null. If it is set in runtime you can ignore this warning."); }
                     }
                 }
 

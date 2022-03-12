@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ParadoxNotion
 {
-    ///Common interface between EventData and EventData<T>
+    ///<summary>Common interface between EventData and EventData<T></summary>
     public interface IEventData
     {
         GameObject receiver { get; }
@@ -11,7 +11,7 @@ namespace ParadoxNotion
         object valueBoxed { get; }
     }
 
-    ///Dispatched within EventRouter and contains data about the event
+    ///<summary>Dispatched within EventRouter and contains data about the event</summary>
     public struct EventData : IEventData
     {
         public GameObject receiver { get; private set; }
@@ -30,7 +30,7 @@ namespace ParadoxNotion
         }
     }
 
-    ///Dispatched within EventRouter and contains data about the event
+    ///<summary>Dispatched within EventRouter and contains data about the event</summary>
     public struct EventData<T> : IEventData
     {
         public GameObject receiver { get; private set; }

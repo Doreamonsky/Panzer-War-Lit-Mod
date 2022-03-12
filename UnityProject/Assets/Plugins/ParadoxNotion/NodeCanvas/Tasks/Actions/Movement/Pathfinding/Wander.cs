@@ -46,7 +46,7 @@ namespace NodeCanvas.Tasks.Actions
             }
 
             NavMeshHit hit;
-            if ( NavMesh.SamplePosition(wanderPos, out hit, float.PositiveInfinity, NavMesh.AllAreas) ) {
+            if ( NavMesh.SamplePosition(wanderPos, out hit, agent.height * 2, NavMesh.AllAreas) ) {
                 agent.SetDestination(hit.position);
             }
         }

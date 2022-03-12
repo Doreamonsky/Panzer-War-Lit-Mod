@@ -2,29 +2,19 @@
 
 namespace ParadoxNotion.Serialization.FullSerializer
 {
-    /// <summary>
-    /// This allows you to forward serialization of an object to one of its members. For example,
-    ///
-    /// [fsForward("Values")]
-    /// struct Wrapper {
-    ///   public int[] Values;
-    /// }
-    ///
-    /// Then `Wrapper` will be serialized into a JSON array of integers. It will be as if `Wrapper`
-    /// doesn't exist.
-    /// </summary>
+    ///<summary> This allows you to forward serialization of an object to one of its members.</summary>
+    // [fsForward("Values")]
+    // struct Wrapper {
+    //   public int[] Values;
+    // }
+    // Then `Wrapper` will be serialized into a JSON array of integers. It will be as if `Wrapper` doesn't exist.
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Struct)]
     public sealed class fsForwardAttribute : Attribute
     {
-        /// <summary>
-        /// The name of the member we should serialize as.
-        /// </summary>
+        ///<summary> The name of the member we should serialize as.</summary>
         public string MemberName;
 
-        /// <summary>
-        /// Forward object serialization to an instance member. See class comment.
-        /// </summary>
-        /// <param name="memberName">The name of the member that we should serialize this object as.</param>
+        ///<summary> Forward object serialization to an instance member. See class comment.</summary>
         public fsForwardAttribute(string memberName) {
             MemberName = memberName;
         }

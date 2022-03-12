@@ -23,8 +23,8 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnExecute() {
 
-            var found = GameObject.FindGameObjectsWithTag(searchTag.value).ToList();
-            if ( found.Count == 0 ) {
+            var found = GameObject.FindGameObjectsWithTag(searchTag.value);
+            if ( found.Length == 0 ) {
                 saveObjectAs.value = null;
                 saveDistanceAs.value = 0;
                 EndAction(false);

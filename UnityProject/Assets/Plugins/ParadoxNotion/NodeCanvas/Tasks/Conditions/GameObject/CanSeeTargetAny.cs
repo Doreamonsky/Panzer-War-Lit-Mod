@@ -40,7 +40,23 @@ namespace NodeCanvas.Tasks.Conditions
                 if ( o == agent.gameObject ) { continue; }
 
                 var t = o.transform;
+
+                if ( !t.gameObject.activeInHierarchy ) { continue; }
+
+                if ( Vector3.Distance(agent.position, t.position) < awarnessDistance.value ) {
+                    if ( Physics.Linecast(agent.position + offset, t.position + offset, out hit) ) {
+                        if ( hit.collider != t.GetComponent<Collider>() ) { continue; }
+                    }
+                    if ( store ) { temp.Add(o); }
+                    r = true;
+                    continue;
+                }
+
                 if ( Vector3.Distance(agent.position, t.position) > maxDistance.value ) {
+                    continue;
+                }
+
+                if ( Vector3.Angle(t.position - agent.position, agent.forward) > viewAngle.value ) {
                     continue;
                 }
 
@@ -48,16 +64,8 @@ namespace NodeCanvas.Tasks.Conditions
                     if ( hit.collider != t.GetComponent<Collider>() ) { continue; }
                 }
 
-                if ( Vector3.Angle(t.position - agent.position, agent.forward) < viewAngle.value ) {
-                    if ( store ) { temp.Add(o); }
-                    r = true;
-                }
-
-                if ( Vector3.Distance(agent.position, t.position) < awarnessDistance.value ) {
-                    if ( store ) { temp.Add(o); }
-                    r = true;
-                }
-
+                if ( store ) { temp.Add(o); }
+                r = true;
             }
 
             if ( store ) {

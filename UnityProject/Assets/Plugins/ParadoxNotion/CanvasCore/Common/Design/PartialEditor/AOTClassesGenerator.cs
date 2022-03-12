@@ -38,7 +38,7 @@ namespace ParadoxNotion.Design
             typeof(Space),
         };
 
-        ///custom generic types to spoof were we cant use [SpoofAOT]
+        ///<summary>Custom generic types to spoof were we cant use [SpoofAOT]</summary>
         static readonly List<Type> customGenericSpoof = new List<Type>
         {
             typeof(System.Action<>),
@@ -49,7 +49,7 @@ namespace ParadoxNotion.Design
             typeof(Nullable<>),
         };
 
-        ///Generates AOT classes file out of preferred types list
+        ///<summary>Generates AOT classes file out of preferred types list</summary>
         public static void GenerateAOTClasses(string path, Type[] targetTypes) {
 
             if ( string.IsNullOrEmpty(path) ) {
@@ -196,7 +196,7 @@ namespace ParadoxNotion.Design
             File.WriteAllText(path, sb.ToString());
         }
 
-        ///Generates a link.xml file out of preferred types list
+        ///<summary>Generates a link.xml file out of preferred types list</summary>
         public static void GenerateLinkXML(string path, Type[] targetTypes) {
 
             if ( string.IsNullOrEmpty(path) ) {
@@ -220,7 +220,7 @@ namespace ParadoxNotion.Design
             sb.AppendLine("\t<assembly fullname=\"Assembly-CSharp\" preserve=\"all\">");
             sb.AppendLine("\t</assembly>");
 
-            ///get assembly from a common paradoxnotion *runtime* type
+            //get assembly from a common paradoxnotion *runtime* type
             var paradoxAsmName = typeof(ParadoxNotion.Serialization.JSONSerializer).Assembly.GetName().Name;
             sb.AppendLine(string.Format("\t<assembly fullname=\"{0}\" preserve=\"all\">", paradoxAsmName));
             sb.AppendLine("\t</assembly>");

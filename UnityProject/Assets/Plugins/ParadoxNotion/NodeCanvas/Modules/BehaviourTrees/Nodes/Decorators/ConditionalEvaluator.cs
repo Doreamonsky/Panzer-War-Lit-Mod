@@ -9,8 +9,8 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Conditional")]
     [Category("Decorators")]
-    [Description("Execute and return the child node status if the condition is true, otherwise return Failure. The condition is evaluated only once in the first Tick and when the node is not already Running unless it is set as 'Dynamic' in which case it will revaluate even while running")]
-    [Icon("Accessor")]
+    [Description("Execute and return the child node status if the condition is true, otherwise return Failure. The condition is evaluated only once in the first Tick and when the node is not already Running unless it is set as 'Dynamic' in which case it will revaluate even while running.")]
+    [ParadoxNotion.Design.Icon("Accessor")]
     public class ConditionalEvaluator : BTDecorator, ITaskAssignable<ConditionTask>
     {
 
@@ -70,13 +70,12 @@ namespace NodeCanvas.BehaviourTrees
             accessed = false;
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnNodeGUI() {
-            if ( isDynamic ){ GUILayout.Label("<b>DYNAMIC</b>"); }
+            if ( isDynamic ) { GUILayout.Label("<b>DYNAMIC</b>"); }
         }
 
         protected override void OnNodeInspectorGUI() {

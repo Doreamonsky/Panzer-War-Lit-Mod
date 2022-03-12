@@ -1,18 +1,17 @@
 ﻿namespace ParadoxNotion.Serialization.FullSerializer
 {
 
-    ///Will receive callbacks on serialization/deserialization
-    ///Multiple collectors are possible and are stacked
+    ///<summary>Will receive callbacks on serialization/deserialization. Multiple collectors are possible and are stacked.</summary>
     public interface ISerializationCollector : ISerializationCollectable
     {
-        ///Called when the collector pushed on stack with parent the previous collector
+        ///<summary>Called when the collector pushed on stack with parent the previous collector</summary>
         void OnPush(ISerializationCollector parent);
-        ///Called when a collectable is to be collected. The depth is local to this collector only starting from 0
+        ///<summary>Called when a collectable is to be collected. The depth is local to this collector only starting from 0</summary>
         void OnCollect(ISerializationCollectable child, int depth);
-        ///Called when the collector pops from stack with parent the previous collector
+        ///<summary>Called when the collector pops from stack with parent the previous collector</summary>
         void OnPop(ISerializationCollector parent);
     }
 
-    ///Will be possible to be collected by a collector
+    ///<summary>Will be possible to be collected by a collector</summary>
     public interface ISerializationCollectable { }
 }

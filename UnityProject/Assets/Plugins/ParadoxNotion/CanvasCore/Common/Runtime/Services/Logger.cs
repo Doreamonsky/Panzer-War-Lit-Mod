@@ -6,11 +6,11 @@ using System.Diagnostics;
 namespace ParadoxNotion.Services
 {
 
-    ///A custom logger
+    ///<summary>A custom logger</summary>
     public static class Logger
     {
 
-        ///A message that is logged
+        ///<summary>A message that is logged</summary>
         public struct Message
         {
             private System.WeakReference<object> _contextRef;
@@ -36,32 +36,32 @@ namespace ParadoxNotion.Services
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Subscribe a listener to the logger
+        ///<summary>Subscribe a listener to the logger</summary>
         public static void AddListener(LogHandler callback) { subscribers.Add(callback); }
-        ///Remove a listener from the logger
+        ///<summary>Remove a listener from the logger</summary>
         public static void RemoveListener(LogHandler callback) { subscribers.Remove(callback); }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Log Info
+        ///<summary>Log Info</summary>
         [Conditional("DEVELOPMENT_BUILD"), Conditional("UNITY_EDITOR")]
         public static void Log(object message, string tag = null, object context = null) {
             Internal_Log(LogType.Log, message, tag, context);
         }
 
-        ///Log Warning
+        ///<summary>Log Warning</summary>
         [Conditional("DEVELOPMENT_BUILD"), Conditional("UNITY_EDITOR")]
         public static void LogWarning(object message, string tag = null, object context = null) {
             Internal_Log(LogType.Warning, message, tag, context);
         }
 
-        ///Log Error
+        ///<summary>Log Error</summary>
         [Conditional("DEVELOPMENT_BUILD"), Conditional("UNITY_EDITOR")]
         public static void LogError(object message, string tag = null, object context = null) {
             Internal_Log(LogType.Error, message, tag, context);
         }
 
-        ///Log Exception
+        ///<summary>Log Exception</summary>
         public static void LogException(System.Exception exception, string tag = null, object context = null) {
             Internal_Log(LogType.Exception, exception, tag, context);
         }

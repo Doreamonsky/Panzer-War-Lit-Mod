@@ -1,6 +1,6 @@
 ﻿namespace NodeCanvas.Framework
 {
-    ///Log tags "collection" to use in logger easier
+    ///<summary>Log tags "collection" to use in logger easier</summary>
     public static class LogTag
     {
         public const string EDITOR = "Editor";

@@ -4,9 +4,7 @@ using UnityEngine.EventSystems;
 namespace ParadoxNotion.Services
 {
 
-    ///Automaticaly added to a gameobject when needed.
-    ///Handles forwarding Unity event messages to listeners that need them as well as Custom event forwarding.
-    ///Notice: this is a partial class. Add your own methods/events if you like.
+    ///<summary>Automaticaly added to a gameobject when needed. Handles forwarding Unity event messages to listeners that need them as well as Custom event forwarding. Notice: this is a partial class. Add your own methods/events if you like.</summary>
     public partial class EventRouter : MonoBehaviour
             , IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler,
             IDragHandler, IScrollHandler, IUpdateSelectedHandler, ISelectHandler, IDeselectHandler, IMoveHandler, ISubmitHandler, IDropHandler
@@ -153,15 +151,15 @@ namespace ParadoxNotion.Services
 
         public delegate void CustomEventDelegate(string name, IEventData data);
 
-        ///Sub/Unsub to a custom named events invoked through this router
+        ///<summary>Sub/Unsub to a custom named events invoked through this router</summary>
         public event CustomEventDelegate onCustomEvent;
 
-        ///Invokes a custom named event
+        ///<summary>Invokes a custom named event</summary>
         public void InvokeCustomEvent(string name, object value, object sender) {
             if ( onCustomEvent != null ) { onCustomEvent(name, new EventData(value, gameObject, sender)); }
         }
 
-        ///Invokes a custom named event
+        ///<summary>Invokes a custom named event</summary>
         public void InvokeCustomEvent<T>(string name, T value, object sender) {
             if ( onCustomEvent != null ) { onCustomEvent(name, new EventData<T>(value, gameObject, sender)); }
         }

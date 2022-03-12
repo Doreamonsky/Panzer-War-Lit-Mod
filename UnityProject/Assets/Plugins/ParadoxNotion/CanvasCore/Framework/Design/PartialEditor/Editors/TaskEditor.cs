@@ -28,17 +28,17 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Show a Task's field without ability to add if null or add multiple tasks to form a list.
+        ///<summary>Show a Task's field without ability to add if null or add multiple tasks to form a list.</summary>
         public static void TaskFieldSingle(Task task, Action<Task> callback, bool showTitlebar = true) {
             if ( task != null ) { ShowTaskInspectorGUI(task, callback, showTitlebar); }
         }
 
-        ///Show a Task's field. If task null allow add task. Multiple tasks can be added to form a list.
+        ///<summary>Show a Task's field. If task null allow add task. Multiple tasks can be added to form a list.</summary>
         public static void TaskFieldMulti<T>(T task, ITaskSystem ownerSystem, Action<T> callback) where T : Task {
             TaskFieldMulti(task, ownerSystem, typeof(T), (Task t) => { callback((T)t); });
         }
 
-        ///Show a Task's field. If task null allow add task. Multiple tasks can be added to form a list.
+        ///<summary>Show a Task's field. If task null allow add task. Multiple tasks can be added to form a list.</summary>
         public static void TaskFieldMulti(Task task, ITaskSystem ownerSystem, Type baseType, Action<Task> callback) {
             //if null simply show an assignment button
             if ( task == null ) {
@@ -101,7 +101,7 @@ namespace NodeCanvas.Editor
             ShowTaskInspectorGUI(task, callback);
         }
 
-        ///Show the editor inspector of target task
+        ///<summary>Show the editor inspector of target task</summary>
         static void ShowTaskInspectorGUI(Task task, Action<Task> callback, bool showTitlebar = true) {
             EditorWrapperFactory.GetEditor<TaskEditor>(task).ShowInspector(callback, showTitlebar);
         }
@@ -243,7 +243,7 @@ namespace NodeCanvas.Editor
             return isUnfolded;
         }
 
-        ///Generate and return task menu
+        ///<summary>Generate and return task menu</summary>
         GenericMenu GetMenu(Action<Task> callback) {
             var menu = new GenericMenu();
             var taskType = task.GetType();

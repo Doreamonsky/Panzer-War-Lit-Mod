@@ -7,18 +7,18 @@ namespace ParadoxNotion
     public static class ColorUtils
     {
 
-        ///The color with alpha
+        ///<summary>The color with alpha</summary>
         public static Color WithAlpha(this Color color, float alpha) {
             color.a = alpha;
             return color;
         }
 
-        ///A greyscale color
+        ///<summary>A greyscale color</summary>
         public static Color Grey(float value) {
             return new Color(value, value, value, 1);
         }
 
-        ///Convert Color to Hex.
+        ///<summary>Convert Color to Hex.</summary>
         private static Dictionary<Color32, string> colorHexCache = new Dictionary<Color32, string>();
         public static string ColorToHex(Color32 color) {
 #if UNITY_EDITOR
@@ -39,7 +39,7 @@ namespace ParadoxNotion
             return colorHexCache[color] = result;
         }
 
-        ///Convert Hex to Color.
+        ///<summary>Convert Hex to Color.</summary>
         private static Dictionary<string, Color> hexColorCache = new Dictionary<string, Color>(System.StringComparer.OrdinalIgnoreCase);
         public static Color HexToColor(string hex) {
             Color result;

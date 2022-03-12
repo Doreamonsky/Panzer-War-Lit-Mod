@@ -31,11 +31,12 @@ namespace NodeCanvas.Tasks.Actions
         }
 
         protected override void OnUpdate() {
+            var norm = transitTime > 0f ? Mathf.Lerp(currentValue, layerWeight.value, elapsedTime / transitTime) : layerWeight.value;
+            agent.SetLayerWeight(layerIndex.value, norm);
 
-            agent.SetLayerWeight(layerIndex.value, Mathf.Lerp(currentValue, layerWeight.value, elapsedTime / transitTime));
-
-            if ( elapsedTime >= transitTime )
+            if ( elapsedTime >= transitTime ) {
                 EndAction(true);
+            }
         }
     }
 }

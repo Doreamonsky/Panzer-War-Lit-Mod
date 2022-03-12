@@ -24,7 +24,7 @@ namespace NodeCanvas.DialogueTrees
         public override DialogueTree subGraph { get { return _subTree.value; } set { _subTree.value = value; } }
         public override BBParameter subGraphParameter => _subTree;
 
-        ////
+        //
 
         protected override Status OnExecute(Component agent, IBlackboard bb) {
 
@@ -62,9 +62,8 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override string GetConnectionInfo(int i) {

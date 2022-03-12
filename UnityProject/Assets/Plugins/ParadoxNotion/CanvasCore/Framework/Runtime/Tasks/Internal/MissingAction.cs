@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NodeCanvas.Framework.Internal
 {
 
-    /// Injected when an ActionTask is missing. Recovers back when that ActionTask is found.
+    ///<summary> Injected when an ActionTask is missing. Recovers back when that ActionTask is found.</summary>
     [DoNotList]
     [Description("Please resolve the MissingAction issue by either replacing the action, importing the missing action type, or refactoring the type in GraphRefactor.")]
     public class MissingAction : ActionTask, IMissingRecoverable
@@ -33,9 +33,8 @@ namespace NodeCanvas.Framework.Internal
         }
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

@@ -17,7 +17,6 @@ namespace ParadoxNotion.Serialization.FullSerializer
     /// </summary>
     public abstract class fsObjectProcessor
     {
-        /// <summary>
         /// Is the processor interested in objects of the given type?
         /// </summary>
         /// <param name="type">The given type.</param>

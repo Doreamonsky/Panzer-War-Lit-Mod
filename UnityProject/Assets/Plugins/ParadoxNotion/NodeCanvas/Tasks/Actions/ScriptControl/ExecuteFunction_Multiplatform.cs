@@ -120,6 +120,7 @@ namespace NodeCanvas.Tasks.Actions
         }
 
         void SetMethod(MethodInfo method) {
+            UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
             if ( method == null ) { return; }
             this.method = new SerializedMethodInfo(method);
             this.parameters.Clear();
@@ -168,7 +169,7 @@ namespace NodeCanvas.Tasks.Actions
                 UnityEditor.EditorGUILayout.LabelField("Type", targetMethod.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Method", targetMethod.Name);
                 UnityEditor.EditorGUILayout.LabelField("Returns", targetMethod.ReturnType.FriendlyName());
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
 
                 if ( targetMethod.ReturnType == typeof(IEnumerator) ) {
                     GUILayout.Label("<b>This will execute as a Coroutine!</b>");

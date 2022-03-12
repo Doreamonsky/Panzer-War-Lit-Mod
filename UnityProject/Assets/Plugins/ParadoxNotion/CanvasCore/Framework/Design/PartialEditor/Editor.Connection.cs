@@ -58,41 +58,41 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Editor. Is info expanded?
+        ///<summary>Editor. Is info expanded?</summary>
         private bool infoExpanded {
             get { return !_infoCollapsed; }
             set { _infoCollapsed = !value; }
         }
 
-        ///Editor. Is currently actively relinking?
+        ///<summary>Editor. Is currently actively relinking?</summary>
         private bool isRelinkingActive {
             get { return relinkClickPos != null && relinkSnaped; }
         }
 
-        ///Editor. Current relinking state
+        ///<summary>Editor. Current relinking state</summary>
         public RelinkState relinkState { get; private set; }
 
-        ///Editor. Default Color of connection
+        ///<summary>Editor. Default Color of connection</summary>
         virtual public Color defaultColor {
             get { return StyleSheet.GetStatusColor(status); }
         }
 
-        ///Editor. Will animate connection? By default if status running
+        ///<summary>Editor. Will animate connection? By default if status running</summary>
         virtual public bool animate {
             get { return status == Status.Running; }
         }
 
-        ///Editor. Defacult size of connection
+        ///<summary>Editor. Defacult size of connection</summary>
         virtual public float defaultSize {
             get { return 3f; }
         }
 
-        ///Editor. End Tip connection style
+        ///<summary>Editor. End Tip connection style</summary>
         virtual public TipConnectionStyle tipConnectionStyle {
             get { return TipConnectionStyle.Circle; }
         }
 
-        ///Editor. Optional explicit "flow" direction
+        ///<summary>Editor. Optional explicit "flow" direction</summary>
         virtual public ParadoxNotion.PlanarDirection direction {
             get { return ParadoxNotion.PlanarDirection.Auto; }
         }
@@ -131,7 +131,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Handle UI events
+        ///<summary>Handle UI events</summary>
         void HandleEvents(Vector2 fromPos, Vector2 toPos) {
 
             var e = Event.current;
@@ -255,7 +255,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Draw icon if there are errors
+        ///<summary>Draw icon if there are errors</summary>
         bool DrawPossibleError(Vector2 fromPos, Vector2 toPos) {
             var error = GetError();
             if ( error != null ) {
@@ -268,7 +268,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Updates the blink status
+        ///<summary>Updates the blink status</summary>
         void UpdateBlinkStatus(Vector2 fromPos, Vector2 toPos) {
 
             OnBeforeUpdateBlinkStatus();
@@ -342,21 +342,21 @@ namespace NodeCanvas.Framework
             UndoUtility.CheckDirty(c.graph);
         }
 
-        ///Editor. The information to show in the middle area of the connection
+        ///<summary>Editor. The information to show in the middle area of the connection</summary>
         virtual protected string GetConnectionInfo() { return null; }
-        ///Editor.Override to show controls in the editor panel when connection is selected
+        ///<summary>Editor.Override to show controls in the editor panel when connection is selected</summary>
         virtual protected void OnConnectionInspectorGUI() { }
-        ///Editor. Callback before connections blink status
+        ///<summary>Editor. Callback before connections blink status</summary>
         virtual protected void OnBeforeUpdateBlinkStatus() { }
-        ///Editor. Get possible error, null if none
+        ///<summary>Editor. Get possible error, null if none</summary>
         virtual protected string GetError() { return null; }
 
-        ///Returns the mid position rect of the connection
+        ///<summary>Returns the mid position rect of the connection</summary>
         public Rect GetMidRect() {
             return centerRect;
         }
 
-        ///the connection context menu
+        ///<summary>the connection context menu</summary>
         GenericMenu GetConnectionMenu() {
             var menu = new GenericMenu();
             menu.AddItem(new GUIContent(infoExpanded ? "Collapse Info" : "Expand Info"), false, () => { infoExpanded = !infoExpanded; });

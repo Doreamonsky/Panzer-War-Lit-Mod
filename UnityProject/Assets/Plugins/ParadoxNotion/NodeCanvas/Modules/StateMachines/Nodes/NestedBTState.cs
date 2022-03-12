@@ -36,7 +36,7 @@ namespace NodeCanvas.StateMachines
         public override BehaviourTree subGraph { get { return _nestedBT.value; } set { _nestedBT.value = value; } }
         public override BBParameter subGraphParameter => _nestedBT;
 
-        ////
+        //
 
         protected override void OnEnter() {
 

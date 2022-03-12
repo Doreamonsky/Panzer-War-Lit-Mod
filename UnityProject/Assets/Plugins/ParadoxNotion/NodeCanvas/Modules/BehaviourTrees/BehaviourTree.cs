@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NodeCanvas.BehaviourTrees
 {
 
-    /// BehaviourTrees are used to create advanced AI and logic based on simple rules.
+    ///<summary> BehaviourTrees are used to create advanced AI and logic based on simple rules.</summary>
     [GraphInfo(
         packageName = "NodeCanvas",
         docsURL = "https://nodecanvas.paradoxnotion.com/documentation/",
@@ -40,18 +40,18 @@ namespace NodeCanvas.BehaviourTrees
         }
         ///----------------------------------------------------------------------------------------------
 
-        ///Should the tree repeat forever?
+        ///<summary>Should the tree repeat forever?</summary>
         [System.NonSerialized] public bool repeat = true;
-        ///The frequency in seconds for the tree to repeat if set to repeat.
+        ///<summary>The frequency in seconds for the tree to repeat if set to repeat.</summary>
         [System.NonSerialized] public float updateInterval = 0;
 
-        ///Raised when the root status of the behaviour is changed
+        ///<summary>Raised when the root status of the behaviour is changed</summary>
         public static event System.Action<BehaviourTree, Status> onRootStatusChanged;
 
         private float intervalCounter;
         private Status _rootStatus = Status.Resting;
 
-        ///The last status of the root node
+        ///<summary>The last status of the root node</summary>
         public Status rootStatus {
             get { return _rootStatus; }
             private set
@@ -93,7 +93,7 @@ namespace NodeCanvas.BehaviourTrees
             }
         }
 
-        ///Tick the tree once for the provided agent and with the provided blackboard
+        ///<summary>Tick the tree once for the provided agent and with the provided blackboard</summary>
         Status Tick(Component agent, IBlackboard blackboard) {
             if ( rootStatus != Status.Running ) { primeNode.Reset(); }
             return rootStatus = primeNode.Execute(agent, blackboard);

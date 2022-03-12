@@ -5,7 +5,7 @@ using UnityEngine;
 namespace NodeCanvas.StateMachines
 {
 
-    ///The connection object for FSM nodes. AKA Transitions
+    ///<summary>The connection object for FSM nodes. AKA Transitions</summary>
     public class FSMConnection : Connection, ITaskAssignable<ConditionTask>
     {
         [SerializeField]
@@ -42,7 +42,7 @@ namespace NodeCanvas.StateMachines
             }
         }
 
-        ///Perform the transition disregarding whether or not the condition (if any) is valid
+        ///<summary>Perform the transition disregarding whether or not the condition (if any) is valid</summary>
         public void PerformTransition() {
             ( graph as FSM ).EnterState((FSMState)targetNode, transitionCallMode);
         }

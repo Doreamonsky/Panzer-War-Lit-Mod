@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NodeCanvas.Editor
 {
 
-    ///A drawer for Tasks
+    ///<summary>A drawer for Tasks</summary>
     public class TaskDrawer : ObjectDrawer<Task>
     {
         public override Task OnGUI(GUIContent content, Task instance) {

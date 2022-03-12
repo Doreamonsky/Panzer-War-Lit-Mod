@@ -12,15 +12,15 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace ParadoxNotion.Design
 {
 
-    /// Specific Editor GUIs
+    ///<summary> Specific Editor GUIs</summary>
 	partial class EditorUtils
     {
 
-        ///Stores fold states
+        ///<summary>Stores fold states</summary>
 		private static readonly Dictionary<Type, bool> registeredEditorFoldouts = new Dictionary<Type, bool>();
 
 
-        ///A cool label :-P (for headers)
+        ///<summary>A cool label :-P (for headers)</summary>
         public static void CoolLabel(string text) {
             GUI.skin.label.richText = true;
             GUI.color = Colors.lightOrange;
@@ -29,7 +29,7 @@ namespace ParadoxNotion.Design
             GUILayout.Space(2);
         }
 
-        ///Combines the rest functions for a header style label
+        ///<summary>Combines the rest functions for a header style label</summary>
         public static void TitledSeparator(string title) {
             GUILayout.Space(1);
             BoldSeparator();
@@ -37,7 +37,7 @@ namespace ParadoxNotion.Design
             Separator();
         }
 
-        ///A thin separator
+        ///<summary>A thin separator</summary>
         public static void Separator() {
             var lastRect = GUILayoutUtility.GetLastRect();
             GUILayout.Space(7);
@@ -46,7 +46,7 @@ namespace ParadoxNotion.Design
             GUI.color = Color.white;
         }
 
-        ///A thick separator similar to ngui. Thanks
+        ///<summary>A thick separator</summary>
         public static void BoldSeparator() {
             var lastRect = GUILayoutUtility.GetLastRect();
             GUILayout.Space(14);
@@ -57,7 +57,7 @@ namespace ParadoxNotion.Design
             GUI.color = Color.white;
         }
 
-        ///Just a fancy ending for inspectors
+        ///<summary>Just a fancy ending for inspectors</summary>
         public static void EndOfInspector() {
             var lastRect = GUILayoutUtility.GetLastRect();
             GUILayout.Space(8);
@@ -67,7 +67,7 @@ namespace ParadoxNotion.Design
             GUI.color = Color.white;
         }
 
-        ///A Search Field
+        ///<summary>A Search Field</summary>
         public static string SearchField(string search) {
             GUILayout.BeginHorizontal();
             search = EditorGUILayout.TextField(search, Styles.toolbarSearchTextField);
@@ -79,7 +79,7 @@ namespace ParadoxNotion.Design
             return search;
         }
 
-        ///Used just after a textfield with no prefix to show an italic transparent text inside when empty
+        ///<summary>Used just after a textfield with no prefix to show an italic transparent text inside when empty</summary>
         public static void CommentLastTextField(string check, string comment = "Comments...") {
             if ( string.IsNullOrEmpty(check) ) {
                 var lastRect = GUILayoutUtility.GetLastRect();
@@ -87,7 +87,7 @@ namespace ParadoxNotion.Design
             }
         }
 
-        ///Used just after a field to highlight it
+        ///<summary>Used just after a field to highlight it</summary>
         public static void HighlightLastField() {
             var lastRect = GUILayoutUtility.GetLastRect();
             lastRect.xMin += 2;
@@ -96,7 +96,7 @@ namespace ParadoxNotion.Design
             Styles.Draw(lastRect, Styles.highlightBox);
         }
 
-        ///Used just after a field to mark it as a prefab override (similar to native unity's one)
+        ///<summary>Used just after a field to mark it as a prefab override (similar to native unity's one)</summary>
         public static void MarkLastFieldOverride() {
             var rect = GUILayoutUtility.GetLastRect();
             rect.x -= 3; rect.width = 2;
@@ -105,12 +105,12 @@ namespace ParadoxNotion.Design
             GUI.color = Color.white;
         }
 
-        ///Used just after a field to mark warning icon to it
+        ///<summary>Used just after a field to mark warning icon to it</summary>
         public static void MarkLastFieldWarning(string tooltip) {
             Internal_MarkLastField(ParadoxNotion.Design.Icons.warningIcon, tooltip);
         }
 
-        ///Used just after a field to mark warning icon to it
+        ///<summary>Used just after a field to mark warning icon to it</summary>
         public static void MarkLastFieldError(string tooltip) {
             Internal_MarkLastField(ParadoxNotion.Design.Icons.errorIcon, tooltip);
         }
@@ -139,19 +139,19 @@ namespace ParadoxNotion.Design
         //     Styles.Draw(rect, Styles.highlightBox);
         // }
 
-        ///Editor for LayerMask
+        ///<summary>Editor for LayerMask</summary>
 		public static LayerMask LayerMaskField(string prefix, LayerMask layerMask, params GUILayoutOption[] layoutOptions) {
             return LayerMaskField(string.IsNullOrEmpty(prefix) ? GUIContent.none : new GUIContent(prefix), layerMask, layoutOptions);
         }
 
-        ///Editor for LayerMask
+        ///<summary>Editor for LayerMask</summary>
         public static LayerMask LayerMaskField(GUIContent content, LayerMask layerMask, params GUILayoutOption[] layoutOptions) {
             LayerMask tempMask = EditorGUILayout.MaskField(content, UnityEditorInternal.InternalEditorUtility.LayerMaskToConcatenatedLayersMask(layerMask), UnityEditorInternal.InternalEditorUtility.layers, layoutOptions);
             layerMask = UnityEditorInternal.InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
             return layerMask;
         }
 
-        ///Do a cached editor Foldout based on provided key object
+        ///<summary>Do a cached editor Foldout based on provided key object</summary>
         public static bool CachedFoldout(Type key, GUIContent content) {
             var foldout = false;
             registeredEditorFoldouts.TryGetValue(key, out foldout);
@@ -159,7 +159,7 @@ namespace ParadoxNotion.Design
             return registeredEditorFoldouts[key] = foldout;
         }
 
-        ///An IList editor (List<T> and Arrays)
+        ///<summary>An IList editor (List<T> and Arrays)</summary>
         public static IList ListEditor(GUIContent content, IList list, Type listType, InspectedFieldInfo info) {
 
             var optionsAtt = info.attributes?.FirstOrDefault(x => x is ListInspectorOptionAttribute) as ListInspectorOptionAttribute;
@@ -200,7 +200,7 @@ namespace ParadoxNotion.Design
             return list;
         }
 
-        ///A IDictionary editor
+        ///<summary>A IDictionary editor</summary>
         public static IDictionary DictionaryEditor(GUIContent content, IDictionary dict, Type dictType, InspectedFieldInfo info) {
 
             var keyType = dictType.RTGetGenericArguments()[0];
@@ -275,8 +275,7 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///An editor field where if the component is null simply shows an object field, but if its not, shows a dropdown popup to select the specific component
-        ///from within the gameobject
+        ///<summary>An editor field where if the component is null simply shows an object field, but if its not, shows a dropdown popup to select the specific component from within the gameobject</summary>
         public static Component ComponentField(GUIContent content, Component comp, Type type, params GUILayoutOption[] GUIOptions) {
 
             if ( comp == null ) {
@@ -293,7 +292,7 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///A popup that is based on the string rather than the index
+        ///<summary>A popup that is based on the string rather than the index</summary>
         public static string StringPopup(GUIContent content, string selected, IEnumerable<string> options, params GUILayoutOption[] GUIOptions) {
             EditorGUILayout.BeginVertical();
             var index = 0;
@@ -306,17 +305,17 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///Generic Popup for selection of any element within a list
+        ///<summary>Generic Popup for selection of any element within a list</summary>
         public static T Popup<T>(T selected, IEnumerable<T> options, params GUILayoutOption[] GUIOptions) {
             return Popup<T>(GUIContent.none, selected, options, GUIOptions);
         }
 
-        ///Generic Popup for selection of any element within a list
+        ///<summary>Generic Popup for selection of any element within a list</summary>
         public static T Popup<T>(string prefix, T selected, IEnumerable<T> options, params GUILayoutOption[] GUIOptions) {
             return Popup<T>(string.IsNullOrEmpty(prefix) ? GUIContent.none : new GUIContent(prefix), selected, options, GUIOptions);
         }
 
-        ///Generic Popup for selection of any element within a list
+        ///<summary>Generic Popup for selection of any element within a list</summary>
         public static T Popup<T>(GUIContent content, T selected, IEnumerable<T> options, params GUILayoutOption[] GUIOptions) {
             var listOptions = new List<T>(options);
             listOptions.Insert(0, default(T));
@@ -336,12 +335,12 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///Generic Button Popup for selection of any element within a list
+        ///<summary>Generic Button Popup for selection of any element within a list</summary>
         public static void ButtonPopup<T>(string prefix, T selected, List<T> options, Action<T> Callback) {
             ButtonPopup<T>(string.IsNullOrEmpty(prefix) ? GUIContent.none : new GUIContent(prefix), selected, options, Callback);
         }
 
-        ///Generic Button Popup for selection of any element within a list
+        ///<summary>Generic Button Popup for selection of any element within a list</summary>
         public static void ButtonPopup<T>(GUIContent content, T selected, List<T> options, Action<T> Callback) {
             var buttonText = selected != null ? selected.ToString() : "[NONE]";
             GUILayout.BeginHorizontal();
@@ -359,12 +358,12 @@ namespace ParadoxNotion.Design
             GUILayout.EndHorizontal();
         }
 
-        ///Specialized Type button popup
+        ///<summary>Specialized Type button popup</summary>
         public static void ButtonTypePopup(string prefix, Type selected, Action<Type> Callback) {
             ButtonTypePopup(string.IsNullOrEmpty(prefix) ? GUIContent.none : new GUIContent(prefix), selected, Callback);
         }
 
-        ///Specialized Type button popup
+        ///<summary>Specialized Type button popup</summary>
         public static void ButtonTypePopup(GUIContent content, Type selected, Action<Type> Callback) {
             var buttonText = selected != null ? selected.FriendlyName() : "[NONE]";
             GUILayout.BeginHorizontal();

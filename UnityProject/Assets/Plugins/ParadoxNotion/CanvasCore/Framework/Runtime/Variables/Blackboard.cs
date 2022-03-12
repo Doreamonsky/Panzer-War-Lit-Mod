@@ -10,17 +10,17 @@ using System.Linq;
 namespace NodeCanvas.Framework
 {
 
-    /// A Blackboard component to hold variables
+    ///<summary> A Blackboard component to hold variables</summary>
     [ParadoxNotion.Design.SpoofAOT]
     public class Blackboard : MonoBehaviour, ISerializationCallbackReceiver, IBlackboard
     {
 
-        ///Remark: We serialize the whole blackboard as normal which is the previous behaviour.
-        ///To support prefab overrides we now also serialize each variable individually.
-        ///Each serialized variable has it's own list of references since it can be an object with multiple
-        ///UnityObject fields, or simply a list of UnityObjects.
-        ///We keep both old and new serializations. If something goes wrong or needs change with the new one,
-        ///there is still the old one to fallback to.
+        //Remark: We serialize the whole blackboard as normal which is the previous behaviour.
+        //To support prefab overrides we now also serialize each variable individually.
+        //Each serialized variable has it's own list of references since it can be an object with multiple
+        //UnityObject fields, or simply a list of UnityObjects.
+        //We keep both old and new serializations. If something goes wrong or needs change with the new one,
+        //there is still the old one to fallback to.
 
         [Tooltip("An optional Parent Blackboard Asset to 'inherit' variables from.")]
         [SerializeField] private AssetBlackboard _parentBlackboard = null;
@@ -37,10 +37,10 @@ namespace NodeCanvas.Framework
         void ISerializationCallbackReceiver.OnAfterDeserialize() { SelfDeserialize(); }
         ///----------------------------------------------------------------------------------------------
 
-        ///Self Serialize blackboard
+        ///<summary>Self Serialize blackboard</summary>
         public void SelfSerialize() {
 
-            if ( haltForUndo /*|| ParadoxNotion.Services.Threader.applicationIsPlaying || Application.isPlaying*/ ) {
+            if ( haltForUndo /*|| ParadoxNotion.Services.Threader.applicationIsPlaying*/ ) {
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Self Deserialize blackboard
+        ///<summary>Self Deserialize blackboard</summary>
         public void SelfDeserialize() {
 
             _blackboard = new BlackboardSource();
@@ -82,15 +82,12 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Serialize the blackboard to json with optional list to store object references within.
-        ///Use this in runtime for blackboard save/load
+        ///<summary>Serialize the blackboard to json with optional list to store object references within. Use this in runtime for blackboard save/load</summary>
         public string Serialize(List<UnityEngine.Object> references, bool pretyJson = false) {
             return JSONSerializer.Serialize(typeof(BlackboardSource), _blackboard, references, pretyJson);
         }
 
-        ///Deserialize the blackboard from json with optional list of object references to read serializedreferences from.
-        ///We deserialize ON TOP of existing variables so that external references to them stay intact.
-        ///Use this in runtime for blackboard save/load
+        ///<summary>Deserialize the blackboard from json with optional list of object references to read serializedreferences from. We deserialize ON TOP of existing variables so that external references to them stay intact. Use this in runtime for blackboard save/load</summary>
         public bool Deserialize(string json, List<UnityEngine.Object> references, bool removeMissingVariables = true) {
             var deserializedBB = JSONSerializer.Deserialize<BlackboardSource>(json, references);
             if ( deserializedBB == null ) { return false; }
@@ -126,21 +123,21 @@ namespace NodeCanvas.Framework
 
         //These exist here only for backward compatibility in case ppl used these methods in any reflection
 
-        ///Add a new variable of name and type
+        ///<summary>Add a new variable of name and type</summary>
         public Variable AddVariable(string name, System.Type type) { return IBlackboardExtensions.AddVariable(this, name, type); }
-        ///Add a new variable of name and value
+        ///<summary>Add a new variable of name and value</summary>
         public Variable AddVariable(string name, object value) { return IBlackboardExtensions.AddVariable(this, name, value); }
-        ///Delete the variable with specified name
+        ///<summary>Delete the variable with specified name</summary>
         public Variable RemoveVariable(string name) { return IBlackboardExtensions.RemoveVariable(this, name); }
-        ///Get a Variable of name and optionaly type
+        ///<summary>Get a Variable of name and optionaly type</summary>
         public Variable GetVariable(string name, System.Type ofType = null) { return IBlackboardExtensions.GetVariable(this, name, ofType); }
-        ///Get a Variable of ID and optionaly type
+        ///<summary>Get a Variable of ID and optionaly type</summary>
         public Variable GetVariableByID(string ID) { return IBlackboardExtensions.GetVariableByID(this, ID); }
         //Generic version of get variable
         public Variable<T> GetVariable<T>(string name) { return IBlackboardExtensions.GetVariable<T>(this, name); }
-        ///Get the variable value of name
+        ///<summary>Get the variable value of name</summary>
         public T GetVariableValue<T>(string name) { return IBlackboardExtensions.GetVariableValue<T>(this, name); }
-        ///Set the variable value of name
+        ///<summary>Set the variable value of name</summary>
         public Variable SetVariableValue(string name, object value) { return IBlackboardExtensions.SetVariableValue(this, name, value); }
 
         [System.Obsolete("Use GetVariableValue")]
@@ -155,18 +152,18 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Saves the Blackboard in PlayerPrefs with saveKey being it's name. You can use this for a Save system
+        ///<summary>Saves the Blackboard in PlayerPrefs with saveKey being it's name. You can use this for a Save system</summary>
         public string Save() { return Save(this.name); }
-        ///Saves the Blackboard in PlayerPrefs in the provided saveKey. You can use this for a Save system
+        ///<summary>Saves the Blackboard in PlayerPrefs in the provided saveKey. You can use this for a Save system</summary>
         public string Save(string saveKey) {
             var json = Serialize(null);
             PlayerPrefs.SetString(saveKey, json);
             return json;
         }
 
-        ///Loads back the Blackboard from PlayerPrefs saveKey same as it's name. You can use this for a Save system
+        ///<summary>Loads back the Blackboard from PlayerPrefs saveKey same as it's name. You can use this for a Save system</summary>
         public bool Load() { return Load(this.name); }
-        ///Loads back the Blackboard from PlayerPrefs of the provided saveKey. You can use this for a Save system
+        ///<summary>Loads back the Blackboard from PlayerPrefs of the provided saveKey. You can use this for a Save system</summary>
         public bool Load(string saveKey) {
             var json = PlayerPrefs.GetString(saveKey);
             if ( string.IsNullOrEmpty(json) ) {

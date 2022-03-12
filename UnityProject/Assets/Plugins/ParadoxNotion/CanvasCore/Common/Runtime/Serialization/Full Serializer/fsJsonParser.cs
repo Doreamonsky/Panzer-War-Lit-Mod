@@ -8,7 +8,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
     // TODO: properly propagate warnings/etc for fsResult states
 
-    /// A simple recursive descent parser for JSON.
+    ///<summary> A simple recursive descent parser for JSON.</summary>
     public class fsJsonParser
     {
         private int _start;
@@ -48,7 +48,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return _input[_start + offset];
         }
 
-        /// Skips input such that Character() will return a non-whitespace character
+        ///<summary> Skips input such that Character() will return a non-whitespace character</summary>
         private void SkipSpace() {
             while ( HasValue() ) {
                 char c = Character();
@@ -224,7 +224,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return char.IsWhiteSpace(c) || c == ',' || c == '}' || c == ']';
         }
 
-        /// Parses numbers that follow the regular expression [-+](\d+|\d*\.\d*)
+        ///<summary> Parses numbers that follow the regular expression [-+](\d+|\d*\.\d*)</summary>
         private fsResult TryParseNumber(out fsData data) {
             int start = _start;
 
@@ -261,7 +261,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
         }
 
         private readonly StringBuilder _cachedStringBuilder = new StringBuilder(256);
-        /// Parses a string
+        ///<summary> Parses a string</summary>
         private fsResult TryParseString(out string str) {
             _cachedStringBuilder.Length = 0;
 
@@ -309,7 +309,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return fsResult.Success;
         }
 
-        /// Parses an array
+        ///<summary> Parses an array</summary>
         private fsResult TryParseArray(out fsData arr) {
             if ( Character() != '[' ) {
                 arr = null;
@@ -463,10 +463,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Parses the specified input. Returns a failure state if parsing failed.
-        /// <param name="input">The input to parse.</param>
-        /// <param name="data">The parsed data. This is undefined if parsing fails.</param>
-        /// <returns>The parsed input.</returns>
+        ///<summary> Parses the specified input. Returns a failure state if parsing failed.</summary>
         public static fsResult Parse(string input, out fsData data) {
             if ( string.IsNullOrEmpty(input) ) {
                 data = default(fsData);
@@ -477,8 +474,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return context.RunParse(out data);
         }
 
-        /// Helper method for Parse that does not allow the error information
-        /// to be recovered.
+        ///<summary> Helper method for Parse that does not allow the error information to be recovered.</summary>
         public static fsData Parse(string input) {
             fsData data;
             Parse(input, out data).AssertSuccess();

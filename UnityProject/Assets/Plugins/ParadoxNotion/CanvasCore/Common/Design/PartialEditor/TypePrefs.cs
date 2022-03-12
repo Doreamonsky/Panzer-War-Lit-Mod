@@ -14,7 +14,7 @@ using ParadoxNotion.Serialization;
 namespace ParadoxNotion.Design
 {
 
-    ///Collection of preferred user types and utilities for types, type colors and icons
+    ///<summary>Collection of preferred user types and utilities for types, type colors and icons</summary>
     public static class TypePrefs
     {
 
@@ -141,7 +141,7 @@ namespace ParadoxNotion.Design
             SetPreferedTypesList(_preferedTypesAll);
         }
 
-        ///Get the prefered types set by the user.
+        ///<summary>Get the prefered types set by the user.</summary>
         public static List<Type> GetPreferedTypesList(bool filterOutFunctionalOnlyTypes = false) { return GetPreferedTypesList(typeof(object), filterOutFunctionalOnlyTypes); }
         public static List<Type> GetPreferedTypesList(Type baseType, bool filterOutFunctionalOnlyTypes = false) {
 
@@ -159,7 +159,7 @@ namespace ParadoxNotion.Design
             return _preferedTypesAll.Where(t => t != null && baseType.IsAssignableFrom(t)).ToList();
         }
 
-        ///Set the prefered types list for the user
+        ///<summary>Set the prefered types list for the user</summary>
         public static void SetPreferedTypesList(List<Type> types) {
             var finalTypes = types
             .Where(t => t != null && !t.IsGenericType)
@@ -182,7 +182,7 @@ namespace ParadoxNotion.Design
             }
         }
 
-        ///Append a type to the list
+        ///<summary>Append a type to the list</summary>
         public static void AddType(Type type) {
             var current = GetPreferedTypesList(typeof(object));
             if ( !current.Contains(type) ) {
@@ -191,14 +191,14 @@ namespace ParadoxNotion.Design
             SetPreferedTypesList(current);
         }
 
-        ///Reset the prefered types to the default ones
+        ///<summary>Reset the prefered types to the default ones</summary>
         public static void ResetTypeConfiguration() {
             SetPreferedTypesList(defaultTypesList);
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Is there a typePrefs file in sync? returns it's path.
+        ///<summary>Is there a typePrefs file in sync? returns it's path.</summary>
         public static string SyncFilePath() {
             var syncFile = EditorGUIUtility.Load(SYNC_FILE_NAME);
             var absPath = EditorUtils.AssetToSystemPath(syncFile);
@@ -208,7 +208,7 @@ namespace ParadoxNotion.Design
             return null;
         }
 
-        //Will try load from file found in DefaultEditorResources
+        ///<summary>Will try load from file found in DefaultEditorResources</summary>
         static bool TryLoadSyncFile(ref List<Type> result) {
             var absPath = SyncFilePath();
             if ( !string.IsNullOrEmpty(absPath) ) {
@@ -222,7 +222,7 @@ namespace ParadoxNotion.Design
             return false;
         }
 
-        //Will try save to file found in DefaultEditorResources
+        ///<summary>Will try save to file found in DefaultEditorResources</summary>
         static void TrySaveSyncFile(List<Type> types) {
             var absPath = SyncFilePath();
             if ( !string.IsNullOrEmpty(absPath) ) {
@@ -234,7 +234,7 @@ namespace ParadoxNotion.Design
         //----------------------------------------------------------------------------------------------
 
         private static readonly Color DEFAULT_TYPE_COLOR = Colors.Grey(0.75f);
-        ///A Type to color lookup initialized with some types already
+        ///<summary>A Type to color lookup initialized with some types already</summary>
         private static Dictionary<Type, Color> typeColors = new Dictionary<Type, Color>()
         {
             {typeof(Delegate),           new Color(1,0.4f,0.4f)},
@@ -250,7 +250,7 @@ namespace ParadoxNotion.Design
             {typeof(UnityEngine.Object), Color.grey}
         };
 
-        ///Get color for type
+        ///<summary>Get color for type</summary>
         public static Color GetTypeColor(MemberInfo info) {
             if ( !EditorGUIUtility.isProSkin ) { return Color.white; }
             if ( info == null ) { return Color.black; }
@@ -279,7 +279,7 @@ namespace ParadoxNotion.Design
             return typeColors[type] = DEFAULT_TYPE_COLOR;
         }
 
-        ///Get the hex color preference for a type
+        ///<summary>Get the hex color preference for a type</summary>
         public static string GetTypeHexColor(Type type) {
             if ( !EditorGUIUtility.isProSkin ) {
                 return "#000000";
@@ -294,10 +294,10 @@ namespace ParadoxNotion.Design
         private const string IMPLICIT_ICONS_PATH = "TypeIcons/Implicit/";
         private const string EXPLICIT_ICONS_PATH = "TypeIcons/Explicit/";
 
-        //A Type.FullName to texture lookup. Use string instead of type to also handle attributes
+        ///<summary>A Type.FullName to texture lookup. Use string instead of type to also handle attributes</summary>
         private static Dictionary<string, Texture> typeIcons = new Dictionary<string, Texture>(StringComparer.OrdinalIgnoreCase);
 
-        ///Get icon for type
+        ///<summary>Get icon for type</summary>
         public static Texture GetTypeIcon(MemberInfo info, bool fallbackToDefault = true) {
             if ( info == null ) { return null; }
             var type = info is Type ? info as Type : info.ReflectedType;
@@ -336,10 +336,10 @@ namespace ParadoxNotion.Design
                 texture = Resources.Load<Texture>(IMPLICIT_ICONS_PATH + type.FullName);
             }
 
-            ///Explicit icons not in dark theme
+            ///<summary>Explicit icons not in dark theme</summary>
             if ( EditorGUIUtility.isProSkin ) {
                 if ( texture == null ) {
-                    var iconAtt = type.RTGetAttribute<IconAttribute>(true);
+                    var iconAtt = type.RTGetAttribute<ParadoxNotion.Design.IconAttribute>(true);
                     if ( iconAtt != null ) {
                         texture = GetTypeIcon(iconAtt, null);
                     }
@@ -371,7 +371,7 @@ namespace ParadoxNotion.Design
             return null;
         }
 
-        ///Get icon from [IconAttribute] info
+        ///<summary>Get icon from [ParadoxNotion.Design.IconAttribute] info</summary>
         public static Texture GetTypeIcon(IconAttribute iconAttribute, object instance = null) {
             if ( iconAttribute == null ) { return null; }
 
@@ -400,10 +400,10 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        //A Type.FullName to documentation lookup
+        ///<summary>A Type.FullName to documentation lookup</summary>
         private static Dictionary<string, string> typeDocs = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-        ///Get documentation for type fetched either by the [Description] attribute, or it's xml doc.
+        ///<summary>Get documentation for type fetched either by the [Description] attribute, or it's xml doc.</summary>
         public static string GetTypeDoc(MemberInfo info) {
             if ( info == null ) { return null; }
             var type = info is Type ? info as Type : info.ReflectedType;
@@ -420,7 +420,7 @@ namespace ParadoxNotion.Design
             }
 
             if ( doc == null ) {
-                doc = DocsByReflection.GetMemberSummary(type);
+                doc = XMLDocs.GetMemberSummary(type);
             }
 
             if ( doc == null ) {

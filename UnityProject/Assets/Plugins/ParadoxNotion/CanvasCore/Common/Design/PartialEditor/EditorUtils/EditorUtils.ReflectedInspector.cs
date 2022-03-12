@@ -11,13 +11,13 @@ using UnityObject = UnityEngine.Object;
 namespace ParadoxNotion.Design
 {
 
-    ///Automatic Inspector functions
+    ///<summary>Automatic Inspector functions</summary>
 	partial class EditorUtils
     {
 
         private static GUIContent tempContent;
 
-        ///A cached temporary content
+        ///<summary>A cached temporary content</summary>
         public static GUIContent GetTempContent(string text = "", Texture image = null, string tooltip = null) {
             if ( tempContent == null ) { tempContent = new GUIContent(); }
             tempContent.text = text;
@@ -26,12 +26,12 @@ namespace ParadoxNotion.Design
             return tempContent;
         }
 
-        ///A cached temporary content
+        ///<summary>A cached temporary content</summary>
         public static GUIContent GetTempContent(Texture image = null, string tooltip = null) {
             return GetTempContent(null, image, tooltip);
         }
 
-        ///Show an automatic editor GUI inspector for target object, taking into account drawer attributes
+        ///<summary>Show an automatic editor GUI inspector for target object, taking into account drawer attributes</summary>
         public static void ReflectedObjectInspector(object target, UnityObject unityObjectContext) {
 
             if ( target == null ) {
@@ -68,11 +68,11 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///Draws an Editor field for object of type directly WITH taking into acount object drawers and drawer attributes
+        ///<summary>Draws an Editor field for object of type directly WITH taking into acount object drawers and drawer attributes</summary>
         public static object ReflectedFieldInspector(string name, object value, Type t, InspectedFieldInfo info) {
             var content = GetTempContent(name.SplitCamelCase());
             if ( info.attributes != null ) {
-                ///Create proper GUIContent
+                //Create proper GUIContent
                 var nameAtt = info.attributes.FirstOrDefault(a => a is NameAttribute) as NameAttribute;
                 if ( nameAtt != null ) { content.text = nameAtt.name; }
 
@@ -83,7 +83,7 @@ namespace ParadoxNotion.Design
             return ReflectedFieldInspector(content, value, t, info);
         }
 
-        ///Draws an Editor field for object of type directly WITH taking into acount object drawers and drawer attributes
+        ///<summary>Draws an Editor field for object of type directly WITH taking into acount object drawers and drawer attributes</summary>
         public static object ReflectedFieldInspector(GUIContent content, object value, Type t, InspectedFieldInfo info) {
 
             if ( t == null ) {
@@ -91,7 +91,7 @@ namespace ParadoxNotion.Design
                 return value;
             }
 
-            ///Use drawers
+            //Use drawers
             var objectDrawer = PropertyDrawerFactory.GetObjectDrawer(t);
             var newValue = objectDrawer.DrawGUI(content, value, info);
             var changed = !object.Equals(newValue, value);
@@ -102,7 +102,7 @@ namespace ParadoxNotion.Design
         }
 
 
-        ///Draws an Editor field for object of type directly WITHOUT taking into acount object drawers and drawer attributes unless provided
+        ///<summary>Draws an Editor field for object of type directly WITHOUT taking into acount object drawers and drawer attributes unless provided</summary>
         public static object DrawEditorFieldDirect(GUIContent content, object value, Type t, InspectedFieldInfo info) {
 
             ///----------------------------------------------------------------------------------------------
@@ -153,8 +153,8 @@ namespace ParadoxNotion.Design
 
             //Check scene object type for UnityObjects. Consider Interfaces as scene object type. Assume that user uses interfaces with UnityObjects
             if ( typeof(UnityObject).IsAssignableFrom(t) || t.IsInterface ) {
-                var isSceneObjectType = ( typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) || t.IsInterface );
                 if ( value == null || value is UnityObject ) { //check this to avoid case of interface but no unityobject
+                    var isSceneObjectType = ( typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) || t.IsInterface );
                     var newValue = EditorGUILayout.ObjectField(content, (UnityObject)value, t, isSceneObjectType, options);
                     if ( unityObjectContext != null && newValue != null ) {
                         if ( !Application.isPlaying && EditorUtility.IsPersistent(unityObjectContext) && !EditorUtility.IsPersistent(newValue as UnityEngine.Object) ) {
@@ -293,11 +293,7 @@ namespace ParadoxNotion.Design
 
             if ( t.IsSubclassOf(typeof(System.Enum)) ) {
                 if ( t.RTIsDefined(typeof(FlagsAttribute), true) ) {
-#if UNITY_2017_3_OR_NEWER
                     return EditorGUILayout.EnumFlagsField(content, (System.Enum)value, options);
-#else
-					return EditorGUILayout.EnumMaskPopup(content, (System.Enum)value, options);
-#endif
                 }
                 return EditorGUILayout.EnumPopup(content, (System.Enum)value, options);
             }

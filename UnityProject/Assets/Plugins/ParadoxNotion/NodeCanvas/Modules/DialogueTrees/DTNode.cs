@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NodeCanvas.DialogueTrees
 {
 
-    /// Base class for DialogueTree nodes that can live within a DialogueTree Graph.
+    ///<summary> Base class for DialogueTree nodes that can live within a DialogueTree Graph.</summary>
     abstract public class DTNode : Node
     {
 
@@ -40,7 +40,7 @@ namespace NodeCanvas.DialogueTrees
             get { return (DialogueTree)graph; }
         }
 
-        ///The key name actor parameter to be used for this node
+        ///<summary>The key name actor parameter to be used for this node</summary>
         public string actorName {
             get
             {
@@ -57,7 +57,7 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ///The DialogueActor that will execute the node
+        ///<summary>The DialogueActor that will execute the node</summary>
         public IDialogueActor finalActor {
             get
             {
@@ -67,9 +67,8 @@ namespace NodeCanvas.DialogueTrees
         }
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnNodeInspectorGUI() {

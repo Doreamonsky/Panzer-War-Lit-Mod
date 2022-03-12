@@ -8,8 +8,8 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Repeat")]
     [Category("Decorators")]
-    [Description("Repeat the child either x times or until it returns the specified status, or forever")]
-    [Icon("Repeat")]
+    [Description("Repeat the child either x times or until it returns the specified status, or forever.")]
+    [ParadoxNotion.Design.Icon("Repeat")]
     public class Repeater : BTDecorator
     {
 

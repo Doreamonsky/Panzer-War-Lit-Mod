@@ -107,6 +107,7 @@ namespace NodeCanvas.Tasks.Conditions
             if ( method == null ) {
                 return;
             }
+            UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
             this.method = new SerializedMethodInfo(method);
             this.parameters.Clear();
             var methodParameters = method.GetParameters();
@@ -151,7 +152,7 @@ namespace NodeCanvas.Tasks.Conditions
                 GUILayout.BeginVertical("box");
                 UnityEditor.EditorGUILayout.LabelField("Type", targetMethod.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Method", targetMethod.Name);
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
                 GUILayout.EndVertical();
 
                 var paramNames = targetMethod.GetParameters().Select(p => p.Name.SplitCamelCase()).ToArray();

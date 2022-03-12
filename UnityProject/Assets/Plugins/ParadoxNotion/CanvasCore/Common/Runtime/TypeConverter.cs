@@ -4,16 +4,15 @@ using System;
 namespace ParadoxNotion
 {
 
-    ///Auto "Convenience Converters" from type to type (boxing).
-    ///This includes unconventional data conversions like for example GameObject to Vector3 (by transform.position).
+    ///<summary>Auto "Convenience Converters" from type to type (boxing). This includes unconventional data conversions like for example GameObject to Vector3 (by transform.position).</summary>
     public static class TypeConverter
     {
-        ///Custom Converter delegate
+        ///<summary>Custom Converter delegate</summary>
         public delegate Func<object, object> CustomConverter(Type fromType, Type toType);
-        ///Subscribe custom converter
+        ///<summary>Subscribe custom converter</summary>
         public static event CustomConverter customConverter;
 
-        ///Returns a function that can convert provided first arg value from type to type
+        ///<summary>Returns a function that can convert provided first arg value from type to type</summary>
         public static Func<object, object> Get(Type fromType, Type toType) {
 
             // Custom Converter
@@ -112,7 +111,7 @@ namespace ParadoxNotion
             return null;
         }
 
-        ///Returns whether a conversion exists
+        ///<summary>Returns whether a conversion exists</summary>
         public static bool CanConvert(Type fromType, Type toType) {
             return Get(fromType, toType) != null;
         }

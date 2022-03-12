@@ -82,15 +82,15 @@ namespace NodeCanvas.Tasks.Conditions
 
         void SetTargetField(FieldInfo newField) {
             if ( newField != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 field = new SerializedFieldInfo(newField);
                 checkValue.SetType(newField.FieldType);
                 comparison = CompareMethod.EqualTo;
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {
@@ -117,7 +117,7 @@ namespace NodeCanvas.Tasks.Conditions
                 UnityEditor.EditorGUILayout.LabelField("Type", targetField.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Field", targetField.Name);
                 UnityEditor.EditorGUILayout.LabelField("Field Type", targetField.FieldType.FriendlyName());
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetField), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetField), UnityEditor.MessageType.None);
                 GUILayout.EndVertical();
 
                 GUI.enabled = checkValue.varType == typeof(float) || checkValue.varType == typeof(int);

@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace ParadoxNotion
 {
 
-    ///Some common string utilities
+    ///<summary>Some common string utilities</summary>
     public static class StringUtils
     {
 
@@ -16,7 +16,7 @@ namespace ParadoxNotion
         public static readonly char[] CHAR_SPACE_ARRAY = new char[] { ' ' };
         private static Dictionary<string, string> splitCaseCache = new Dictionary<string, string>(StringComparer.Ordinal);
 
-        ///Convert camelCase to words.
+        ///<summary>Convert camelCase to words.</summary>
         public static string SplitCamelCase(this string s) {
             if ( string.IsNullOrEmpty(s) ) { return s; }
 
@@ -34,13 +34,13 @@ namespace ParadoxNotion
             return splitCaseCache[s] = result;
         }
 
-        ///Capitalize first letter
+        ///<summary>Capitalize first letter</summary>
         public static string CapitalizeFirst(this string s) {
             if ( string.IsNullOrEmpty(s) ) { return s; }
             return s.First().ToString().ToUpper() + s.Substring(1);
         }
 
-        ///Caps the length of a string to max length and adds "..." if more.
+        ///<summary>Caps the length of a string to max length and adds "..." if more.</summary>
         public static string CapLength(this string s, int max) {
             if ( string.IsNullOrEmpty(s) || s.Length <= max || max <= 3 ) { return s; }
             var result = s.Substring(0, Mathf.Min(s.Length, max) - 3);
@@ -48,7 +48,7 @@ namespace ParadoxNotion
             return result;
         }
 
-        ///Gets only the capitals of the string trimmed.
+        ///<summary>Gets only the capitals of the string trimmed.</summary>
         public static string GetCapitals(this string s) {
             if ( string.IsNullOrEmpty(s) ) {
                 return string.Empty;
@@ -63,12 +63,12 @@ namespace ParadoxNotion
             return result;
         }
 
-        ///Formats input to error
+        ///<summary>Formats input to error</summary>
         public static string FormatError(this string input) {
             return string.Format("<color=#ff6457>* {0} *</color>", input);
         }
 
-        ///Returns the alphabet letter based on it's index.
+        ///<summary>Returns the alphabet letter based on it's index.</summary>
         public static string GetAlphabetLetter(int index) {
             if ( index < 0 ) {
                 return null;
@@ -81,7 +81,7 @@ namespace ParadoxNotion
             return ALPHABET[index].ToString();
         }
 
-        ///Get the string result within from to
+        ///<summary>Get the string result within from to</summary>
         public static string GetStringWithinOuter(this string input, char from, char to) {
             var start = input.IndexOf(from) + 1;
             var end = input.LastIndexOf(to);
@@ -89,7 +89,7 @@ namespace ParadoxNotion
             return input.Substring(start, end - start);
         }
 
-        ///Get the string result within from to
+        ///<summary>Get the string result within from to</summary>
         public static string GetStringWithinInner(this string input, char from, char to) {
             var end = input.IndexOf(to);
             var start = int.MinValue;
@@ -102,7 +102,7 @@ namespace ParadoxNotion
             return input.Substring(start, end - start);
         }
 
-        ///Replace text within start and end chars based on provided processor
+        ///<summary>Replace text within start and end chars based on provided processor</summary>
         public static string ReplaceWithin(this string text, char startChar, char endChar, System.Func<string, string> Process) {
             var s = text;
             var i = 0;
@@ -118,8 +118,7 @@ namespace ParadoxNotion
             return s;
         }
 
-        ///Returns a simplistic matching score (0-1) vs leaf + optional category.
-        ///Lower is better so can be used without invert in OrderBy.
+        ///<summary>Returns a simplistic matching score (0-1) vs leaf + optional category. Lower is better so can be used without invert in OrderBy.</summary>
         public static float ScoreSearchMatch(string input, string leafName, string categoryName = "") {
 
             if ( input == null || leafName == null ) return float.PositiveInfinity;
@@ -161,7 +160,7 @@ namespace ParadoxNotion
             return score;
         }
 
-        ///Returns whether or not the input is valid for a search match vs the leaf + optional category.
+        ///<summary>Returns whether or not the input is valid for a search match vs the leaf + optional category.</summary>
         public static bool SearchMatch(string input, string leafName, string categoryName = "") {
 
             if ( input == null || leafName == null ) return false;
@@ -212,7 +211,7 @@ namespace ParadoxNotion
             return leafName.Contains(lastWord);
         }
 
-        ///A more complete ToString version
+        ///<summary>A more complete ToString version</summary>
         public static string ToStringAdvanced(this object o) {
 
             if ( o == null || o.Equals(null) ) {
@@ -230,27 +229,9 @@ namespace ParadoxNotion
             var t = o.GetType();
             if ( t.RTIsSubclassOf(typeof(System.Enum)) ) {
                 if ( t.RTIsDefined<System.FlagsAttribute>(true) ) {
-                    var value = string.Empty;
-                    var cnt = 0;
-                    var list = System.Enum.GetValues(t);
-                    for ( var i = 1; i < list.Length; i++ ) {
-                        var e = list.GetValue(i);
-                        if ( ( Convert.ToInt32(e) & Convert.ToInt32(o) ) == Convert.ToInt32(e) ) {
-                            cnt++;
-                            if ( value == string.Empty ) {
-                                value = e.ToString();
-                            } else {
-                                value = "Mixed...";
-                            }
-                        }
-                    }
-                    if ( cnt == 0 ) {
-                        return "Nothing";
-                    }
-                    if ( cnt == list.Length - 1 ) {
-                        return "Everything";
-                    }
-                    return value;
+                    if ( o.ToString() == "0" ) { return "Nothing"; }
+                    if ( o.ToString() == "-1" ) { return "Everything"; }
+                    if ( o.ToString().Contains(',') ) { return "Mixed..."; }
                 }
             }
 

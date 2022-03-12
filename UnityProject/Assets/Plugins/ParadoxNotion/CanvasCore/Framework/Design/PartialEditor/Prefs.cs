@@ -6,7 +6,7 @@ using ParadoxNotion.Serialization;
 namespace NodeCanvas.Editor
 {
 
-    ///NC framework preferences
+    ///<summary>NC framework preferences</summary>
     public static partial class Prefs
     {
 

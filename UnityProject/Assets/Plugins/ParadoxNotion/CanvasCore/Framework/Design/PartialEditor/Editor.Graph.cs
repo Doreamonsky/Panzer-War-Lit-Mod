@@ -12,7 +12,7 @@ namespace NodeCanvas.Framework
 
         private int _childAssignableIndex = -1;
 
-        ///EDITOR. Responsible for breacrumb navigation only
+        ///<summary>EDITOR. Responsible for breacrumb navigation only</summary>
         public Graph GetCurrentChildGraph() {
             if ( _childAssignableIndex == -1 || _childAssignableIndex > allNodes.Count - 1 ) {
                 return null;
@@ -24,7 +24,7 @@ namespace NodeCanvas.Framework
             return null;
         }
 
-        ///EDITOR. Responsible for breacrumb navigation only
+        ///<summary>EDITOR. Responsible for breacrumb navigation only</summary>
         public void SetCurrentChildGraphAssignable(IGraphAssignable assignable) {
             if ( assignable == null || assignable.subGraph == null ) {
                 _childAssignableIndex = -1;
@@ -44,7 +44,7 @@ namespace NodeCanvas.Framework
         internal GenericMenu CallbackOnCanvasContextMenu(GenericMenu menu, Vector2 canvasMousePos) { return OnCanvasContextMenu(menu, canvasMousePos); }
         internal GenericMenu CallbackOnNodesContextMenu(GenericMenu menu, Node[] nodes) { return OnNodesContextMenu(menu, nodes); }
         internal void CallbackOnDropAccepted(Object o, Vector2 canvasMousePos) {
-            ///for all graphs, make possible to drag and drop IGraphAssignables
+            ///<summary>for all graphs, make possible to drag and drop IGraphAssignables</summary>
             foreach ( var type in Editor.GraphEditorUtility.GetDropedReferenceNodeTypes<IGraphAssignable>(o) ) {
                 if ( baseNodeType.IsAssignableFrom(type) ) {
                     var node = (IGraphAssignable)AddNode(type, canvasMousePos);
@@ -59,15 +59,15 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Editor. Override to add extra context sensitive options in the right click canvas context menu
+        ///<summary>Editor. Override to add extra context sensitive options in the right click canvas context menu</summary>
         virtual protected GenericMenu OnCanvasContextMenu(GenericMenu menu, Vector2 canvasMousePos) { return menu; }
-        ///Editor. Override to add more entries to the right click context menu when multiple nodes are selected
+        ///<summary>Editor. Override to add more entries to the right click context menu when multiple nodes are selected</summary>
         virtual protected GenericMenu OnNodesContextMenu(GenericMenu menu, Node[] nodes) { return menu; }
-        ///Editor. Handle drag and drop objects in the graph
+        ///<summary>Editor. Handle drag and drop objects in the graph</summary>
         virtual protected void OnDropAccepted(Object o, Vector2 canvasMousePos) { }
-        ///Editor. Handle what happens when blackboard variable is drag and droped in graph
+        ///<summary>Editor. Handle what happens when blackboard variable is drag and droped in graph</summary>
         virtual protected void OnVariableDropInGraph(IBlackboard bb, Variable variable, Vector2 canvasMousePos) { }
-        ///Editor. Append stuff in graph editor toolbar
+        ///<summary>Editor. Append stuff in graph editor toolbar</summary>
         virtual protected void OnGraphEditorToolbar() { }
 
         ///----------------------------------------------------------------------------------------------

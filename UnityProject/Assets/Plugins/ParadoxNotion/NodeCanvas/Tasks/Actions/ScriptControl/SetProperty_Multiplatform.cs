@@ -61,6 +61,7 @@ namespace NodeCanvas.Tasks.Actions
 
         void SetMethod(MethodInfo method) {
             if ( method != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 this.method = new SerializedMethodInfo(method);
                 this.parameter.SetType(method.GetParameters()[0].ParameterType);
             }
@@ -96,7 +97,7 @@ namespace NodeCanvas.Tasks.Actions
                 UnityEditor.EditorGUILayout.LabelField("Type", targetMethod.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Property", targetMethod.Name);
                 UnityEditor.EditorGUILayout.LabelField("Set Type", parameter.varType.FriendlyName());
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
                 GUILayout.EndVertical();
                 NodeCanvas.Editor.BBParameterEditor.ParameterField("Set Value", parameter);
             }

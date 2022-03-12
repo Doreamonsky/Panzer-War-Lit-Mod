@@ -8,7 +8,7 @@ using UnityEngine;
 namespace NodeCanvas.DialogueTrees
 {
 
-    [Icon("List")]
+    [ParadoxNotion.Design.Icon("List")]
     [Name("Multiple Choice")]
     [Category("Branch")]
     [Description("Prompt a Dialogue Multiple Choice. A choice will be available if the choice condition(s) are true or there is no choice conditions. The Actor selected is used for the condition checks and will also Say the selection if the option is checked.")]
@@ -83,9 +83,8 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override void OnConnectionInspectorGUI(int i) {

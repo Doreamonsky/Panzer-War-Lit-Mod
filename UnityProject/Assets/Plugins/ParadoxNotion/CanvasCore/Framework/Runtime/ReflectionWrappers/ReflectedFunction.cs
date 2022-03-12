@@ -4,7 +4,7 @@ using ParadoxNotion;
 namespace NodeCanvas.Framework.Internal
 {
 
-    /// A Wrapped reflected method call of return type TResult
+    ///<summary> A Wrapped reflected method call of return type TResult</summary>
     [Serializable]
     [ParadoxNotion.Design.SpoofAOT]
     public class ReflectedFunction<TResult> : ReflectedFunctionWrapper

@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ParadoxNotion.Design
 {
 
-    /// A simple Undo utility to avoid checking application playing, nulls and if unity editor all the time
+    ///<summary> A simple Undo utility to avoid checking application playing, nulls and if unity editor all the time</summary>
     public static class UndoUtility
     {
         public static string lastOperationName { get; private set; }
 
-        ///Same as Undo.RecordObject. Checks null and only takes place in editor time
+        ///<summary>Same as Undo.RecordObject. Checks null and only takes place in editor time</summary>
         [Conditional("UNITY_EDITOR")]
         public static void RecordObject(Object target, string name) {
 #if UNITY_EDITOR
@@ -19,7 +19,7 @@ namespace ParadoxNotion.Design
 #endif
         }
 
-        ///Same as Undo.RegisterCompleteObjectUndo. Checks null and only takes place in editor time
+        ///<summary>Same as Undo.RegisterCompleteObjectUndo. Checks null and only takes place in editor time</summary>
         [Conditional("UNITY_EDITOR")]
         public static void RecordObjectComplete(Object target, string name) {
 #if UNITY_EDITOR
@@ -29,7 +29,7 @@ namespace ParadoxNotion.Design
 #endif
         }
 
-        ///Same as EditorUtility.SetDirty. Checks null and only takes place in editor time
+        ///<summary>Same as EditorUtility.SetDirty. Checks null and only takes place in editor time</summary>
         [Conditional("UNITY_EDITOR")]
         public static void SetDirty(Object target) {
 #if UNITY_EDITOR
@@ -52,14 +52,14 @@ namespace ParadoxNotion.Design
             SetDirty(target);
         }
 
-        ///Shortcut to return the last undo operation name or the one provided
+        ///<summary>Shortcut to return the last undo operation name or the one provided</summary>
         public static string GetLastOperationNameOr(string operation) {
             return string.IsNullOrEmpty(lastOperationName) ? operation : lastOperationName;
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Checks some commong event types and records undo if that is the case
+        ///<summary>Checks some commong event types and records undo if that is the case</summary>
         public static void CheckUndo(Object target, string name) {
             var e = Event.current;
             if (
@@ -73,7 +73,7 @@ namespace ParadoxNotion.Design
             }
         }
 
-        ///Set target dirty if gui changed
+        ///<summary>Set target dirty if gui changed</summary>
         public static void CheckDirty(Object target) {
             if ( GUI.changed ) { SetDirty(target); }
         }

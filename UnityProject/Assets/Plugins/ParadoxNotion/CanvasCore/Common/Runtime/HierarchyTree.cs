@@ -3,12 +3,12 @@
 namespace ParadoxNotion
 {
 
-    ///A simple general purpose hierarchical tree.
+    ///<summary>A simple general purpose hierarchical tree.</summary>
     public class HierarchyTree
     {
         //..with nothing inside right now
 
-        ///A simple general purpose hierarchical tree element.
+        ///<summary>A simple general purpose hierarchical tree element.</summary>
         public class Element
         {
 
@@ -24,7 +24,7 @@ namespace ParadoxNotion
                 this._reference = reference;
             }
 
-            ///Add a child element
+            ///<summary>Add a child element</summary>
             public Element AddChild(Element child) {
                 if ( _children == null ) { _children = new List<Element>(); }
                 child._parent = this;
@@ -32,14 +32,14 @@ namespace ParadoxNotion
                 return child;
             }
 
-            ///Remove a child element
+            ///<summary>Remove a child element</summary>
             public void RemoveChild(Element child) {
                 if ( _children != null ) {
                     _children.Remove(child);
                 }
             }
 
-            ///Get root element
+            ///<summary>Get root element</summary>
             public Element GetRoot() {
                 var current = _parent;
                 while ( current != null ) {
@@ -48,7 +48,7 @@ namespace ParadoxNotion
                 return current;
             }
 
-            ///Returns the first found Element that references target object
+            ///<summary>Returns the first found Element that references target object</summary>
             public Element FindReferenceElement(object target) {
                 if ( this._reference == target ) { return this; }
                 if ( _children == null ) { return null; }
@@ -61,13 +61,13 @@ namespace ParadoxNotion
                 return null;
             }
 
-            ///Get first parent reference of type T, including self element
+            ///<summary>Get first parent reference of type T, including self element</summary>
             public T GetFirstParentReferenceOfType<T>() {
                 if ( this._reference is T ) { return (T)_reference; }
                 return _parent != null ? _parent.GetFirstParentReferenceOfType<T>() : default(T);
             }
 
-            ///Get all children references of type T recursively
+            ///<summary>Get all children references of type T recursively</summary>
             public IEnumerable<T> GetAllChildrenReferencesOfType<T>() {
                 if ( _children == null ) { yield break; }
                 for ( var i = 0; i < _children.Count; i++ ) {

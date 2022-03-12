@@ -170,8 +170,8 @@ namespace NodeCanvas.Editor
             EditorApplication.playModeStateChanged += OnPlayModeChange;
 
 #if UNITY_2018_3_OR_NEWER
-            UnityEditor.Experimental.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosing;
-            UnityEditor.Experimental.SceneManagement.PrefabStage.prefabStageClosing += OnPrefabStageClosing;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosing;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing += OnPrefabStageClosing;
 #endif
 
             Selection.selectionChanged -= OnUnityObjectSelectionChange;
@@ -196,7 +196,7 @@ namespace NodeCanvas.Editor
             EditorApplication.playModeStateChanged -= OnPlayModeChange;
 
 #if UNITY_2018_3_OR_NEWER
-            UnityEditor.Experimental.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosing;
+            UnityEditor.SceneManagement.PrefabStage.prefabStageClosing -= OnPrefabStageClosing;
 #endif
 
             Selection.selectionChanged -= OnUnityObjectSelectionChange;
@@ -232,7 +232,7 @@ namespace NodeCanvas.Editor
         }
 
 #if UNITY_2018_3_OR_NEWER
-        void OnPrefabStageClosing(UnityEditor.Experimental.SceneManagement.PrefabStage stage) {
+        void OnPrefabStageClosing(UnityEditor.SceneManagement.PrefabStage stage) {
             //when exiting prefab state we are left with a floating graph instance which can creat confusion
             SetReferences(null, null, null);
         }
@@ -312,13 +312,13 @@ namespace NodeCanvas.Editor
             return false;
         }
 
-        ///Open the window without any references
+        ///<summary>Open the window without any references</summary>
         public static GraphEditor OpenWindow() { return OpenWindow(null, null, null); }
-        ///Opening the window for a graph owner
+        ///<summary>Opening the window for a graph owner</summary>
         public static GraphEditor OpenWindow(GraphOwner owner) { return OpenWindow(owner.graph, owner, owner.blackboard); }
-        ///For opening the window from gui button in the nodegraph's Inspector.
+        ///<summary>For opening the window from gui button in the nodegraph's Inspector.</summary>
         public static GraphEditor OpenWindow(Graph newGraph) { return OpenWindow(newGraph, null, newGraph.blackboard); }
-        ///Open GraphEditor initializing target graph
+        ///<summary>Open GraphEditor initializing target graph</summary>
         public static GraphEditor OpenWindow(Graph newGraph, GraphOwner owner, IBlackboard blackboard) {
             var window = GetWindow<GraphEditor>();
             SetReferences(newGraph, owner, blackboard);
@@ -330,11 +330,11 @@ namespace NodeCanvas.Editor
             return window;
         }
 
-        ///Set GraphEditor inspected references
+        ///<summary>Set GraphEditor inspected references</summary>
         public static void SetReferences(GraphOwner newOwner) { SetReferences(newOwner.graph, newOwner, newOwner.blackboard); }
-        ///Set GraphEditor inspected references
+        ///<summary>Set GraphEditor inspected references</summary>
         public static void SetReferences(Graph newGraph) { SetReferences(newGraph, null, newGraph.blackboard); }
-        ///Set GraphEditor inspected references
+        ///<summary>Set GraphEditor inspected references</summary>
         public static void SetReferences(Graph newGraph, GraphOwner newOwner, IBlackboard newBlackboard) {
             if ( current == null ) {
                 return;
@@ -354,7 +354,7 @@ namespace NodeCanvas.Editor
             current.Repaint();
         }
 
-        ///Editor update
+        ///<summary>Editor update</summary>
         void Update() {
             var currentTime = Time.realtimeSinceStartup;
             var deltaTime = currentTime - lastUpdateTime;
@@ -369,7 +369,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Update smooth pan
+        ///<summary>Update smooth pan</summary>
         bool UpdateSmoothPan(float deltaTime) {
 
             if ( smoothPan == null ) {
@@ -387,7 +387,7 @@ namespace NodeCanvas.Editor
             return true;
         }
 
-        ///Update smooth pan
+        ///<summary>Update smooth pan</summary>
         bool UpdateSmoothZoom(float deltaTime) {
 
             if ( smoothZoomFactor == null ) {
@@ -405,7 +405,7 @@ namespace NodeCanvas.Editor
             return true;
         }
 
-        ///Update ping value
+        ///<summary>Update ping value</summary>
         bool UpdatePing(float deltaTime) {
             if ( pingValue > 0 ) {
                 pingValue -= deltaTime;
@@ -472,7 +472,7 @@ namespace NodeCanvas.Editor
                 willRepaint = true;
             }
 
-            ///should we set dirty? Put in practise at the end
+            ///<summary>should we set dirty? Put in practise at the end</summary>
             var willDirty = e.rawType == EventType.MouseUp;
 
 
@@ -665,7 +665,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Translate the graph to focus selection
+        ///<summary>Translate the graph to focus selection</summary>
         public static void FocusSelection() {
             if ( GraphEditorUtility.activeElements != null && GraphEditorUtility.activeElements.Count > 0 ) {
                 FocusPosition(GetNodeBounds(GraphEditorUtility.activeElements.Cast<Node>().ToList()).center);
@@ -682,19 +682,19 @@ namespace NodeCanvas.Editor
             FocusPosition(viewCanvasCenter);
         }
 
-        ///Ping element
+        ///<summary>Ping element</summary>
         public static void PingElement(IGraphElement element) {
             if ( element is Node ) { PingRect(( element as Node ).rect); }
             if ( element is Connection ) { PingRect(( element as Connection ).GetMidRect()); }
         }
 
-        ///Translate the graph to the center of target element (node, connection)
+        ///<summary>Translate the graph to the center of target element (node, connection)</summary>
         public static void FocusElement(IGraphElement element, bool alsoSelect = false) {
             if ( element is Node ) { FocusNode((Node)element, alsoSelect); }
             if ( element is Connection ) { FocusConnection((Connection)element, alsoSelect); }
         }
 
-        ///Translate the graph to the center of the target node
+        ///<summary>Translate the graph to the center of the target node</summary>
         public static void FocusNode(Node node, bool alsoSelect = false) {
             if ( currentGraph == node.graph ) {
                 FocusPosition(node.rect.center);
@@ -703,7 +703,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Translate the graph to the center of the target connection
+        ///<summary>Translate the graph to the center of the target connection</summary>
         public static void FocusConnection(Connection connection, bool alsoSelect = false) {
             if ( currentGraph == connection.sourceNode.graph ) {
                 FocusPosition(connection.GetMidRect().center);
@@ -712,7 +712,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Translate the graph to to center of the target pos
+        ///<summary>Translate the graph to to center of the target pos</summary>
         public static void FocusPosition(Vector2 targetPos, bool smooth = true) {
             if ( smooth ) {
                 smoothPan = -targetPos;
@@ -727,18 +727,18 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Ping rect
+        ///<summary>Ping rect</summary>
         public static void PingRect(Rect rect) {
             pingValue = 1;
             pingRect = rect;
         }
 
-        ///Refresh full draw pass flag
+        ///<summary>Refresh full draw pass flag</summary>
         public static void FullDrawPass() {
             fullDrawPass = true;
         }
 
-        ///Zoom with center position
+        ///<summary>Zoom with center position</summary>
         static void ZoomAt(Vector2 center, float delta) {
             if ( zoomFactor == 1 && delta > 0 ) return;
             var pinPoint = ( center - pan ) / zoomFactor;
@@ -769,7 +769,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Gets the bound rect for the nodes
+        ///<summary>Gets the bound rect for the nodes</summary>
         static Rect GetNodeBounds(List<Node> nodes) {
             if ( nodes == null || nodes.Count == 0 ) {
                 return default(Rect);
@@ -915,7 +915,7 @@ namespace NodeCanvas.Editor
         }
 
 
-        ///Canvas groups
+        ///<summary>Canvas groups</summary>
         static void DoCanvasGroups() {
 
             if ( currentGraph.canvasGroups == null ) {
@@ -925,7 +925,7 @@ namespace NodeCanvas.Editor
             for ( var i = 0; i < currentGraph.canvasGroups.Count; i++ ) {
                 var group = currentGraph.canvasGroups[i];
                 var headerRect = new Rect(group.rect.x, group.rect.y, group.rect.width, 25);
-                var autoRect = new Rect(headerRect.xMax - 50, headerRect.y + 2, 50, headerRect.height);
+                var autoRect = new Rect(headerRect.xMax - 68, headerRect.y + 1, 68, headerRect.height);
                 var scaleRectBR = new Rect(group.rect.xMax - 20, group.rect.yMax - 20, 20, 20);
 
                 GUI.color = EditorGUIUtility.isProSkin ? new Color(1, 1, 1, 0.4f) : new Color(0.5f, 0.5f, 0.5f, 0.3f);
@@ -948,7 +948,7 @@ namespace NodeCanvas.Editor
                     EditorGUIUtility.AddCursorRect(scaleRectBR, MouseCursor.ResizeUpLeft);
 
                     GUI.color = GUI.color.WithAlpha(0.25f);
-                    var newAutoValue = GUI.Toggle(autoRect, group.autoGroup, "Auto");
+                    var newAutoValue = GUI.Toggle(autoRect, group.autoGroup, "Autosize");
                     if ( newAutoValue != group.autoGroup ) {
                         UndoUtility.RecordObject(currentGraph, "AutoGroup");
                         group.autoGroup = newAutoValue;
@@ -1103,7 +1103,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///after nodes, a cool minimap
+        ///<summary>after nodes, a cool minimap</summary>
         static void DrawMinimap(Rect container) {
 
             GUI.color = Colors.Grey(0.5f).WithAlpha(0.85f);
@@ -1216,7 +1216,7 @@ namespace NodeCanvas.Editor
             return finalBound;
         }
 
-        ///
+        //
         void DrawPings() {
             if ( pingValue > 0 ) {
                 GUI.color = Color.white.WithAlpha(pingValue);

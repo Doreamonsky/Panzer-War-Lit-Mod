@@ -11,8 +11,8 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Iterate")]
     [Category("Decorators")]
-    [Description("Iterate any type of list and execute the child node for each element in the list. Keeps iterating until the Termination Condition is met or the whole list is iterated, in which case the last interation's child status is returned.")]
-    [Icon("List")]
+    [Description("Iterate any type of list and execute the child node for each element in the list. Keeps iterating until the Termination Condition is met or the whole list is iterated, in which case the last iteration child status is returned.")]
+    [ParadoxNotion.Design.Icon("List")]
     public class Iterator : BTDecorator
     {
 

@@ -26,7 +26,7 @@ namespace NodeCanvas.StateMachines
         public override FSM subGraph { get { return _nestedFSM.value; } set { _nestedFSM.value = value; } }
         public override BBParameter subGraphParameter => _nestedFSM;
 
-        ////
+        //
 
         protected override void OnEnter() {
             if ( subGraph == null ) {

@@ -22,7 +22,7 @@ namespace NodeCanvas.StateMachines
         public override DialogueTree subGraph { get { return _nestedDLG.value; } set { _nestedDLG.value = value; } }
         public override BBParameter subGraphParameter => _nestedDLG;
 
-        ////		
+        //		
 
         protected override void OnEnter() {
             if ( subGraph == null ) {

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ParadoxNotion.Design
 {
-    ///Used to create header / separators similar to Unity's Header attribute
+    ///<summary>Used to create header / separators similar to Unity's Header attribute</summary>
     public class HeaderDrawer : AttributeDrawer<HeaderAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -16,7 +16,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will dim control for bool, int, float, string if its default value (or empty for string)
+    ///<summary>Will dim control for bool, int, float, string if its default value (or empty for string)</summary>
     public class DimIfDefaultDrawer : AttributeDrawer<DimIfDefaultAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -49,7 +49,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show value only if another field or prop is equal to target
+    ///<summary>Will show value only if another field or prop is equal to target</summary>
 	public class ShowIfDrawer : AttributeDrawer<ShowIfAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -71,7 +71,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show in red if value is null or empty
+    ///<summary>Will show in red if value is null or empty</summary>
 	public class RequiredFieldDrawer : AttributeDrawer<RequiredFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -82,7 +82,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show a button above field
+    ///<summary>Will show a button above field</summary>
     public class ShowButtonDrawer : AttributeDrawer<ShowButtonAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -100,7 +100,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will invoke a callback method when value change
+    ///<summary>Will invoke a callback method when value change</summary>
 	public class CallbackDrawer : AttributeDrawer<CallbackAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -120,7 +120,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Will clamp float or int value to min
+    ///<summary>Will clamp float or int value to min</summary>
     public class MinValueDrawer : AttributeDrawer<MinValueAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -136,7 +136,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Will make float, int or string field show in a delayed control
+    ///<summary>Will make float, int or string field show in a delayed control</summary>
     public class DelayedFieldDrawer : AttributeDrawer<DelayedFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -153,7 +153,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will force to use ObjectField editor, usefull for interfaces
+    ///<summary>Will force to use ObjectField editor, usefull for interfaces</summary>
 	public class ForceObjectFieldDrawer : AttributeDrawer<ForceObjectFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -164,7 +164,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will restrict selection on provided values
+    ///<summary>Will restrict selection on provided values</summary>
 	public class PopupFieldDrawer : AttributeDrawer<PopupFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -178,7 +178,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show a slider for int and float values
+    ///<summary>Will show a slider for int and float values</summary>
     public class SliderFieldDrawer : AttributeDrawer<SliderFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -192,7 +192,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show a layer selection for int values
+    ///<summary>Will show a layer selection for int values</summary>
 	public class LayerFieldDrawer : AttributeDrawer<LayerFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -203,7 +203,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show a Tag selection for string values
+    ///<summary>Will show a Tag selection for string values</summary>
 	public class TagFieldDrawer : AttributeDrawer<TagFieldAttribute>
     {
         public override object OnGUI(GUIContent content, object instance) {
@@ -214,7 +214,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will show a text area for string values
+    ///<summary>Will show a text area for string values</summary>
 	public class TextAreaDrawer : AttributeDrawer<TextAreaFieldAttribute>
     {
         private static GUIStyle areaStyle;

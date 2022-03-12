@@ -9,14 +9,14 @@ namespace ParadoxNotion.Serialization.FullSerializer
     public static class fsJsonPrinter
     {
 
-        /// Inserts the given number of indents into the builder.
+        ///<summary> Inserts the given number of indents into the builder.</summary>
         private static void InsertSpacing(TextWriter stream, int count) {
             for ( int i = 0; i < count; ++i ) {
                 stream.Write("    ");
             }
         }
 
-        /// Escapes a string.
+        ///<summary> Escapes a string.</summary>
         private static string EscapeString(string str) {
 
             // Escaping a string is pretty allocation heavy, so we try hard to not do it.
@@ -143,7 +143,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Formats this data into the given builder.
+        ///<summary> Formats this data into the given builder.</summary>
         private static void BuildPrettyString(fsData data, TextWriter stream, int depth) {
             switch ( data.Type ) {
                 case fsDataType.Null:
@@ -219,19 +219,18 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Returns fsData to json pretty or not
+        ///<summary> Returns fsData to json pretty or not</summary>
         public static string ToJson(fsData data, bool pretty) {
             if ( pretty ) { return PrettyJson(data); }
             return CompressedJson(data);
         }
 
-        /// Writes the pretty JSON output data to the given stream.
-        /// <param name="outputStream">Where to write the printed data.</param>
+        ///<summary> Writes the pretty JSON output data to the given stream.</summary>
         public static void PrettyJson(fsData data, TextWriter outputStream) {
             BuildPrettyString(data, outputStream, 0);
         }
 
-        /// Returns the data in a pretty printed JSON format.
+        ///<summary> Returns the data in a pretty printed JSON format.</summary>
         public static string PrettyJson(fsData data) {
             var sb = new StringBuilder();
             using ( var writer = new StringWriter(sb) ) {
@@ -240,12 +239,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Writes the compressed JSON output data to the given stream.
+        ///<summary> Writes the compressed JSON output data to the given stream.</summary>
         public static void CompressedJson(fsData data, StreamWriter outputStream) {
             BuildCompressedString(data, outputStream);
         }
 
-        /// Returns the data in a relatively compressed JSON format.
+        ///<summary> Returns the data in a relatively compressed JSON format.</summary>
         public static string CompressedJson(fsData data) {
             var sb = new StringBuilder();
             using ( var writer = new StringWriter(sb) ) {
@@ -254,7 +253,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Utility method that converts a double to a string.
+        ///<summary> Utility method that converts a double to a string.</summary>
         private static string ConvertDoubleToString(double d) {
             if ( Double.IsInfinity(d) || Double.IsNaN(d) )
                 return d.ToString(CultureInfo.InvariantCulture);

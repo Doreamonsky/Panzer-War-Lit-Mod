@@ -27,9 +27,8 @@ namespace NodeCanvas.DialogueTrees
             DLGTree.Continue();
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
         protected override void OnNodeGUI() {
             GUILayout.Label("\"<i> " + statement.text.CapLength(30) + "</i> \"");

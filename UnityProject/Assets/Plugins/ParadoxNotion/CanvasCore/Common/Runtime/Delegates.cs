@@ -1,4 +1,4 @@
-﻿///common generic delegates
+﻿//common generic delegates
 
 namespace ParadoxNotion
 {

@@ -3,19 +3,19 @@
 namespace ParadoxNotion.Design
 {
 
-    ///Marker attribute to include generic type or a type's generic methods in the AOT spoof generation
+    ///<summary>Marker attribute to include generic type or a type's generic methods in the AOT spoof generation</summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Delegate)]
     public class SpoofAOTAttribute : Attribute { }
 
-    ///To exclude a type from being listed. Abstract classes are not listed anyway.
+    ///<summary>To exclude a type from being listed. Abstract classes are not listed anyway.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class DoNotListAttribute : Attribute { }
 
-    ///When a type should for some reason be marked as protected so to always have one instance active.
+    ///<summary>When a type should for some reason be marked as protected so to always have one instance active.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class ProtectedSingletonAttribute : Attribute { }
 
-    ///Use for execution prioratizing when it matters.
+    ///<summary>Use for execution prioratizing when it matters.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class ExecutionPriorityAttribute : Attribute
     {
@@ -25,16 +25,16 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Marks a generic type to be exposed at it's base definition rather than wrapping all preferred types around it.
+    ///<summary>Marks a generic type to be exposed at it's base definition rather than wrapping all preferred types around it.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class ExposeAsDefinitionAttribute : Attribute { }
 
-    ///Marks a field to be exposed for inspection even if private (within the context of custom inspector).
-    ///In custom inspector, private fields even if with [SerializedField] are not exposed by default.
+    ///<summary>Marks a field to be exposed for inspection even if private (within the context of custom inspector).</summary>
+    ///<summary>In custom inspector, private fields even if with [SerializedField] are not exposed by default.</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ExposeFieldAttribute : Attribute { }
 
-    ///Options attribute for list inspector editors
+    ///<summary>Options attribute for list inspector editors</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ListInspectorOptionAttribute : Attribute
     {
@@ -50,7 +50,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Use for friendly names and optional priority in relation to naming only
+    ///<summary>Use for friendly names and optional priority in relation to naming only</summary>
     [AttributeUsage(AttributeTargets.All)]
     public class NameAttribute : Attribute
     {
@@ -62,7 +62,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Use for categorization
+    ///<summary>Use for categorization</summary>
     [AttributeUsage(AttributeTargets.All)]
     public class CategoryAttribute : Attribute
     {
@@ -72,7 +72,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Use to give a description
+    ///<summary>Use to give a description</summary>
     [AttributeUsage(AttributeTargets.All)]
     public class DescriptionAttribute : Attribute
     {
@@ -82,7 +82,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///When a type is associated with an icon
+    ///<summary>When a type is associated with an icon</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class IconAttribute : Attribute
     {
@@ -100,7 +100,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///When a type is associated with a color (provide in hex string without "#")
+    ///<summary>When a type is associated with a color (provide in hex string without "#")</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class ColorAttribute : Attribute
     {

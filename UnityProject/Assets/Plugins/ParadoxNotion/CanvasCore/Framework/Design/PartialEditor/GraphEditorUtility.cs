@@ -38,7 +38,7 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Selected Node or Connection
+        ///<summary>Selected Node or Connection</summary>
         public static IGraphElement activeElement {
             get
             {
@@ -73,7 +73,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///multiple selected Node or Connection
+        ///<summary>multiple selected Node or Connection</summary>
         public static List<IGraphElement> activeElements {
             get { return _activeElements.ToReferenceList(); }
             set
@@ -87,24 +87,24 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Selected Node if any
+        ///<summary>Selected Node if any</summary>
         public static Node activeNode {
             get { return activeElement as Node; }
         }
 
-        ///Selected Connection if any
+        ///<summary>Selected Connection if any</summary>
         public static Connection activeConnection {
             get { return activeElement as Connection; }
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Adds an element to active elements
+        ///<summary>Adds an element to active elements</summary>
         public static void AddActiveElement(IGraphElement e) {
             _activeElements.Add(e);
         }
 
-        ///Removes and element from active elements
+        ///<summary>Removes and element from active elements</summary>
         public static void RemoveActiveElement(IGraphElement e) {
             _activeElements.Remove(e);
         }
@@ -124,19 +124,19 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns the extension at which the graph will be saved with if exported to JSON
+        ///<summary>Returns the extension at which the graph will be saved with if exported to JSON</summary>
         public static string GetGraphJSONFileExtension(this Graph graph) {
             return graph.GetType().Name.GetCapitals();
         }
 
-        ///Returns the selected nodes if any or all graph nodes
+        ///<summary>Returns the selected nodes if any or all graph nodes</summary>
         public static IEnumerable<Node> GetSelectedOrAll(this Graph graph) {
             if ( activeNode != null ) { return new Node[] { activeNode }; }
             if ( activeElements.Count > 0 ) { return activeElements.OfType<Node>(); }
             return graph.allNodes;
         }
 
-        ///Scans the graph for structs and append them in preferred types. Prompts user for confirm.
+        ///<summary>Scans the graph for structs and append them in preferred types. Prompts user for confirm.</summary>
         public static void ScanForStructTypesAndAppendThem(Graph graph) {
 
             var serializedTypes = new List<Type>();
@@ -166,7 +166,7 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Make a deep copy of provided graph asset along with it's sub-graphs.
+        ///<summary>Make a deep copy of provided graph asset along with it's sub-graphs.</summary>
         public static Graph DeepCopy(Graph root) {
             if ( root == null ) {
                 return null;

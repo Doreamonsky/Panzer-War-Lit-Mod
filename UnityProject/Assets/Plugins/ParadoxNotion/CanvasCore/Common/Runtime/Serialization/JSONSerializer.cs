@@ -9,7 +9,7 @@ using ParadoxNotion.Services;
 namespace ParadoxNotion.Serialization
 {
 
-    ///High-Level API. Serializes/Deserializes to/from JSON with a heavily modified 'FullSerializer'
+    ///<summary>High-Level API. Serializes/Deserializes to/from JSON with a heavily modified 'FullSerializer'</summary>
     public static class JSONSerializer
     {
 
@@ -36,7 +36,7 @@ namespace ParadoxNotion.Serialization
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Serialize to json
+        ///<summary>Serialize to json</summary>
         public static string Serialize(Type type, object instance, List<UnityEngine.Object> references = null, bool pretyJson = false) {
 
             lock ( serializerLock ) {
@@ -65,27 +65,27 @@ namespace ParadoxNotion.Serialization
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Deserialize from json
+        ///<summary>Deserialize from json</summary>
         public static T Deserialize<T>(string json, List<UnityEngine.Object> references = null) {
             return (T)Internal_Deserialize(typeof(T), json, references, null);
         }
 
-        ///Deserialize from json
+        ///<summary>Deserialize from json</summary>
         public static object Deserialize(Type type, string json, List<UnityEngine.Object> references = null) {
             return Internal_Deserialize(type, json, references, null);
         }
 
-        ///Deserialize overwrite from json
+        ///<summary>Deserialize overwrite from json</summary>
         public static T TryDeserializeOverwrite<T>(T instance, string json, List<UnityEngine.Object> references = null) where T : class {
             return (T)Internal_Deserialize(typeof(T), json, references, instance);
         }
 
-        ///Deserialize overwrite from json
+        ///<summary>Deserialize overwrite from json</summary>
         public static object TryDeserializeOverwrite(object instance, string json, List<UnityEngine.Object> references = null) {
             return Internal_Deserialize(instance.GetType(), json, references, instance);
         }
 
-        ///Deserialize from json
+        ///<summary>Deserialize from json</summary>
         static object Internal_Deserialize(Type type, string json, List<UnityEngine.Object> references, object instance) {
 
             lock ( serializerLock ) {
@@ -117,7 +117,7 @@ namespace ParadoxNotion.Serialization
             }
         }
 
-        ///Serialize instance without cycle refs support and execute call per object serialized within along with it's serialization data
+        ///<summary>Serialize instance without cycle refs support and execute call per object serialized within along with it's serialization data</summary>
         public static void SerializeAndExecuteNoCycles(Type type, object instance, Action<object, fsData> call) {
             lock ( serializerLock ) {
                 serializer.IgnoreSerializeCycleReferences = true;
@@ -130,7 +130,7 @@ namespace ParadoxNotion.Serialization
             }
         }
 
-        ///Serialize instance without cycle refs support and execute before/after call per object serialized within along with it's serialization data
+        ///<summary>Serialize instance without cycle refs support and execute before/after call per object serialized within along with it's serialization data</summary>
         public static void SerializeAndExecuteNoCycles(Type type, object instance, Action<object> beforeCall, Action<object, fsData> afterCall) {
             lock ( serializerLock ) {
                 serializer.IgnoreSerializeCycleReferences = true;
@@ -145,12 +145,12 @@ namespace ParadoxNotion.Serialization
             }
         }
 
-        ///Deep clone an object
+        ///<summary>Deep clone an object</summary>
         public static T Clone<T>(T original) {
             return (T)Clone((object)original);
         }
 
-        ///Deep clone an object
+        ///<summary>Deep clone an object</summary>
         public static object Clone(object original) {
             var type = original.GetType();
             var references = new List<UnityEngine.Object>();
@@ -158,7 +158,7 @@ namespace ParadoxNotion.Serialization
             return Deserialize(type, json, references);
         }
 
-        ///Serialize source and overwrites target
+        ///<summary>Serialize source and overwrites target</summary>
         public static void CopySerialized(object source, object target) {
             var type = source.GetType();
             var references = new List<UnityEngine.Object>();
@@ -166,7 +166,7 @@ namespace ParadoxNotion.Serialization
             TryDeserializeOverwrite(target, json, references);
         }
 
-        ///Writes json to prety json in a temp file and opens it
+        ///<summary>Writes json to prety json in a temp file and opens it</summary>
         public static void ShowData(string json, string fileName = "") {
             var prettyJson = PrettifyJson(json);
             var dataPath = Path.GetTempPath() + ( string.IsNullOrEmpty(fileName) ? Guid.NewGuid().ToString() : fileName ) + ".json";
@@ -174,7 +174,7 @@ namespace ParadoxNotion.Serialization
             Process.Start(dataPath);
         }
 
-        ///Prettify existing json string
+        ///<summary>Prettify existing json string</summary>
         public static string PrettifyJson(string json) {
             return fsJsonPrinter.PrettyJson(fsJsonParser.Parse(json));
         }

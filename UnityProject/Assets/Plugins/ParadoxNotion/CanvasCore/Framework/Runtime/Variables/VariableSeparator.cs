@@ -1,6 +1,6 @@
 ﻿namespace NodeCanvas.Framework
 {
-    ///This is a very special dummy class for variable header separators
+    ///<summary>This is a very special dummy class for variable header separators</summary>
     public class VariableSeperator
     {
         public VariableSeperator() { }

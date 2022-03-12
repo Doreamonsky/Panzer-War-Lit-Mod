@@ -2,7 +2,7 @@
 
 namespace NodeCanvas.Framework
 {
-    ///An interface used to provide default agent and blackboard references to tasks and let tasks 'interface' with the root system
+    ///<summary>An interface used to provide default agent and blackboard references to tasks and let tasks 'interface' with the root system</summary>
     public interface ITaskSystem
     {
         Component agent { get; }

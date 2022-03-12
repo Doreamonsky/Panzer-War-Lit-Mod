@@ -7,7 +7,7 @@ using ParadoxNotion.Serialization;
 namespace ParadoxNotion.Design
 {
 
-    ///A very simple pool to handle Copy/Pasting
+    ///<summary>A very simple pool to handle Copy/Pasting</summary>
     public static class CopyBuffer
     {
 
@@ -19,18 +19,18 @@ namespace ParadoxNotion.Design
             cachedObjects = new Dictionary<Type, object>();
         }
 
-        ///Is copy available?
+        ///<summary>Is copy available?</summary>
         public static bool Has<T>() {
             return ( cachedCopies.TryGetValue(typeof(T), out string json) );
         }
 
-        ///Returns true if copy exist and the copy
+        ///<summary>Returns true if copy exist and the copy</summary>
         public static bool TryGet<T>(out T copy) {
             copy = Get<T>();
             return object.Equals(copy, default(T)) == false;
         }
 
-        ///Returns a copy
+        ///<summary>Returns a copy</summary>
         public static T Get<T>() {
             if ( cachedCopies.TryGetValue(typeof(T), out string json) ) {
                 return JSONSerializer.Deserialize<T>(json);
@@ -38,25 +38,25 @@ namespace ParadoxNotion.Design
             return default(T);
         }
 
-        ///Sets a copy
+        ///<summary>Sets a copy</summary>
         public static void Set<T>(T obj) {
             cachedCopies[typeof(T)] = JSONSerializer.Serialize(typeof(T), obj); ;
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///
+        ///<summary></summary>
         public static bool HasCache<T>() {
             return ( cachedObjects.TryGetValue(typeof(T), out object obj) );
         }
 
-        ///
+        ///<summary></summary>
         public static bool TryGetCache<T>(out T copy) {
             copy = GetCache<T>();
             return object.Equals(copy, default(T)) == false;
         }
 
-        ///
+        ///<summary></summary>
         public static T GetCache<T>() {
             if ( cachedObjects.TryGetValue(typeof(T), out object obj) ) {
                 return (T)obj;
@@ -64,7 +64,7 @@ namespace ParadoxNotion.Design
             return default(T);
         }
 
-        ///
+        ///<summary></summary>
         public static void SetCache<T>(T obj) {
             cachedObjects[typeof(T)] = obj;
         }

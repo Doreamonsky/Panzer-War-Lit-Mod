@@ -70,6 +70,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         void SetMethod(MethodInfo method) {
             if ( method != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 this.method = new SerializedMethodInfo(method);
                 this.checkValue.SetType(method.ReturnType);
                 comparison = CompareMethod.EqualTo;
@@ -105,7 +106,7 @@ namespace NodeCanvas.Tasks.Conditions
                 GUILayout.BeginVertical("box");
                 UnityEditor.EditorGUILayout.LabelField("Type", targetMethod.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Property", targetMethod.Name);
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetMethod), UnityEditor.MessageType.None);
                 GUILayout.EndVertical();
 
                 GUI.enabled = checkValue.varType == typeof(float) || checkValue.varType == typeof(int);

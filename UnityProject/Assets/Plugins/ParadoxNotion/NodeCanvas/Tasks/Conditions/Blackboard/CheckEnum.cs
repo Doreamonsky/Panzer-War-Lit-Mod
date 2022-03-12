@@ -22,9 +22,8 @@ namespace NodeCanvas.Tasks.Conditions
             return Equals(valueA.value, valueB.value);
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

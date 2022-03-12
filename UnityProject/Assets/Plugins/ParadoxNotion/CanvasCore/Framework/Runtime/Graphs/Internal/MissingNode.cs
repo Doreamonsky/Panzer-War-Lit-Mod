@@ -6,7 +6,7 @@ using ParadoxNotion.Serialization;
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///Missing node types are deserialized into this on deserialization and can load back if type is found
+    ///<summary>Missing node types are deserialized into this on deserialization and can load back if type is found</summary>
     [DoNotList]
     [Description("Please resolve the MissingNode issue by either replacing the node, importing the missing node type, or refactoring the type in GraphRefactor.")]
     sealed public class MissingNode : Node, IMissingRecoverable
@@ -41,9 +41,8 @@ namespace NodeCanvas.Framework.Internal
 
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void DrawNodeConnections(Rect drawCanvas, bool fullDrawPass, Vector2 canvasMousePos, float zoomFactor) {

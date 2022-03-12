@@ -8,7 +8,7 @@ namespace NodeCanvas.Framework
 
     public static class IGraphAssignableExtensions
     {
-        ///Checks and possibly makes and returns runtime instance
+        ///<summary>Checks and possibly makes and returns runtime instance</summary>
         public static Graph CheckInstance(this IGraphAssignable assignable) {
             if ( assignable.subGraph == assignable.currentInstance ) {
                 return assignable.currentInstance;
@@ -26,7 +26,7 @@ namespace NodeCanvas.Framework
             return instance;
         }
 
-        ///Utility to start sub graph (makes instance, writes mapping, starts graph and on stop reads mapping)
+        ///<summary>Utility to start sub graph (makes instance, writes mapping, starts graph and on stop reads mapping)</summary>
         public static bool TryStartSubGraph(this IGraphAssignable assignable, Component agent, System.Action<bool> callback = null) {
             assignable.currentInstance = assignable.CheckInstance();
             if ( assignable.currentInstance != null ) {
@@ -42,7 +42,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Stop subgraph if currentInstance exists
+        ///<summary>Stop subgraph if currentInstance exists</summary>
         public static bool TryStopSubGraph(this IGraphAssignable assignable) {
             if ( assignable.currentInstance != null ) {
                 assignable.currentInstance.Stop();
@@ -51,7 +51,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Pause subgraph if currentInstance exists
+        ///<summary>Pause subgraph if currentInstance exists</summary>
         public static bool TryPauseSubGraph(this IGraphAssignable assignable) {
             if ( assignable.currentInstance != null ) {
                 assignable.currentInstance.Pause();
@@ -60,7 +60,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Resume subgraph if currentInstance exists
+        ///<summary>Resume subgraph if currentInstance exists</summary>
         public static bool TryResumeSubGraph(this IGraphAssignable assignable) {
             if ( assignable.currentInstance != null ) {
                 assignable.currentInstance.Resume();
@@ -69,7 +69,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Update subgraph if currentInstance exists
+        ///<summary>Update subgraph if currentInstance exists</summary>
         public static bool TryUpdateSubGraph(this IGraphAssignable assignable) {
             if ( assignable.currentInstance != null ) {
                 if ( assignable.currentInstance.isRunning ) {
@@ -80,7 +80,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Write mapped variables to subgraph (write in) and bind for read out
+        ///<summary>Write mapped variables to subgraph (write in) and bind for read out</summary>
         public static void TryWriteAndBindMappedVariables(this IGraphAssignable assignable) {
             if ( !assignable.currentInstance.allowBlackboardOverrides || assignable.variablesMap == null ) { return; }
             for ( var i = 0; i < assignable.variablesMap.Count; i++ ) {
@@ -97,7 +97,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Read mapped variables from subgraph (read out) and unbind read out
+        ///<summary>Read mapped variables from subgraph (read out) and unbind read out</summary>
         public static void TryReadAndUnbindMappedVariables(this IGraphAssignable assignable) {
             if ( !assignable.currentInstance.allowBlackboardOverrides || assignable.variablesMap == null ) { return; }
             for ( var i = 0; i < assignable.variablesMap.Count; i++ ) {
@@ -113,7 +113,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Validate the variables mapping
+        ///<summary>Validate the variables mapping</summary>
         public static void ValidateSubGraphAndParameters(this IGraphAssignable assignable) {
             if ( !ParadoxNotion.Services.Threader.applicationIsPlaying ) {
                 if ( assignable.subGraph == null || !assignable.subGraph.allowBlackboardOverrides || assignable.subGraph.blackboard.variables.Count == 0 ) {
@@ -122,7 +122,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Link subgraph variables to parent graph variables matching name and type
+        ///<summary>Link subgraph variables to parent graph variables matching name and type</summary>
         public static void AutoLinkByName(this IGraphAssignable assignable) {
             if ( assignable.subGraph == null || assignable.variablesMap == null ) { return; }
             foreach ( var bbParam in assignable.variablesMap ) {

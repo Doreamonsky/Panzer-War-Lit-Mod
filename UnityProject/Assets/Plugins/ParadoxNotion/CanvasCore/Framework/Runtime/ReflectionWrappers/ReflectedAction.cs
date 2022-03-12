@@ -5,7 +5,7 @@ using ParadoxNotion;
 namespace NodeCanvas.Framework.Internal
 {
 
-    /// Wraps a reflected method call of return type void
+    ///<summary> Wraps a reflected method call of return type void</summary>
     [Serializable]
     public class ReflectedAction : ReflectedActionWrapper
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ParadoxNotion
 {
-    ///A simple weak reference table (because Mono has a bug with ConditionalWeakTable)
+    ///<summary>A simple weak reference table (because Mono has a bug with ConditionalWeakTable)</summary>
     public class WeakReferenceTable<TKey, TValue> where TKey : class where TValue : IDisposable
     {
         private List<WeakReference<TKey>> keys;

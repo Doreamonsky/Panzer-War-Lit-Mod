@@ -7,7 +7,7 @@ using NodeCanvas.DialogueTrees;
 namespace NodeCanvas.Editor
 {
 
-    ///A drawer for dialogue tree statements
+    ///<summary>A drawer for dialogue tree statements</summary>
     public class StatementDrawer : ObjectDrawer<Statement>
     {
         public override Statement OnGUI(GUIContent content, Statement instance) {

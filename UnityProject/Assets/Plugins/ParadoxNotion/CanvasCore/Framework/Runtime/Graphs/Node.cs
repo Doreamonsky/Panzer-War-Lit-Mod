@@ -13,7 +13,7 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.Framework
 {
 
-    ///The base class for all nodes that can live in a NodeCanvas Graph
+    ///<summary>The base class for all nodes that can live in a NodeCanvas Graph</summary>
 
 #if UNITY_EDITOR //handles missing Nodes
     [fsObject(Processor = typeof(fsRecoveryProcessor<Node, MissingNode>))]
@@ -25,8 +25,7 @@ namespace NodeCanvas.Framework
     {
 
         //----------------------------------------------------------------------------------------------
-        ///Add on an IList (list/array) field to autosort it automatically when the children nodes are autosorted.
-        ///Thus keeping the collection the same in respects to the children. Related only to tree graphs.
+        ///<summary>Add on an IList (list/array) field to autosort it automatically when the children nodes are autosorted. Thus keeping the collection the same in respects to the children. Related only to tree graphs.</summary>
         [System.AttributeUsage(System.AttributeTargets.Field)]
         protected class AutoSortWithChildrenConnections : System.Attribute { }
         ///----------------------------------------------------------------------------------------------
@@ -51,66 +50,66 @@ namespace NodeCanvas.Framework
         [System.NonSerialized] private string _nameCache;
         [System.NonSerialized] private string _descriptionCache;
         [System.NonSerialized] private int _priorityCache = int.MinValue;
-        /////
+        //
 
-        ///The graph this node belongs to.
+        ///<summary>The graph this node belongs to.</summary>
         public Graph graph {
             get { return _graph; }
             internal set { _graph = value; }
         }
 
-        ///The node's int index ID in the graph. This is not persistant in any way. Use UID for that.
+        ///<summary>The node's int index ID in the graph. This is not persistant in any way. Use UID for that.</summary>
         public int ID {
             get { return _ID; }
             internal set { _ID = value; }
         }
 
-        ///The Unique ID of the node. One is created only if requested.
+        ///<summary>The Unique ID of the node. One is created only if requested.</summary>
         public string UID => string.IsNullOrEmpty(_UID) ? _UID = System.Guid.NewGuid().ToString() : _UID;
 
-        ///All incomming connections to this node.
+        ///<summary>All incomming connections to this node.</summary>
         public List<Connection> inConnections {
             get { return _inConnections; }
             protected set { _inConnections = value; }
         }
 
-        ///All outgoing connections from this node.
+        ///<summary>All outgoing connections from this node.</summary>
         public List<Connection> outConnections {
             get { return _outConnections; }
             protected set { _outConnections = value; }
         }
 
-        ///The position of the node in the graph.
+        ///<summary>The position of the node in the graph.</summary>
         public Vector2 position {
             get { return _position; }
             set { _position = value; }
         }
 
-        ///The custom title name of the node if any.
+        ///<summary>The custom title name of the node if any.</summary>
         private string customName {
             get { return _name; }
             set { _name = value; }
         }
 
-        ///The node tag. Useful for finding nodes through code.
+        ///<summary>The node tag. Useful for finding nodes through code.</summary>
         public string tag {
             get { return _tag; }
             set { _tag = value; }
         }
 
-        ///The comments of the node if any.
+        ///<summary>The comments of the node if any.</summary>
         public string comments {
             get { return _comment; }
             set { _comment = value; }
         }
 
-        ///Is the node set as a breakpoint?
+        ///<summary>Is the node set as a breakpoint?</summary>
         public bool isBreakpoint {
             get { return _isBreakpoint; }
             set { _isBreakpoint = value; }
         }
 
-        ///The title name of the node shown in the window if editor is not in Icon Mode. This is a property so title name may change instance wise
+        ///<summary>The title name of the node shown in the window if editor is not in Icon Mode. This is a property so title name may change instance wise</summary>
         virtual public string name {
             get
             {
@@ -127,7 +126,7 @@ namespace NodeCanvas.Framework
             set { customName = value; }
         }
 
-        ///The description info of the node
+        ///<summary>The description info of the node</summary>
         virtual public string description {
             get
             {
@@ -139,7 +138,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The execution priority order of the node when it matters to the graph system
+        ///<summary>The execution priority order of the node when it matters to the graph system</summary>
         virtual public int priority {
             get
             {
@@ -151,22 +150,22 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The numer of possible inputs. -1 for infinite.
+        ///<summary>The numer of possible inputs. -1 for infinite.</summary>
         abstract public int maxInConnections { get; }
-        ///The numer of possible outputs. -1 for infinite.
+        ///<summary>The numer of possible outputs. -1 for infinite.</summary>
         abstract public int maxOutConnections { get; }
-        ///The output connection Type this node has.
+        ///<summary>The output connection Type this node has.</summary>
         abstract public System.Type outConnectionType { get; }
-        ///Can this node be set as prime (Start)?
+        ///<summary>Can this node be set as prime (Start)?</summary>
         abstract public bool allowAsPrime { get; }
         // /Can this node connect to itself?
         abstract public bool canSelfConnect { get; }
-        ///Alignment of the comments when shown.
+        ///<summary>Alignment of the comments when shown.</summary>
         abstract public Alignment2x2 commentsAlignment { get; }
-        ///Alignment of the icons.
+        ///<summary>Alignment of the icons.</summary>
         abstract public Alignment2x2 iconAlignment { get; }
 
-        ///The current status of the node
+        ///<summary>The current status of the node</summary>
         public Status status {
             get { return _status; }
             protected set
@@ -178,16 +177,16 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The current agent.
+        ///<summary>The current agent.</summary>
         public Component graphAgent => ( graph != null ? graph.agent : null );
 
-        ///The current blackboard.
+        ///<summary>The current blackboard.</summary>
         public IBlackboard graphBlackboard => ( graph != null ? graph.blackboard : null );
 
-        ///The time in seconds the node has been Status.Running after a reset (Status.Resting)
+        ///<summary>The time in seconds the node has been Status.Running after a reset (Status.Resting)</summary>
         public float elapsedTime => ( status == Status.Running ? graph.elapsedTime - timeStarted : 0 );
 
-        ///mark when status running change
+        ///<summary>mark when status running change</summary>
         private float timeStarted { get; set; }
         //Used to check recursion
         private bool isChecked { get; set; }
@@ -199,9 +198,9 @@ namespace NodeCanvas.Framework
         ///----------------------------------------------------------------------------------------------
 
         //required
-        public Node() { }
+        public Node() { /*_UID = System.Guid.NewGuid().ToString();*/ }
 
-        ///Create a new Node of type and assigned to the provided graph. Use this for constructor
+        ///<summary>Create a new Node of type and assigned to the provided graph. Use this for constructor</summary>
         public static Node Create(Graph targetGraph, System.Type nodeType, Vector2 pos) {
 
             if ( targetGraph == null ) {
@@ -226,7 +225,7 @@ namespace NodeCanvas.Framework
             return newNode;
         }
 
-        ///Duplicate node alone assigned to the provided graph
+        ///<summary>Duplicate node alone assigned to the provided graph</summary>
         public Node Duplicate(Graph targetGraph) {
 
             if ( targetGraph == null ) {
@@ -261,7 +260,7 @@ namespace NodeCanvas.Framework
             return newNode;
         }
 
-        ///Validate the node in it's graph
+        ///<summary>Validate the node in it's graph</summary>
         public void Validate(Graph assignedGraph) {
             OnValidate(assignedGraph);
             var hardError = GetHardError();
@@ -271,8 +270,10 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///The main execution function of the node. Execute the node for the agent and blackboard provided.
+        ///<summary>The main execution function of the node. Execute the node for the agent and blackboard provided.</summary>
         public Status Execute(Component agent, IBlackboard blackboard) {
+
+            if ( !graph.isRunning ) { return status; }
 
 #if UNITY_EDITOR
             if ( isBreakpoint ) {
@@ -298,7 +299,7 @@ namespace NodeCanvas.Framework
             return status;
         }
 
-        ///Recursively reset the node and child nodes if it's not Resting already
+        ///<summary>Recursively reset the node and child nodes if it's not Resting already</summary>
         public void Reset(bool recursively = true) {
 
             if ( status == Status.Resting || isChecked ) {
@@ -317,14 +318,14 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Helper for breakpoints
+        ///<summary>Helper for breakpoints</summary>
         IEnumerator YieldBreak(System.Action resume) {
             Debug.Break();
             yield return null;
             resume();
         }
 
-        ///Helper for easier logging
+        ///<summary>Helper for easier logging</summary>
         public Status Error(object msg) {
             if ( msg is System.Exception ) {
                 Logger.LogException((System.Exception)msg, LogTag.EXECUTION, this);
@@ -335,40 +336,38 @@ namespace NodeCanvas.Framework
             return Status.Error;
         }
 
-        ///Helper for easier logging
+        ///<summary>Helper for easier logging</summary>
         public Status Fail(string msg) {
             Logger.LogError(msg, LogTag.EXECUTION, this);
             status = Status.Failure;
             return Status.Failure;
         }
 
-        ///Helper for easier logging
+        ///<summary>Helper for easier logging</summary>
         public void Warn(string msg) {
             Logger.LogWarning(msg, LogTag.EXECUTION, this);
         }
 
-        ///Set the Status of the node directly. Not recomended if you don't know why!
+        ///<summary>Set the Status of the node directly. Not recomended if you don't know why!</summary>
         public void SetStatus(Status status) {
             this.status = status;
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Sends an event to the graph (same as calling graph.SendEvent)
+        ///<summary>Sends an event to the graph (same as calling graph.SendEvent)</summary>
         protected void SendEvent(string eventName) {
             graph.SendEvent(eventName, null, this);
         }
 
-        ///Sends an event to the graph (same as calling graph.SendEvent)
+        ///<summary>Sends an event to the graph (same as calling graph.SendEvent)</summary>
         protected void SendEvent<T>(string eventName, T value) {
             graph.SendEvent(eventName, value, this);
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns whether source and target nodes can generaly be connected together.
-        ///This only validates max in/out connections that source and target nodes has, along with other validations.
-        ///Providing an existing refConnection, will bypass source/target validation respectively if that connection is already connected to that source/target node.
+        ///<summary>Returns whether source and target nodes can generaly be connected together. This only validates max in/out connections that source and target nodes has, along with other validations. Providing an existing refConnection, will bypass source/target validation respectively if that connection is already connected to that source/target node.</summary>
         public static bool IsNewConnectionAllowed(Node sourceNode, Node targetNode, Connection refConnection = null) {
 
             if ( sourceNode == null || targetNode == null ) {
@@ -401,12 +400,12 @@ namespace NodeCanvas.Framework
             return final;
         }
 
-        ///Override for explicit handling
+        ///<summary>Override for explicit handling</summary>
         virtual protected bool CanConnectToTarget(Node targetNode) { return true; }
-        ///Override for explicit handling
+        ///<summary>Override for explicit handling</summary>
         virtual protected bool CanConnectFromSource(Node sourceNode) { return true; }
 
-        ///Are provided nodes connected at all regardless of parent/child relation?
+        ///<summary>Are provided nodes connected at all regardless of parent/child relation?</summary>
         public static bool AreNodesConnected(Node a, Node b) {
             Debug.Assert(a != null && b != null, "Null nodes");
             var conditionA = a.outConnections.FirstOrDefault(c => c.targetNode == b) != null;
@@ -416,18 +415,18 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Nodes can use coroutine as normal through MonoManager.
+        ///<summary>Nodes can use coroutine as normal through MonoManager.</summary>
         public Coroutine StartCoroutine(IEnumerator routine) {
             return MonoManager.current != null ? MonoManager.current.StartCoroutine(routine) : null;
         }
 
-        ///Nodes can use coroutine as normal through MonoManager.
+        ///<summary>Nodes can use coroutine as normal through MonoManager.</summary>
         public void StopCoroutine(Coroutine routine) {
             if ( MonoManager.current != null ) { MonoManager.current.StopCoroutine(routine); }
         }
 
 
-        ///Returns all *direct* parent nodes (first depth level)
+        ///<summary>Returns all *direct* parent nodes (first depth level)</summary>
         public IEnumerable<Node> GetParentNodes() {
             if ( inConnections.Count != 0 ) {
                 return inConnections.Select(c => c.sourceNode);
@@ -435,7 +434,7 @@ namespace NodeCanvas.Framework
             return new Node[0];
         }
 
-        ///Returns all *direct* children nodes (first depth level)
+        ///<summary>Returns all *direct* children nodes (first depth level)</summary>
         public IEnumerable<Node> GetChildNodes() {
             if ( outConnections.Count != 0 ) {
                 return outConnections.Select(c => c.targetNode);
@@ -443,19 +442,19 @@ namespace NodeCanvas.Framework
             return new Node[0];
         }
 
-        ///Is node child of parent node?
+        ///<summary>Is node child of parent node?</summary>
         public bool IsChildOf(Node parentNode) {
             return inConnections.Any(c => c.sourceNode == parentNode);
         }
 
-        ///Is node parent of child node?
+        ///<summary>Is node parent of child node?</summary>
         public bool IsParentOf(Node childNode) {
             return outConnections.Any(c => c.targetNode == childNode);
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns a warning string or null if none
+        ///<summary>Returns a warning string or null if none</summary>
         virtual internal string GetWarningOrError() {
             var hardError = GetHardError();
             if ( hardError != null ) { return "* " + hardError; }
@@ -469,7 +468,7 @@ namespace NodeCanvas.Framework
             return result;
         }
 
-        ///A hard error, missing things
+        ///<summary>A hard error, missing things</summary>
         string GetHardError() {
             if ( this is IMissingRecoverable ) {
                 return string.Format("Missing Node '{0}'", ( this as IMissingRecoverable ).missingType);
@@ -484,39 +483,39 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Override to define node functionality. The Agent and Blackboard used to start the Graph are propagated
+        ///<summary>Override to define node functionality. The Agent and Blackboard used to start the Graph are propagated</summary>
         virtual protected Status OnExecute(Component agent, IBlackboard blackboard) { return status; }
-        ///Called when the node gets reseted. e.g. OnGraphStart, after a tree traversal, when interrupted, OnGraphEnd etc...
+        ///<summary>Called when the node gets reseted. e.g. OnGraphStart, after a tree traversal, when interrupted, OnGraphEnd etc...</summary>
         virtual protected void OnReset() { }
 
-        ///Called once the first time node is created.
+        ///<summary>Called once the first time node is created.</summary>
         virtual public void OnCreate(Graph assignedGraph) { }
-        ///Called when the Node is created, duplicated or otherwise needs validation.
+        ///<summary>Called when the Node is created, duplicated or otherwise needs validation.</summary>
         virtual public void OnValidate(Graph assignedGraph) { }
-        ///Called when the Node is removed from the graph (always through graph.RemoveNode)
+        ///<summary>Called when the Node is removed from the graph (always through graph.RemoveNode)</summary>
         virtual public void OnDestroy() { }
 
-        ///Called when an input connection is connected
+        ///<summary>Called when an input connection is connected</summary>
         virtual public void OnParentConnected(int connectionIndex) { }
-        ///Called when an input connection is disconnected but before it actually does
+        ///<summary>Called when an input connection is disconnected but before it actually does</summary>
         virtual public void OnParentDisconnected(int connectionIndex) { }
-        ///Called when an output connection is connected
+        ///<summary>Called when an output connection is connected</summary>
         virtual public void OnChildConnected(int connectionIndex) { }
-        ///Called when an output connection is disconnected but before it actually does
+        ///<summary>Called when an output connection is disconnected but before it actually does</summary>
         virtual public void OnChildDisconnected(int connectionIndex) { }
-        ///Called when child connection are sorted
+        ///<summary>Called when child connection are sorted</summary>
         virtual public void OnChildrenConnectionsSorted(int[] oldIndeces) { }
-        ///Called when the parent graph is started. Use to init values or otherwise.
+        ///<summary>Called when the parent graph is started. Use to init values or otherwise.</summary>
         virtual public void OnGraphStarted() { }
-        ///Called when the parent graph is started, but after all OnGraphStarted calls on all nodes.
+        ///<summary>Called when the parent graph is started, but after all OnGraphStarted calls on all nodes.</summary>
         virtual public void OnPostGraphStarted() { }
-        ///Called when the parent graph is stopped.
+        ///<summary>Called when the parent graph is stopped.</summary>
         virtual public void OnGraphStoped() { }
-        ///Called when the parent graph is stopped, but after all OnGraphStoped calls on all nodes.
+        ///<summary>Called when the parent graph is stopped, but after all OnGraphStoped calls on all nodes.</summary>
         virtual public void OnPostGraphStoped() { }
-        ///Called when the parent graph is paused.
+        ///<summary>Called when the parent graph is paused.</summary>
         virtual public void OnGraphPaused() { }
-        ///Called when the parent graph is unpaused.
+        ///<summary>Called when the parent graph is unpaused.</summary>
         virtual public void OnGraphUnpaused() { }
 
         ///----------------------------------------------------------------------------------------------

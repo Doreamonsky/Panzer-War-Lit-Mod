@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace ParadoxNotion.Serialization.FullSerializer
 {
 
-    /// The actual type that a JsonData instance can store.
+    ///<summary> The actual type that a JsonData instance can store.</summary>
     public enum fsDataType
     {
         Array,
@@ -17,13 +17,11 @@ namespace ParadoxNotion.Serialization.FullSerializer
         Null
     }
 
-    /// A union type that stores a serialized value. The stored type can be one of six different
-    /// types: null, boolean, double, Int64, string, Dictionary, or List.
+    ///<summary> A union type that stores a serialized value. The stored type can be one of six different types: null, boolean, double, Int64, string, Dictionary, or List.</summary>
     public sealed class fsData
     {
 
-        /// The raw value that this serialized data stores. It can be one of six different types; a
-        /// boolean, a double, Int64, a string, a Dictionary, or a List.
+        ///<summary> The raw value that this serialized data stores. It can be one of six different types; a boolean, a double, Int64, a string, a Dictionary, or a List.</summary>
         private object _value;
 
         public readonly static fsData True = new fsData(true);
@@ -46,67 +44,67 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Creates a fsData instance that holds null.
+        ///<summary> Creates a fsData instance that holds null.</summary>
         public fsData() {
             _value = null;
         }
 
-        /// Creates a fsData instance that holds a boolean.
+        ///<summary> Creates a fsData instance that holds a boolean.</summary>
         public fsData(bool boolean) {
             _value = boolean;
         }
 
-        /// Creates a fsData instance that holds a double.
+        ///<summary> Creates a fsData instance that holds a double.</summary>
         public fsData(double f) {
             _value = f;
         }
 
-        /// Creates a new fsData instance that holds an integer.
+        ///<summary> Creates a new fsData instance that holds an integer.</summary>
         public fsData(Int64 i) {
             _value = i;
         }
 
-        /// Creates a fsData instance that holds a string.
+        ///<summary> Creates a fsData instance that holds a string.</summary>
         public fsData(string str) {
             _value = str;
         }
 
-        /// Creates a fsData instance that holds a dictionary of values.
+        ///<summary> Creates a fsData instance that holds a dictionary of values.</summary>
         public fsData(Dictionary<string, fsData> dict) {
             _value = dict;
         }
 
-        /// Creates a fsData instance that holds a list of values.
+        ///<summary> Creates a fsData instance that holds a list of values.</summary>
         public fsData(List<fsData> list) {
             _value = list;
         }
 
         ///----------------------------------------------------------------------------------------------     
 
-        /// Helper method to create a fsData instance that holds a dictionary.
+        ///<summary> Helper method to create a fsData instance that holds a dictionary.</summary>
         public static fsData CreateDictionary() {
             return new fsData(new Dictionary<string, fsData>(
                 fsGlobalConfig.IsCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase));
         }
 
-        /// Helper method to create a fsData instance that holds a list.
+        ///<summary> Helper method to create a fsData instance that holds a list.</summary>
         public static fsData CreateList() {
             return new fsData(new List<fsData>());
         }
 
-        /// Helper method to create a fsData instance that holds a list with the initial capacity.
+        ///<summary> Helper method to create a fsData instance that holds a list with the initial capacity.</summary>
         public static fsData CreateList(int capacity) {
             return new fsData(new List<fsData>(capacity));
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Transforms the internal fsData instance into a dictionary.
+        ///<summary> Transforms the internal fsData instance into a dictionary.</summary>
         internal void BecomeDictionary() {
             _value = new Dictionary<string, fsData>(StringComparer.Ordinal);
         }
 
-        /// Returns a shallow clone of this data instance.
+        ///<summary> Returns a shallow clone of this data instance.</summary>
         internal fsData Clone() {
             var clone = new fsData();
             clone._value = _value;
@@ -115,76 +113,74 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Returns true if this fsData instance maps back to null.
+        ///<summary> Returns true if this fsData instance maps back to null.</summary>
         public bool IsNull {
             get { return _value == null; }
         }
 
-        /// Returns true if this fsData instance maps back to a double.
+        ///<summary> Returns true if this fsData instance maps back to a double.</summary>
         public bool IsDouble {
             get { return _value is double; }
         }
 
-        /// Returns true if this fsData instance maps back to an Int64.
+        ///<summary> Returns true if this fsData instance maps back to an Int64.</summary>
         public bool IsInt64 {
             get { return _value is Int64; }
         }
 
-        /// Returns true if this fsData instance maps back to a boolean.
+        ///<summary> Returns true if this fsData instance maps back to a boolean.</summary>
         public bool IsBool {
             get { return _value is bool; }
         }
 
-        /// Returns true if this fsData instance maps back to a string.
+        ///<summary> Returns true if this fsData instance maps back to a string.</summary>
         public bool IsString {
             get { return _value is string; }
         }
 
-        /// Returns true if this fsData instance maps back to a Dictionary.
+        ///<summary> Returns true if this fsData instance maps back to a Dictionary.</summary>
         public bool IsDictionary {
             get { return _value is Dictionary<string, fsData>; }
         }
 
-        /// Returns true if this fsData instance maps back to a List.
+        ///<summary> Returns true if this fsData instance maps back to a List.</summary>
         public bool IsList {
             get { return _value is List<fsData>; }
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Casts this fsData to a double. Throws an exception if it is not a double.
+        ///<summary> Casts this fsData to a double. Throws an exception if it is not a double.</summary>
         public double AsDouble {
             get { return Cast<double>(); }
         }
 
-        /// Casts this fsData to an Int64. Throws an exception if it is not an Int64.
+        ///<summary> Casts this fsData to an Int64. Throws an exception if it is not an Int64.</summary>
         public Int64 AsInt64 {
             get { return Cast<Int64>(); }
         }
 
-        /// Casts this fsData to a boolean. Throws an exception if it is not a boolean.
+        ///<summary> Casts this fsData to a boolean. Throws an exception if it is not a boolean.</summary>
         public bool AsBool {
             get { return Cast<bool>(); }
         }
 
-        /// Casts this fsData to a string. Throws an exception if it is not a string.
+        ///<summary> Casts this fsData to a string. Throws an exception if it is not a string.</summary>
         public string AsString {
             get { return Cast<string>(); }
         }
 
-        /// Casts this fsData to a Dictionary. Throws an exception if it is not a
-        /// Dictionary.
+        ///<summary> Casts this fsData to a Dictionary. Throws an exception if it is not a Dictionary.</summary>
         public Dictionary<string, fsData> AsDictionary {
             get { return Cast<Dictionary<string, fsData>>(); }
         }
 
-        /// Casts this fsData to a List. Throws an exception if it is not a List.
+        ///<summary> Casts this fsData to a List. Throws an exception if it is not a List.</summary>
         public List<fsData> AsList {
             get { return Cast<List<fsData>>(); }
         }
 
-        /// Internal helper method to cast the underlying storage to the given type or throw a
-        /// pretty printed exception on failure.
+        ///<summary> Internal helper method to cast the underlying storage to the given type or throw a pretty printed exception on failure.</summary>
         private T Cast<T>() {
             if ( _value is T ) { return (T)_value; }
 
@@ -198,12 +194,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return fsJsonPrinter.CompressedJson(this);
         }
 
-        /// Determines whether the specified object is equal to the current object.
+        ///<summary> Determines whether the specified object is equal to the current object.</summary>
         public override bool Equals(object obj) {
             return Equals(obj as fsData);
         }
 
-        /// Determines whether the specified object is equal to the current object.
+        ///<summary> Determines whether the specified object is equal to the current object.</summary>
         public bool Equals(fsData other) {
             if ( other == null || Type != other.Type ) {
                 return false;
@@ -261,7 +257,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             throw new Exception("Unknown data type");
         }
 
-        /// Returns true iff a == b.
+        ///<summary> Returns true iff a == b.</summary>
         public static bool operator ==(fsData a, fsData b) {
             // If both are null, or both are same instance, return true.
             if ( ReferenceEquals(a, b) ) {
@@ -280,14 +276,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return a.Equals(b);
         }
 
-        /// Returns true iff a != b.
+        ///<summary> Returns true iff a != b.</summary>
         public static bool operator !=(fsData a, fsData b) {
             return !( a == b );
         }
 
-        /// Returns a hash code for this instance.
-        /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data
-        /// structures like a hash table.</returns>
+        ///<summary> Returns a hash code for this instance.</summary>
         public override int GetHashCode() {
             return _value.GetHashCode();
         }

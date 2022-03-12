@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ParadoxNotion.Design
 {
 
-    ///Common Styles Database
+    ///<summary>Common Styles Database</summary>
     public static class Styles
     {
 
@@ -232,7 +232,7 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Same as box, but saves me the trouble of writing string.empty all the time
+        ///<summary>Same as box, but saves me the trouble of writing string.empty all the time</summary>
         public static void Draw(Rect position, GUIStyle style) {
             GUI.Box(position, string.Empty, style);
         }

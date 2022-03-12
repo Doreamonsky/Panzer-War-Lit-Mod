@@ -1,14 +1,14 @@
 ﻿namespace NodeCanvas.StateMachines
 {
 
-    ///Implement this interface in any MonoBehaviour attached on FSMOwner gameobject to get relevant state callbacks
+    ///<summary>Implement this interface in any MonoBehaviour attached on FSMOwner gameobject to get relevant state callbacks</summary>
 	public interface IStateCallbackReceiver
     {
-        ///Called when a state enters
+        ///<summary>Called when a state enters</summary>
 		void OnStateEnter(IState state);
-        ///Called when a state updates
+        ///<summary>Called when a state updates</summary>
         void OnStateUpdate(IState state);
-        ///Called when a state exists
+        ///<summary>Called when a state exists</summary>
         void OnStateExit(IState state);
     }
 }

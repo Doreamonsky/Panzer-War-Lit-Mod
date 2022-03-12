@@ -3,25 +3,25 @@ using System.Reflection;
 
 namespace ParadoxNotion.Serialization.FullSerializer
 {
-    /// A field on a MetaType.
+    ///<summary> A field on a MetaType.</summary>
     public class fsMetaProperty
     {
 
-        /// Internal handle to the reflected member.
+        ///<summary> Internal handle to the reflected member.</summary>
         public FieldInfo Field { get; private set; }
-        /// The serialized name of the property, as it should appear in JSON.
+        ///<summary> The serialized name of the property, as it should appear in JSON.</summary>
         public string JsonName { get; private set; }
-        /// The type of value that is stored inside of the property.
+        ///<summary> The type of value that is stored inside of the property.</summary>
         public Type StorageType { get { return Field.FieldType; } }
-        /// The real name of the member info.
+        ///<summary> The real name of the member info.</summary>
         public string MemberName { get { return Field.Name; } }
-        /// Is the property read only?
+        ///<summary> Is the property read only?</summary>
         public bool ReadOnly { get; private set; }
-        /// Is the property write only?
+        ///<summary> Is the property write only?</summary>
         public bool WriteOnly { get; private set; }
-        /// Make instance automatically?
+        ///<summary> Make instance automatically?</summary>
         public bool AutoInstance { get; private set; }
-        /// Serialize as reference?
+        ///<summary> Serialize as reference?</summary>
         public bool AsReference { get; private set; }
 
         internal fsMetaProperty(FieldInfo field) {
@@ -35,14 +35,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
             this.AsReference = Field.RTIsDefined<fsSerializeAsReference>(true);
         }
 
-        /// Reads a value from the property that this MetaProperty represents, using the given
-        /// object instance as the context.
+        ///<summary> Reads a value from the property that this MetaProperty represents, using the given object instance as the context.</summary>
         public object Read(object context) {
             return Field.GetValue(context);
         }
 
-        /// Writes a value to the property that this MetaProperty represents, using given object
-        /// instance as the context.
+        ///<summary> Writes a value to the property that this MetaProperty represents, using given object instance as the context.</summary>
         public void Write(object context, object value) {
             Field.SetValue(context, value);
         }

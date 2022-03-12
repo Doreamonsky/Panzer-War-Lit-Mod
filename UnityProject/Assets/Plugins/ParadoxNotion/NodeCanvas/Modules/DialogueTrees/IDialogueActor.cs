@@ -4,7 +4,7 @@
 namespace NodeCanvas.DialogueTrees
 {
 
-    /// An interface to use for DialogueActors within a DialogueTree.
+    ///<summary> An interface to use for DialogueActors within a DialogueTree.</summary>
 	public interface IDialogueActor
     {
         string name { get; }
@@ -15,7 +15,7 @@ namespace NodeCanvas.DialogueTrees
         Transform transform { get; }
     }
 
-    ///A basic rather limited implementation of IDialogueActor
+    ///<summary>A basic rather limited implementation of IDialogueActor</summary>
     [System.Serializable]
     public class ProxyDialogueActor : IDialogueActor
     {

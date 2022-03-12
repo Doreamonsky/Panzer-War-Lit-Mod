@@ -619,7 +619,7 @@ namespace JBooth.MicroSplat
          }
          else if (cmp == TextureArrayConfig.Compression.ForceASTC)
          {
-            return TextureFormat.ASTC_RGBA_4x4;
+            return TextureFormat.ASTC_4x4;
          }
          else if (cmp == TextureArrayConfig.Compression.ForceDXT)
          {

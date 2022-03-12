@@ -4,8 +4,7 @@ using ParadoxNotion;
 
 namespace NodeCanvas.Framework
 {
-    ///A Signal definition that things can listen to.
-    ///Can also be invoked in code by calling 'Invoke' but args have to be same type and same length as the parameters defined.
+    ///<summary>A Signal definition that things can listen to. Can also be invoked in code by calling 'Invoke' but args have to be same type and same length as the parameters defined.</summary>
     [CreateAssetMenu(menuName = "ParadoxNotion/CanvasCore/Signal Definition")]
     public class SignalDefinition : ScriptableObject
     {
@@ -23,13 +22,13 @@ namespace NodeCanvas.Framework
         [SerializeField, HideInInspector]
         private List<DynamicParameterDefinition> _parameters = new List<DynamicParameterDefinition>();
 
-        ///The Signal parameters
+        ///<summary>The Signal parameters</summary>
         public List<DynamicParameterDefinition> parameters {
             get { return _parameters; }
             private set { _parameters = value; }
         }
 
-        ///Invoke the Signal
+        ///<summary>Invoke the Signal</summary>
         public void Invoke(Transform sender, Transform receiver, bool isGlobal, params object[] args) {
             if ( onInvoke != null ) {
                 onInvoke(sender, receiver, isGlobal, args);

@@ -15,7 +15,7 @@ using UnityEngine;
 namespace NodeCanvas.Editor
 {
 
-    /// Editor for IBlackboards
+    ///<summary> Editor for IBlackboards</summary>
     public class BlackboardEditor : EditorObjectWrapper<IBlackboard>
     {
         private static readonly GUILayoutOption[] layoutOptions = new GUILayoutOption[] { GUILayout.MaxWidth(100), GUILayout.ExpandWidth(true), GUILayout.MinHeight(18) };
@@ -47,18 +47,18 @@ namespace NodeCanvas.Editor
             elementDefinedParameterIDs = element != null ? Graph.GetParametersInElement(element).Where(p => p != null && p.isDefined).Select(p => p.targetVariableID) : null;
         }
 
-        ///reset pick info
+        ///<summary>reset pick info</summary>
         public static void ResetPick() {
             pickedVariable = null;
             pickedVariableBlackboard = null;
         }
 
-        ///Show variables inspector for target bb. Optionally provide override serialization context object
+        ///<summary>Show variables inspector for target bb. Optionally provide override serialization context object</summary>
         public static void ShowVariables(IBlackboard bb, UnityEngine.Object overrideContextObject = null) {
             EditorWrapperFactory.GetEditor<BlackboardEditor>(bb).InspectorGUI(bb, overrideContextObject);
         }
 
-        ///Show variables inspector for target bb. Optionally provide override serialization context object
+        ///<summary>Show variables inspector for target bb. Optionally provide override serialization context object</summary>
         void InspectorGUI(IBlackboard bb, UnityEngine.Object overrideContextObject = null) {
 
             if ( bb.parent != null ) {
@@ -69,6 +69,7 @@ namespace NodeCanvas.Editor
             this.contextObject = overrideContextObject != null ? overrideContextObject : bb.unityContextObject;
             this.bb = bb;
 
+            this.variablesProperty = null;
             if ( contextObject != null && PrefabUtility.IsPartOfPrefabInstance(contextObject) && bb.independantVariablesFieldName != null ) {
                 this.serializedContext = new SerializedObject(contextObject);
                 this.variablesProperty = serializedContext.FindProperty(bb.independantVariablesFieldName);
@@ -245,7 +246,7 @@ namespace NodeCanvas.Editor
             GUI.color = Color.white;
         }
 
-        ///Return get add variable menu
+        ///<summary>Return get add variable menu</summary>
         GenericMenu GetAddVariableMenu(IBlackboard bb, UnityEngine.Object contextParent) {
             System.Action<System.Type> AddNewVariable = (t) =>
             {
@@ -305,7 +306,7 @@ namespace NodeCanvas.Editor
             return menu;
         }
 
-        ///Get a menu for variable
+        ///<summary>Get a menu for variable</summary>
         GenericMenu GetVariableMenu(Variable data, int index) {
             var menu = new GenericMenu();
             if ( data.varType == typeof(VariableSeperator) ) {
@@ -443,13 +444,11 @@ namespace NodeCanvas.Editor
                 return o;
             }
 
-            if ( t == typeof(object) ) {
-                GUILayout.Label(string.Format("({0})", t.FriendlyName()), Styles.leftLabel, layoutOptions);
-                return o;
-            }
-
-            if ( t.IsAbstract && !typeof(UnityEngine.Object).IsAssignableFrom(t) && !t.IsInterface && t != typeof(System.Type) ) {
-                GUILayout.Label(string.Format("Abstract({0})", t.FriendlyName()), Styles.leftLabel, layoutOptions);
+            //allow creation of derived classes for abstract classes via button
+            if ( o == null && t.IsAbstract && !typeof(UnityEngine.Object).IsAssignableFrom(t) && !t.IsInterface && t != typeof(System.Type) ) {
+                if ( GUILayout.Button("(null) Create", layoutOptions) ) {
+                    EditorUtils.GetTypeSelectionMenu(t, (derived) => { data.value = System.Activator.CreateInstance(derived); }).ShowAsContext();
+                }
                 return o;
             }
 
@@ -459,7 +458,8 @@ namespace NodeCanvas.Editor
             if ( handled ) { return o; }
             ///----------------------------------------------------------------------------------------------
 
-            //If some other type, show it in the generic object editor window
+            //If some other type, show it in the generic object editor window with its true value type
+            t = o != null ? o.GetType() : t;
             if ( GUILayout.Button(string.Format("{0} {1}", t.FriendlyName(), ( o is IList ) ? ( (IList)o ).Count.ToString() : string.Empty), layoutOptions) ) {
                 //we use bb.GetVariableByID to avoid undo creating new instance of variable and thus generic inspector, left inspecting something else
                 GenericInspectorWindow.Show(data.name, t, contextParent, () => { return bb.GetVariableByID(data.ID).value; }, (newValue) => { bb.GetVariableByID(data.ID).value = newValue; });

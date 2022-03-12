@@ -10,8 +10,8 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Parallel", 8)]
     [Category("Composites")]
-    [Description("Execute all child nodes once but simultaneously and return Success or Failure depending on the selected ParallelPolicy.\nIf set to Repeat, child nodes are repeated until the Policy set is met, or until all children have had a chance to complete at least once.")]
-    [Icon("Parallel")]
+    [Description("Execute all child nodes once but simultaneously and return Success or Failure depending on the selected ParallelPolicy.")]
+    [ParadoxNotion.Design.Icon("Parallel")]
     [Color("ff64cb")]
     public class Parallel : BTComposite
     {
@@ -23,12 +23,13 @@ namespace NodeCanvas.BehaviourTrees
             FirstSuccessOrFailure
         }
 
+        [Tooltip("The policy determines when the Parallel node will end and return its Status.")]
         public ParallelPolicy policy = ParallelPolicy.FirstFailure;
-        [Name("Repeat")]
+        [Name("Repeat"), Tooltip("If true, child nodes are repeated until the Policy set is met, or until all children have had a chance to complete at least once.")]
         public bool dynamic;
 
-        public bool[] finishedConnections;
-        public int finishedConnectionsCount;
+        private bool[] finishedConnections;
+        private int finishedConnectionsCount;
 
         public override void OnGraphStarted() {
             finishedConnections = new bool[outConnections.Count];
@@ -99,9 +100,9 @@ namespace NodeCanvas.BehaviourTrees
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
+
 #if UNITY_EDITOR
 
         protected override void OnNodeGUI() {

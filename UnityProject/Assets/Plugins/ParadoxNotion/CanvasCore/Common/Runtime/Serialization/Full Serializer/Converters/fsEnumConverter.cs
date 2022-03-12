@@ -4,9 +4,7 @@ using System.Text;
 
 namespace ParadoxNotion.Serialization.FullSerializer.Internal
 {
-    /// <summary>
-    /// Serializes and deserializes enums by their current name.
-    /// </summary>
+    ///<summary> Serializes and deserializes enums by their current name.</summary>
     public class fsEnumConverter : fsConverter
     {
         public override bool CanProcess(Type type) {
@@ -87,7 +85,7 @@ namespace ParadoxNotion.Serialization.FullSerializer.Internal
             return fsResult.Fail("EnumConverter encountered an unknown JSON data type");
         }
 
-        /// Returns true if the given value is contained within the specified array.
+        ///<summary> Returns true if the given value is contained within the specified array.</summary>
         private static bool ArrayContains<T>(T[] values, T value) {
             for ( int i = 0; i < values.Length; ++i ) {
                 if ( EqualityComparer<T>.Default.Equals(values[i], value) ) {

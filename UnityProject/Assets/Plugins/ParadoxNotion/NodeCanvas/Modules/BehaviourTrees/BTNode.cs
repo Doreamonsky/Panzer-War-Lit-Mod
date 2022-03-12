@@ -5,7 +5,7 @@ using NodeCanvas.Framework;
 namespace NodeCanvas.BehaviourTrees
 {
 
-    /// Super Base class for BehaviourTree nodes that can live within a BehaviourTree Graph.
+    ///<summary> Super Base class for BehaviourTree nodes that can live within a BehaviourTree Graph.</summary>
     abstract public class BTNode : Node
     {
 
@@ -17,7 +17,7 @@ namespace NodeCanvas.BehaviourTrees
         public override int maxInConnections { get { return 1; } }
         public override int maxOutConnections { get { return 0; } }
 
-        ///Add a child node to this node connected to the specified child index
+        ///<summary>Add a child node to this node connected to the specified child index</summary>
         public T AddChild<T>(int childIndex) where T : BTNode {
             if ( outConnections.Count >= maxOutConnections && maxOutConnections != -1 ) {
                 return null;
@@ -27,7 +27,7 @@ namespace NodeCanvas.BehaviourTrees
             return child;
         }
 
-        ///Add a child node to this node connected last
+        ///<summary>Add a child node to this node connected last</summary>
         public T AddChild<T>() where T : BTNode {
             if ( outConnections.Count >= maxOutConnections && maxOutConnections != -1 ) {
                 return null;

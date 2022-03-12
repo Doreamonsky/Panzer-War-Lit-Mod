@@ -84,6 +84,7 @@ namespace NodeCanvas.Tasks.Actions
 
         void SetMethod(MethodInfo method) {
             if ( method != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 functionWrapper = ReflectedFunctionWrapper.Create(method, blackboard);
             }
         }

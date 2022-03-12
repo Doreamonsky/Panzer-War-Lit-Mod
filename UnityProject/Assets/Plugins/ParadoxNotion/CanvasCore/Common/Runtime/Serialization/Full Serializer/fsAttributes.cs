@@ -2,23 +2,23 @@
 
 namespace ParadoxNotion.Serialization.FullSerializer
 {
-    /// Will make the field deserialize-only
+    ///<summary> Will make the field deserialize-only</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class fsWriteOnlyAttribute : Attribute { }
 
-    /// Will make the field serialize-only
+    ///<summary> Will make the field serialize-only</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class fsReadOnlyAttribute : Attribute { }
 
-    /// Explicitly ignore a field from being serialized completely
+    ///<summary> Explicitly ignore a field from being serialized completely</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class fsIgnoreAttribute : Attribute { }
 
-    /// Explicitly ignore a field from being serialized/deserialized in build
+    ///<summary> Explicitly ignore a field from being serialized/deserialized in build</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class fsIgnoreInBuildAttribute : Attribute { }
 
-    /// Explicitly opt in a field to be serialized and with specified name
+    ///<summary> Explicitly opt in a field to be serialized and with specified name</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class fsSerializeAsAttribute : Attribute
     {
@@ -31,8 +31,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
     ///----------------------------------------------------------------------------------------------
 
-    /// Use on a class to deserialize migrate into target type.
-    /// This works in pair with IMigratable interface.
+    ///<summary> Use on a class to deserialize migrate into target type. This works in pair with IMigratable interface.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class fsMigrateToAttribute : System.Attribute
     {
@@ -42,8 +41,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
         }
     }
 
-    /// Use on a class to specify previous serialization versions to migrate from.
-    /// This works in pair with IMigratable interface.
+    ///<summary> Use on a class to specify previous serialization versions to migrate from. This works in pair with IMigratable interface.</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class fsMigrateVersionsAttribute : System.Attribute
     {
@@ -53,20 +51,20 @@ namespace ParadoxNotion.Serialization.FullSerializer
         }
     }
 
-    /// Use on a class and field to request cycle references support
+    ///<summary> Use on a class and field to request cycle references support</summary>
     // TODO: Refactor FS to only be required on field.
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field)]
     public sealed class fsSerializeAsReference : Attribute { }
 
-    /// Use on a class to request try deserialize overwrite
+    ///<summary> Use on a class to request try deserialize overwrite</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class fsDeserializeOverwrite : Attribute { }
 
-    /// Use on a class to mark it for creating instance unititialized (which is faster)
+    ///<summary> Use on a class to mark it for creating instance unititialized (which is faster)</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class fsUninitialized : System.Attribute { }
 
-    /// Use on a class to request try create instance automatically on serialization
+    ///<summary> Use on a class to request try create instance automatically on serialization</summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class fsAutoInstance : Attribute
     {
@@ -76,14 +74,13 @@ namespace ParadoxNotion.Serialization.FullSerializer
         }
     }
 
-    /// This attribute controls some serialization behavior for a type. See the comments
-    /// on each of the fields for more information.
+    ///<summary> This attribute controls some serialization behavior for a type. See the comments on each of the fields for more information.</summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
     public sealed class fsObjectAttribute : Attribute
     {
-        ///Converter override to use
+        //Converter override to use
         public Type Converter;
-        ///Processor to use
+        //Processor to use
         public Type Processor;
     }
 

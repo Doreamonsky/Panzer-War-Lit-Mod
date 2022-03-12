@@ -12,7 +12,7 @@ using ParadoxNotion.Serialization;
 namespace NodeCanvas.Framework
 {
 
-    ///ActionList is an ActionTask itself that holds multiple ActionTasks which can be executed either in parallel or in sequence.
+    ///<summary>ActionList is an ActionTask itself that holds multiple ActionTasks which can be executed either in parallel or in sequence.</summary>
     [DoNotList]
     public class ActionList : ActionTask
     {
@@ -54,7 +54,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///ActionList overrides to duplicate listed actions correctly
+        ///<summary>ActionList overrides to duplicate listed actions correctly</summary>
         public override Task Duplicate(ITaskSystem newOwnerSystem) {
             var newList = (ActionList)base.Duplicate(newOwnerSystem);
             newList.actions.Clear();
@@ -208,7 +208,7 @@ namespace NodeCanvas.Framework
             ShowNestedActionsGUI();
         }
 
-        ///Show the sub-tasks list
+        ///<summary>Show the sub-tasks list</summary>
         public void ShowListGUI() {
 
             if ( ownerSystem == null ) {
@@ -262,7 +262,7 @@ namespace NodeCanvas.Framework
             executionMode = (ActionsExecutionMode)EditorGUILayout.EnumPopup(executionMode);
         }
 
-        ///Show currently selected task inspector
+        ///<summary>Show currently selected task inspector</summary>
         public void ShowNestedActionsGUI() {
 
             if ( actions.Count == 1 ) {

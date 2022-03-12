@@ -5,19 +5,19 @@ using System.Linq;
 namespace NodeCanvas.BehaviourTrees
 {
 
-    /// Base class for BehaviourTree Decorator nodes.
+    ///<summary> Base class for BehaviourTree Decorator nodes.</summary>
     abstract public class BTDecorator : BTNode
     {
 
         sealed public override int maxOutConnections { get { return 1; } }
         sealed public override Alignment2x2 commentsAlignment { get { return Alignment2x2.Right; } }
 
-        ///The decorated connection element
+        ///<summary>The decorated connection element</summary>
         protected Connection decoratedConnection {
             get { return outConnections.Count > 0 ? outConnections[0] : null; }
         }
 
-        ///The decorated node element
+        ///<summary>The decorated node element</summary>
         protected Node decoratedNode {
             get
             {

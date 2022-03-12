@@ -4,9 +4,7 @@ using System.Collections.Generic;
 namespace ParadoxNotion.Serialization.FullSerializer
 {
 
-    /// The direct converter is similar to a regular converter, except that it targets specifically only one type.
-    /// This means that it can be used without performance impact when discovering converters. It is strongly
-    /// recommended that you derive from fsDirectConverter{TModel}.
+    ///<summary> The direct converter is similar to a regular converter, except that it targets specifically only one type. This means that it can be used without performance impact when discovering converters. It is strongly recommended that you derive from fsDirectConverter{TModel}.</summary>
     public abstract class fsDirectConverter : fsBaseConverter
     {
         public abstract Type ModelType { get; }

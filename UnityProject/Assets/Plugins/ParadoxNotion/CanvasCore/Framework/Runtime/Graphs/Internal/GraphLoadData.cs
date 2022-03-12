@@ -2,8 +2,7 @@
 
 namespace NodeCanvas.Framework.Internal
 {
-    ///Contains data that a graph can load/deserialize from AND initialize
-    ///Can be passed to Graph.LoadOverwrite or Graph.LoadOverwriteAsync
+    ///<summary>Contains data that a graph can load/deserialize from AND initialize. Can be passed to Graph.LoadOverwrite or Graph.LoadOverwriteAsync</summary>
     public struct GraphLoadData
     {
         public GraphSource source;

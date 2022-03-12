@@ -9,7 +9,7 @@ namespace ParadoxNotion
         const float POS_CHECK_RES = 100f;
         const float POS_CHECK_DISTANCE = 10f;
 
-        ///Get position on curve from, to, by t
+        ///<summary>Get position on curve from, to, by t</summary>
         public static Vector2 GetPosAlongCurve(Vector2 from, Vector2 to, Vector2 fromTangent, Vector2 toTangent, float t) {
             float u = 1.0f - t;
             float tt = t * t;
@@ -23,14 +23,14 @@ namespace ParadoxNotion
             return result;
         }
 
-        ///Is target position along from, to curve
+        ///<summary>Is target position along from, to curve</summary>
         public static bool IsPosAlongCurve(Vector2 from, Vector2 to, Vector2 fromTangent, Vector2 toTangent, Vector2 targetPosition) {
             float norm = 0;
             return IsPosAlongCurve(from, to, fromTangent, toTangent, targetPosition, out norm);
         }
 
 
-        ///Is target position along from, to curve
+        ///<summary>Is target position along from, to curve</summary>
         public static bool IsPosAlongCurve(Vector2 from, Vector2 to, Vector2 fromTangent, Vector2 toTangent, Vector2 targetPosition, out float norm) {
             if ( ParadoxNotion.RectUtils.GetBoundRect(from, to).ExpandBy(POS_CHECK_DISTANCE).Contains(targetPosition) ) {
                 for ( var i = 0f; i <= POS_CHECK_RES; i++ ) {

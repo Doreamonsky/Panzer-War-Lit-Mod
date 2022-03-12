@@ -54,7 +54,7 @@ namespace ParadoxNotion.Animation
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Easing functions to be used for interpolation
+    ///<summary>Easing functions to be used for interpolation</summary>
     public static class Easing
     {
         private static Func<float, float, float, float>[] EaseFunctions = new Func<float, float, float, float>[] {

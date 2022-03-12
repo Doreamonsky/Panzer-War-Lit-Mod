@@ -7,18 +7,16 @@ using ParadoxNotion.Serialization.FullSerializer.Internal.DirectConverters;
 namespace ParadoxNotion.Serialization.FullSerializer
 {
 
-    ///*Heavily* modified FullSerializer
+    ///<summary>*Heavily* modified FullSerializer</summary>
     public class fsSerializer
     {
-
         public const string KEY_OBJECT_REFERENCE = "$ref";
         public const string KEY_OBJECT_DEFINITION = "$id";
         public const string KEY_INSTANCE_TYPE = "$type";
         public const string KEY_VERSION = "$version";
         public const string KEY_CONTENT = "$content";
 
-        /// Returns true if the given key is a special keyword that full serializer uses to
-        /// add additional metadata on top of the emitted JSON.
+        ///<summary> Returns true if the given key is a special keyword that full serializer uses to add additional metadata on top of the emitted JSON.</summary>
         public static bool IsReservedKeyword(string key) {
             switch ( key ) {
                 case ( KEY_OBJECT_REFERENCE ): return true;
@@ -30,7 +28,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return false;
         }
 
-        ///Irriversibly removes all meta data
+        ///<summary>Irriversibly removes all meta data</summary>
         public static void RemoveMetaData(ref fsData data) {
             if ( data.IsDictionary ) {
                 data.AsDictionary.Remove(KEY_OBJECT_REFERENCE);
@@ -41,7 +39,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Ensures that the data is a dictionary. If it is not, then it is wrapped inside of one.
+        ///<summary> Ensures that the data is a dictionary. If it is not, then it is wrapped inside of one.</summary>
         private static void EnsureDictionary(ref fsData data) {
             if ( data.IsDictionary == false ) {
                 var existingData = data.Clone();
@@ -89,8 +87,6 @@ namespace ParadoxNotion.Serialization.FullSerializer
             for ( int i = processors.Count - 1; i >= 0; --i ) {
                 processors[i].OnAfterSerialize(storageType, instance, ref data);
             }
-
-
         }
         private static void Invoke_OnBeforeDeserialize(List<fsObjectProcessor> processors, Type storageType, ref fsData data) {
             for ( int i = 0; i < processors.Count; ++i ) {
@@ -116,10 +112,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// This manages instance writing so that we do not write unnecessary $id fields. We
-        /// only need to write out an $id field when there is a corresponding $ref field. This is able
-        /// to write $id references lazily because the fsData instance is not actually written out to text
-        /// until we have entirely finished serializing it.
+        ///<summary> This manages instance writing so that we do not write unnecessary $id fields. We only need to write out an $id field when there is a corresponding $ref field. This is able to write $id references lazily because the fsData instance is not actually written out to text until we have entirely finished serializing it.</summary>
         internal class fsLazyCycleDefinitionWriter
         {
             private Dictionary<int, fsData> _pendingDefinitions = new Dictionary<int, fsData>();
@@ -135,15 +128,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
 
             public void WriteReference(int id, Dictionary<string, fsData> dict) {
-
                 fsData data;
                 if ( _pendingDefinitions.TryGetValue(id, out data) ) {
                     EnsureDictionary(ref data);
                     data.AsDictionary[KEY_OBJECT_DEFINITION] = new fsData(id.ToString());
                     _pendingDefinitions.Remove(id);
-                } else {
-                    _references.Add(id);
-                }
+                } else { _references.Add(id); }
 
                 // Write the reference
                 dict[KEY_OBJECT_REFERENCE] = new fsData(id.ToString());
@@ -155,40 +145,35 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        /// Converter type to converter instance lookup table. This could likely be stored inside
-        // of _cachedConverters, but there is a semantic difference because _cachedConverters goes
-        /// from serialized type to converter.
+        ///<summary> Converter type to converter instance lookup table. This could likely be stored inside of _cachedConverters, but there is a semantic difference because _cachedConverters goes from serialized type to converter.</summary>
         private Dictionary<Type, fsBaseConverter> _cachedOverrideConverterInstances;
-        /// A cache from type to it's converter.
+        ///<summary> A cache from type to it's converter.</summary>
         private Dictionary<Type, fsBaseConverter> _cachedConverters;
-        /// Converters that can be used for type registration.
+        ///<summary> Converters that can be used for type registration.</summary>
         private readonly List<fsConverter> _availableConverters;
-        /// Direct converters (optimized _converters). We use these so we don't have to
-        /// perform a scan through every item in _converters and can instead just do an O(1)
-        /// lookup. This is potentially important to perf when there are a ton of direct
-        /// converters.
+        ///<summary> Direct converters (optimized _converters). We use these so we don't have to perform a scan through every item in _converters and can instead just do an O(1) lookup. This is potentially important to perf when there are a ton of direct converters.</summary>
         private readonly Dictionary<Type, fsDirectConverter> _availableDirectConverters;
 
-        /// Processors that are available.
+        ///<summary> Processors that are available.</summary>
         private readonly List<fsObjectProcessor> _processors;
-        /// A cache from type to the set of processors that are interested in it.
+        ///<summary> A cache from type to the set of processors that are interested in it.</summary>
         private Dictionary<Type, List<fsObjectProcessor>> _cachedProcessors;
 
-        /// Reference manager for cycle detection.
+        ///<summary> Reference manager for cycle detection.</summary>
         private fsCyclicReferenceManager _references;
         private fsLazyCycleDefinitionWriter _lazyReferenceWriter;
-        /// Collectors get callbacks on child serialization/deserialization
+        ///<summary> Collectors get callbacks on child serialization/deserialization</summary>
         private Stack<ISerializationCollector> _collectors;
-        /// Collector collection child depth (local to each collector)
+        ///<summary> Collector collection child depth (local to each collector)</summary>
         private int _collectableDepth;
 
-        /// A UnityObject references database for serialization/deserialization
+        ///<summary> A UnityObject references database for serialization/deserialization</summary>
         public List<UnityEngine.Object> ReferencesDatabase { get; set; }
-        /// Ignore cycle references? //TODO: Refactor cycle references to avoid doing this.
+        ///<summary> Ignore cycle references? //TODO: Refactor cycle references to avoid doing this.</summary>
         public bool IgnoreSerializeCycleReferences { get; set; }
-        /// An event raised before an object has been serialized given the object
+        ///<summary> An event raised before an object has been serialized given the object</summary>
         public event Action<object> onBeforeObjectSerialized;
-        /// An event raised after an object has been serialized given the object and the serialization data
+        ///<summary> An event raised after an object has been serialized given the object and the serialization data</summary>
         public event Action<object, fsData> onAfterObjectSerialized;
 
 
@@ -245,7 +230,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             _collectors.Clear();
         }
 
-        /// Fetches all of the processors for the given type.
+        ///<summary> Fetches all of the processors for the given type.</summary>
         private List<fsObjectProcessor> GetProcessors(Type type) {
             List<fsObjectProcessor> processors;
             if ( _cachedProcessors.TryGetValue(type, out processors) ) {
@@ -277,8 +262,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return processors;
         }
 
-        /// Adds a new converter that can be used to customize how an object is serialized and
-        /// deserialized.
+        ///<summary> Adds a new converter that can be used to customize how an object is serialized and deserialized.</summary>
         public void AddConverter(fsBaseConverter converter) {
             if ( converter.Serializer != null ) {
                 throw new InvalidOperationException("Cannot add a single converter instance to " +
@@ -300,7 +284,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             _cachedConverters = new Dictionary<Type, fsBaseConverter>();
         }
 
-        /// Fetches a converter that can serialize/deserialize the given type.
+        ///<summary> Fetches a converter that can serialize/deserialize the given type.</summary>
         private fsBaseConverter GetConverter(Type type, Type overrideConverterType) {
 
             // Use an override converter type instead if that's what the user has requested.
@@ -363,16 +347,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Serialize the given value.
+        ///<summary> Serialize the given value.</summary>
         public fsResult TrySerialize(Type storageType, object instance, out fsData data) {
             return TrySerialize(storageType, instance, out data, null);
         }
 
-        /// Serialize the given value.
-        /// StorageType: field type.
-        /// OverideConverter: optional override converter.
-        /// Instance: the object instance.
-        /// Data: the serialized state.
+        ///<summary> Serialize the given value. StorageType: field type. OverideConverter: optional override converter. Instance: the object instance. Data: the serialized state.</summary>
         public fsResult TrySerialize(Type storageType, object instance, out fsData data, Type overrideConverterType) {
 
             var realType = instance == null ? storageType : instance.GetType();
@@ -464,12 +444,12 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Attempts to deserialize a value from a serialized state.
+        ///<summary> Attempts to deserialize a value from a serialized state.</summary>
         public fsResult TryDeserialize(fsData data, Type storageType, ref object result) {
             return TryDeserialize(data, storageType, ref result, null);
         }
 
-        /// Attempts to deserialize a value from a serialized state.
+        ///<summary> Attempts to deserialize a value from a serialized state.</summary>
         public fsResult TryDeserialize(fsData data, Type storageType, ref object result, Type overrideConverterType) {
 
             if ( data.IsNull ) {
@@ -598,7 +578,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Push collector to stack
+        ///<summary>Push collector to stack</summary>
         void TryPush(object o) {
 
             if ( o is ISerializationCollectable ) {
@@ -617,7 +597,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        ///Pop collector in stack and/or collect object
+        ///<summary>Pop collector in stack and/or collect object</summary>
         void TryPop(object o) {
 
             //collector is also collectable, so we collect at depth 0
@@ -634,7 +614,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
         ///----------------------------------------------------------------------------------------------
         //This is an alternative idea with collection happening AFTER serialization/deserialization
         //There can probably be two callbacks OnBefore and OnAfter?
-        // ///Push collector to stack
+        // ///<summary>Push collector to stack</summary>
         // void TryPush(object o) {
         //     if ( o is ISerializationCollector ) {
         //         _collectableDepth = -1;
@@ -650,7 +630,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
         //     }
         // }
 
-        // ///Pop collector in stack and/or collect object
+        // ///<summary>Pop collector in stack and/or collect object</summary>
         // void TryPop(object o) {
         //     if ( o is ISerializationCollector ) {
         //         _collectableDepth = 1;
@@ -667,7 +647,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
         // }
         ///----------------------------------------------------------------------------------------------
 
-        ///Version migration serialize
+        ///<summary>Version migration serialize</summary>
         void TrySerializeVersioning(object currentInstance, ref fsData data) {
             if ( currentInstance is IMigratable && data.IsDictionary ) {
                 var att = currentInstance.GetType().RTGetAttribute<fsMigrateVersionsAttribute>(true);
@@ -677,7 +657,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        ///Version migration deserialize
+        ///<summary>Version migration deserialize</summary>
         void TryDeserializeVersioning(ref object currentInstance, ref fsData currentData) {
             if ( currentInstance is IMigratable && currentData.IsDictionary ) {
 
@@ -701,7 +681,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             }
         }
 
-        ///Create instance of previous type, deserialize it with previous data and call Migrate to currentInstance
+        ///<summary>Create instance of previous type, deserialize it with previous data and call Migrate to currentInstance</summary>
         void TryDeserializeMigration(ref object currentInstance, ref fsData currentData, Type previousType, object previousInstance) {
             if ( currentInstance is IMigratable && currentData.IsDictionary ) {
 

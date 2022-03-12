@@ -17,16 +17,16 @@ namespace NodeCanvas.Editor
         private static System.Type assetType;
         private static Texture2D docsIcon;
         private static Texture2D resourcesIcon;
+        private static Texture2D supportIcon;
         private static Texture2D communityIcon;
-        private static Texture2D discordIcon;
 
         void OnEnable() {
             titleContent = new GUIContent("Welcome");
             paradoxHeader = Resources.Load("ParadoxNotionHeader") as Texture2D;
             docsIcon = Resources.Load("Manual") as Texture2D;
             resourcesIcon = Resources.Load("Resources") as Texture2D;
+            supportIcon = Resources.Load("Support") as Texture2D;
             communityIcon = Resources.Load("Community") as Texture2D;
-            discordIcon = Resources.Load("Discord") as Texture2D;
             var size = new Vector2(paradoxHeader.width, 510);
             minSize = size;
             maxSize = size;
@@ -62,8 +62,8 @@ namespace NodeCanvas.Editor
 
             ShowEntry(docsIcon, "<size=16><b>Documentation</b></size>\nRead thorough documentation and API reference online.", docsURL);
             ShowEntry(resourcesIcon, "<size=16><b>Resources</b></size>\nDownload samples, extensions and other resources.", resourcesURL);
-            ShowEntry(communityIcon, "<size=16><b>Support</b></size>\nJoin the online forums, give feedback and get support.", forumsURL);
-            ShowEntry(discordIcon, "<size=16><b>Community</b></size>\nJoin the online Discord community.", discordUrl);
+            ShowEntry(supportIcon, "<size=16><b>Support</b></size>\nJoin the online forums, give feedback and get support.", forumsURL);
+            ShowEntry(communityIcon, "<size=16><b>Community</b></size>\nJoin the online Discord community.", discordUrl);
 
 
             ///----------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace ParadoxNotion.Design
 {
 
-    ///Proviving a UnityEditor.GenericMenu, shows a complete popup browser.
+    ///<summary>Proviving a UnityEditor.GenericMenu, shows a complete popup browser.</summary>
     public class GenericMenuBrowser : PopupWindowContent
     {
 
@@ -86,7 +86,7 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Browser preferences and saved favorites per key
+        ///<summary>Browser preferences and saved favorites per key</summary>
         class SerializationData
         {
             public Dictionary<string, List<string>> allFavorites;
@@ -156,21 +156,21 @@ namespace ParadoxNotion.Design
         //...
         public override Vector2 GetWindowSize() { return new Vector2(480, Mathf.Max(500 + helpRectRequiredHeight, 500)); }
 
-        ///Shows the popup menu at position and with title immediately
+        ///<summary>Shows the popup menu at position and with title immediately</summary>
         public static void ShowAsync(Vector2 pos, string title, System.Type keyType, System.Func<GenericMenu> getMenu) {
             var browser = new GenericMenuBrowser(null, title, keyType);
             var task = Task.Run(() => getMenu()).ContinueWith((m) => browser.SetMenu(m.Result));
             PopupWindow.Show(new Rect(pos.x, pos.y, 0, 0), browser);
         }
 
-        ///Shows the popup menu at position and with title
+        ///<summary>Shows the popup menu at position and with title</summary>
         public static GenericMenuBrowser Show(GenericMenu newMenu, Vector2 pos, string title, System.Type keyType) {
             var browser = new GenericMenuBrowser(newMenu, title, keyType);
             PopupWindow.Show(new Rect(pos.x, pos.y, 0, 0), browser);
             return browser;
         }
 
-        ///constructor
+        ///<summary>constructor</summary>
         public GenericMenuBrowser(GenericMenu newMenu, string title, System.Type keyType) {
             current = this;
             headerTitle = title;
@@ -182,7 +182,7 @@ namespace ParadoxNotion.Design
             SetMenu(newMenu);
         }
 
-        ///Set another menu after it's open
+        ///<summary>Set another menu after it's open</summary>
         public void SetMenu(GenericMenu newMenu) {
             if ( newMenu == null ) {
                 return;
@@ -349,7 +349,7 @@ namespace ParadoxNotion.Design
             GUILayout.Space(5);
             GUILayout.Label(string.Format("<color=#{0}><size=14><b>{1}</b></size></color>", EditorGUIUtility.isProSkin ? "dddddd" : "222222", headerTitle), Styles.topCenterLabel);
 
-            ///SEARCH
+            //SEARCH
             if ( e.keyCode == KeyCode.DownArrow ) { GUIUtility.keyboardControl = 0; }
             if ( e.keyCode == KeyCode.UpArrow ) { GUIUtility.keyboardControl = 0; }
             if ( e.keyCode == KeyCode.Return ) { GUIUtility.keyboardControl = 0; }
@@ -363,7 +363,7 @@ namespace ParadoxNotion.Design
             GUILayout.EndHorizontal();
             EditorUtils.BoldSeparator();
 
-            ///BACK
+            //BACK
             if ( currentNode.parent != null && string.IsNullOrEmpty(search) ) {
                 GUILayout.BeginHorizontal("box");
                 if ( GUILayout.Button(string.Format("<b><size=14>◄ {0}/{1}</size></b>", currentNode.parent.name, currentNode.name), Styles.leftLabel) ) {
@@ -535,7 +535,7 @@ namespace ParadoxNotion.Design
             GUILayout.EndArea();
         }
 
-        ///HELP AREA
+        //HELP AREA
         void DoFooter(Rect helpRect, Event e) {
             helpRectRequiredHeight = 0;
             var hoveringNode = hoveringIndex >= 0 && currentNode.children.Count > 0 ? currentNode.children.Values.ToList()[hoveringIndex] : null;
@@ -552,12 +552,12 @@ namespace ParadoxNotion.Design
                     if ( memberInfo is System.Type ) {
                         doc = TypePrefs.GetTypeDoc(memberInfo);
                     } else {
-                        doc = DocsByReflection.GetMemberSummary(memberInfo);
+                        doc = XMLDocs.GetMemberSummary(memberInfo);
                     }
                 }
             }
 
-            GUILayout.Label(string.Format("<size=9>{0}</size>", doc), helpStyle);
+            GUILayout.Label(string.Format("<size=11>{0}</size>", doc), helpStyle);
             GUILayout.EndVertical();
             GUILayout.EndArea();
         }

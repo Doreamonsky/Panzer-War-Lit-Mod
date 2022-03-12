@@ -6,7 +6,7 @@ using System.Linq;
 namespace NodeCanvas.DialogueTrees
 {
 
-    ///An interface to use for whats being said by a dialogue actor
+    ///<summary>An interface to use for whats being said by a dialogue actor</summary>
     public interface IStatement
     {
         string text { get; }
@@ -14,7 +14,7 @@ namespace NodeCanvas.DialogueTrees
         string meta { get; }
     }
 
-    ///Holds data of what's being said usualy by an actor
+    ///<summary>Holds data of what's being said usualy by an actor</summary>
     [System.Serializable]
     public class Statement : IStatement
     {
@@ -58,7 +58,7 @@ namespace NodeCanvas.DialogueTrees
             this.meta = meta;
         }
 
-        ///Replace the text of the statement found in brackets, with blackboard variables ToString and returns a Statement copy
+        ///<summary>Replace the text of the statement found in brackets, with blackboard variables ToString and returns a Statement copy</summary>
         public IStatement BlackboardReplace(IBlackboard bb) {
             var copy = ParadoxNotion.Serialization.JSONSerializer.Clone<Statement>(this);
 

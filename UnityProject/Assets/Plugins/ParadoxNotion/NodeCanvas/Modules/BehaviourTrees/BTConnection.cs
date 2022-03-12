@@ -5,7 +5,7 @@ using UnityEngine;
 namespace NodeCanvas.BehaviourTrees
 {
 
-    ///The connection object for BehaviourTree nodes
+    ///<summary>The connection object for BehaviourTree nodes</summary>
     public class BTConnection : Connection
     {
 

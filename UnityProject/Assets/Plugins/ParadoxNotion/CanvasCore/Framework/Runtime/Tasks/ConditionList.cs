@@ -12,7 +12,7 @@ using UnityEngine;
 namespace NodeCanvas.Framework
 {
 
-    /// ConditionList is a ConditionTask itself that holds many ConditionTasks. It can be set to either require all true or any true.
+    ///<summary> ConditionList is a ConditionTask itself that holds many ConditionTasks. It can be set to either require all true or any true.</summary>
     [DoNotList]
     public class ConditionList : ConditionTask
     {
@@ -52,7 +52,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///ConditionList overrides to duplicate listed conditions correctly
+        ///<summary>ConditionList overrides to duplicate listed conditions correctly</summary>
         public override Task Duplicate(ITaskSystem newOwnerSystem) {
             var newList = (ConditionList)base.Duplicate(newOwnerSystem);
             newList.conditions.Clear();
@@ -150,7 +150,7 @@ namespace NodeCanvas.Framework
             ShowNestedConditionsGUI();
         }
 
-        ///Show the sub-tasks list
+        ///<summary>Show the sub-tasks list</summary>
         public void ShowListGUI() {
 
             TaskEditor.ShowCreateTaskSelectionButton<ConditionTask>(ownerSystem, AddCondition);
@@ -198,7 +198,7 @@ namespace NodeCanvas.Framework
             checkMode = (ConditionsCheckMode)EditorGUILayout.EnumPopup(checkMode);
         }
 
-        ///Show currently selected task inspector
+        ///<summary>Show currently selected task inspector</summary>
         public void ShowNestedConditionsGUI() {
 
             if ( conditions.Count == 1 ) {

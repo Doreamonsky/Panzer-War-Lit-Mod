@@ -4,19 +4,19 @@
     //An interface for states. Works together with IStateCallbackReceiver
     public interface IState
     {
-        ///The name of the state
+        ///<summary>The name of the state</summary>
         string name { get; }
-        ///The tag of the state
+        ///<summary>The tag of the state</summary>
         string tag { get; }
-        ///The elapsed time of the state
+        ///<summary>The elapsed time of the state</summary>
         float elapsedTime { get; }
-        ///The FSM this state belongs to
+        ///<summary>The FSM this state belongs to</summary>
         FSM FSM { get; }
-        ///An array of the state's transition connections
+        ///<summary>An array of the state's transition connections</summary>
         FSMConnection[] GetTransitions();
-        ///Evaluates the state's transitions and returns true if a transition has been performed
+        ///<summary>Evaluates the state's transitions and returns true if a transition has been performed</summary>
         bool CheckTransitions();
-        ///Marks the state as Finished
+        ///<summary>Marks the state as Finished</summary>
         void Finish(bool success);
     }
 }

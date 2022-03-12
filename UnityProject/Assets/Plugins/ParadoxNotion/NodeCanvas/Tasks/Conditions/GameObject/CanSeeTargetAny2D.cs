@@ -38,24 +38,30 @@ namespace NodeCanvas.Tasks.Conditions
                 if ( o == agent.gameObject ) { continue; }
 
                 var t = o.transform;
+
+                if ( !t.gameObject.activeInHierarchy ) { continue; }
+
+                if ( Vector2.Distance(agent.position, t.position) < awarnessDistance.value ) {
+                    var hit = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
+                    if ( hit.collider != t.GetComponent<Collider2D>() ) { continue; }
+                    if ( store ) { temp.Add(o); }
+                    r = true;
+                    continue;
+                }
+
                 if ( Vector2.Distance(agent.position, t.position) > maxDistance.value ) {
                     continue;
                 }
 
-                var hit = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
-                if ( hit.collider != t.GetComponent<Collider2D>() ) { continue; }
-
-
-                if ( Vector2.Angle((Vector2)t.position - (Vector2)agent.position, agent.right) < viewAngle.value ) {
-                    if ( store ) { temp.Add(o); }
-                    r = true;
+                if ( Vector2.Angle((Vector2)t.position - (Vector2)agent.position, agent.right) > viewAngle.value ) {
+                    continue;
                 }
 
-                if ( Vector2.Distance(agent.position, t.position) < awarnessDistance.value ) {
-                    if ( store ) { temp.Add(o); }
-                    r = true;
-                }
+                var hit2 = Physics2D.Linecast((Vector2)agent.position + offset, (Vector2)t.position + offset);
+                if ( hit2.collider != t.GetComponent<Collider2D>() ) { continue; }
 
+                if ( store ) { temp.Add(o); }
+                r = true;
             }
 
             if ( store ) {

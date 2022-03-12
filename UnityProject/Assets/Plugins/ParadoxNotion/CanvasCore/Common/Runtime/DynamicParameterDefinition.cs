@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ParadoxNotion
 {
 
-    ///Defines a dynamic (type-wise) parameter.
+    ///<summary>Defines a dynamic (type-wise) parameter.</summary>
     [Serializable]
     sealed public class DynamicParameterDefinition : ISerializationCallbackReceiver
     {
@@ -38,7 +38,7 @@ namespace ParadoxNotion
             set { _name = value; }
         }
 
-        ///The Type of the definition
+        ///<summary>The Type of the definition</summary>
         public Type type { get; set; }
 
         public DynamicParameterDefinition() { }

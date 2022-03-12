@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NodeCanvas.BehaviourTrees
 {
 
-    /// Base class for BehaviourTree Composite nodes.
+    ///<summary> Base class for BehaviourTree Composite nodes.</summary>
     abstract public class BTComposite : BTNode
     {
 

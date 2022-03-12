@@ -6,7 +6,7 @@ using UnityEditor;
 namespace ParadoxNotion.Design
 {
 
-    ///Common Icons Database
+    ///<summary>Common Icons Database</summary>
 	[InitializeOnLoad]
     public static class Icons
     {
@@ -61,7 +61,7 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns a type icon
+        ///<summary>Returns a type icon</summary>
         public static Texture GetTypeIcon(System.Type type) {
             return TypePrefs.GetTypeIcon(type);
         }

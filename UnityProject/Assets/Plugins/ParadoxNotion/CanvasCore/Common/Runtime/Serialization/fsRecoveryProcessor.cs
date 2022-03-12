@@ -5,7 +5,7 @@ using ParadoxNotion.Serialization.FullSerializer;
 namespace ParadoxNotion.Serialization
 {
 
-    ///Handles missing types serialization and recovery
+    ///<summary>Handles missing types serialization and recovery</summary>
     public class fsRecoveryProcessor<TCanProcess, TMissing> : fsObjectProcessor where TMissing : TCanProcess, IMissingRecoverable
     {
 

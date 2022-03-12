@@ -4,7 +4,7 @@
 namespace NodeCanvas.DialogueTrees
 {
 
-    /// A DialogueActor Component.
+    ///<summary> A DialogueActor Component.</summary>
     [AddComponentMenu("NodeCanvas/Dialogue Actor")]
     public class DialogueActor : MonoBehaviour, IDialogueActor
     {

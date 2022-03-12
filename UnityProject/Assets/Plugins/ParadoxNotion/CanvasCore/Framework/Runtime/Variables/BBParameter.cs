@@ -16,7 +16,7 @@ namespace NodeCanvas.Framework
 
     //TODO: Change GlobalBlackboard resolution to use BB.UID
 
-    ///Class for Parameter Variables that allow binding to a Blackboard variable or specifying a value directly.
+    ///<summary>Class for Parameter Variables that allow binding to a Blackboard variable or specifying a value directly.</summary>
     [ParadoxNotion.Design.SpoofAOT]
     [Serializable, fsAutoInstance, fsUninitialized]
     abstract public class BBParameter : ISerializationCollectable, ISerializationCallbackReceiver
@@ -34,7 +34,7 @@ namespace NodeCanvas.Framework
         private IBlackboard _bb;
         private Variable _varRef;
 
-        ///Raised when the BBParameter is linked to a different variable reference.
+        ///<summary>Raised when the BBParameter is linked to a different variable reference.</summary>
         public event Action<Variable> onVariableReferenceChanged;
 
         ///----------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ namespace NodeCanvas.Framework
         //required
         public BBParameter() { }
 
-        ///Create and return an instance of a generic BBParameter<T> with type argument provided and set to read from the specified blackboard
+        ///<summary>Create and return an instance of a generic BBParameter<T> with type argument provided and set to read from the specified blackboard</summary>
         public static BBParameter CreateInstance(Type t, IBlackboard bb) {
             if ( t == null ) { return null; }
             var newBBParam = (BBParameter)Activator.CreateInstance(typeof(BBParameter<>).RTMakeGenericType(t));
@@ -50,7 +50,7 @@ namespace NodeCanvas.Framework
             return newBBParam;
         }
 
-        ///Set the blackboard reference provided for all BBParameters fields found in target
+        ///<summary>Set the blackboard reference provided for all BBParameters fields found in target</summary>
         public static void SetBBFields(object target, IBlackboard bb) {
             if ( target == null ) { return; }
             ParadoxNotion.Serialization.JSONSerializer.SerializeAndExecuteNoCycles(target.GetType(), target, (o, d) =>
@@ -61,14 +61,13 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///The target variable ID
+        ///<summary>The target variable ID</summary>
         public string targetVariableID {
             get { return _targetVariableID; }
             protected set { _targetVariableID = value; }
         }
 
-        ///The Variable object reference if any.One is set when name change as well as when SetBBFields is called.
-        ///Setting the varRef also binds this parameter with that Variable.
+        ///<summary>The Variable object reference if any.One is set when name change as well as when SetBBFields is called. Setting the varRef also binds this parameter with that Variable.</summary>
         public Variable varRef {
             get { return _varRef; }
             protected set
@@ -121,7 +120,7 @@ namespace NodeCanvas.Framework
         }
 #endif
 
-        ///The name of the Variable to read/write from. Null if not, Empty if [NONE].
+        ///<summary>The name of the Variable to read/write from. Null if not, Empty if [NONE].</summary>
         public string name {
             get { return _name; }
             set
@@ -138,7 +137,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The blackboard to read/write from. Setting this also sets the variable reference if found
+        ///<summary>The blackboard to read/write from. Setting this also sets the variable reference if found</summary>
         public IBlackboard bb {
             get { return _bb; }
             set
@@ -167,7 +166,7 @@ namespace NodeCanvas.Framework
         }
 #endif
 
-        ///Is the parameter -set or should- to read from a blackboard variable?
+        ///<summary>Is the parameter -set or should- to read from a blackboard variable?</summary>
         public bool useBlackboard {
             get { return name != null; }
             set
@@ -183,32 +182,31 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Parameter is presumed dynamic if it starts with an "_" by convention
+        ///<summary>Parameter is presumed dynamic if it starts with an "_" by convention</summary>
         public bool isPresumedDynamic => name != null && name.StartsWith("_");
-        ///Has the user selected [NONE] in the dropdown?
+        ///<summary>Has the user selected [NONE] in the dropdown?</summary>
         public bool isNone => name == string.Empty;
-        ///Is the final value null?
+        ///<summary>Is the final value null?</summary>
         public bool isNull => ObjectUtils.AnyEquals(value, null);
-        ///Shortcut to exactly what it says :)
+        ///<summary>Shortcut to exactly what it says :)</summary>
         public bool isNoneOrNull => isNone || isNull;
-        ///Shortcut to 'useBlackboard AND !isNone'
+        ///<summary>Shortcut to 'useBlackboard AND !isNone'</summary>
         public bool isDefined => !string.IsNullOrEmpty(name);
-        ///The type of the Variable reference or null if there is no Variable referenced. The returned type is for most cases the same as 'VarType'.
-        ///RefType and VarType can be different when an AutoConvert is taking place.
+        ///<summary>The type of the Variable reference or null if there is no Variable referenced. The returned type is for most cases the same as 'VarType'. RefType and VarType can be different when an AutoConvert is taking place.</summary>
         public Type refType => varRef != null ? varRef.varType : null;
 
-        ///The value as object type when accessing from base class.
+        ///<summary>The value as object type when accessing from base class.</summary>
         public object value { get { return GetValueBoxed(); } set { SetValueBoxed(value); } }
 
-        ///The type of the value that this BBParameter holds
+        ///<summary>The type of the value that this BBParameter holds</summary>
         abstract public Type varType { get; }
-        ///Set the default value
+        ///<summary>Set the default value</summary>
         abstract protected void SetDefaultValue();
-        ///Bind the BBParameter to target. Null unbinds.
+        ///<summary>Bind the BBParameter to target. Null unbinds.</summary>
         abstract protected void Bind(Variable data);
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         abstract public object GetValueBoxed();
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         abstract public void SetValueBoxed(object value);
 
         ///----------------------------------------------------------------------------------------------
@@ -224,7 +222,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Resolve the final Variable reference.
+        ///<summary>Resolve the final Variable reference.</summary>
         Variable ResolveReference(IBlackboard targetBlackboard, bool useID) {
 
             //avoid more work if we dont use a bb variable
@@ -246,7 +244,7 @@ namespace NodeCanvas.Framework
             return result;
         }
 
-        ///Promotes the parameter to a variable on the target blackboard (overriden if parameter name is a path to a global bb).
+        ///<summary>Promotes the parameter to a variable on the target blackboard (overriden if parameter name is a path to a global bb).</summary>
         public Variable PromoteToVariable(IBlackboard targetBB) {
 
             if ( string.IsNullOrEmpty(name) ) {
@@ -278,7 +276,7 @@ namespace NodeCanvas.Framework
             return varRef;
         }
 
-        ///Nicely formated text :)
+        ///<summary>Nicely formated text :)</summary>
         sealed public override string ToString() {
             if ( isNone ) {
                 return "<b>NONE</b>";
@@ -307,7 +305,7 @@ namespace NodeCanvas.Framework
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Use BBParameter to create a parameter possible to be linked to a blackboard Variable
+    ///<summary>Use BBParameter to create a parameter possible to be linked to a blackboard Variable</summary>
     [Serializable]
     public class BBParameter<T> : BBParameter
     {
@@ -319,7 +317,7 @@ namespace NodeCanvas.Framework
         private event Action<T> setter;
         //
 
-        ///Value
+        //Value
         new public T value {
             get
             {
@@ -373,18 +371,18 @@ namespace NodeCanvas.Framework
         public BBParameter() { }
         public BBParameter(T value) { _value = value; }
 
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public override object GetValueBoxed() { return value; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public override void SetValueBoxed(object newValue) { this.value = (T)newValue; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public T GetValue() { return value; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public void SetValue(T value) { this.value = value; }
 
         protected override void SetDefaultValue() { _value = default(T); }
 
-        ///Binds this BBParameter to a Variable. Null unbinds
+        ///<summary>Binds this BBParameter to a Variable. Null unbinds</summary>
         protected override void Bind(Variable variable) {
             _value = default(T);
             if ( variable == null ) {

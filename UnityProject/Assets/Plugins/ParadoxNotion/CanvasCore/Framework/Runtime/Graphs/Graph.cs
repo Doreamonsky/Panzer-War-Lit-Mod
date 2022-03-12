@@ -12,11 +12,11 @@ using UndoUtility = ParadoxNotion.Design.UndoUtility;
 namespace NodeCanvas.Framework
 {
 
-    ///This is the base and main class of NodeCanvas and graphs. All graph System are deriving from this.
+    ///<summary>This is the base and main class of NodeCanvas and graphs. All graph System are deriving from this.</summary>
     [System.Serializable]
     abstract public partial class Graph : ScriptableObject, ITaskSystem, ISerializationCallbackReceiver
     {
-        ///Update mode of the graph (see 'StartGraph')
+        ///<summary>Update mode of the graph (see 'StartGraph')</summary>
         public enum UpdateMode
         {
             NormalUpdate = 0,
@@ -38,9 +38,9 @@ namespace NodeCanvas.Framework
 
         [System.NonSerialized] private bool haltForUndo;
 
-        ///Invoked after graph serialization.
+        ///<summary>Invoked after graph serialization.</summary>
         public static event System.Action<Graph> onGraphSerialized;
-        ///Invoked after graph deserialization.
+        ///<summary>Invoked after graph deserialization.</summary>
         public static event System.Action<Graph> onGraphDeserialized;
 
         ///----------------------------------------------------------------------------------------------
@@ -51,12 +51,12 @@ namespace NodeCanvas.Framework
         ///----------------------------------------------------------------------------------------------
         protected void OnEnable() { Validate(); OnGraphObjectEnable(); }
         protected void OnDisable() { OnGraphObjectDisable(); }
-        protected void OnDestroy() { Stop(); OnGraphObjectDestroy(); }
+        protected void OnDestroy() { if ( Threader.applicationIsPlaying ) { Stop(); } OnGraphObjectDestroy(); }
         protected void OnValidate() { /*we dont need this now*/  }
         protected void Reset() { OnGraphValidate(); }
         ///----------------------------------------------------------------------------------------------
 
-        ///Serialize the Graph. Return if serialization changed
+        ///<summary>Serialize the Graph. Return if serialization changed</summary>
         public bool SelfSerialize() {
 
             //if something went wrong on deserialization, dont serialize back, but rather keep what we had until a deserialization attempt is successful.
@@ -64,7 +64,7 @@ namespace NodeCanvas.Framework
                 return false;
             }
 
-            if ( haltForUndo /*|| Threader.applicationIsPlaying || Application.isPlaying*/ ) {
+            if ( haltForUndo /*|| Threader.applicationIsPlaying*/ ) {
                 return false;
             }
 
@@ -105,7 +105,7 @@ namespace NodeCanvas.Framework
             return false;
         }
 
-        ///Deserialize the Graph. Return if that succeed
+        ///<summary>Deserialize the Graph. Return if that succeed</summary>
         public bool SelfDeserialize() {
 
             if ( Deserialize(_serializedGraph, _objectReferences, false) ) {
@@ -123,8 +123,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Serialize the graph and returns the serialized json string.
-        ///The provided objectReferences list will be cleared and populated with the found unity object references.
+        ///<summary>Serialize the graph and returns the serialized json string. The provided objectReferences list will be cleared and populated with the found unity object references.</summary>
         public string Serialize(List<UnityEngine.Object> references) {
             if ( references == null ) { references = new List<Object>(); }
             UpdateNodeIDs(true);
@@ -132,11 +131,11 @@ namespace NodeCanvas.Framework
             return result;
         }
 
-        ///Deserialize the json serialized graph provided. Returns the data or null if failed.
-        ///The provided references list will be used to read serialized unity object references.
-        ///IMPORTANT: Validate should be called true in all deserialize cases outside of Unity's 'OnAfterDeserialize',
-        ///like for example when loading from json, or manualy calling this outside of OnAfterDeserialize.
-        ///Otherwise, Validate can also be called separately.
+        ///<summary>Deserialize the json serialized graph provided. Returns the data or null if failed.</summary>
+        //The provided references list will be used to read serialized unity object references.
+        //IMPORTANT: Validate should be called true in all deserialize cases outside of Unity's 'OnAfterDeserialize',
+        //like for example when loading from json, or manualy calling this outside of OnAfterDeserialize.
+        //Otherwise, Validate can also be called separately.
         public bool Deserialize(string serializedGraph, List<UnityEngine.Object> references, bool validate) {
             if ( string.IsNullOrEmpty(serializedGraph) ) {
                 Logger.LogWarning("JSON is null or empty on graph when deserializing.", LogTag.SERIALIZATION, this);
@@ -178,19 +177,19 @@ namespace NodeCanvas.Framework
         internal void SetGraphSourceMetaData(GraphSource source) { graphSource.SetMetaData(source); }
         ///----------------------------------------------------------------------------------------------
 
-        ///Serialize the local blackboard of the graph alone. The provided references list will be cleared and populated anew.
+        ///<summary>Serialize the local blackboard of the graph alone. The provided references list will be cleared and populated anew.</summary>
         public string SerializeLocalBlackboard(ref List<UnityEngine.Object> references) {
             if ( references != null ) { references.Clear(); }
             return JSONSerializer.Serialize(typeof(BlackboardSource), localBlackboard, references);
         }
 
-        ///Deserialize the local blackboard of the graph alone.
+        ///<summary>Deserialize the local blackboard of the graph alone.</summary>
         public bool DeserializeLocalBlackboard(string json, List<UnityEngine.Object> references) {
             localBlackboard = JSONSerializer.TryDeserializeOverwrite<BlackboardSource>(localBlackboard, json, references);
             return true;
         }
 
-        ///Clones the graph as child of parentGraph and returns the new one.
+        ///<summary>Clones the graph as child of parentGraph and returns the new one.</summary>
         public static T Clone<T>(T graph, Graph parentGraph) where T : Graph {
             var newGraph = Instantiate<T>(graph);
             newGraph.name = newGraph.name.Replace("(Clone)", string.Empty);
@@ -198,7 +197,7 @@ namespace NodeCanvas.Framework
             return (T)newGraph;
         }
 
-        ///Validate the graph, it's nodes and tasks. Also called from OnEnable callback.
+        ///<summary>Validate the graph, it's nodes and tasks. Also called from OnEnable callback.</summary>
         public void Validate() {
 
             if ( string.IsNullOrEmpty(_serializedGraph) ) {
@@ -227,8 +226,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Raised when the graph is Stoped/Finished if it was Started at all.
-        ///Important: After the event raised, it is also cleared from all subscribers!
+        ///<summary>Raised when the graph is Stoped/Finished if it was Started at all. Important: After the event raised, it is also cleared from all subscribers!</summary>
         public event System.Action<bool> onFinish;
 
         private static List<Graph> _runningGraphs;
@@ -240,64 +238,64 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///The base type of all nodes that can live in this system
+        ///<summary>The base type of all nodes that can live in this system</summary>
         abstract public System.Type baseNodeType { get; }
-        ///Is this system allowed to start with a null agent?
+        ///<summary>Is this system allowed to start with a null agent?</summary>
         abstract public bool requiresAgent { get; }
-        ///Does the system needs a prime Node to be set for it to start?
+        ///<summary>Does the system needs a prime Node to be set for it to start?</summary>
         abstract public bool requiresPrimeNode { get; }
-        ///Is the graph considered to be a tree? (and thus nodes auto sorted on position x)
+        ///<summary>Is the graph considered to be a tree? (and thus nodes auto sorted on position x)</summary>
         abstract public bool isTree { get; }
-        ///Is overriding local blackboard and parametrizing local blackboard variables allowed?
+        ///<summary>Is overriding local blackboard and parametrizing local blackboard variables allowed?</summary>
         abstract public bool allowBlackboardOverrides { get; }
-        //Whether the graph can accept variables Drag&Drop
+        ///<summary>Whether the graph can accept variables Drag&Drop</summary>
         abstract public bool canAcceptVariableDrops { get; }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///The graph data container
+        ///<summary>The graph data container</summary>
         private GraphSource graphSource {
             get { return _graphSource; }
             set { _graphSource = value; }
         }
 
-        ///Graph category
+        ///<summary>Graph category</summary>
         public string category {
             get { return graphSource.category; }
             set { graphSource.category = value; }
         }
 
-        ///Graph Comments
+        ///<summary>Graph Comments</summary>
         public string comments {
             get { return graphSource.comments; }
             set { graphSource.comments = value; }
         }
 
-        ///The translation of the graph in the total canvas
+        ///<summary>The translation of the graph in the total canvas</summary>
         public Vector2 translation {
             get { return graphSource.translation; }
             set { graphSource.translation = value; }
         }
 
-        ///The zoom of the graph
+        ///<summary>The zoom of the graph</summary>
         public float zoomFactor {
             get { return graphSource.zoomFactor; }
             set { graphSource.zoomFactor = value; }
         }
 
-        ///All nodes assigned to this graph
+        ///<summary>All nodes assigned to this graph</summary>
         public List<Node> allNodes {
             get { return graphSource.nodes; }
             set { graphSource.nodes = value; }
         }
 
-        ///The canvas groups of the graph
+        ///<summary>The canvas groups of the graph</summary>
         public List<CanvasGroup> canvasGroups {
             get { return graphSource.canvasGroups; }
             set { graphSource.canvasGroups = value; }
         }
 
-        ///The local blackboard of the graph
+        ///<summary>The local blackboard of the graph</summary>
         private BlackboardSource localBlackboard {
             get { return graphSource.localBlackboard; }
             set { graphSource.localBlackboard = value; }
@@ -309,7 +307,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///In runtime only, returns the root graph in case this is a nested graph. Returns itself if not.
+        ///<summary>In runtime only, returns the root graph in case this is a nested graph. Returns itself if not.</summary>
         public Graph rootGraph {
             get
             {
@@ -321,37 +319,37 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Is serialization halted? (could be in case of deserialization error)
+        ///<summary>Is serialization halted? (could be in case of deserialization error)</summary>
         public bool serializationHalted => _haltSerialization;
 
-        ///All currently running graphs
+        ///<summary>All currently running graphs</summary>
         public static IEnumerable<Graph> runningGraphs => _runningGraphs;
 
-        ///The parent Graph if any when this graph is a nested one. Set in runtime only after the nested graph (this) is instantiated via 'Clone' method.
+        ///<summary>The parent Graph if any when this graph is a nested one. Set in runtime only after the nested graph (this) is instantiated via 'Clone' method.</summary>
         public Graph parentGraph { get; private set; }
 
-        ///The time in seconds this graph is running
+        ///<summary>The time in seconds this graph is running</summary>
         public float elapsedTime { get; private set; }
 
-        ///The delta time used to update the graph
+        ///<summary>The delta time used to update the graph</summary>
         public float deltaTime { get; private set; }
 
-        ///The last frame (Time.frameCount) the graph was updated
+        ///<summary>The last frame (Time.frameCount) the graph was updated</summary>
         public int lastUpdateFrame { get; private set; }
 
-        ///Did the graph update this or the previous frame?
+        ///<summary>Did the graph update this or the previous frame?</summary>
         public bool didUpdateLastFrame => ( lastUpdateFrame >= Time.frameCount - 1 );
 
-        ///Is the graph running?
+        ///<summary>Is the graph running?</summary>
         public bool isRunning { get; private set; }
 
-        ///Is the graph paused?
+        ///<summary>Is the graph paused?</summary>
         public bool isPaused { get; private set; }
 
-        ///The current update mode used for the graph
+        ///<summary>The current update mode used for the graph</summary>
         public UpdateMode updateMode { get; private set; }
 
-        ///The 'Start' node. It should always be the first node in the nodes collection
+        ///<summary>The 'Start' node. It should always be the first node in the nodes collection</summary>
         public Node primeNode {
             get { return allNodes.Count > 0 && allNodes[0].allowAsPrime ? allNodes[0] : null; }
             set
@@ -372,27 +370,26 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The agent currently used by the graph
+        ///<summary>The agent currently used by the graph</summary>
         public Component agent { get; private set; }
 
-        ///The local blackboard of the graph where parentBlackboard if any is parented to
+        ///<summary>The local blackboard of the graph where parentBlackboard if any is parented to</summary>
         public IBlackboard blackboard => localBlackboard;
 
-        ///The blackboard which is parented to the graph's local blackboard
-        ///Should be the same as '.blackboard.parent' and usually refers to the GraphOwner (agent) .blackboard
+        ///<summary>The blackboard which is parented to the graph's local blackboard Should be the same as '.blackboard.parent' and usually refers to the GraphOwner (agent) .blackboard</summary>
         public IBlackboard parentBlackboard { get; private set; }
 
-        ///The UnityObject of the ITaskSystem. In this case the graph itself
+        ///<summary>The UnityObject of the ITaskSystem. In this case the graph itself</summary>
         UnityEngine.Object ITaskSystem.contextObject => this;
 
         ///----------------------------------------------------------------------------------------------
 
-        ///See UpdateReferences
+        ///<summary>See UpdateReferences</summary>
         public void UpdateReferencesFromOwner(GraphOwner owner, bool force = false) {
             UpdateReferences(owner, owner != null ? owner.blackboard : null, force);
         }
 
-        ///Update the Agent/Component and Blackboard references. This is done when the graph initialize or start, and in the editor for convenience.
+        ///<summary>Update the Agent/Component and Blackboard references. This is done when the graph initialize or start, and in the editor for convenience.</summary>
         public void UpdateReferences(Component newAgent, IBlackboard newParentBlackboard, bool force = false) {
             if ( !ReferenceEquals(this.agent, newAgent) || !ReferenceEquals(this.parentBlackboard, newParentBlackboard) || force ) {
                 this.agent = newAgent;
@@ -411,21 +408,21 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Update all graph node's BBFields for current Blackboard.
+        ///<summary>Update all graph node's BBFields for current Blackboard.</summary>
         void UpdateNodeBBFields() {
             for ( var i = 0; i < allParameters.Count; i++ ) {
                 allParameters[i].bb = blackboard;
             }
         }
 
-        ///Sets all graph Tasks' owner system (which is this graph).
+        ///<summary>Sets all graph Tasks' owner system (which is this graph).</summary>
         void ITaskSystem.UpdateTasksOwner() {
             for ( var i = 0; i < allTasks.Count; i++ ) {
                 allTasks[i].SetOwnerSystem(this);
             }
         }
 
-        ///Update the IDs of the nodes in the graph. Is automatically called whenever a change happens in the graph by the adding, removing, connecting etc.
+        ///<summary>Update the IDs of the nodes in the graph. Is automatically called whenever a change happens in the graph by the adding, removing, connecting etc.</summary>
         public void UpdateNodeIDs(bool alsoReorderList) {
 
             if ( allNodes.Count == 0 ) {
@@ -464,14 +461,14 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///used for thread safe init calls
+        ///<summary>used for thread safe init calls</summary>
         private event System.Action delayedInitCalls;
-        ///used for thread safe init calls
+        ///<summary>used for thread safe init calls</summary>
         protected void ThreadSafeInitCall(System.Action call) {
             if ( Threader.isMainThread ) { call(); } else { delayedInitCalls += call; }
         }
 
-        ///Load overwrite the graph async. Used by GraphOwner.
+        ///<summary>Load overwrite the graph async. Used by GraphOwner.</summary>
         public async void LoadOverwriteAsync(GraphLoadData data, System.Action callback) {
             await System.Threading.Tasks.Task.Run(() => LoadOverwrite(data));
             if ( delayedInitCalls != null ) {
@@ -481,21 +478,20 @@ namespace NodeCanvas.Framework
             callback();
         }
 
-        ///Load overwrite the graph. Used by GraphOwner.
+        ///<summary>Load overwrite the graph. Used by GraphOwner.</summary>
         public void LoadOverwrite(GraphLoadData data) {
             SetGraphSourceMetaData(data.source);
             Deserialize(data.json, data.references, false);
             UpdateReferences(data.agent, data.parentBlackboard);
             Validate();
             OnGraphInitialize();
-            /// TODO: Make subgraphs instance in main thread and init them as parallel tasks
+            // TODO: Make subgraphs instance in main thread and init them as parallel tasks
             if ( data.preInitializeSubGraphs ) { ThreadSafeInitCall(PreInitializeSubGraphs); }
             ThreadSafeInitCall(() => localBlackboard.InitializePropertiesBinding(data.agent, false));
             hasInitialized = true;
         }
 
-        ///Initialize the graph for target agent/blackboard with option to preload subgraphs.
-        ///This is called from StartGraph as well if Initialize has not been called before.
+        ///<summary>Initialize the graph for target agent/blackboard with option to preload subgraphs. This is called from StartGraph as well if Initialize has not been called before.</summary>
         public void Initialize(Component newAgent, IBlackboard newParentBlackboard, bool preInitializeSubGraphs) {
             Debug.Assert(Threader.applicationIsPlaying, "Initialize should have been called in play mode only.");
             Debug.Assert(!hasInitialized, "Graph is already initialized.");
@@ -506,7 +502,7 @@ namespace NodeCanvas.Framework
             hasInitialized = true;
         }
 
-        ///Preloads and initialize all subgraphs of this graph recursively
+        ///<summary>Preloads and initialize all subgraphs of this graph recursively</summary>
         void PreInitializeSubGraphs() {
             foreach ( var assignable in allNodes.OfType<IGraphAssignable>() ) {
                 var instance = assignable.CheckInstance();
@@ -518,8 +514,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Start the graph for the agent and blackboard provided with specified update mode.
-        ///Optionally provide a callback for when the graph stops/ends
+        ///<summary>Start the graph for the agent and blackboard provided with specified update mode. Optionally provide a callback for when the graph stops/ends</summary>
         public void StartGraph(Component newAgent, IBlackboard newParentBlackboard, UpdateMode newUpdateMode, System.Action<bool> callback = null) {
 
 #if UNITY_EDITOR
@@ -583,7 +578,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Stops the graph completely and resets all nodes.
+        ///<summary>Stops the graph completely and resets all nodes.</summary>
         public void Stop(bool success = true) {
 
             if ( !isRunning ) {
@@ -621,7 +616,7 @@ namespace NodeCanvas.Framework
             elapsedTime = 0;
         }
 
-        ///Pauses the graph from updating as well as notifying all nodes.
+        ///<summary>Pauses the graph from updating as well as notifying all nodes.</summary>
         public void Pause() {
 
             if ( !isRunning || isPaused ) {
@@ -644,7 +639,7 @@ namespace NodeCanvas.Framework
             OnGraphPaused();
         }
 
-        ///Resumes a paused graph
+        ///<summary>Resumes a paused graph</summary>
         public void Resume() {
 
             if ( !isRunning || !isPaused ) {
@@ -667,13 +662,13 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Same as Stop - Start
+        ///<summary>Same as Stop - Start</summary>
         public void Restart() {
             Stop();
             StartGraph(agent, blackboard, updateMode, onFinish);
         }
 
-        ///Updates the graph. Normaly this is updated by MonoManager since at StartGraph, this method is registered for updating by GraphOwner.
+        ///<summary>Updates the graph. Normaly this is updated by MonoManager since at StartGraph, this method is registered for updating by GraphOwner.</summary>
         public void UpdateGraph() { UpdateGraph(Time.deltaTime); }
         public void UpdateGraph(float deltaTime) {
             // UnityEngine.Profiling.Profiler.BeginSample(string.Format("Graph Update ({0})", agent != null? agent.name : this.name) );
@@ -690,36 +685,36 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Graph can override this for derived data serialization if needed
+        ///<summary>Graph can override this for derived data serialization if needed</summary>
         virtual public object OnDerivedDataSerialization() { return null; }
-        ///Graph can override this for derived data deserialization if needed
+        ///<summary>Graph can override this for derived data deserialization if needed</summary>
         virtual public void OnDerivedDataDeserialization(object data) { }
 
-        ///Override for graph initialization
+        ///<summary>Override for graph initialization</summary>
         virtual protected void OnGraphInitialize() { }
-        ///Override for graph specific stuff to run when the graph is started
+        ///<summary>Override for graph specific stuff to run when the graph is started</summary>
         virtual protected void OnGraphStarted() { }
-        ///Override for graph specific per frame logic. Called every frame if the graph is running
+        ///<summary>Override for graph specific per frame logic. Called every frame if the graph is running</summary>
         virtual protected void OnGraphUpdate() { }
-        ///Override for graph specific stuff to run when the graph is stoped
+        ///<summary>Override for graph specific stuff to run when the graph is stoped</summary>
         virtual protected void OnGraphStoped() { }
-        ///Override for graph stuff to run when the graph is paused
+        ///<summary>Override for graph stuff to run when the graph is paused</summary>
         virtual protected void OnGraphPaused() { }
-        ///Override for graph stuff to run when the graph is resumed
+        ///<summary>Override for graph stuff to run when the graph is resumed</summary>
         virtual protected void OnGraphUnpaused() { }
 
-        ///Called when the unity object graph is enabled
+        ///<summary>Called when the unity object graph is enabled</summary>
         virtual protected void OnGraphObjectEnable() { }
-        ///Called when the unity object graph is disabled
+        ///<summary>Called when the unity object graph is disabled</summary>
         virtual protected void OnGraphObjectDisable() { }
-        ///Called when the unity object graph is destroyed
+        ///<summary>Called when the unity object graph is destroyed</summary>
         virtual protected void OnGraphObjectDestroy() { }
-        ///Use this for derived graph Validation
+        ///<summary>Use this for derived graph Validation</summary>
         virtual protected void OnGraphValidate() { }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Invokes named onCustomEvent on EventRouter
+        ///<summary>Invokes named onCustomEvent on EventRouter</summary>
         public void SendEvent(string name, object value, object sender) {
             if ( agent == null || !isRunning ) { return; }
             Logger.Log(string.Format("Event '{0}' Send to '{1}'", name, agent.gameObject.name), LogTag.EVENT, agent);
@@ -727,7 +722,7 @@ namespace NodeCanvas.Framework
             if ( router != null ) { router.InvokeCustomEvent(name, value, sender); }
         }
 
-        ///Invokes named onCustomEvent on EventRouter
+        ///<summary>Invokes named onCustomEvent on EventRouter</summary>
         public void SendEvent<T>(string name, T value, object sender) {
             if ( agent == null || !isRunning ) { return; }
             Logger.Log(string.Format("Event '{0}' Send to '{1}'", name, agent.gameObject.name), LogTag.EVENT, agent);
@@ -735,7 +730,7 @@ namespace NodeCanvas.Framework
             if ( router != null ) { router.InvokeCustomEvent(name, value, sender); }
         }
 
-        ///Invokes named onCustomEvent on EventRouter globaly for all running graphs
+        ///<summary>Invokes named onCustomEvent on EventRouter globaly for all running graphs</summary>
         public static void SendGlobalEvent(string name, object value, object sender) {
             if ( _runningGraphs == null ) { return; }
             var sent = new List<GameObject>();
@@ -747,7 +742,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Invokes named onCustomEvent on EventRouter globaly for all running graphs
+        ///<summary>Invokes named onCustomEvent on EventRouter globaly for all running graphs</summary>
         public static void SendGlobalEvent<T>(string name, T value, object sender) {
             if ( _runningGraphs == null ) { return; }
             var sent = new List<GameObject>();
@@ -761,16 +756,16 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns all BBParameters serialized in the graph
+        ///<summary>Returns all BBParameters serialized in the graph</summary>
         public IEnumerable<BBParameter> GetAllParameters() { return allParameters; }
 
-        ///Returns all connections
+        ///<summary>Returns all connections</summary>
         public IEnumerable<Connection> GetAllConnections() { return allConnections; }
 
-        ///Returns all tasks of type T
+        ///<summary>Returns all tasks of type T</summary>
         public IEnumerable<T> GetAllTasksOfType<T>() where T : Task { return allTasks.OfType<T>(); }
 
-        ///Get a node by it's ID, null if not found. The ID should always be the same as the node's index in allNodes list.
+        ///<summary>Get a node by it's ID, null if not found. The ID should always be the same as the node's index in allNodes list.</summary>
         public Node GetNodeWithID(int searchID) {
             if ( searchID < allNodes.Count && searchID >= 0 ) {
                 return allNodes.Find(n => n.ID == searchID);
@@ -778,37 +773,37 @@ namespace NodeCanvas.Framework
             return null;
         }
 
-        ///Get all nodes of a specific type
+        ///<summary>Get all nodes of a specific type</summary>
         public IEnumerable<T> GetAllNodesOfType<T>() where T : Node {
             return allNodes.OfType<T>();
         }
 
-        ///Get a node by it's tag name
+        ///<summary>Get a node by it's tag name</summary>
         public T GetNodeWithTag<T>(string tagName) where T : Node {
             return allNodes.OfType<T>().FirstOrDefault(n => n.tag == tagName);
         }
 
-        ///Get all nodes taged with such tag name
+        ///<summary>Get all nodes taged with such tag name</summary>
         public IEnumerable<T> GetNodesWithTag<T>(string tagName) where T : Node {
             return allNodes.OfType<T>().Where(n => n.tag == tagName);
         }
 
-        ///Get all taged nodes regardless tag name
+        ///<summary>Get all taged nodes regardless tag name</summary>
         public IEnumerable<T> GetAllTagedNodes<T>() where T : Node {
             return allNodes.OfType<T>().Where(n => !string.IsNullOrEmpty(n.tag));
         }
 
-        ///Get all nodes of the graph that have no incomming connections
+        ///<summary>Get all nodes of the graph that have no incomming connections</summary>
         public IEnumerable<Node> GetRootNodes() {
             return allNodes.Where(n => n.inConnections.Count == 0);
         }
 
-        ///Get all nodes of the graph that have no outgoing connections
+        ///<summary>Get all nodes of the graph that have no outgoing connections</summary>
         public IEnumerable<Node> GetLeafNodes() {
             return allNodes.Where(n => n.outConnections.Count == 0);
         }
 
-        ///Get all Nested graphs of this graph
+        ///<summary>Get all Nested graphs of this graph</summary>
         public IEnumerable<T> GetAllNestedGraphs<T>(bool recursive) where T : Graph {
             var graphs = new List<T>();
             foreach ( var node in allNodes.OfType<IGraphAssignable>() ) {
@@ -824,7 +819,7 @@ namespace NodeCanvas.Framework
             return graphs;
         }
 
-        ///Get all runtime instanced Nested graphs of this graph and it's sub-graphs
+        ///<summary>Get all runtime instanced Nested graphs of this graph and it's sub-graphs</summary>
         public IEnumerable<Graph> GetAllInstancedNestedGraphs() {
             var instances = new List<Graph>();
             foreach ( var node in allNodes.OfType<IGraphAssignable>() ) {
@@ -839,12 +834,12 @@ namespace NodeCanvas.Framework
             return instances;
         }
 
-        ///Returns all defined BBParameter names found in graph
+        ///<summary>Returns all defined BBParameter names found in graph</summary>
         public IEnumerable<BBParameter> GetDefinedParameters() {
             return allParameters.Where(p => p != null && p.isDefined);
         }
 
-        ///Utility function to create all defined parameters of this graph as variables into the provided blackboard.
+        ///<summary>Utility function to create all defined parameters of this graph as variables into the provided blackboard.</summary>
         public void PromoteMissingParametersToVariables(IBlackboard bb) {
             foreach ( var bbParam in GetDefinedParameters() ) {
                 if ( bbParam.varRef == null && !bbParam.isPresumedDynamic ) {
@@ -855,7 +850,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Given an object returns the relevant graph if any can be resolved
+        ///<summary>Given an object returns the relevant graph if any can be resolved</summary>
         public static Graph GetElementGraph(object obj) {
             if ( obj is GraphOwner ) { return ( obj as GraphOwner ).graph; }
             if ( obj is Graph ) { return (Graph)obj; }
@@ -868,8 +863,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Returns a structure of the graph that includes Nodes, Connections, Tasks and BBParameters,
-        ///but with nodes elements all being root to the graph (instead of respective parent connections).
+        ///<summary>Returns a structure of the graph that includes Nodes, Connections, Tasks and BBParameters, but with nodes elements all being root to the graph (instead of respective parent connections).</summary>
         public HierarchyTree.Element GetFlatMetaGraph() {
 
             if ( flatMetaGraph != null ) {
@@ -884,8 +878,7 @@ namespace NodeCanvas.Framework
             return flatMetaGraph = root;
         }
 
-        ///Returns a structure of the graph that includes Nodes, Connections, Tasks and BBParameters,
-        ///but where node elements are parent to their respetive connections. Only possible for tree-like graphs.
+        ///<summary>Returns a structure of the graph that includes Nodes, Connections, Tasks and BBParameters, but where node elements are parent to their respetive connections. Only possible for tree-like graphs.</summary>
         public HierarchyTree.Element GetFullMetaGraph() {
 
             if ( fullMetaGraph != null ) {
@@ -906,7 +899,7 @@ namespace NodeCanvas.Framework
             return fullMetaGraph = root;
         }
 
-        ///Returns a structure of all nested graphs recursively, contained within this graph.
+        ///<summary>Returns a structure of all nested graphs recursively, contained within this graph.</summary>
         public HierarchyTree.Element GetNestedMetaGraph() {
 
             if ( nestedMetaGraph != null ) {
@@ -928,7 +921,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Used above. Returns a node hierarchy element optionaly along with all it's children recursively
+        ///<summary>Used above. Returns a node hierarchy element optionaly along with all it's children recursively</summary>
         static HierarchyTree.Element GetTreeNodeElement(Node node, bool recurse, ref int lastID) {
             var nodeElement = CollectSubElements(node);
             for ( var i = 0; i < node.outConnections.Count; i++ ) {
@@ -945,7 +938,7 @@ namespace NodeCanvas.Framework
             return nodeElement;
         }
 
-        ///Returns an element that includes tasks and parameters for target object recursively
+        ///<summary>Returns an element that includes tasks and parameters for target object recursively</summary>
         static HierarchyTree.Element CollectSubElements(IGraphElement obj) {
             HierarchyTree.Element parentElement = null;
             var stack = new Stack<HierarchyTree.Element>();
@@ -969,19 +962,19 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Get the parent graph element (node/connection) from target Task.
+        ///<summary>Get the parent graph element (node/connection) from target Task.</summary>
         public IGraphElement GetTaskParentElement(Task targetTask) {
             var targetElement = GetFlatMetaGraph().FindReferenceElement(targetTask);
             return targetElement != null ? targetElement.GetFirstParentReferenceOfType<IGraphElement>() : null;
         }
 
-        ///Get the parent graph element (node/connection) from target BBParameter
+        ///<summary>Get the parent graph element (node/connection) from target BBParameter</summary>
         public IGraphElement GetParameterParentElement(BBParameter targetParameter) {
             var targetElement = GetFlatMetaGraph().FindReferenceElement(targetParameter);
             return targetElement != null ? targetElement.GetFirstParentReferenceOfType<IGraphElement>() : null;
         }
 
-        ///Get all Tasks found in target
+        ///<summary>Get all Tasks found in target</summary>
         public static IEnumerable<Task> GetTasksInElement(IGraphElement target) {
             var result = new List<Task>();
             JSONSerializer.SerializeAndExecuteNoCycles(target.GetType(), target, (o, d) =>
@@ -991,7 +984,7 @@ namespace NodeCanvas.Framework
             return result;
         }
 
-        ///Get all BBParameters found in target
+        ///<summary>Get all BBParameters found in target</summary>
         public static IEnumerable<BBParameter> GetParametersInElement(IGraphElement target) {
             var result = new List<BBParameter>();
             JSONSerializer.SerializeAndExecuteNoCycles(target.GetType(), target, (o, d) =>
@@ -1003,7 +996,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Add a new node to this graph
+        ///<summary>Add a new node to this graph</summary>
         public T AddNode<T>() where T : Node { return (T)AddNode(typeof(T)); }
         public T AddNode<T>(Vector2 pos) where T : Node { return (T)AddNode(typeof(T), pos); }
         public Node AddNode(System.Type nodeType) { return AddNode(nodeType, new Vector2(-translation.x + 100, -translation.y + 100)); }
@@ -1030,7 +1023,7 @@ namespace NodeCanvas.Framework
             return newNode;
         }
 
-        ///Disconnects and then removes a node from this graph
+        ///<summary>Disconnects and then removes a node from this graph</summary>
         public void RemoveNode(Node node, bool recordUndo = true, bool force = false) {
 
             if ( !force && node.GetType().RTIsDefined<ParadoxNotion.Design.ProtectedSingletonAttribute>(true) ) {
@@ -1086,8 +1079,7 @@ namespace NodeCanvas.Framework
             UndoUtility.SetDirty(this);
         }
 
-        ///Connect two nodes together to a specific port index of the source and target node.
-        ///Leave index at -1 to add at the end of the list.
+        ///<summary>Connect two nodes together to a specific port index of the source and target node. Leave index at -1 to add at the end of the list.</summary>
         public Connection ConnectNodes(Node sourceNode, Node targetNode, int sourceIndex = -1, int targetIndex = -1) {
 
             if ( Node.IsNewConnectionAllowed(sourceNode, targetNode) == false ) {
@@ -1104,7 +1096,7 @@ namespace NodeCanvas.Framework
             return newConnection;
         }
 
-        ///Removes a connection
+        ///<summary>Removes a connection</summary>
         public void RemoveConnection(Connection connection, bool recordUndo = true) {
 
             //for live editing
@@ -1132,7 +1124,7 @@ namespace NodeCanvas.Framework
             UndoUtility.SetDirty(this);
         }
 
-        ///Makes a copy of provided nodes and if targetGraph is provided, puts those new nodes in that graph.
+        ///<summary>Makes a copy of provided nodes and if targetGraph is provided, puts those new nodes in that graph.</summary>
         public static List<Node> CloneNodes(List<Node> originalNodes, Graph targetGraph = null, Vector2 originPosition = default(Vector2)) {
 
             if ( targetGraph != null ) {
@@ -1188,7 +1180,7 @@ namespace NodeCanvas.Framework
             return newNodes;
         }
 
-        ///Clears the whole graph
+        ///<summary>Clears the whole graph</summary>
         public void ClearGraph() {
             UndoUtility.RecordObject(this, "Clear");
             canvasGroups = null;

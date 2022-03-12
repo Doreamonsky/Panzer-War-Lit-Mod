@@ -6,7 +6,7 @@ using NodeCanvas.Framework;
 namespace NodeCanvas.Editor
 {
 
-    ///Styling database (styles, icons, colors)
+    ///<summary>Styling database (styles, icons, colors)</summary>
     public class StyleSheet : ScriptableObject
     {
 
@@ -234,7 +234,7 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Return an arrow based on direction vector
+        ///<summary>Return an arrow based on direction vector</summary>
         public static Texture2D GetDirectionArrow(Vector2 dir) {
             if ( dir.normalized == Vector2.left ) { return arrowLeft; }
             if ( dir.normalized == Vector2.right ) { return arrowRight; }
@@ -243,7 +243,7 @@ namespace NodeCanvas.Editor
             return circle;
         }
 
-        ///Return icon based on status
+        ///<summary>Return icon based on status</summary>
         public static Texture2D GetStatusIcon(Status status) {
             if ( status == Status.Success ) { return statusSuccess; }
             if ( status == Status.Failure ) { return statusFailure; }
@@ -251,7 +251,7 @@ namespace NodeCanvas.Editor
             return null;
         }
 
-        ///Return color based on status
+        ///<summary>Return color based on status</summary>
         public static Color GetStatusColor(Status status) {
             switch ( status ) {
                 case ( Status.Failure ): return new Color(1.0f, 0.3f, 0.3f);

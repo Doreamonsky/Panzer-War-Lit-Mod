@@ -9,11 +9,12 @@ namespace NodeCanvas.BehaviourTrees
 
     [Category("Composites")]
     [Description("Quick way to execute the left, or the right child node based on a Condition Task evaluation.")]
-    [Icon("Condition")]
+    [ParadoxNotion.Design.Icon("Condition")]
     [Color("b3ff7f")]
     public class BinarySelector : BTNode, ITaskAssignable<ConditionTask>
     {
 
+        [Tooltip("If true, the condition will be re-evaluated per frame.")]
         public bool dynamic;
 
         [SerializeField]
@@ -64,9 +65,8 @@ namespace NodeCanvas.BehaviourTrees
         }
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override string GetConnectionInfo(int i) {

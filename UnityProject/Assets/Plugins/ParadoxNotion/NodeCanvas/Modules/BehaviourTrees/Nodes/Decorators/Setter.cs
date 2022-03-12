@@ -9,7 +9,7 @@ namespace NodeCanvas.BehaviourTrees
     [Name("Override Agent")]
     [Category("Decorators")]
     [Description("Set another Agent for the rest of the Tree dynamicaly from this point and on. All nodes under this will be executed for the new agent. You can also use this decorator to revert back to the original graph agent, which is useful to use after another OverrideAgent decorator for example.")]
-    [Icon("Agent")]
+    [ParadoxNotion.Design.Icon("Agent")]
     public class Setter : BTDecorator
     {
 
@@ -27,9 +27,8 @@ namespace NodeCanvas.BehaviourTrees
             return decoratedConnection.Execute(agent, blackboard);
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnNodeGUI() {

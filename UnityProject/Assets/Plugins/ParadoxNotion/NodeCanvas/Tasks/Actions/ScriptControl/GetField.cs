@@ -73,14 +73,14 @@ namespace NodeCanvas.Tasks.Actions
 
         void SetTargetField(FieldInfo newField) {
             if ( newField != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 field = new SerializedFieldInfo(newField);
                 saveAs.SetType(newField.FieldType);
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
         protected override void OnTaskInspectorGUI() {
 
@@ -107,7 +107,7 @@ namespace NodeCanvas.Tasks.Actions
                 UnityEditor.EditorGUILayout.LabelField("Type", targetField.RTReflectedOrDeclaredType().FriendlyName());
                 UnityEditor.EditorGUILayout.LabelField("Field", targetField.Name);
                 UnityEditor.EditorGUILayout.LabelField("Field Type", targetField.FieldType.FriendlyName());
-                UnityEditor.EditorGUILayout.HelpBox(DocsByReflection.GetMemberSummary(targetField), UnityEditor.MessageType.None);
+                UnityEditor.EditorGUILayout.HelpBox(XMLDocs.GetMemberSummary(targetField), UnityEditor.MessageType.None);
                 GUILayout.EndVertical();
                 NodeCanvas.Editor.BBParameterEditor.ParameterField("Save As", saveAs, true);
             }

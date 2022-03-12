@@ -23,7 +23,7 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Show the finder window
+        ///<summary>Show the finder window</summary>
         public static void ShowWindow() {
             GetWindow<GraphExplorer>().Show();
         }
@@ -218,13 +218,13 @@ namespace NodeCanvas.Editor
             }
         }
 
-        ///Ping element. User hover.
+        ///<summary>Ping element. User hover.</summary>
         void PingElement(HierarchyTree.Element e) {
             var element = e.GetFirstParentReferenceOfType<IGraphElement>();
             EditorApplication.delayCall += () => GraphEditor.PingElement(element);
         }
 
-        ///Focus element. This also Pings it. User click.
+        ///<summary>Focus element. This also Pings it. User click.</summary>
         void FocusElement(HierarchyTree.Element e) {
             var element = e.GetFirstParentReferenceOfType<IGraphElement>();
             EditorApplication.delayCall += () => GraphEditor.FocusElement(element, true);

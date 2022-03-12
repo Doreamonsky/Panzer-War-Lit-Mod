@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace NodeCanvas.Framework
 {
-    ///Interface for NodeReference
+    ///<summary>Interface for NodeReference</summary>
     public interface INodeReference
     {
         System.Type type { get; }
@@ -12,7 +12,7 @@ namespace NodeCanvas.Framework
         void Set(Node target);
     }
 
-    ///A utility to have nodes weak reference other nodes
+    ///<summary>A utility to have nodes weak reference other nodes</summary>
     [System.Serializable, ParadoxNotion.Serialization.FullSerializer.fsForward(nameof(_targetNodeUID))]
     [ParadoxNotion.Serialization.FullSerializer.fsAutoInstance]
     public class NodeReference<T> : INodeReference where T : Node
@@ -28,7 +28,7 @@ namespace NodeCanvas.Framework
         public NodeReference() { }
         public NodeReference(T target) { Set(target); }
 
-        ///Get referenced node given the graph it lives within
+        ///<summary>Get referenced node given the graph it lives within</summary>
         public T Get(Graph graph) {
             T reference;
             if ( _targetNodeRef == null ) {
@@ -40,7 +40,7 @@ namespace NodeCanvas.Framework
             return reference;
         }
 
-        ///Set referenced node
+        ///<summary>Set referenced node</summary>
         public void Set(T target) {
             if ( _targetNodeRef == null ) { _targetNodeRef = new WeakReference<T>(target); }
             _targetNodeRef.SetTarget(target);

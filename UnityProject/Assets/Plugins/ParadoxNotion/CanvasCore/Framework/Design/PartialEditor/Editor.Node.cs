@@ -65,8 +65,7 @@ namespace NodeCanvas.Framework
         private bool nodeIsPressed { get; set; }
         private bool? _isHidden { get; set; }
 
-        ///EDITOR! This is to be able to work with rects which is easier in many cases.
-        ///Size is temporary to the node since it's auto adjusted thus no need to serialize it
+        ///<summary>EDITOR! This is to be able to work with rects which is easier in many cases. Size is temporary to the node since it's auto adjusted thus no need to serialize it</summary>
         public Rect rect {
             get { return new Rect(_position.x, _position.y, size.x, size.y); }
             private set
@@ -76,7 +75,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! Active is relevant to the input connections
+        ///<summary>EDITOR! Active is relevant to the input connections</summary>
         public bool isActive {
             get
             {
@@ -89,7 +88,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! Are children collapsed?
+        ///<summary>EDITOR! Are children collapsed?</summary>
         public bool collapsed {
             get { return _collapsed; }
             set
@@ -104,7 +103,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! Is the node hidden due to parent has children collapsed or is hidden?
+        ///<summary>EDITOR! Is the node hidden due to parent has children collapsed or is hidden?</summary>
         public bool isHidden {
             get
             {
@@ -118,29 +117,29 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! The custom color set by user.
+        ///<summary>EDITOR! The custom color set by user.</summary>
         public Color customColor {
             get { return _color; }
             set { _color = value; }
         }
 
-        ///EDITOR! Verbose level of the node GUI
+        ///<summary>EDITOR! Verbose level of the node GUI</summary>
         public VerboseLevel verboseLevel {
             get { return _verboseLevel; }
             set { _verboseLevel = value; }
         }
 
-        ///EDITOR! is the node selected or part of the multi selection?
+        ///<summary>EDITOR! is the node selected or part of the multi selection?</summary>
         public bool isSelected {
             get { return GraphEditorUtility.activeElement == this || GraphEditorUtility.activeElements.Contains(this); }
         }
 
-        ///EDITOR! Is NC in icon mode and node has an icon?
+        ///<summary>EDITOR! Is NC in icon mode and node has an icon?</summary>
         private bool showIcon {
             get { return Prefs.showIcons && icon != null; }
         }
 
-        ///EDITOR! cached GUIContent for node header name
+        ///<summary>EDITOR! cached GUIContent for node header name</summary>
         private GUIContent cachedHeaderContent {
             get
             {
@@ -160,7 +159,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! The icon of the node
+        ///<summary>EDITOR! The icon of the node</summary>
         private Texture2D icon {
             get
             {
@@ -170,7 +169,7 @@ namespace NodeCanvas.Framework
                         _icon = assignable.task != null ? assignable.task.icon : null;
                     }
                     if ( _icon == null ) {
-                        var iconAtt = this.GetType().RTGetAttribute<IconAttribute>(true);
+                        var iconAtt = this.GetType().RTGetAttribute<ParadoxNotion.Design.IconAttribute>(true);
                         _icon = iconAtt != null ? TypePrefs.GetTypeIcon(iconAtt, this) : null;
                     }
                     if ( _icon == null ) {
@@ -181,7 +180,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///EDITOR! The coloring of the node if any.
+        ///<summary>EDITOR! The coloring of the node if any.</summary>
         public Color nodeColor {
             get
             {
@@ -223,7 +222,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///EDITOR! A position relative to the node
+        ///<summary>EDITOR! A position relative to the node</summary>
         protected Vector2 GetRelativeNodePosition(Alignment2x2 alignment, float margin = 0) {
             switch ( alignment ) {
                 case ( Alignment2x2.Default ):
@@ -271,7 +270,7 @@ namespace NodeCanvas.Framework
         //Draw the window
         static void DrawNodeWindow(Node node, Vector2 canvasMousePos, float zoomFactor) {
 
-            ///un-colapse children ui
+            //un-colapse children ui
             if ( node.collapsed ) {
                 var r = new Rect(node.rect.x, ( node.rect.yMax + 10 ), node.rect.width, 20);
                 EditorGUIUtility.AddCursorRect(r, MouseCursor.Link);
@@ -355,9 +354,9 @@ namespace NodeCanvas.Framework
                 //TODO: can be expensive for the light theme -> handle somehow else
                 if ( !EditorGUIUtility.isProSkin ) {
                     var assignable = node as ITaskAssignable;
-                    IconAttribute att = null;
-                    if ( assignable != null && assignable.task != null ) { att = assignable.task.GetType().RTGetAttribute<IconAttribute>(true); }
-                    if ( att == null ) { att = node.GetType().RTGetAttribute<IconAttribute>(true); }
+                    ParadoxNotion.Design.IconAttribute att = null;
+                    if ( assignable != null && assignable.task != null ) { att = assignable.task.GetType().RTGetAttribute<ParadoxNotion.Design.IconAttribute>(true); }
+                    if ( att == null ) { att = node.GetType().RTGetAttribute<ParadoxNotion.Design.IconAttribute>(true); }
                     if ( att != null && att.fixedColor == false ) { GUI.color = Color.black.WithAlpha(0.7f); }
                 }
 
@@ -368,7 +367,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Responsible for showing warning/error icons
+        ///<summary>Responsible for showing warning/error icons</summary>
         static void ShowPossibleWarningError(Node node) {
             var warning = node.GetWarningOrError();
             if ( warning != null ) {
@@ -885,7 +884,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Editor. Connection Relink has ended. Handle effect
+        ///<summary>Editor. Connection Relink has ended. Handle effect</summary>
         virtual public void OnActiveRelinkEnd(Connection connection) {
             for ( var i = 0; i < graph.allNodes.Count; i++ ) {
                 var otherNode = graph.allNodes[i];
@@ -905,12 +904,12 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Draw an automatic editor inspector for this node.
+        ///<summary>Draw an automatic editor inspector for this node.</summary>
         protected void DrawDefaultInspector() {
             EditorUtils.ReflectedObjectInspector(this, graph);
         }
 
-        ///Editor. Draw the connections line from this node, to all of its children. This is the default hierarchical tree style. Override in each system's base node class.
+        ///<summary>Editor. Draw the connections line from this node, to all of its children. This is the default hierarchical tree style. Override in each system's base node class.</summary>
         virtual protected void DrawNodeConnections(Rect drawCanvas, bool fullDrawPass, Vector2 canvasMousePos, float zoomFactor) {
 
             var e = Event.current;
@@ -1048,25 +1047,25 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Editor. When the node is picked
+        ///<summary>Editor. When the node is picked</summary>
         virtual protected void OnNodePicked() { }
-        ///Editor. When the node is released (mouse up)
+        ///<summary>Editor. When the node is released (mouse up)</summary>
         virtual protected void OnNodeReleased() { }
-        ///Editor. Override to show controls within the node window
+        ///<summary>Editor. Override to show controls within the node window</summary>
         virtual protected void OnNodeGUI() { }
-        ///Extra GUI called outside of node window
+        ///<summary>Extra GUI called outside of node window</summary>
         virtual protected void OnNodeExternalGUI() { }
-        ///Editor. Override to show controls within the inline inspector or leave it to show an automatic editor
+        ///<summary>Editor. Override to show controls within the inline inspector or leave it to show an automatic editor</summary>
         virtual protected void OnNodeInspectorGUI() { DrawDefaultInspector(); }
-        ///Editor. Override to add more entries to the right click context menu of the node
+        ///<summary>Editor. Override to add more entries to the right click context menu of the node</summary>
         virtual protected GenericMenu OnContextMenu(GenericMenu menu) { return menu; }
 
-        ///Get connection information node wise, to show on top of the connection
+        ///<summary>Get connection information node wise, to show on top of the connection</summary>
         virtual public string GetConnectionInfo(int index) { return null; }
-        ///Extra inspector controls for the provided OUT connection
+        ///<summary>Extra inspector controls for the provided OUT connection</summary>
         virtual public void OnConnectionInspectorGUI(int index) { }
 
-        ///Editor. Connection Relink has started. Handle effect
+        ///<summary>Editor. Connection Relink has started. Handle effect</summary>
         virtual public void OnActiveRelinkStart(Connection connection) { }
 
         ///----------------------------------------------------------------------------------------------

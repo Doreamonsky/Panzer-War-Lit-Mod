@@ -8,7 +8,7 @@ namespace NodeCanvas.Tasks.Actions
 {
 
     [Category("Dialogue")]
-    [Icon("Dialogue")]
+    [ParadoxNotion.Design.Icon("Dialogue")]
     [Description("A random statement will be chosen each time for the actor to say")]
     public class SayRandom : ActionTask<IDialogueActor>
     {
@@ -24,9 +24,8 @@ namespace NodeCanvas.Tasks.Actions
         }
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

@@ -3,7 +3,7 @@
 namespace ParadoxNotion
 {
 
-    ///to create styles easier like 'new GUIStyle().Padding(2,2,2,2).Margin(1,1,1,1)...' etc
+    ///<summary>to create styles easier like 'new GUIStyle().Padding(2,2,2,2).Margin(1,1,1,1)...' etc</summary>
     public static class GUIStyleUtils
     {
 

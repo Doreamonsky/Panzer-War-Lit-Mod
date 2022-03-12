@@ -12,7 +12,7 @@ using NodeCanvas.Framework;
 namespace NodeCanvas.Editor
 {
 
-    ///Graph Refactoring
+    ///<summary>Graph Refactoring</summary>
     public class GraphRefactor : EditorWindow
     {
 

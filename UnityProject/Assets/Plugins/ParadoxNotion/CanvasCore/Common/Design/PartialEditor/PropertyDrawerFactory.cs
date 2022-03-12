@@ -9,7 +9,7 @@ using System.Linq;
 namespace ParadoxNotion.Design
 {
 
-    ///Provides object and attribute property drawers
+    ///<summary>Provides object and attribute property drawers</summary>
     public static class PropertyDrawerFactory
     {
 
@@ -22,7 +22,7 @@ namespace ParadoxNotion.Design
             attributeDrawers = new Dictionary<Type, IAttributeDrawer>();
         }
 
-        ///Return an object drawer instance of target inspected type
+        ///<summary>Return an object drawer instance of target inspected type</summary>
         public static IObjectDrawer GetObjectDrawer(Type objectType) {
             IObjectDrawer result = null;
             if ( objectDrawers.TryGetValue(objectType, out result) ) {
@@ -60,9 +60,9 @@ namespace ParadoxNotion.Design
             return objectDrawers[objectType] = new DefaultObjectDrawer(objectType);
         }
 
-        ///Return an attribute drawer instance of target attribute instance
+        ///<summary>Return an attribute drawer instance of target attribute instance</summary>
         public static IAttributeDrawer GetAttributeDrawer(DrawerAttribute att) { return GetAttributeDrawer(att.GetType()); }
-        ///Return an attribute drawer instance of target attribute type
+        ///<summary>Return an attribute drawer instance of target attribute type</summary>
         public static IAttributeDrawer GetAttributeDrawer(Type attributeType) {
             IAttributeDrawer result = null;
             if ( attributeDrawers.TryGetValue(attributeType, out result) ) {
@@ -97,30 +97,30 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Derive this to create custom drawers for T assignable object types.
+    ///<summary>Derive this to create custom drawers for T assignable object types.</summary>
     abstract public class ObjectDrawer<T> : IObjectDrawer
     {
-        ///info
+        ///<summary>info</summary>
         protected InspectedFieldInfo info { get; private set; }
-        ///The GUIContent
+        ///<summary>The GUIContent</summary>
         protected GUIContent content { get; private set; }
-        ///The instance of the object being drawn
+        ///<summary>The instance of the object being drawn</summary>
         protected T instance { get; private set; }
 
-        ///The set of Drawer Attributes found on field
+        ///<summary>The set of Drawer Attributes found on field</summary>
         protected DrawerAttribute[] attributes { get; private set; }
-        ///Current attribute index drawn
+        ///<summary>Current attribute index drawn</summary>
         private int attributeIndex { get; set; }
 
-        ///The reflected FieldInfo representation
+        ///<summary>The reflected FieldInfo representation</summary>
         protected FieldInfo fieldInfo { get { return info.field; } }
-        ///The parent object the instance is drawn within
+        ///<summary>The parent object the instance is drawn within</summary>
         protected object context { get { return info.parentInstanceContext; } }
-        ///The Unity object the instance serialized within
+        ///<summary>The Unity object the instance serialized within</summary>
         protected UnityEngine.Object contextUnityObject { get { return info.unityObjectContext; } }
 
 
-        ///Begin GUI
+        ///<summary>Begin GUI</summary>
         object IObjectDrawer.DrawGUI(GUIContent content, object instance, InspectedFieldInfo info) {
             this.content = content;
             this.instance = (T)instance;
@@ -140,7 +140,7 @@ namespace ParadoxNotion.Design
             return result;
         }
 
-        ///Show the next attribute drawer in order, or the object drawer itself of no attribute drawer is left to show.
+        ///<summary>Show the next attribute drawer in order, or the object drawer itself of no attribute drawer is left to show.</summary>
         object IObjectDrawer.MoveNextDrawer() {
             attributeIndex++;
             if ( attributes != null && attributeIndex < attributes.Length ) {
@@ -151,11 +151,11 @@ namespace ParadoxNotion.Design
             return OnGUI(content, instance);
         }
 
-        ///Override to implement GUI. Return the modified instance at the end.
+        ///<summary>Override to implement GUI. Return the modified instance at the end.</summary>
         abstract public T OnGUI(GUIContent content, T instance);
     }
 
-    ///The default object drawer implementation able to inspect most types
+    ///<summary>The default object drawer implementation able to inspect most types</summary>
     public class DefaultObjectDrawer : ObjectDrawer<object>
     {
 
@@ -172,31 +172,31 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Derive this to create custom drawers for T DrawerAttribute.
+    ///<summary>Derive this to create custom drawers for T DrawerAttribute.</summary>
     abstract public class AttributeDrawer<T> : IAttributeDrawer where T : DrawerAttribute
     {
 
-        ///info
+        ///<summary>info</summary>
         protected InspectedFieldInfo info { get; private set; }
 
-        ///The GUIContent
+        ///<summary>The GUIContent</summary>
         protected GUIContent content { get; private set; }
-        ///The instance of the object being drawn
+        ///<summary>The instance of the object being drawn</summary>
         protected object instance { get; private set; }
-        ///The reflected FieldInfo representation
+        ///<summary>The reflected FieldInfo representation</summary>
 
-        ///The attribute instance
+        ///<summary>The attribute instance</summary>
         protected T attribute { get; private set; }
-        ///The ObjectDrawer currently in use
+        ///<summary>The ObjectDrawer currently in use</summary>
         protected IObjectDrawer objectDrawer { get; private set; }
 
         protected FieldInfo fieldInfo { get { return info.field; } }
-        ///The parent object the instance is drawn within
+        ///<summary>The parent object the instance is drawn within</summary>
         protected object context { get { return info.parentInstanceContext; } }
-        ///The Unity object the instance serialized within
+        ///<summary>The Unity object the instance serialized within</summary>
         protected UnityEngine.Object contextUnityObject { get { return info.unityObjectContext; } }
 
-        ///Begin GUI
+        ///<summary>Begin GUI</summary>
         object IAttributeDrawer.DrawGUI(IObjectDrawer objectDrawer, GUIContent content, object instance, DrawerAttribute attribute, InspectedFieldInfo info) {
             this.objectDrawer = objectDrawer;
             this.content = content;
@@ -216,13 +216,13 @@ namespace ParadoxNotion.Design
             return result;
         }
 
-        ///Override to implement GUI. Return the modified instance at the end.
+        ///<summary>Override to implement GUI. Return the modified instance at the end.</summary>
         abstract public object OnGUI(GUIContent content, object instance);
-        ///Show the next attribute drawer in order, or the object drawer itself of no attribute drawer is left to show.
+        ///<summary>Show the next attribute drawer in order, or the object drawer itself of no attribute drawer is left to show.</summary>
         protected object MoveNextDrawer() { return objectDrawer.MoveNextDrawer(); }
     }
 
-    ///The default attribute drawer implementation for when an actual implementation is not found
+    ///<summary>The default attribute drawer implementation for when an actual implementation is not found</summary>
     public class DefaultAttributeDrawer : AttributeDrawer<DrawerAttribute>
     {
 

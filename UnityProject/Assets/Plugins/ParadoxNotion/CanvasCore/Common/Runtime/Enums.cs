@@ -1,9 +1,7 @@
 ﻿namespace ParadoxNotion
 {
 
-    /// <summary>
-    /// Enumeration for comparisons
-    /// </summary>
+    ///<summary> Enumeration for comparisons</summary>
     public enum CompareMethod
     {
         EqualTo,
@@ -13,9 +11,7 @@
         LessOrEqualTo
     }
 
-    /// <summary>
-    /// Enumeration for Operations (Add, Subtract, Equality etc)
-    /// </summary>
+    ///<summary> Enumeration for Operations (Add, Subtract, Equality etc)</summary>
     public enum OperationMethod
     {
         Set,
@@ -25,9 +21,7 @@
         Divide
     }
 
-    /// <summary>
-    /// Enumeration for mouse button keys
-    /// </summary>
+    ///<summary> Enumeration for mouse button keys</summary>
 	public enum ButtonKeys
     {
         Left = 0,
@@ -35,9 +29,7 @@
         Middle = 2
     }
 
-    /// <summary>
-    /// Enumeration for press types for inputs
-    /// </summary>
+    ///<summary> Enumeration for press types for inputs</summary>
 	public enum PressTypes
     {
         Down,
@@ -45,18 +37,14 @@
         Pressed
     }
 
-    /// <summary>
-    /// Enumeration for mouse press
-    /// </summary>
+    ///<summary> Enumeration for mouse press</summary>
 	public enum MouseClickEvent
     {
         MouseDown = 0,
         MouseUp = 1
     }
 
-    /// <summary>
-    /// Enumeration for trigger unity events
-    /// </summary>
+    ///<summary> Enumeration for trigger unity events</summary>
 	public enum TriggerTypes
     {
         TriggerEnter = 0,
@@ -64,9 +52,7 @@
         TriggerStay = 2
     }
 
-    /// <summary>
-    /// Enumeration for collision unity events
-    /// </summary>
+    ///<summary> Enumeration for collision unity events</summary>
 	public enum CollisionTypes
     {
         CollisionEnter = 0,
@@ -74,9 +60,7 @@
         CollisionStay = 2
     }
 
-    /// <summary>
-    /// Enumeration for mouse unity events
-    /// </summary>
+    ///<summary> Enumeration for mouse unity events</summary>
 	public enum MouseInteractionTypes
     {
         MouseEnter = 0,
@@ -84,18 +68,14 @@
         MouseOver = 2
     }
 
-    /// <summary>
-    /// Enumeration for boolean status result
-    /// </summary>
+    ///<summary> Enumeration for boolean status result</summary>
 	public enum CompactStatus
     {
         Failure = 0,
         Success = 1
     }
 
-    /// <summary>
-    /// Enumeration for Animation playing direction
-    /// </summary>
+    ///<summary> Enumeration for Animation playing direction</summary>
     public enum PlayDirections
     {
         Forward,
@@ -103,9 +83,7 @@
         Toggle
     }
 
-    /// <summary>
-    /// Enumeration for planar direction
-    /// </summary>
+    ///<summary> Enumeration for planar direction</summary>
     public enum PlanarDirection
     {
         Horizontal,
@@ -113,9 +91,7 @@
         Auto
     }
 
-    /// <summary>
-    /// Enumeration Alignment 2x2
-    /// </summary>
+    ///<summary> Enumeration Alignment 2x2</summary>
     public enum Alignment2x2
     {
         Default,
@@ -125,9 +101,7 @@
         Bottom
     }
 
-    /// <summary>
-    /// Enumeration Alignment 3x3
-    /// </summary>
+    ///<summary> Enumeration Alignment 3x3</summary>
     public enum Alignment3x3
     {
         TopLeft,

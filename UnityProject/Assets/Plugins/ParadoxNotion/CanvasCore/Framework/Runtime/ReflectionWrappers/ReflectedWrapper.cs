@@ -9,7 +9,7 @@ using UnityEngine;
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///Wraps a MethodInfo with the relevant BBParameters to be called within a Reflection based Task
+    ///<summary>Wraps a MethodInfo with the relevant BBParameters to be called within a Reflection based Task</summary>
     abstract public class ReflectedWrapper : IReflectedWrapper
     {
 
@@ -42,7 +42,7 @@ namespace NodeCanvas.Framework.Internal
 
 
 
-    ///Wraps a MethodInfo Action with the relevant BBVariables to be commonly called within a Reflection based Task
+    ///<summary>Wraps a MethodInfo Action with the relevant BBVariables to be commonly called within a Reflection based Task</summary>
     abstract public class ReflectedActionWrapper : ReflectedWrapper
     {
 
@@ -84,7 +84,7 @@ namespace NodeCanvas.Framework.Internal
         abstract public void Call();
     }
 
-    ///Wraps a MethodInfo Function with the relevant BBVariables to be commonly called within a Reflection based Task
+    ///<summary>Wraps a MethodInfo Function with the relevant BBVariables to be commonly called within a Reflection based Task</summary>
     abstract public class ReflectedFunctionWrapper : ReflectedWrapper
     {
 

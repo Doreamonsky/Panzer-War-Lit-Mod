@@ -6,7 +6,7 @@ using ParadoxNotion;
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///Missing node types are deserialized into this on deserialization and can load back if type is found
+    ///<summary>Missing node types are deserialized into this on deserialization and can load back if type is found</summary>
     [DoNotList]
     [Description("Please resolve the MissingConnection issue by either replacing the connection, importing the missing connection type, or refactoring the type in GraphRefactor.")]
     sealed public class MissingConnection : Connection, IMissingRecoverable
@@ -27,9 +27,8 @@ namespace NodeCanvas.Framework.Internal
             set { _recoveryState = value; }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override Color defaultColor => Color.red;

@@ -5,7 +5,7 @@ using ParadoxNotion;
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///Can be set to any type in case type is unknown.
+    ///<summary>Can be set to any type in case type is unknown.</summary>
     [Serializable]
     public class BBObjectParameter : BBParameter<object>, ISerializationCallbackReceiver
     {

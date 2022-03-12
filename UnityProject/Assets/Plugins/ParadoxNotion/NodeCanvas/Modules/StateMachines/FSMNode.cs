@@ -6,7 +6,7 @@ namespace NodeCanvas.StateMachines
 {
 
 
-    /// Super base class for FSM nodes that live within an FSM Graph.
+    ///<summary> Super base class for FSM nodes that live within an FSM Graph.</summary>
     public abstract class FSMNode : Node
     {
 
@@ -18,7 +18,7 @@ namespace NodeCanvas.StateMachines
         sealed public override Alignment2x2 commentsAlignment { get { return Alignment2x2.Bottom; } }
         sealed public override Alignment2x2 iconAlignment { get { return Alignment2x2.Default; } }
 
-        ///The FSM this state belongs to
+        ///<summary>The FSM this state belongs to</summary>
         public FSM FSM { get { return (FSM)graph; } }
 
 

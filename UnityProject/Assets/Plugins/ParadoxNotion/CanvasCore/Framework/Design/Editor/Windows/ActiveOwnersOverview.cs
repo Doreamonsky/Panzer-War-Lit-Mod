@@ -23,7 +23,7 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Show the finder window
+        ///<summary>Show the finder window</summary>
         public static void ShowWindow() {
             GetWindow<ActiveOwnersOverview>().Show();
         }

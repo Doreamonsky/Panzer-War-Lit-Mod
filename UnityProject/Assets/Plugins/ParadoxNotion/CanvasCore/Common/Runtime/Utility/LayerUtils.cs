@@ -1,4 +1,4 @@
-﻿/// Modified version of https://wiki.unity3d.com/index.php/LayerMaskExtensions
+﻿///<summary> Modified version of https://wiki.unity3d.com/index.php/LayerMaskExtensions</summary>
 
 using UnityEngine;
 using System.Collections.Generic;
@@ -7,13 +7,13 @@ namespace ParadoxNotion
 {
     public static class LayerUtils
     {
-        ///Create LayerMask from layer names
+        ///<summary>Create LayerMask from layer names</summary>
         public static LayerMask CreateFromNames(params string[] layerNames) { return LayerNamesToMask(layerNames); }
 
-        ///Create LayerMask from layer numbers
+        ///<summary>Create LayerMask from layer numbers</summary>
         public static LayerMask CreateFromNumbers(params int[] layerNumbers) { return LayerNumbersToMask(layerNumbers); }
 
-        ///Layer names to LayerMask
+        ///<summary>Layer names to LayerMask</summary>
         public static LayerMask LayerNamesToMask(params string[] layerNames) {
             LayerMask ret = (LayerMask)0;
             foreach ( var name in layerNames ) {
@@ -22,7 +22,7 @@ namespace ParadoxNotion
             return ret;
         }
 
-        ///Layer numbers to LayerMask
+        ///<summary>Layer numbers to LayerMask</summary>
         public static LayerMask LayerNumbersToMask(params int[] layerNumbers) {
             LayerMask ret = (LayerMask)0;
             foreach ( var layer in layerNumbers ) {
@@ -31,19 +31,19 @@ namespace ParadoxNotion
             return ret;
         }
 
-        ///Inverse LayerMask
+        ///<summary>Inverse LayerMask</summary>
         public static LayerMask Inverse(this LayerMask mask) { return ~mask; }
 
-        ///Adds layer names to LayerMask
+        ///<summary>Adds layer names to LayerMask</summary>
         public static LayerMask AddToMask(this LayerMask mask, params string[] layerNames) { return mask | LayerNamesToMask(layerNames); }
 
-        ///Remove layer names from LayerMask
+        ///<summary>Remove layer names from LayerMask</summary>
         public static LayerMask RemoveFromMask(this LayerMask mask, params string[] layerNames) {
             LayerMask invertedOriginal = ~mask;
             return ~( invertedOriginal | LayerNamesToMask(layerNames) );
         }
 
-        ///Does LayerMask contain any target layers (by name)
+        ///<summary>Does LayerMask contain any target layers (by name)</summary>
         public static bool ContainsAnyLayer(this LayerMask mask, params string[] layerNames) {
             if ( layerNames == null ) { return false; }
             for ( var i = 0; i < layerNames.Length; i++ ) {
@@ -54,7 +54,7 @@ namespace ParadoxNotion
             return false;
         }
 
-        ///Does LayerMask contain all target layers (by name)
+        ///<summary>Does LayerMask contain all target layers (by name)</summary>
         public static bool ContainsAllLayers(this LayerMask mask, params string[] layerNames) {
             if ( layerNames == null ) { return false; }
             for ( var i = 0; i < layerNames.Length; i++ ) {
@@ -65,7 +65,7 @@ namespace ParadoxNotion
             return true;
         }
 
-        ///Return layer names in/from LayerMask
+        ///<summary>Return layer names in/from LayerMask</summary>
         public static string[] MaskToNames(this LayerMask mask) {
             var output = new List<string>();
 
@@ -81,10 +81,10 @@ namespace ParadoxNotion
             return output.ToArray();
         }
 
-        ///Redable LayerMask names
+        ///<summary>Redable LayerMask names</summary>
         public static string MaskToString(this LayerMask mask) { return MaskToString(mask, ", "); }
 
-        ///Redable LayerMask names by delimiter
+        ///<summary>Redable LayerMask names by delimiter</summary>
         public static string MaskToString(this LayerMask mask, string delimiter) { return string.Join(delimiter, MaskToNames(mask)); }
     }
 }

@@ -50,7 +50,7 @@ namespace ParadoxNotion.Design
             }
         }
 
-        ///Get a list of ScriptInfos of the baseType excluding: the base type, abstract classes, Obsolete classes and those with the DoNotList attribute, categorized as a list of ScriptInfo
+        ///<summary>Get a list of ScriptInfos of the baseType excluding: the base type, abstract classes, Obsolete classes and those with the DoNotList attribute, categorized as a list of ScriptInfo</summary>
         private static Dictionary<Type, List<ScriptInfo>> cachedInfos;
         public static List<ScriptInfo> GetScriptInfosOfType(Type baseType) {
 
@@ -118,7 +118,7 @@ namespace ParadoxNotion.Design
             return infosResult;
         }
 
-        ///Makes and returns a closed generic ScriptInfo for targetType out of an existing ScriptInfo
+        ///<summary>Makes and returns a closed generic ScriptInfo for targetType out of an existing ScriptInfo</summary>
         public static ScriptInfo MakeGenericInfo(this ScriptInfo info, Type targetType, string subCategory = null, int priorityShift = 0) {
             if ( !info.isValid || !info.originalType.IsGenericTypeDefinition ) {
                 return default(ScriptInfo);
@@ -136,7 +136,7 @@ namespace ParadoxNotion.Design
             return default(ScriptInfo);
         }
 
-        //Not really. Only for purposes of menus usage.
+        ///<summary>Not really. Only for purposes of menus usage.</summary>
         static string NamespaceToPath(this Type type) {
             if ( type == null ) { return string.Empty; }
             return string.IsNullOrEmpty(type.Namespace) ? "No Namespace" : type.Namespace.Split('.').First();

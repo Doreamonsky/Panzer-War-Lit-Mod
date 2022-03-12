@@ -17,7 +17,7 @@ namespace NodeCanvas.Tasks.Actions
             if ( graph != null ) {
                 graph.Stop(finishStatus == CompactStatus.Success);
             }
-            EndAction(graph != null);
+            EndAction(finishStatus == CompactStatus.Success);
         }
     }
 }

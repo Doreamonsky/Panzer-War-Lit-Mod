@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ParadoxNotion
 {
 
-    ///A simple weak reference list
+    ///<summary>A simple weak reference list</summary>
     public class WeakReferenceList<T> where T : class
     {
         private List<WeakReference<T>> list;

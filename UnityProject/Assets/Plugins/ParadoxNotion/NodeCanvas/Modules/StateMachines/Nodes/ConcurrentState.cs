@@ -19,7 +19,7 @@ namespace NodeCanvas.StateMachines
         [SerializeField]
         private bool _repeatStateActions;
 
-        private bool accessed;
+        private bool done;
 
         public ConditionList conditionList {
             get { return _conditionList; }
@@ -60,13 +60,13 @@ namespace NodeCanvas.StateMachines
 
         public override void OnGraphStarted() {
             conditionList.Enable(graphAgent, graphBlackboard);
-            accessed = false;
+            done = false;
         }
 
         public override void OnGraphStoped() {
             conditionList.Disable();
             actionList.EndAction(null);
-            accessed = false;
+            done = false;
         }
 
         public override void OnGraphPaused() {
@@ -74,17 +74,20 @@ namespace NodeCanvas.StateMachines
         }
 
         void IUpdatable.Update() {
-            if ( status == Status.Resting || status == Status.Running ) {
-                status = Status.Running;
-                if ( conditionList.Check(graphAgent, graphBlackboard) ) {
-                    accessed = true;
+
+            if ( done && !repeatStateActions ) {
+                return;
+            }
+
+            status = Status.Running;
+            if ( conditionList.Check(graphAgent, graphBlackboard) ) {
+                if ( actionList.Execute(graphAgent, graphBlackboard) != Status.Running ) {
+                    if ( !repeatStateActions ) { status = Status.Success; }
+                    done = true;
                 }
-                if ( accessed && actionList.Execute(graphAgent, graphBlackboard) != Status.Running ) {
-                    accessed = false;
-                    if ( !repeatStateActions ) {
-                        status = Status.Success;
-                    }
-                }
+            } else {
+                actionList.EndAction(null);
+                status = Status.Failure;
             }
         }
 

@@ -65,9 +65,8 @@ namespace NodeCanvas.StateMachines
             _onUpdateList.Pause();
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         [SerializeField, ParadoxNotion.Serialization.FullSerializer.fsIgnoreInBuild]

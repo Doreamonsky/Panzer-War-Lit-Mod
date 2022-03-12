@@ -9,7 +9,7 @@ using ParadoxNotion;
 namespace NodeCanvas.Editor
 {
 
-    ///A drawer for INodeReference which is useful to weak reference nodes from within one another
+    ///<summary>A drawer for INodeReference which is useful to weak reference nodes from within one another</summary>
     public class NodeReferenceDrawer : ObjectDrawer<INodeReference>
     {
         public override INodeReference OnGUI(GUIContent content, INodeReference instance) {

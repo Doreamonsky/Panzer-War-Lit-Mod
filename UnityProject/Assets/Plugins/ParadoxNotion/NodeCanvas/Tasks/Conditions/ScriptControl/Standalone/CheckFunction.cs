@@ -85,6 +85,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         void SetMethod(MethodInfo method) {
             if ( method != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 functionWrapper = ReflectedFunctionWrapper.Create(method, blackboard);
                 checkValue = BBParameter.CreateInstance(method.ReturnType, blackboard);
                 comparison = CompareMethod.EqualTo;

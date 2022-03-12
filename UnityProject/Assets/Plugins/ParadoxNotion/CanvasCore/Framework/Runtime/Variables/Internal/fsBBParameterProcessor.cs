@@ -6,8 +6,7 @@ using ParadoxNotion.Serialization.FullSerializer;
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///Extended functionality for BBParameters, so that changing a serialized type T, to BBParameter<T>, retains the original serialization.
-    ///As such "upgrading" a normal T to BBParameter<T> impose no problems.
+    ///<summary>Extended functionality for BBParameters, so that changing a serialized type T, to BBParameter<T>, retains the original serialization. As such "upgrading" a normal T to BBParameter<T> impose no problems.</summary>
     public class fsBBParameterProcessor : fsRecoveryProcessor<BBParameter, MissingBBParameterType>
     {
         //...

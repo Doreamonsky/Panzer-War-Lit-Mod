@@ -88,12 +88,19 @@ InternalModule = CS.ShanghaiWindy.Core.InternalModule
 --- @field GetContent fun(_Key:string):void
 uGUI_Localsize = CS.ShanghaiWindy.Core.uGUI_Localsize
 
+
+eDIYControlType = CS.ShanghaiWindy.Core.eDIYControlType
+
 --- @class GameObjectPool
 --- @field Init fun(prototype:GameObject,count:int):void
 --- @field InstantiateObject fun():GameObject
 --- @field DestroyObject fun(o:GameObject):void
 --- @field Dispose fun():void
 GameObjectPool = CS.ShanghaiWindy.Core.Utils.GameObjectPool
+
+--- @class RuntimeHandlesComponent
+--- @field HandleScale float
+RuntimeHandlesComponent = CS.Battlehub.RTHandles.RuntimeHandlesComponent
 
 -- UnityEngine
 --- @class GameObject
@@ -103,6 +110,7 @@ GameObject = CS.UnityEngine.GameObject
 AudioListener = CS.UnityEngine.AudioListener
 Vector2 = CS.UnityEngine.Vector2
 Vector3 = CS.UnityEngine.Vector3
+Quaternion = CS.UnityEngine.Quaternion
 Color = CS.UnityEngine.Color
 
 --- @class JsonUtility
@@ -123,7 +131,11 @@ UnityWebRequest = CS.UnityEngine.Networking.UnityWebRequest
 --- @class Application
 --- @field lowMemory Action
 Application = CS.UnityEngine.Application
+LogType = CS.UnityEngine.LogType
 
 Time = CS.UnityEngine.Time
 
 MeshRenderer = CS.UnityEngine.MeshRenderer
+
+Input = CS.UnityEngine.Input
+KeyCode = CS.UnityEngine.KeyCode

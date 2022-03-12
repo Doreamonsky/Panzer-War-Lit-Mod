@@ -9,7 +9,7 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Sub Dialogue")]
     [Description("Will Execute the nested dialogue assigned and return Success or Failure depending on the Dialogue Tree end state. This can be controled by using the 'Finish' Dialogue Node inside the Dialogue Tree. By default a Dialogue Tree ends in Success. The 'Instigator' Actor of the Dialogue Tree will be set to this graph's agent.")]
-    [Icon("Dialogue")]
+    [ParadoxNotion.Design.Icon("Dialogue")]
     [DropReferenceType(typeof(DialogueTree))]
     public class NestedDT : BTNodeNested<DialogueTree>
     {
@@ -20,7 +20,7 @@ namespace NodeCanvas.BehaviourTrees
         public override DialogueTree subGraph { get { return _nestedDialogueTree.value; } set { _nestedDialogueTree.value = value; } }
         public override BBParameter subGraphParameter => _nestedDialogueTree;
 
-        ////
+        //
 
         protected override Status OnExecute(Component agent, IBlackboard blackboard) {
 

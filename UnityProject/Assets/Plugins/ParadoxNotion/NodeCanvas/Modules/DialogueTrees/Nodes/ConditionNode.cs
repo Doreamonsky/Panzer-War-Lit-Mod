@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NodeCanvas.DialogueTrees
 {
 
-    [Icon("Condition")]
+    [ParadoxNotion.Design.Icon("Condition")]
     [Name("Task Condition")]
     [Category("Branch")]
     [Description("Execute the first child node if a Condition is true, or the second one if that Condition is false. The Actor selected is used for the Condition check")]
@@ -46,9 +46,8 @@ namespace NodeCanvas.DialogueTrees
             return status;
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override string GetConnectionInfo(int i) {

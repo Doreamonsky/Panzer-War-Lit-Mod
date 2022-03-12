@@ -4,7 +4,7 @@
 namespace ParadoxNotion
 {
 
-    /// Has some prety common operations amongst values.
+    ///<summary> Has some prety common operations amongst values.</summary>
     public static class OperationTools
     {
 

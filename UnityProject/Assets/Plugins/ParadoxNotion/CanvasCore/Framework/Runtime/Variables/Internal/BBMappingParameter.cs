@@ -2,7 +2,7 @@
 
 namespace NodeCanvas.Framework.Internal
 {
-    ///Used to map subgraph variables <-> parent variables (or direct value)
+    ///<summary>Used to map subgraph variables <-> parent variables (or direct value)</summary>
     [Serializable]
     public class BBMappingParameter : BBObjectParameter
     {

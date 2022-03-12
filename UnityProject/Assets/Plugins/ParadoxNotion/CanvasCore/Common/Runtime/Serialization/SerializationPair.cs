@@ -3,7 +3,7 @@
 namespace ParadoxNotion.Serialization
 {
     [System.Serializable]
-    ///A pair of JSON and UnityObject references
+    ///<summary>A pair of JSON and UnityObject references</summary>
     sealed public class SerializationPair
     {
         public string _json;

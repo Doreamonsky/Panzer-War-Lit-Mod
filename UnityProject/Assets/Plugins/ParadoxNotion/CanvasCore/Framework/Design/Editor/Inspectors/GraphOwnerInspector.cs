@@ -169,7 +169,7 @@ namespace NodeCanvas.Editor
 
             //show lock bound graph prefab overrides
             if ( owner.graphIsBound ) {
-                var case1 = PrefabUtility.IsPartOfPrefabAsset(owner) || UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage()?.prefabContentsRoot == owner.gameObject;
+                var case1 = PrefabUtility.IsPartOfPrefabAsset(owner) || UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage()?.prefabContentsRoot == owner.gameObject;
                 var case2 = PrefabUtility.IsPartOfAnyPrefab(owner) && !isBoundGraphPrefabOverridden;
                 if ( case1 || case2 ) { EditorGUILayout.PropertyField(lockPrefabProp, EditorUtils.GetTempContent("Lock Prefab Graph Overrides")); }
             }
@@ -292,7 +292,7 @@ namespace NodeCanvas.Editor
 
             var rect = EditorGUILayout.GetControlRect();
             var label = EditorGUI.BeginProperty(rect, EditorUtils.GetTempContent("Blackboard"), blackboardProp);
-            owner.blackboard = (IBlackboard)EditorGUI.ObjectField(rect, label, owner.blackboard as Object, typeof(IBlackboard), true);
+            owner.blackboard = (Blackboard)EditorGUI.ObjectField(rect, label, owner.blackboard as Object, typeof(Blackboard), true);
             EditorGUI.EndProperty();
             if ( owner.blackboard == null ) { EditorUtils.MarkLastFieldWarning("No Blackboard assigned. This is fine if you only want to use Graph Blackboard Variables."); }
 

@@ -8,7 +8,7 @@ namespace NodeCanvas.BehaviourTrees
 
     [Name("Action")]
     [Description("Executes an action and returns Success or Failure.\nReturns Running until the action is finished.")]
-    [Icon("Action")]
+    [ParadoxNotion.Design.Icon("Action")]
     public class ActionNode : BTNode, ITaskAssignable<ActionTask>
     {
 

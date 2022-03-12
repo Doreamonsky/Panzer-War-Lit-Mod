@@ -3,9 +3,7 @@
 namespace NodeCanvas.Framework.Internal
 {
 
-    ///A special BBParameter for the task agent used in Task.
-    ///This should be a nested class of Task, but WSA has a bug in doing so.
-    ///Remark: BBParameter has fsAutoInstance, but we exclude this from being auto instanced!
+    ///<summary>A special BBParameter for the task agent used in Task. This should be a nested class of Task, but WSA has a bug in doing so. Remark: BBParameter has fsAutoInstance, but we exclude this from being auto instanced!</summary>
     [System.Serializable, ParadoxNotion.Serialization.FullSerializer.fsAutoInstance(false)]
     sealed public class TaskAgentParameter : BBParameter<UnityEngine.Object>
     {
@@ -27,7 +25,7 @@ namespace NodeCanvas.Framework.Internal
         public override object GetValueBoxed() { return this.value; }
         public override void SetValueBoxed(object newValue) { this.value = newValue as UnityEngine.Object; }
 
-        //Sets the hint type that the parameter is
+        ///<summary>Sets the hint type that the parameter is</summary>
         public void SetType(System.Type newType) {
             if ( typeof(UnityEngine.Object).IsAssignableFrom(newType) ) {
                 _type = newType;

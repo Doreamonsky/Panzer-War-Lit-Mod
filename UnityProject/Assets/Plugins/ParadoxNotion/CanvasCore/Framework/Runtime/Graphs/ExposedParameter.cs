@@ -3,9 +3,7 @@
 namespace NodeCanvas.Framework
 {
 
-    ///Used to parametrize root graph local blackboard parameters from GraphOwner, without affecting the graph variables serialization.
-    ///So each GraphOwner can parametrize the assigned graph individually, while the graph remains the same serialization-wise.
-    ///Relevant when either using Prefab GraphOwners with Bound Graphs, or re-using Asset Graphs on GraphOwners.
+    ///<summary>Used to parametrize root graph local blackboard parameters from GraphOwner, without affecting the graph variables serialization. So each GraphOwner can parametrize the assigned graph individually, while the graph remains the same serialization-wise. Relevant when either using Prefab GraphOwners with Bound Graphs, or re-using Asset Graphs on GraphOwners.</summary>
     [ParadoxNotion.Design.SpoofAOT]
     abstract public class ExposedParameter
     {
@@ -21,7 +19,7 @@ namespace NodeCanvas.Framework
         }
     }
 
-    ///See ExposedParameter
+    ///<summary>See ExposedParameter</summary>
     sealed public class ExposedParameter<T> : ExposedParameter
     {
         [SerializeField] private string _targetVariableID;
@@ -41,7 +39,7 @@ namespace NodeCanvas.Framework
         public override object valueBoxed { get { return this.value; } set { this.value = (T)value; } }
         public override Variable varRefBoxed => varRef;
 
-        ///Value of the parameter
+        ///<summary>Value of the parameter</summary>
         public T value {
             get { return varRef != null && Application.isPlaying ? varRef.value : _value; }
             set
@@ -53,7 +51,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Initialize Variables binding from target blackboard
+        ///<summary>Initialize Variables binding from target blackboard</summary>
         public override void Bind(IBlackboard blackboard) {
             varRef = (Variable<T>)blackboard.GetVariableByID(targetVariableID);
             if ( varRef != null ) { varRef.BindGetSet(GetRawValue, SetRawValue); }

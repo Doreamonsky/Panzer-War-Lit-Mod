@@ -3,7 +3,7 @@
 namespace NodeCanvas.Framework
 {
 
-    /// An interface for Blackboards
+    ///<summary> An interface for Blackboards</summary>
     public interface IBlackboard
     {
         event System.Action<Variable> onVariableAdded;
@@ -20,7 +20,7 @@ namespace NodeCanvas.Framework
         void TryInvokeOnVariableRemoved(Variable variable);
     }
 
-    /// An interface for Global Blackboards
+    ///<summary> An interface for Global Blackboards</summary>
     public interface IGlobalBlackboard : IBlackboard
     {
         string UID { get; }

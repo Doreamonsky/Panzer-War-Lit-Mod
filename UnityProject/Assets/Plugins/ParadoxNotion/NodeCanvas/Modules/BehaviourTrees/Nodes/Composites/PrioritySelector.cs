@@ -18,7 +18,7 @@ namespace NodeCanvas.BehaviourTrees
 
     [Category("Composites")]
     [Description("Used for Utility AI, the Priority Selector executes the child with the highest utility weight. If it fails, the Priority Selector will continue with the next highest utility weight child until one Succeeds, or until all Fail (similar to how a normal Selector does).\n\nEach child path represents a desire, where each desire has one or more consideration which are all averaged.\nConsiderations are a pair of input evaluator value and curve, which together produce the consideration utility weight.")]
-    [Icon("Priority")]
+    [ParadoxNotion.Design.Icon("Priority")]
     [Color("b3ff7f")]
     [fsMigrateVersions(typeof(PrioritySelector_0))]
     public class PrioritySelector : BTComposite, IMigratable<PrioritySelector_0>
@@ -111,9 +111,9 @@ namespace NodeCanvas.BehaviourTrees
 
         protected override void OnReset() { current = 0; }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
+
 #if UNITY_EDITOR
 
         //..

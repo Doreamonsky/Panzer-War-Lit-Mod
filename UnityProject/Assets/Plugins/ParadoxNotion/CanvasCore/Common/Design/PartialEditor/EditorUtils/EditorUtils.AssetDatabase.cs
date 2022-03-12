@@ -9,21 +9,21 @@ using System.Linq;
 namespace ParadoxNotion.Design
 {
 
-    /// AssetDatabase related utility
+    ///<summary> AssetDatabase related utility</summary>
 	partial class EditorUtils
     {
 
-        ///Create asset of type T with a dialog prompt to chose path
+        ///<summary>Create asset of type T with a dialog prompt to chose path</summary>
         public static T CreateAsset<T>() where T : ScriptableObject {
             return (T)CreateAsset(typeof(T));
         }
 
-        ///Create asset of type T at target path
+        ///<summary>Create asset of type T at target path</summary>
         public static T CreateAsset<T>(string path) where T : ScriptableObject {
             return (T)CreateAsset(typeof(T), path);
         }
 
-        ///Create asset of type and show or not the File Panel
+        ///<summary>Create asset of type and show or not the File Panel</summary>
         public static ScriptableObject CreateAsset(System.Type type) {
             ScriptableObject asset = null;
             var path = EditorUtility.SaveFilePanelInProject(
@@ -34,7 +34,7 @@ namespace ParadoxNotion.Design
             return asset;
         }
 
-        ///Create asset of type at target path
+        ///<summary>Create asset of type at target path</summary>
         public static ScriptableObject CreateAsset(System.Type type, string path) {
             if ( string.IsNullOrEmpty(path) ) {
                 return null;
@@ -48,7 +48,7 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Get a unique path at current project selection for creating an asset, providing the "filename.type"
+        ///<summary>Get a unique path at current project selection for creating an asset, providing the "filename.type"</summary>
         public static string GetAssetUniquePath(string fileName) {
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
             if ( path == "" ) {
@@ -60,7 +60,7 @@ namespace ParadoxNotion.Design
             return AssetDatabase.GenerateUniqueAssetPath(path + "/" + fileName);
         }
 
-        ///Get MonoScript reference from type if able
+        ///<summary>Get MonoScript reference from type if able</summary>
         public static MonoScript MonoScriptFromType(System.Type targetType) {
             if ( targetType == null ) return null;
             var typeName = targetType.Name;
@@ -74,7 +74,7 @@ namespace ParadoxNotion.Design
                 .FirstOrDefault(m => m != null && m.GetClass() == targetType);
         }
 
-        ///Opens the MonoScript of a type if able
+        ///<summary>Opens the MonoScript of a type if able</summary>
         public static bool OpenScriptOfType(System.Type type) {
             var mono = MonoScriptFromType(type);
             if ( mono != null ) {
@@ -85,13 +85,13 @@ namespace ParadoxNotion.Design
             return false;
         }
 
-        ///Asset path to absolute system path
+        ///<summary>Asset path to absolute system path</summary>
         public static string AssetToSystemPath(UnityEngine.Object obj) {
             var assetPath = AssetDatabase.GetAssetPath(obj);
             return AssetToSystemPath(assetPath);
         }
 
-        ///Asset path to absolute system path
+        ///<summary>Asset path to absolute system path</summary>
         public static string AssetToSystemPath(string assetPath) {
             if ( !string.IsNullOrEmpty(assetPath) ) {
                 return Application.dataPath.Remove(Application.dataPath.LastIndexOf('/')) + '/' + assetPath;
@@ -99,7 +99,7 @@ namespace ParadoxNotion.Design
             return null;
         }
 
-        ///Get all scene names (added in build settings)
+        ///<summary>Get all scene names (added in build settings)</summary>
         public static List<string> GetSceneNames() {
             var allSceneNames = new List<string>();
             foreach ( var scene in EditorBuildSettings.scenes ) {

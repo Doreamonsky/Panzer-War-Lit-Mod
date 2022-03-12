@@ -6,8 +6,8 @@ using UnityEngine.Events;
 namespace ParadoxNotion.Serialization
 {
 
-    ///Unity events can either be fields or properties, so we serialize either.
-    ///This does NOT resolve the actual object, but rather only the memberinfo pointing to that object
+    ///<summary>Unity events can either be fields or properties, so we serialize either.</summary>
+    ///<summary>This does NOT resolve the actual object, but rather only the memberinfo pointing to that object</summary>
     [Serializable]
     public class SerializedUnityEventInfo : ISerializedReflectedInfo
     {
@@ -17,7 +17,7 @@ namespace ParadoxNotion.Serialization
         [NonSerialized]
         private MemberInfo _memberInfo;
 
-        ///Just a shortcut
+        ///<summary>Just a shortcut</summary>
         public bool isStatic {
             get
             {
@@ -27,7 +27,7 @@ namespace ParadoxNotion.Serialization
             }
         }
 
-        ///Just a shortcut
+        ///<summary>Just a shortcut</summary>
         public Type memberType {
             get
             {

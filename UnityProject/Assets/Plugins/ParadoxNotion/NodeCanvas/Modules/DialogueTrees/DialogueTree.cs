@@ -8,7 +8,7 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.DialogueTrees
 {
 
-    /// Use DialogueTrees to create Dialogues between Actors
+    ///<summary> Use DialogueTrees to create Dialogues between Actors</summary>
     [GraphInfo(
         packageName = "NodeCanvas",
         docsURL = "http://nodecanvas.paradoxnotion.com/documentation/",
@@ -39,7 +39,7 @@ namespace NodeCanvas.DialogueTrees
         }
         ///----------------------------------------------------------------------------------------------
 
-        ///An Actor Parameter
+        ///<summary>An Actor Parameter</summary>
         [System.Serializable]
         public class ActorParameter
         {
@@ -48,16 +48,16 @@ namespace NodeCanvas.DialogueTrees
             [SerializeField] private UnityEngine.Object _actorObject;
             [System.NonSerialized] private IDialogueActor _actor;
 
-            ///Key name of the parameter
+            ///<summary>Key name of the parameter</summary>
             public string name {
                 get { return _keyName; }
                 set { _keyName = value; }
             }
 
-            ///ID of the parameter
+            ///<summary>ID of the parameter</summary>
             public string ID => string.IsNullOrEmpty(_id) ? _id = System.Guid.NewGuid().ToString() : _id;
 
-            ///The reference actor of the parameter
+            ///<summary>The reference actor of the parameter</summary>
             public IDialogueActor actor {
                 get
                 {
@@ -85,10 +85,10 @@ namespace NodeCanvas.DialogueTrees
 
         ///----------------------------------------------------------------------------------------------
 
-        ///The string used for "Instigator"
+        ///<summary>The string used for "Instigator"</summary>
         public const string INSTIGATOR_NAME = "INSTIGATOR";
 
-        ///The dialogue actor parameters. We let Unity serialize this as well
+        ///<summary>The dialogue actor parameters. We let Unity serialize this as well</summary>
         [SerializeField] public List<ActorParameter> actorParameters = new List<ActorParameter>();
 
         public static event Action<DialogueTree> OnDialogueStarted;
@@ -97,12 +97,12 @@ namespace NodeCanvas.DialogueTrees
         public static event Action<SubtitlesRequestInfo> OnSubtitlesRequest;
         public static event Action<MultipleChoiceRequestInfo> OnMultipleChoiceRequest;
 
-        ///The current DialoguTree running
+        ///<summary>The current DialoguTree running</summary>
         public static DialogueTree currentDialogue { get; private set; }
-        ///The previous DialoguTree running
+        ///<summary>The previous DialoguTree running</summary>
         public static DialogueTree previousDialogue { get; private set; }
 
-        ///The current node of this DialogueTree
+        ///<summary>The current node of this DialogueTree</summary>
         public DTNode currentNode { get; private set; }
 
         ///----------------------------------------------------------------------------------------------
@@ -114,7 +114,7 @@ namespace NodeCanvas.DialogueTrees
         sealed public override bool canAcceptVariableDrops => false;
         ///----------------------------------------------------------------------------------------------
 
-        ///A list of the defined names for the involved actor parameters
+        ///<summary>A list of the defined names for the involved actor parameters</summary>
         public List<string> definedActorParameterNames {
             get
             {
@@ -124,23 +124,23 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ///Returns the ActorParameter by id
+        ///<summary>Returns the ActorParameter by id</summary>
         public ActorParameter GetParameterByID(string id) {
             return actorParameters.Find(p => p.ID == id);
         }
 
-        ///Returns the ActorParameter by name
+        ///<summary>Returns the ActorParameter by name</summary>
         public ActorParameter GetParameterByName(string paramName) {
             return actorParameters.Find(p => p.name == paramName);
         }
 
-        ///Returns the actor by parameter id.
+        ///<summary>Returns the actor by parameter id.</summary>
         public IDialogueActor GetActorReferenceByID(string id) {
             var param = GetParameterByID(id);
             return param != null ? GetActorReferenceByName(param.name) : null;
         }
 
-        ///Resolves and gets an actor based on the key name
+        ///<summary>Resolves and gets an actor based on the key name</summary>
         public IDialogueActor GetActorReferenceByName(string paramName) {
 
             //Check for INSTIGATOR selection
@@ -171,7 +171,7 @@ namespace NodeCanvas.DialogueTrees
         }
 
 
-        ///Set the target IDialogueActor for the provided key parameter name
+        ///<summary>Set the target IDialogueActor for the provided key parameter name</summary>
         public void SetActorReference(string paramName, IDialogueActor actor) {
             var param = actorParameters.Find(p => p.name == paramName);
             if ( param == null ) {
@@ -181,7 +181,7 @@ namespace NodeCanvas.DialogueTrees
             param.actor = actor;
         }
 
-        ///Set all target IDialogueActors at once by provided dictionary
+        ///<summary>Set all target IDialogueActors at once by provided dictionary</summary>
         public void SetActorReferences(Dictionary<string, IDialogueActor> actors) {
             foreach ( var pair in actors ) {
                 var param = actorParameters.Find(p => p.name == pair.Key);
@@ -193,7 +193,7 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ///Continues the DialogueTree at provided child connection index of currentNode
+        ///<summary>Continues the DialogueTree at provided child connection index of currentNode</summary>
         public void Continue(int index = 0) {
             if ( index < 0 || index > currentNode.outConnections.Count - 1 ) {
                 Stop(true);
@@ -203,7 +203,7 @@ namespace NodeCanvas.DialogueTrees
             EnterNode((DTNode)currentNode.outConnections[index].targetNode);
         }
 
-        ///Enters the provided node
+        ///<summary>Enters the provided node</summary>
         public void EnterNode(DTNode node) {
             currentNode = node;
             currentNode.Reset(false);
@@ -212,14 +212,14 @@ namespace NodeCanvas.DialogueTrees
             }
         }
 
-        ///Raise the OnSubtitlesRequest event
+        ///<summary>Raise the OnSubtitlesRequest event</summary>
         public static void RequestSubtitles(SubtitlesRequestInfo info) {
             if ( OnSubtitlesRequest != null )
                 OnSubtitlesRequest(info);
             else Logger.LogWarning("Subtitle Request event has no subscribers. Make sure to add the default '@DialogueGUI' prefab or create your own GUI.", "Dialogue Tree");
         }
 
-        ///Raise the OnMultipleChoiceRequest event
+        ///<summary>Raise the OnMultipleChoiceRequest event</summary>
         public static void RequestMultipleChoices(MultipleChoiceRequestInfo info) {
             if ( OnMultipleChoiceRequest != null )
                 OnMultipleChoiceRequest(info);

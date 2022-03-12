@@ -12,7 +12,7 @@ namespace NodeCanvas.Tasks.Conditions
 {
 
     ///----------------------------------------------------------------------------------------------
-    ///previous versions
+    //previous versions
     class CheckCSharpEvent_0
     {
         [SerializeField] public System.Type targetType = null;
@@ -45,7 +45,7 @@ namespace NodeCanvas.Tasks.Conditions
         [SerializeField] public System.Type targetType = null;
         [SerializeField] public string eventName = null;
     }
-    ///previous versions
+    //previous versions
     ///----------------------------------------------------------------------------------------------
 
 
@@ -57,10 +57,12 @@ namespace NodeCanvas.Tasks.Conditions
 
         ///----------------------------------------------------------------------------------------------
         void IMigratable<CheckCSharpEvent_0>.Migrate(CheckCSharpEvent_0 model) {
-            this.SetTargetEvent(model.targetType?.RTGetEvent(model.eventName));
+            var info = model.targetType?.RTGetEvent(model.eventName);
+            if ( info != null ) { this.eventInfo = new SerializedEventInfo(info); }
         }
         void IMigratable<CheckStaticCSharpEvent>.Migrate(CheckStaticCSharpEvent model) {
-            this.SetTargetEvent(model.targetType?.RTGetEvent(model.eventName));
+            var info = model.targetType?.RTGetEvent(model.eventName);
+            if ( info != null ) { this.eventInfo = new SerializedEventInfo(info); }
         }
         ///----------------------------------------------------------------------------------------------
 
@@ -111,13 +113,13 @@ namespace NodeCanvas.Tasks.Conditions
 
         void SetTargetEvent(EventInfo info) {
             if ( info != null ) {
+                UndoUtility.RecordObject(ownerSystem.contextObject, "Set Reflection Member");
                 eventInfo = new SerializedEventInfo(info);
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {
@@ -225,9 +227,8 @@ namespace NodeCanvas.Tasks.Conditions
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {
@@ -335,9 +336,8 @@ namespace NodeCanvas.Tasks.Conditions
             }
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

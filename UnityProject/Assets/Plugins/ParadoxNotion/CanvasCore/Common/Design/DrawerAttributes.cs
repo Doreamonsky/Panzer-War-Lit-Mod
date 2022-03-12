@@ -3,7 +3,7 @@
 namespace ParadoxNotion.Design
 {
 
-    ///Derive this to create custom attributes to be drawn with an AttributeDrawer<T>.
+    ///<summary>Derive this to create custom attributes to be drawn with an AttributeDrawer<T>.</summary>
     [AttributeUsage(AttributeTargets.Field)]
     abstract public class DrawerAttribute : Attribute
     {
@@ -13,7 +13,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Will dim control for bool, int, float, string if its default value (or empty for string)
+    ///<summary>Will dim control for bool, int, float, string if its default value (or empty for string)</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class HeaderAttribute : DrawerAttribute
     {
@@ -24,7 +24,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will dim control for bool, int, float, string if its default value (or empty for string)
+    ///<summary>Will dim control for bool, int, float, string if its default value (or empty for string)</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class DimIfDefaultAttribute : DrawerAttribute
     {
@@ -32,7 +32,7 @@ namespace ParadoxNotion.Design
         public override int priority { get { return 0; } }
     }
 
-    ///Use on top of any field to show it only if the provided field is equal to the provided check value
+    ///<summary>Use on top of any field to show it only if the provided field is equal to the provided check value</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowIfAttribute : DrawerAttribute
     {
@@ -46,7 +46,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Helper attribute. Denotes that the field is required not to be null or string.empty
+    ///<summary>Helper attribute. Denotes that the field is required not to be null or string.empty</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class RequiredFieldAttribute : DrawerAttribute
     {
@@ -54,7 +54,7 @@ namespace ParadoxNotion.Design
         public override int priority { get { return 2; } }
     }
 
-    ///Show a button above field
+    ///<summary>Show a button above field</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowButtonAttribute : DrawerAttribute
     {
@@ -68,7 +68,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Will invoke a callback method when the field is changed
+    ///<summary>Will invoke a callback method when the field is changed</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class CallbackAttribute : DrawerAttribute
     {
@@ -82,7 +82,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Will clamp float or int value to min
+    ///<summary>Will clamp float or int value to min</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class MinValueAttribute : DrawerAttribute
     {
@@ -98,19 +98,19 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Makes float, int or string field show in a delayed control
+    ///<summary>Makes float, int or string field show in a delayed control</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class DelayedFieldAttribute : DrawerAttribute { }
 
-    ///Makes the int field show as layerfield
+    ///<summary>Makes the int field show as layerfield</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class LayerFieldAttribute : DrawerAttribute { }
 
-    ///Makes the string field show as tagfield
+    ///<summary>Makes the string field show as tagfield</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class TagFieldAttribute : DrawerAttribute { }
 
-    ///Makes the string field show as text field with specified number of lines
+    ///<summary>Makes the string field show as text field with specified number of lines</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class TextAreaFieldAttribute : DrawerAttribute
     {
@@ -120,7 +120,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Use on top of any type of field to restict values to the provided ones through a popup by providing a params array of options.
+    ///<summary>Use on top of any type of field to restict values to the provided ones through a popup by providing a params array of options.</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class PopupFieldAttribute : DrawerAttribute
     {
@@ -130,7 +130,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Makes the float or integer field show as slider
+    ///<summary>Makes the float or integer field show as slider</summary>
 	[AttributeUsage(AttributeTargets.Field)]
     public class SliderFieldAttribute : DrawerAttribute
     {
@@ -146,7 +146,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Forces the field to show as a Unity Object field. Usefull for interface fields
+    ///<summary>Forces the field to show as a Unity Object field. Usefull for interface fields</summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ForceObjectFieldAttribute : DrawerAttribute { }
 

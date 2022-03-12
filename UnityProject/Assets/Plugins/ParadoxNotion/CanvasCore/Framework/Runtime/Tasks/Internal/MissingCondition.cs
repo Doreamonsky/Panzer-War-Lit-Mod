@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NodeCanvas.Framework.Internal
 {
 
-    /// Injected when a ConditionTask is missing. Recovers back when that condition is found.
+    ///<summary> Injected when a ConditionTask is missing. Recovers back when that condition is found.</summary>
     [DoNotList]
     [Description("Please resolve the MissingCondition issue by either replacing the condition, importing the missing condition type, or refactoring the type in GraphRefactor.")]
     public class MissingCondition : ConditionTask, IMissingRecoverable
@@ -33,9 +33,9 @@ namespace NodeCanvas.Framework.Internal
         }
 
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
+
 #if UNITY_EDITOR
 
         protected override void OnTaskInspectorGUI() {

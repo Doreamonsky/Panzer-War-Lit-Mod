@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ParadoxNotion.Design
 {
 
-    ///A generic popup editor
+    ///<summary>A generic popup editor</summary>
     public class GenericInspectorWindow : EditorWindow
     {
 
@@ -49,7 +49,7 @@ namespace ParadoxNotion.Design
         void PlayModeChange(){ Close(); }
 #endif
 
-        ///Open utility window to inspect target object of type in context using read/write delegates.
+        ///<summary>Open utility window to inspect target object of type in context using read/write delegates.</summary>
         public static void Show(string title, System.Type targetType, Object unityObjectContext, System.Func<object> read, System.Action<object> write) {
             var window = current != null ? current : CreateInstance<GenericInspectorWindow>();
             window.friendlyTitle = title;

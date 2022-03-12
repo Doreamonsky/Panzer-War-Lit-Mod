@@ -213,7 +213,7 @@ namespace NodeCanvas.Editor
             return new GUIContent(string.Format("<color=#{0}>{1}: {2}</color>", map.hex, tagText, msg.text), map.icon);
         }
 
-        ///Fetch first logger message of target graph
+        ///<summary>Fetch first logger message of target graph</summary>
         public static Logger.Message GetFirstMessageForGraph(Graph graph) {
             List<Logger.Message> list = null;
             if ( graphsMap.TryGetValue(graph, out list) ) {

@@ -5,15 +5,15 @@ using System.Collections.Generic;
 namespace NodeCanvas.DialogueTrees
 {
 
-    ///Send along with a OnSubtitlesRequest event. Holds info about the actor speaking, the statement that being said as well as a callback to be called when dialogue is done showing
+    ///<summary>Send along with a OnSubtitlesRequest event. Holds info about the actor speaking, the statement that being said as well as a callback to be called when dialogue is done showing</summary>
     public class SubtitlesRequestInfo
     {
 
-        ///The actor speaking
+        ///<summary>The actor speaking</summary>
         public IDialogueActor actor;
-        ///The statement said
+        ///<summary>The statement said</summary>
         public IStatement statement;
-        ///Call this to Continue the DialogueTree
+        ///<summary>Call this to Continue the DialogueTree</summary>
         public Action Continue;
 
         public SubtitlesRequestInfo(IDialogueActor actor, IStatement statement, Action callback) {
@@ -23,19 +23,19 @@ namespace NodeCanvas.DialogueTrees
         }
     }
 
-    ///Send along with a OnMultipleChoiceRequest event. Holds information of the options, time available as well as a callback to be called providing the selected option
+    ///<summary>Send along with a OnMultipleChoiceRequest event. Holds information of the options, time available as well as a callback to be called providing the selected option</summary>
     public class MultipleChoiceRequestInfo
     {
 
-        ///The actor related. This is usually the actor that will also say the options
+        ///<summary>The actor related. This is usually the actor that will also say the options</summary>
         public IDialogueActor actor;
-        ///The available choice option. Key: The statement, Value: the child index of the option
+        ///<summary>The available choice option. Key: The statement, Value: the child index of the option</summary>
         public Dictionary<IStatement, int> options;
-        ///The available time for a choice
+        ///<summary>The available time for a choice</summary>
         public float availableTime;
-        ///Should the previous statement be shown along the options?
+        ///<summary>Should the previous statement be shown along the options?</summary>
         public bool showLastStatement;
-        ///Call this with to select the option to continue with in the DialogueTree
+        ///<summary>Call this with to select the option to continue with in the DialogueTree</summary>
         public Action<int> SelectOption;
 
         public MultipleChoiceRequestInfo(IDialogueActor actor, Dictionary<IStatement, int> options, float availableTime, bool showLastStatement, Action<int> callback) {

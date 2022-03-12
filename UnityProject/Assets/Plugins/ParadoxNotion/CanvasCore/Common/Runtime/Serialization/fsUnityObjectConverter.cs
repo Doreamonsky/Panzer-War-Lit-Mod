@@ -5,7 +5,7 @@ using ParadoxNotion.Serialization.FullSerializer;
 namespace ParadoxNotion.Serialization
 {
 
-    ///Handles UnityObject references serialization
+    ///<summary>Handles UnityObject references serialization</summary>
 	public class fsUnityObjectConverter : fsConverter
     {
 

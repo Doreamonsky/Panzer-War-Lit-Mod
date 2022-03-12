@@ -8,7 +8,7 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.StateMachines
 {
 
-    /// Use FSMs to create state like behaviours
+    ///<summary> Use FSMs to create state like behaviours</summary>
     [GraphInfo(
         packageName = "NodeCanvas",
         docsURL = "http://nodecanvas.paradoxnotion.com/documentation/",
@@ -18,7 +18,7 @@ namespace NodeCanvas.StateMachines
     [CreateAssetMenu(menuName = "ParadoxNotion/NodeCanvas/FSM Asset")]
     public class FSM : Graph
     {
-        ///Transition Calling Mode (see "EnterState")
+        ///<summary>Transition Calling Mode (see "EnterState")</summary>
         public enum TransitionCallMode
         {
             Normal = 0,
@@ -35,15 +35,15 @@ namespace NodeCanvas.StateMachines
         public event System.Action<IState> onStateExit;
         public event System.Action<IState> onStateTransition;
 
-        ///The current FSM state
+        ///<summary>The current FSM state</summary>
         public FSMState currentState { get; private set; }
-        ///The previous FSM state
+        ///<summary>The previous FSM state</summary>
         public FSMState previousState { get; private set; }
 
-        ///The current state name. Null if none
+        ///<summary>The current state name. Null if none</summary>
         public string currentStateName => currentState != null ? currentState.name : null;
 
-        ///The previous state name. Null if none
+        ///<summary>The previous state name. Null if none</summary>
         public string previousStateName => previousState != null ? previousState.name : null;
 
         public override System.Type baseNodeType => typeof(FSMNode);
@@ -128,7 +128,7 @@ namespace NodeCanvas.StateMachines
             stateStack = null;
         }
 
-        ///Enter a state providing the state itself
+        ///<summary>Enter a state providing the state itself</summary>
         public bool EnterState(FSMState newState, TransitionCallMode callMode) {
 
             if ( !isRunning ) {
@@ -165,7 +165,7 @@ namespace NodeCanvas.StateMachines
             return true;
         }
 
-        ///Trigger a state to enter by it's name. Returns the state found and entered if any
+        ///<summary>Trigger a state to enter by it's name. Returns the state found and entered if any</summary>
         public FSMState TriggerState(string stateName, TransitionCallMode callMode) {
 
             var state = GetStateWithName(stateName);
@@ -178,12 +178,12 @@ namespace NodeCanvas.StateMachines
             return null;
         }
 
-        ///Get all State Names
+        ///<summary>Get all State Names</summary>
         public string[] GetStateNames() {
             return allNodes.Where(n => n is FSMState).Select(n => n.name).ToArray();
         }
 
-        ///Get a state by it's name
+        ///<summary>Get a state by it's name</summary>
         public FSMState GetStateWithName(string name) {
             return (FSMState)allNodes.Find(n => n is FSMState && n.name == name);
         }

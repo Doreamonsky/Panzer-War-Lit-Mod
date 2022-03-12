@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 
 namespace ParadoxNotion.Serialization.FullSerializer
 {
-    /// MetaType contains metadata about a type. This is used by the reflection serializer.
+    ///<summary> MetaType contains metadata about a type. This is used by the reflection serializer.</summary>
     public class fsMetaType
     {
 
         private static Dictionary<Type, fsMetaType> _metaTypes = new Dictionary<Type, fsMetaType>();
         private static Dictionary<Type, object> _defaultInstances = new Dictionary<Type, object>();
 
-        /// Return MetaType
+        ///<summary> Return MetaType</summary>
         public static fsMetaType Get(Type type) {
             fsMetaType metaType;
             if ( _metaTypes.TryGetValue(type, out metaType) == false ) {
@@ -23,7 +23,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return metaType;
         }
 
-        /// Clears out the cached type results
+        ///<summary> Clears out the cached type results</summary>
         public static void FlushMem() {
             _metaTypes = new Dictionary<Type, fsMetaType>();
             _defaultInstances = new Dictionary<Type, object>();
@@ -117,7 +117,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return false;
         }
 
-        /// Create generator
+        ///<summary> Create generator</summary>
         static ObjectGenerator GetGenerator(Type reflectedType) {
 
             if ( reflectedType.IsInterface || reflectedType.IsAbstract ) {
@@ -165,8 +165,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
 
         ///----------------------------------------------------------------------------------------------
 
-        /// Returns a *cached* default instance of target type
-        /// This is mostly used for comparing default serialization properties
+        ///<summary> Returns a *cached* default instance of target type This is mostly used for comparing default serialization properties</summary>
         public object GetDefaultInstance() {
             object instance = null;
             if ( _defaultInstances.TryGetValue(reflectedType, out instance) ) {
@@ -175,7 +174,7 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return _defaultInstances[reflectedType] = CreateInstance();
         }
 
-        /// Creates a new instance of the type that this metadata points back to.
+        ///<summary> Creates a new instance of the type that this metadata points back to.</summary>
         public object CreateInstance() {
             if ( generator != null ) { return generator(); }
             throw new Exception("Cant create instance generator for " + reflectedType);

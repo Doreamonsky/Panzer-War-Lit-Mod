@@ -48,5 +48,6 @@ You can of course re-generate the file any time you wish.
 
 -------------------------------------------------------------
 Thanks for using NodeCanvas!
+Gavalakis Evangelos
 http://nodecanvas.paradoxnotion.com
 -------------------------------------------------------------

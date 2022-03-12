@@ -5,18 +5,18 @@ using System.Reflection;
 namespace ParadoxNotion.Design
 {
 
-    ///Contains info about inspected field rin regards to reflected inspector and object/attribute drawers
+    ///<summary>Contains info about inspected field rin regards to reflected inspector and object/attribute drawers</summary>
     public struct InspectedFieldInfo
     {
-        ///The field inspected
+        ///<summary>The field inspected</summary>
         public FieldInfo field;
-        ///the unityengine object serialization context
+        ///<summary>the unityengine object serialization context</summary>
         public UnityEngine.Object unityObjectContext;
-        ///the parent instance the field lives within
+        ///<summary>the parent instance the field lives within</summary>
         public object parentInstanceContext;
-        ///In case instance lives in wrapped context (eg lists) otherwise the same as parentInstanceContext
+        ///<summary>In case instance lives in wrapped context (eg lists) otherwise the same as parentInstanceContext</summary>
         public object wrapperInstanceContext;
-        ///attributes found on field
+        ///<summary>attributes found on field</summary>
         public object[] attributes;
 
         //...

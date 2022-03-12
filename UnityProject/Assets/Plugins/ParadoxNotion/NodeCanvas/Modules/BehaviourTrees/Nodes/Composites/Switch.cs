@@ -9,8 +9,8 @@ namespace NodeCanvas.BehaviourTrees
 {
 
     [Category("Composites")]
-    [Description("Executes one child based on the provided int or enum and return it's status. If set to Dynamic and 'case' change while a child is running, that child will be interrupted before the new child is executed.")]
-    [Icon("IndexSwitcher")]
+    [Description("Executes one child based on the provided int or enum and return it's status.")]
+    [ParadoxNotion.Design.Icon("IndexSwitcher")]
     [Color("b3ff7f")]
     public class Switch : BTComposite
     {
@@ -27,6 +27,7 @@ namespace NodeCanvas.BehaviourTrees
             LoopIndex
         }
 
+        [Tooltip("If true and the 'case' change while a child is running, that child will immediately be interrupted and the new child will be executed.")]
         public bool dynamic;
         public CaseSelectionMode selectionMode = CaseSelectionMode.IndexBased;
 

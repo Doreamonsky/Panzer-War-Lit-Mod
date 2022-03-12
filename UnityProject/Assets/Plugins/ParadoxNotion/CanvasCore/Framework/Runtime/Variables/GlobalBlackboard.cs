@@ -5,7 +5,7 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.Framework
 {
 
-    /// Global Blackboards are accessible from any BBParameter.
+    ///<summary> Global Blackboards are accessible from any BBParameter.</summary>
     [ExecuteInEditMode]
     public class GlobalBlackboard : Blackboard, IGlobalBlackboard
     {
@@ -31,19 +31,19 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///A collection of all the current active global blackboards in the scene
+        ///<summary>A collection of all the current active global blackboards in the scene</summary>
         public static IEnumerable<GlobalBlackboard> GetAll() {
             return _allGlobals;
         }
 
-        ///Create a global blackboard
+        ///<summary>Create a global blackboard</summary>
         public static GlobalBlackboard Create() {
             var bb = new GameObject("@GlobalBlackboard").AddComponent<GlobalBlackboard>();
             bb._identifier = "Global";
             return bb;
         }
 
-        ///Get a global blackboard by it's name
+        ///<summary>Get a global blackboard by it's name</summary>
         public static GlobalBlackboard Find(string name) {
             return _allGlobals.Find(b => b.identifier == name);
         }
@@ -76,7 +76,7 @@ namespace NodeCanvas.Framework
             base.OnValidate();
 
 #if UNITY_EDITOR
-            if ( UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null ) { return; }
+            if ( UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null ) { return; }
 #endif
 
             if ( Application.isPlaying || IsPrefabAsset() ) { return; }

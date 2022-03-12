@@ -7,7 +7,7 @@ using System.Linq;
 namespace ParadoxNotion.Design
 {
 
-    ///Can track assets of specific type when required. This is faster than requesting AssetDabase all the time and can also be used in separate thread.
+    ///<summary>Can track assets of specific type when required. This is faster than requesting AssetDabase all the time and can also be used in separate thread.</summary>
     public class AssetTracker : AssetPostprocessor
     {
         public static event System.Action<string[]> onAssetsImported;
@@ -17,7 +17,7 @@ namespace ParadoxNotion.Design
         public static Dictionary<string, UnityEngine.Object> trackedAssets { get; private set; }
         public static List<System.Type> trackedTypes { get; private set; }
 
-        ///Call this to start tracking assets of specified type (and assignables to that)
+        ///<summary>Call this to start tracking assets of specified type (and assignables to that)</summary>
         public static void BeginTrackingAssetsOfType(System.Type type) {
             if ( trackedAssets == null ) { trackedAssets = new Dictionary<string, UnityEngine.Object>(); }
             if ( trackedTypes == null ) { trackedTypes = new List<System.Type>(); }

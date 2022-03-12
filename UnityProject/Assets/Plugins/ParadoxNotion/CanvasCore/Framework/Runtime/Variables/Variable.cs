@@ -16,7 +16,7 @@ namespace NodeCanvas.Framework
 
     [Serializable, fsUninitialized]
     [ParadoxNotion.Design.SpoofAOT]
-    ///Variables are stored in Blackboards and can optionaly be bound to Properties or Fields of a Unity Component
+    ///<summary>Variables are stored in Blackboards and can optionaly be bound to Properties or Fields of a Unity Component</summary>
     abstract public class Variable
     {
 
@@ -25,14 +25,14 @@ namespace NodeCanvas.Framework
         [SerializeField] private bool _isPublic;
         [SerializeField, fsIgnoreInBuild] private bool _debugBoundValue;
 
-        ///Raised when name change
+        ///<summary>Raised when name change</summary>
         public event Action<string> onNameChanged;
-        ///Raised when value change
+        ///<summary>Raised when value change</summary>
         public event Action<object> onValueChanged;
-        ///Raised when variable is destroyed/removed from blackboard
+        ///<summary>Raised when variable is destroyed/removed from blackboard</summary>
         public event Action onDestroy;
 
-        ///The name of the variable
+        ///<summary>The name of the variable</summary>
         public string name {
             get { return _name; }
             set
@@ -46,35 +46,35 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///A Unique ID
+        ///<summary>A Unique ID</summary>
         public string ID { get { return string.IsNullOrEmpty(_id) ? _id = Guid.NewGuid().ToString() : _id; } }
-        ///The value as object type when accessing from base class
+        ///<summary>The value as object type when accessing from base class</summary>
         public object value { get { return GetValueBoxed(); } set { SetValueBoxed(value); } }
-        ///Is the variable exposed public?
+        ///<summary>Is the variable exposed public?</summary>
         public bool isExposedPublic { get { return _isPublic && !isPropertyBound; } set { _isPublic = value; } }
-        ///For debugging data bound value in inspector (editor only)
+        ///<summary>For debugging data bound value in inspector (editor only)</summary>
         public bool debugBoundValue { get { return _debugBoundValue; } set { _debugBoundValue = value; } }
-        ///Is the variable bound to a property/field?
+        ///<summary>Is the variable bound to a property/field?</summary>
         public bool isPropertyBound => !string.IsNullOrEmpty(propertyPath);
 
-        ///Is the variable data bound now?
+        ///<summary>Is the variable data bound now?</summary>
         abstract public bool isDataBound { get; }
-        ///The Type this Variable holds
+        ///<summary>The Type this Variable holds</summary>
         abstract public Type varType { get; }
-        ///The path to the property this data is binded to. Null if none
+        ///<summary>The path to the property this data is binded to. Null if none</summary>
         abstract public string propertyPath { get; set; }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Used to bind variable to a property
+        ///<summary>Used to bind variable to a property</summary>
         abstract public void BindProperty(MemberInfo prop, GameObject target = null);
-        ///Used to un-bind variable from a property
+        ///<summary>Used to un-bind variable from a property</summary>
         abstract public void UnBind();
-        ///Called from Blackboard in Awake to Initialize the binding on specified game object
+        ///<summary>Called from Blackboard in Awake to Initialize the binding on specified game object</summary>
         abstract public void InitializePropertyBinding(GameObject go, bool callSetter = false);
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         abstract public object GetValueBoxed();
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         abstract public void SetValueBoxed(object value);
         ///----------------------------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ namespace NodeCanvas.Framework
         //...
         internal void OnDestroy() { if ( onDestroy != null ) { onDestroy(); } }
 
-        ///Duplicate this Variable into target Blackboard
+        ///<summary>Duplicate this Variable into target Blackboard</summary>
         public Variable Duplicate(IBlackboard targetBB) {
             var finalName = this.name;
             while ( targetBB.variables.ContainsKey(finalName) ) {
@@ -105,9 +105,9 @@ namespace NodeCanvas.Framework
         //invoke value changed event
         protected void TryInvokeValueChangeEvent(object value) { if ( onValueChanged != null ) { onValueChanged(value); } }
 
-        ///Checks whether a convertion to type is possible
+        ///<summary>Checks whether a convertion to type is possible</summary>
         public bool CanConvertTo(Type toType) { return GetGetConverter(toType) != null; }
-        ///Gets a Func<object> that converts the value ToType if possible. Null if not.
+        ///<summary>Gets a Func<object> that converts the value ToType if possible. Null if not.</summary>
         public Func<object> GetGetConverter(Type toType) {
 
             if ( toType.RTIsAssignableFrom(varType) ) {
@@ -122,9 +122,9 @@ namespace NodeCanvas.Framework
             return null;
         }
 
-        ///Checks whether a convertion from type is possible
+        ///<summary>Checks whether a convertion from type is possible</summary>
         public bool CanConvertFrom(Type fromType) { return GetSetConverter(fromType) != null; }
-        ///Gets an Action<object> that converts the value fromType if possible. Null if not.
+        ///<summary>Gets an Action<object> that converts the value fromType if possible. Null if not.</summary>
         public Action<object> GetSetConverter(Type fromType) {
 
             if ( varType.RTIsAssignableFrom(fromType) ) {
@@ -145,7 +145,7 @@ namespace NodeCanvas.Framework
 
     ///----------------------------------------------------------------------------------------------
 
-    ///The actual Variable
+    ///<summary>The actual Variable</summary>
     public class Variable<T> : Variable
     {
 
@@ -161,7 +161,7 @@ namespace NodeCanvas.Framework
         public override bool isDataBound => getter != null || setter != null;
         public override string propertyPath { get { return _propertyPath; } set { _propertyPath = value; } }
 
-        ///The value as type T when accessing as this type
+        ///<summary>The value as type T when accessing as this type</summary>
         new public T value {
             get { return getter != null ? getter() : _value; }
             set
@@ -187,16 +187,16 @@ namespace NodeCanvas.Framework
         public Variable() { }
         public Variable(string name, string ID) : base(name, ID) { }
 
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public override object GetValueBoxed() { return value; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public override void SetValueBoxed(object newValue) { this.value = (T)newValue; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public T GetValue() { return value; }
-        ///Same as .value. Used for binding.
+        ///<summary>Same as .value. Used for binding.</summary>
         public void SetValue(T newValue) { this.value = newValue; }
 
-        ///Set the property binding. Providing target also initializes the property binding
+        ///<summary>Set the property binding. Providing target also initializes the property binding</summary>
         public override void BindProperty(MemberInfo prop, GameObject target = null) {
             if ( prop is PropertyInfo || prop is FieldInfo ) {
                 _propertyPath = string.Format("{0}.{1}", prop.RTReflectedOrDeclaredType().FullName, prop.Name);
@@ -204,20 +204,20 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Bind getter and setter directly
+        ///<summary>Bind getter and setter directly</summary>
         public void BindGetSet(Func<T> _get, Action<T> _set) {
             this.getter = _get;
             this.setter = _set;
         }
 
-        ///Removes the property and data binding
+        ///<summary>Removes the property and data binding</summary>
         public override void UnBind() {
             _propertyPath = null;
             getter = null;
             setter = null;
         }
 
-        ///Initialize the property binding for target gameobject. The gameobject is only used in case the binding is not static.
+        ///<summary>Initialize the property binding for target gameobject. The gameobject is only used in case the binding is not static.</summary>
         public override void InitializePropertyBinding(GameObject go, bool callSetter = false) {
 
             if ( !isPropertyBound || !ParadoxNotion.Services.Threader.applicationIsPlaying ) {

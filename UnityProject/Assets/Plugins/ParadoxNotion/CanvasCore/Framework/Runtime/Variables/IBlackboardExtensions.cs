@@ -7,18 +7,18 @@ using Logger = ParadoxNotion.Services.Logger;
 namespace NodeCanvas.Framework
 {
 
-    ///Implementations for IBlackboards
+    ///<summary>Implementations for IBlackboards</summary>
     [ParadoxNotion.Design.SpoofAOT]
     public static class IBlackboardExtensions
     {
 
-        ///Returns the root blackboard upwards the hierarchy
+        ///<summary>Returns the root blackboard upwards the hierarchy</summary>
         public static IBlackboard GetRoot(this IBlackboard blackboard) {
             if ( blackboard.parent == null ) { return blackboard; }
             return blackboard.parent.GetRoot();
         }
 
-        ///Returns all parent blackboard (optionaly including self) upwards
+        ///<summary>Returns all parent blackboard (optionaly including self) upwards</summary>
         public static IEnumerable<IBlackboard> GetAllParents(this IBlackboard blackboard, bool includeSelf) {
             if ( blackboard == null ) { yield break; }
             if ( includeSelf ) { yield return blackboard; }
@@ -29,28 +29,28 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///Is the blackboard parent of the target child blackboard upward hierarchy or the target itself
+        ///<summary>Is the blackboard parent of the target child blackboard upward hierarchy or the target itself</summary>
         public static bool IsPartOf(this IBlackboard blackboard, IBlackboard child) {
-            if ( blackboard == null ) { return false; }
+            if ( blackboard == null || child == null ) { return false; }
             if ( blackboard == child ) { return true; }
             return blackboard.IsPartOf(child.parent);
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Adds a new Variable<T> with provided value and returns it.
+        ///<summary>Adds a new Variable<T> with provided value and returns it.</summary>
         public static Variable<T> AddVariable<T>(this IBlackboard blackboard, string varName, T value) {
             var variable = blackboard.AddVariable<T>(varName);
             variable.value = value;
             return variable;
         }
 
-        ///Adds a new Variable<T> with default T value and returns it
+        ///<summary>Adds a new Variable<T> with default T value and returns it</summary>
         public static Variable<T> AddVariable<T>(this IBlackboard blackboard, string varName) {
             return (Variable<T>)blackboard.AddVariable(varName, typeof(T));
         }
 
-        ///Adds a new Variable in the blackboard
+        ///<summary>Adds a new Variable in the blackboard</summary>
         public static Variable AddVariable(this IBlackboard blackboard, string varName, object value) {
 
             if ( value == null ) {
@@ -66,7 +66,7 @@ namespace NodeCanvas.Framework
             return newVariable;
         }
 
-        ///Adds a new Variable in the blackboard defining name and type instead of value
+        ///<summary>Adds a new Variable in the blackboard defining name and type instead of value</summary>
         public static Variable AddVariable(this IBlackboard blackboard, string varName, Type type) {
 
             if ( blackboard.variables.TryGetValue(varName, out Variable result) ) {
@@ -87,7 +87,7 @@ namespace NodeCanvas.Framework
             return newVariable;
         }
 
-        ///Deletes the Variable of name provided regardless of type and returns the deleted Variable object.
+        ///<summary>Deletes the Variable of name provided regardless of type and returns the deleted Variable object.</summary>
         public static Variable RemoveVariable(this IBlackboard blackboard, string varName) {
             Variable variable = null;
             if ( blackboard.variables.TryGetValue(varName, out variable) ) {
@@ -100,7 +100,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Gets the variable data value from the blackboard with provided name and type T.
+        ///<summary>Gets the variable data value from the blackboard with provided name and type T.</summary>
         public static T GetVariableValue<T>(this IBlackboard blackboard, string varName) {
 
             var variable = GetVariable<T>(blackboard, varName);
@@ -118,7 +118,7 @@ namespace NodeCanvas.Framework
             return default(T);
         }
 
-        ///Set the value of the Variable variable defined by its name. If a data by that name and type doesnt exist, a new data is added by that name
+        ///<summary>Set the value of the Variable variable defined by its name. If a data by that name and type doesnt exist, a new data is added by that name</summary>
         public static Variable SetVariableValue(this IBlackboard blackboard, string varName, object value) {
 
             Variable variable;
@@ -139,7 +139,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Initialize variables data binding for the target (gameobject is used). It can be null for static bindings
+        ///<summary>Initialize variables data binding for the target (gameobject is used). It can be null for static bindings</summary>
         public static void InitializePropertiesBinding(this IBlackboard blackboard, Component target, bool callSetter) {
             if ( blackboard.variables.Count == 0 ) { return; }
             foreach ( var data in blackboard.variables.Values ) {
@@ -149,14 +149,12 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Generic version of GetVariable.
-        ///Includes parent blackboards upwards the hierarchy.
+        ///<summary>Generic version of GetVariable. Includes parent blackboards upwards the hierarchy.</summary>
         public static Variable<T> GetVariable<T>(this IBlackboard blackboard, string varName) {
             return (Variable<T>)blackboard.GetVariable(varName, typeof(T));
         }
 
-        ///Gets the Variable object of a certain name and optional specified assignable type.
-        ///Includes parent blackboards upwards the hierarchy.
+        ///<summary>Gets the Variable object of a certain name and optional specified assignable type. Includes parent blackboards upwards the hierarchy.</summary>
         public static Variable GetVariable(this IBlackboard blackboard, string varName, Type ofType = null) {
 
             if ( blackboard.variables != null && varName != null ) {
@@ -176,8 +174,7 @@ namespace NodeCanvas.Framework
             return null;
         }
 
-        ///Gets the Variable object of a certain ID.
-        ///Includes parent blackboards upwards the hierarchy.
+        ///<summary>Gets the Variable object of a certain ID. Includes parent blackboards upwards the hierarchy.</summary>
         public static Variable GetVariableByID(this IBlackboard blackboard, string ID) {
 
             if ( blackboard.variables != null && ID != null ) {
@@ -194,8 +191,7 @@ namespace NodeCanvas.Framework
             return null;
         }
 
-        ///Get all variables.
-        ///Includes parent blackboards upwards the hierarchy.
+        ///<summary>Get all variables. Includes parent blackboards upwards the hierarchy.</summary>
         public static IEnumerable<Variable> GetVariables(this IBlackboard blackboard, Type ofType = null) {
 
             if ( blackboard.parent != null ) {
@@ -213,7 +209,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Change variable type (creates new instance and keeps name and ID)
+        ///<summary>Change variable type (creates new instance and keeps name and ID)</summary>
         public static Variable ChangeVariableType(this IBlackboard blackboard, Variable target, Type newType) {
             var variableType = typeof(Variable<>).RTMakeGenericType(new Type[] { newType });
             var newVariable = (Variable)Activator.CreateInstance(variableType, new object[] { target.name, target.ID });
@@ -224,7 +220,7 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Overwrite variables from source blackboard into this blackboard
+        ///<summary>Overwrite variables from source blackboard into this blackboard</summary>
         public static void OverwriteFrom(this IBlackboard blackboard, IBlackboard sourceBlackboard, bool removeMissingVariables = true) {
             foreach ( var pair in sourceBlackboard.variables ) {
                 if ( blackboard.variables.ContainsKey(pair.Key) ) {

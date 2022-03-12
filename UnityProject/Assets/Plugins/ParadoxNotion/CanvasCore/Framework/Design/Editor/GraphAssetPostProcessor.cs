@@ -8,7 +8,7 @@ using System.IO;
 
 namespace NodeCanvas.Editor
 {
-    ///Handles post processing of graph assets
+    ///<summary>Handles post processing of graph assets</summary>
     public class GraphAssetPostProcessor
     {
 
@@ -50,7 +50,7 @@ namespace NodeCanvas.Editor
                     if ( willRefresh ) { EditorApplication.delayCall += () => AssetDatabase.Refresh(); }
                 }
 
-                ///Append prety json to yaml file as comments for version control diff purposes
+                ///<summary>Append prety json to yaml file as comments for version control diff purposes</summary>
                 static void AppendPrettyJSONComments(Graph graph, string path) {
                     var systemPath = EditorUtils.AssetToSystemPath(path);
                     var lines = File.ReadAllLines(systemPath);

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace NodeCanvas.Editor
 {
 
-    ///A drawer for BlackboardSource
+    ///<summary>A drawer for BlackboardSource</summary>
     public class BlackboardSourceDrawer : ObjectDrawer<BlackboardSource>
     {
         public override BlackboardSource OnGUI(GUIContent content, BlackboardSource instance) {

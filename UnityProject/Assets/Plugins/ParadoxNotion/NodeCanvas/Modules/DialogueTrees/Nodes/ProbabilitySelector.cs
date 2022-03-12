@@ -9,7 +9,7 @@ namespace NodeCanvas.DialogueTrees
 
     [Category("Branch")]
     [Description("Select a child to execute based on it's chance to be selected. An optional pre-Condition Task can be assigned to filter the child in or out of the selection probability.\nThe actor selected will be used for the condition checks.")]
-    [Icon("ProbabilitySelector")]
+    [ParadoxNotion.Design.Icon("ProbabilitySelector")]
     [Color("b3ff7f")]
     public class ProbabilitySelector : DTNode
     {
@@ -85,9 +85,8 @@ namespace NodeCanvas.DialogueTrees
             successIndeces = null;
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override string GetConnectionInfo(int i) {

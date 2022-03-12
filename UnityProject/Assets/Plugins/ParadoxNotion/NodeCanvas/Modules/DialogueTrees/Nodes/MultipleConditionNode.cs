@@ -6,7 +6,7 @@ using ParadoxNotion.Design;
 namespace NodeCanvas.DialogueTrees
 {
 
-    [Icon("Selector")]
+    [ParadoxNotion.Design.Icon("Selector")]
     [Name("Multiple Task Condition")]
     [Category("Branch")]
     [Description("Will continue with the first child node which condition returns true. The Dialogue Actor selected will be used for the checks")]
@@ -49,9 +49,8 @@ namespace NodeCanvas.DialogueTrees
             return Status.Failure;
         }
 
-        ////////////////////////////////////////
-        ///////////GUI AND EDITOR STUFF/////////
-        ////////////////////////////////////////
+        ///----------------------------------------------------------------------------------------------
+        ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
 
         public override void OnConnectionInspectorGUI(int i) {

@@ -9,10 +9,10 @@ using UnityEngine;
 namespace NodeCanvas.Framework
 {
 
-    ///Base class for Conditions. Conditions dont span multiple frames like actions and return true or false immediately on execution. Derive this to create your own.
-    ///Generic version to define the AgentType where T is the agentType (Component or Interface) required by the Condition.
-    ///For GameObject, use 'Transform'
-	abstract public class ConditionTask<T> : ConditionTask where T : class
+    ///<summary>Base class for Conditions. Conditions dont span multiple frames like actions and return true or false immediately on execution. Derive this to create your own.</summary>
+    //Generic version to define the AgentType where T is the agentType (Component or Interface) required by the Condition.
+    //For GameObject, use 'Transform'
+    abstract public class ConditionTask<T> : ConditionTask where T : class
     {
         sealed public override Type agentType { get { return typeof(T); } }
         new public T agent { get { return base.agent as T; } }
@@ -24,7 +24,7 @@ namespace NodeCanvas.Framework
     [fsObject(Processor = typeof(fsRecoveryProcessor<ConditionTask, MissingCondition>))]
 #endif
 
-    ///Base class for all Conditions. Conditions dont span multiple frames like actions and return true or false immediately on execution. Derive this to create your own
+    ///<summary>Base class for all Conditions. Conditions dont span multiple frames like actions and return true or false immediately on execution. Derive this to create your own</summary>
     abstract public class ConditionTask : Task
     {
 
@@ -40,7 +40,7 @@ namespace NodeCanvas.Framework
             set { _invert = value; }
         }
 
-        ///...
+        ///<summary>...</summary>
         public void Enable(Component agent, IBlackboard bb) {
             if ( !isRuntimeEnabled && isUserEnabled ) {
                 if ( Set(agent, bb) ) {
@@ -50,7 +50,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///...
+        ///<summary>...</summary>
         public void Disable() {
             if ( isRuntimeEnabled && isUserEnabled ) {
                 isRuntimeEnabled = false;
@@ -61,7 +61,7 @@ namespace NodeCanvas.Framework
         [System.Obsolete("Use 'Check'")]
         public bool CheckCondition(Component agent, IBlackboard blackboard) { return Check(agent, blackboard); }
 
-        ///Check the condition for the provided agent and with the provided blackboard
+        ///<summary>Check the condition for the provided agent and with the provided blackboard</summary>
         public bool Check(Component agent, IBlackboard blackboard) {
 
             if ( !isUserEnabled ) {
@@ -83,7 +83,7 @@ namespace NodeCanvas.Framework
             return invert ? !OnCheck() : OnCheck();
         }
 
-        ///Enables, Checks then Disables the condition. Useful for one-off checks only
+        ///<summary>Enables, Checks then Disables the condition. Useful for one-off checks only</summary>
         public bool CheckOnce(Component agent, IBlackboard blackboard) {
             Enable(agent, blackboard);
             var result = Check(agent, blackboard);
@@ -91,7 +91,7 @@ namespace NodeCanvas.Framework
             return result;
         }
 
-        ///Helper method that holds the return value provided for one frame, for the condition to return.
+        ///<summary>Helper method that holds the return value provided for one frame, for the condition to return.</summary>
         protected void YieldReturn(bool value) {
             if ( isRuntimeEnabled ) {
                 yieldReturn = value ? 1 : 0;
@@ -111,11 +111,11 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Override to do things when condition is enabled
+        ///<summary>Override to do things when condition is enabled</summary>
         virtual protected void OnEnable() { }
-        ///Override to do things when condition is disabled
+        ///<summary>Override to do things when condition is disabled</summary>
         virtual protected void OnDisable() { }
-        ///Override to return whether the condition is true or false. The result will be inverted if Invert is checked.
+        ///<summary>Override to return whether the condition is true or false. The result will be inverted if Invert is checked.</summary>
         virtual protected bool OnCheck() { return true; }
 
         ///----------------------------------------------------------------------------------------------

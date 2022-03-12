@@ -6,13 +6,13 @@ using System.Reflection;
 namespace ParadoxNotion.Design
 {
 
-    ///Factory for EditorObjectWrappers
+    ///<summary>Factory for EditorObjectWrappers</summary>
     public static class EditorWrapperFactory
     {
 
         private static WeakReferenceTable<object, EditorObjectWrapper> cachedEditors = new WeakReferenceTable<object, EditorObjectWrapper>();
 
-        ///Returns a cached EditorObjectWrapper of type T for target object
+        ///<summary>Returns a cached EditorObjectWrapper of type T for target object</summary>
         public static T GetEditor<T>(object target) where T : EditorObjectWrapper {
             EditorObjectWrapper wrapper;
             if ( cachedEditors.TryGetValueWithRefCheck(target, out wrapper) ) {
@@ -27,12 +27,12 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///Wrapper Editor for objects
+    ///<summary>Wrapper Editor for objects</summary>
     abstract public class EditorObjectWrapper : IDisposable
     {
 
         private WeakReference<object> _targetRef;
-        ///The target
+        //The target
         public object target {
             get
             {
@@ -44,18 +44,18 @@ namespace ParadoxNotion.Design
         //...
         void IDisposable.Dispose() { OnDisable(); }
 
-        ///Init for target
+        ///<summary>Init for target</summary>
         public void Enable(object target) {
             this._targetRef = new WeakReference<object>(target);
             OnEnable();
         }
 
-        ///Create Property and Method wrappers here or other stuff.
+        ///<summary>Create Property and Method wrappers here or other stuff.</summary>
         virtual protected void OnEnable() { }
-        ///Cleanup
+        ///<summary>Cleanup</summary>
         virtual protected void OnDisable() { }
 
-        ///Get a wrapped editor serialized field on target
+        ///<summary>Get a wrapped editor serialized field on target</summary>
         public EditorPropertyWrapper<T> CreatePropertyWrapper<T>(string name) {
             var type = target.GetType();
             var field = type.RTGetField(name, /*include private base*/ true);
@@ -67,7 +67,7 @@ namespace ParadoxNotion.Design
             return null;
         }
 
-        ///Get a wrapped editor method on target
+        ///<summary>Get a wrapped editor method on target</summary>
         public EditorMethodWrapper CreateMethodWrapper(string name) {
             var type = target.GetType();
             var method = type.RTGetMethod(name);
@@ -80,7 +80,7 @@ namespace ParadoxNotion.Design
         }
     }
 
-    ///Wrapper Editor for objects
+    ///<summary>Wrapper Editor for objects</summary>
     abstract public class EditorObjectWrapper<T> : EditorObjectWrapper
     {
         new public T target { get { return (T)base.target; } }
@@ -88,7 +88,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///An editor wrapped field
+    ///<summary>An editor wrapped field</summary>
     sealed public class EditorPropertyWrapper<T>
     {
         private EditorObjectWrapper editor { get; set; }
@@ -113,7 +113,7 @@ namespace ParadoxNotion.Design
 
     ///----------------------------------------------------------------------------------------------
 
-    ///An editor wrapped method
+    ///<summary>An editor wrapped method</summary>
     sealed public class EditorMethodWrapper
     {
         private EditorObjectWrapper editor { get; set; }

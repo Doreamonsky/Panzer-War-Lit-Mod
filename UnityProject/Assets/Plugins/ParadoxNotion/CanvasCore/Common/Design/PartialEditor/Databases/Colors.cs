@@ -30,19 +30,19 @@ namespace ParadoxNotion.Design
 
         ///----------------------------------------------------------------------------------------------
 
-        ///A greyscale color
+        ///<summary>A greyscale color</summary>
         public static Color Grey(float value) {
             return new Color(value, value, value);
         }
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Return a color for a type.
+        ///<summary>Return a color for a type.</summary>
         public static Color GetTypeColor(System.Type type) {
             return TypePrefs.GetTypeColor(type);
         }
 
-        ///Return a string hex color for a type.
+        ///<summary>Return a string hex color for a type.</summary>
         public static string GetTypeHexColor(System.Type type) {
             return TypePrefs.GetTypeHexColor(type);
         }

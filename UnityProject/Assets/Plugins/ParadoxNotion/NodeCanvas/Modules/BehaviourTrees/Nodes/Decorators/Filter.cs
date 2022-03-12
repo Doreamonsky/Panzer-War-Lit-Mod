@@ -10,7 +10,7 @@ namespace NodeCanvas.BehaviourTrees
     [Name("Filter")]
     [Category("Decorators")]
     [Description("Filters the access of it's child node either a specific number of times, or every specific amount of time. By default the node is 'Treated as Inactive' to it's parent when child is Filtered. Unchecking this option will instead return Failure when Filtered.")]
-    [Icon("Filter")]
+    [ParadoxNotion.Design.Icon("Filter")]
     public class Filter : BTDecorator
     {
 

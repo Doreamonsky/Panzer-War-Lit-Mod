@@ -17,7 +17,7 @@ namespace NodeCanvas.Editor
 
         private static bool mouse2Down;
 
-        ///Graph events BEFORE nodes
+        ///<summary>Graph events BEFORE nodes</summary>
         static void HandlePreNodesGraphEvents(Graph graph, Vector2 canvasMousePos) {
 
             if ( e.button == 2 && e.type == EventType.MouseDown /*|| e.type == EventType.MouseUp*/ ) {
@@ -64,7 +64,7 @@ namespace NodeCanvas.Editor
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Graph events AFTER nodes
+        ///<summary>Graph events AFTER nodes</summary>
         static void HandlePostNodesGraphEvents(Graph graph, Vector2 canvasMousePos) {
 
             //Shortcuts
@@ -183,7 +183,7 @@ namespace NodeCanvas.Editor
             GraphEditorUtility.activeElements = newNodes.Cast<IGraphElement>().ToList();
         }
 
-        ///The final generic menu used for adding nodes in the canvas
+        ///<summary>The final generic menu used for adding nodes in the canvas</summary>
         static GenericMenu GetAddNodeMenu(Graph graph, Vector2 canvasMousePos) {
             System.Action<System.Type> Selected = (type) => { GraphEditorUtility.activeElement = graph.AddNode(type, canvasMousePos); };
             var menu = EditorUtils.GetTypeSelectionMenu(graph.baseNodeType, Selected);

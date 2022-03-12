@@ -13,7 +13,7 @@ namespace NodeCanvas.Framework
     [fsObject(Processor = typeof(fsRecoveryProcessor<Connection, MissingConnection>))]
 #endif
 
-    ///Base class for connections between nodes in a graph
+    ///<summary>Base class for connections between nodes in a graph</summary>
     [ParadoxNotion.Design.SpoofAOT]
     [System.Serializable, fsDeserializeOverwrite]
     abstract public partial class Connection : IGraphElement, ISerializationCollectable
@@ -26,16 +26,16 @@ namespace NodeCanvas.Framework
 
         [System.NonSerialized] private Status _status = Status.Resting;
 
-        ///The Unique ID of the node. One is created only if requested.
+        ///<summary>The Unique ID of the node. One is created only if requested.</summary>
         public string UID => ( string.IsNullOrEmpty(_UID) ? _UID = System.Guid.NewGuid().ToString() : _UID );
 
-        ///The source node of the connection
+        ///<summary>The source node of the connection</summary>
         public Node sourceNode {
             get { return _sourceNode; }
             protected set { _sourceNode = value; }
         }
 
-        ///The target node of the connection
+        ///<summary>The target node of the connection</summary>
         public Node targetNode {
             get { return _targetNode; }
             protected set { _targetNode = value; }
@@ -43,7 +43,7 @@ namespace NodeCanvas.Framework
 
         string IGraphElement.name => "Connection";
 
-        ///Is the connection active?
+        ///<summary>Is the connection active?</summary>
         public bool isActive {
             get { return !_isDisabled; }
             set
@@ -55,13 +55,13 @@ namespace NodeCanvas.Framework
             }
         }
 
-        ///The connection status
+        ///<summary>The connection status</summary>
         public Status status {
             get { return _status; }
             set { _status = value; }
         }
 
-        ///The graph this connection belongs to taken from the source node.
+        ///<summary>The graph this connection belongs to taken from the source node.</summary>
         public Graph graph => ( sourceNode != null ? sourceNode.graph : null );
 
         ///----------------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ namespace NodeCanvas.Framework
         //required
         public Connection() { }
 
-        ///Create a new Connection. Use this for constructor
+        ///<summary>Create a new Connection. Use this for constructor</summary>
         public static Connection Create(Node source, Node target, int sourceIndex = -1, int targetIndex = -1) {
 
             if ( source == null || target == null ) {
@@ -96,7 +96,7 @@ namespace NodeCanvas.Framework
             return newConnection;
         }
 
-        ///Duplicate the connection providing a new source and target
+        ///<summary>Duplicate the connection providing a new source and target</summary>
         public Connection Duplicate(Node newSource, Node newTarget) {
 
             if ( newSource == null || newTarget == null ) {
@@ -127,7 +127,7 @@ namespace NodeCanvas.Framework
             return newConnection;
         }
 
-        ///Sets the source node of the connection
+        ///<summary>Sets the source node of the connection</summary>
         public int SetSourceNode(Node newSource, int index = -1) {
 
             if ( sourceNode == newSource ) {
@@ -159,7 +159,7 @@ namespace NodeCanvas.Framework
             return index;
         }
 
-        ///Sets the target node of the connection
+        ///<summary>Sets the target node of the connection</summary>
         public int SetTargetNode(Node newTarget, int index = -1) {
 
             if ( targetNode == newTarget ) {
@@ -193,14 +193,14 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Execute the connection for the specified agent and blackboard.
+        ///<summary>Execute the connection for the specified agent and blackboard.</summary>
         public Status Execute(Component agent, IBlackboard blackboard) {
             if ( !isActive ) { return Status.Optional; }
             status = targetNode.Execute(agent, blackboard);
             return status;
         }
 
-        ///Resets the connection and its targetNode, optionaly recursively
+        ///<summary>Resets the connection and its targetNode, optionaly recursively</summary>
         public void Reset(bool recursively = true) {
             if ( status == Status.Resting ) { return; }
             status = Status.Resting;
@@ -209,11 +209,11 @@ namespace NodeCanvas.Framework
 
         ///----------------------------------------------------------------------------------------------
 
-        ///Called once when the connection is created.
+        ///<summary>Called once when the connection is created.</summary>
         virtual public void OnCreate(int sourceIndex, int targetIndex) { }
-        ///Called when the Connection is created, duplicated or otherwise needs validation.
+        ///<summary>Called when the Connection is created, duplicated or otherwise needs validation.</summary>
         virtual public void OnValidate(int sourceIndex, int targetIndex) { }
-        ///Called when the connection is destroyed (always through graph.RemoveConnection or when a node is removed through graph.RemoveNode)
+        ///<summary>Called when the connection is destroyed (always through graph.RemoveConnection or when a node is removed through graph.RemoveNode)</summary>
         virtual public void OnDestroy() { }
 
         ///----------------------------------------------------------------------------------------------

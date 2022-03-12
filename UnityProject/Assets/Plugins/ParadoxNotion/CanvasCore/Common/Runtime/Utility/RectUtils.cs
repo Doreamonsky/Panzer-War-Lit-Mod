@@ -3,7 +3,7 @@
 namespace ParadoxNotion
 {
 
-    ///Some common rect utilities
+    ///<summary>Some common rect utilities</summary>
     public static class RectUtils
     {
 
@@ -41,22 +41,22 @@ namespace ParadoxNotion
             return Rect.MinMaxRect(xMin, yMin, xMax, yMax);
         }
 
-        ///Rect a fully encapsulated b?
+        ///<summary>Rect a fully encapsulated b?</summary>
         public static bool Encapsulates(this Rect a, Rect b) {
             return a.x < b.x && a.xMax > b.xMax && a.y < b.y && a.yMax > b.yMax;
         }
 
-        ///Expands rect by margin
+        ///<summary>Expands rect by margin</summary>
         public static Rect ExpandBy(this Rect rect, float margin) {
             return rect.ExpandBy(margin, margin);
         }
 
-        ///Expands rect by x-y margin
+        ///<summary>Expands rect by x-y margin</summary>
         public static Rect ExpandBy(this Rect rect, float xMargin, float yMargin) {
             return rect.ExpandBy(xMargin, yMargin, xMargin, yMargin);
         }
 
-        ///Expands rect by x-y margin
+        ///<summary>Expands rect by x-y margin</summary>
         public static Rect ExpandBy(this Rect rect, float left, float top, float right, float bottom) {
             return Rect.MinMaxRect(rect.xMin - left, rect.yMin - top, rect.xMax + right, rect.yMax + bottom);
         }
@@ -80,7 +80,7 @@ namespace ParadoxNotion
         }
 
 #if UNITY_EDITOR
-        ///A debug rect with values
+        ///<summary>A debug rect with values</summary>
         public static void DrawDebugRect(Rect rect, string label = "", Color color = default(Color)) {
             GUI.color = color == default(Color) ? Color.yellow : color;
             GUI.DrawTexture(rect, Texture2D.whiteTexture);

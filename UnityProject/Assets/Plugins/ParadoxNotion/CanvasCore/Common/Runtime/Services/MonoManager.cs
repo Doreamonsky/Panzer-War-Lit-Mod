@@ -5,10 +5,10 @@ using UnityEngine;
 namespace ParadoxNotion.Services
 {
 
-    ///Singleton. Automatically added when needed, collectively calls methods that needs updating amongst other things relevant to MonoBehaviours
+    ///<summary>Singleton. Automatically added when needed, collectively calls methods that needs updating amongst other things relevant to MonoBehaviours</summary>
     public class MonoManager : MonoBehaviour
     {
-        ///Mode used in Add and Remove UpdateCall
+        ///<summary>Mode used in Add and Remove UpdateCall</summary>
         public enum UpdateMode
         {
             NormalUpdate = 0,
@@ -23,7 +23,7 @@ namespace ParadoxNotion.Services
         public event Action<bool> onApplicationPause;
 
 #pragma warning disable 0067
-        ///onGUI is only invoked in editor
+        ///<summary>onGUI is only invoked in editor</summary>
         public event Action onGUI;
 #pragma warning restore 0067
 
@@ -48,10 +48,10 @@ namespace ParadoxNotion.Services
         static void Purge() { isQuiting = false; }
 #endif
 
-        ///Creates the MonoManager singleton
+        ///<summary>Creates the MonoManager singleton</summary>
         public static void Create() { _current = current; }
 
-        ///Adds an update call based on mode provided
+        ///<summary>Adds an update call based on mode provided</summary>
         public void AddUpdateCall(UpdateMode mode, System.Action call) {
             switch ( mode ) {
                 case ( UpdateMode.NormalUpdate ): onUpdate += call; break;
@@ -60,7 +60,7 @@ namespace ParadoxNotion.Services
             }
         }
 
-        ///Removes an update call based on mode provided
+        ///<summary>Removes an update call based on mode provided</summary>
         public void RemoveUpdateCall(UpdateMode mode, System.Action call) {
             switch ( mode ) {
                 case ( UpdateMode.NormalUpdate ): onUpdate -= call; break;

@@ -1,27 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ParadoxNotion.Serialization.FullSerializer.Internal;
 
 namespace ParadoxNotion.Serialization.FullSerializer
 {
-    /// <summary>
-    /// The serialization converter allows for customization of the serialization process.
-    /// </summary>
-    /// <remarks>You do not want to derive from this class - there is no way to actually use it within
-    /// the serializer.. Instead, derive from either fsConverter or fsDirectConverter</remarks>
+    ///<summary> The serialization converter allows for customization of the serialization process.</summary>
     public abstract class fsBaseConverter
     {
-        /// The serializer that owns this converter.
+        ///<summary> The serializer that owns this converter.</summary>
         public fsSerializer Serializer;
 
-        /// <summary>
-        /// Construct an object instance that will be passed to TryDeserialize. This should **not**
-        /// deserialize the object.
-        /// </summary>
-        /// <param name="data">The data the object was serialized with.</param>
-        /// <param name="storageType">The field/property type that is storing the instance.</param>
-        /// <returns>An object instance</returns>
+        ///<summary> Construct an object instance that will be passed to TryDeserialize. This should **not** deserialize the object.</summary>
         public virtual object CreateInstance(fsData data, Type storageType) {
             if ( RequestCycleSupport(storageType) ) {
                 throw new InvalidOperationException("Please override CreateInstance for " +
@@ -33,42 +22,21 @@ namespace ParadoxNotion.Serialization.FullSerializer
             return storageType;
         }
 
-        /// <summary>
-        /// If true, then the serializer will support cyclic references with the given converted
-        /// type.
-        /// </summary>
-        /// <param name="storageType">The field/property type that is currently storing the object
-        /// that is being serialized.</param>
+        ///<summary> If true, then the serializer will support cyclic references with the given converted type.</summary>
         public virtual bool RequestCycleSupport(Type storageType) {
             if ( storageType == typeof(string) ) return false;
             return storageType.IsClass || storageType.IsInterface;
         }
 
-        /// <summary>
-        /// If true, then the serializer will include inheritance data for the given converter.
-        /// </summary>
-        /// <param name="storageType">The field/property type that is currently storing the object
-        /// that is being serialized.</param>
+        ///<summary> If true, then the serializer will include inheritance data for the given converter.</summary>
         public virtual bool RequestInheritanceSupport(Type storageType) {
             return storageType.IsSealed == false;
         }
 
-        /// <summary>
-        /// Serialize the actual object into the given data storage.
-        /// </summary>
-        /// <param name="instance">The object instance to serialize. This will never be null.</param>
-        /// <param name="serialized">The serialized state.</param>
-        /// <param name="storageType">The field/property type that is storing this instance.</param>
-        /// <returns>If serialization was successful.</returns>
+        ///<summary> Serialize the actual object into the given data storage.</summary>
         public abstract fsResult TrySerialize(object instance, out fsData serialized, Type storageType);
 
-        /// <summary>
-        /// Deserialize data into the object instance.
-        /// </summary>
-        /// <param name="data">Serialization data to deserialize from.</param>
-        /// <param name="instance">The object instance to deserialize into.</param>
-        /// <param name="storageType">The field/property type that is storing the instance.</param>
-        /// <returns>True if serialization was successful, false otherwise.</returns>
+        ///<summary> Deserialize data into the object instance.</summary>
         public abstract fsResult TryDeserialize(fsData data, ref object instance, Type storageType);
 
         protected fsResult FailExpectedType(fsData data, params fsDataType[] types) {
