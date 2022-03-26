@@ -38,6 +38,22 @@ GameDataManager = CS.ShanghaiWindy.Core.GameDataManager
 CommonDataManager = CS.ShanghaiWindy.Core.CommonDataManager
 UserDIYDataManager = CS.ShanghaiWindy.Core.UserDIYDataManager
 
+DIYMapUserDefinedRule = CS.ShanghaiWindy.Core.Data.DIYMapUserDefined.Rule
+
+--- @class UserDIYMapDataManager
+--- @field Instance UserDIYMapDataManager
+--- @field GetDIYUserDefines fun():List<DIYMapUserDefined> 
+UserDIYMapDataManager = CS.ShanghaiWindy.Core.UserDIYMapDataManager
+
+--- @class DIYFileRecycleMgr
+--- @field OnShareFile UnityEvent<string>
+--- @field OnLoadFile UnityEvent<string>
+--- @field OnDeleteFile UnityEvent<string>
+--- @field AddFileName fun(fileName:string):void
+--- @field RemoveFileName fun(fileName:string):void
+--- @field Refresh fun():void
+--- @field Clean fun():void
+DIYFileRecycleMgr = CS.ShanghaiWindy.Core.DIYFileRecycleMgr
 GameEventManager = CS.ShanghaiWindy.Core.GameEventManager
 
 --- @field Team Team
@@ -77,6 +93,29 @@ DIYUserDefined = CS.ShanghaiWindy.Core.Data.DIYUserDefined
 DIYRule = CS.ShanghaiWindy.Core.Data.DIYUserDefined.Rule
 
 DIYDataEnum = CS.ShanghaiWindy.Core.Data.DIYDataEnum
+
+DIYMapBaseReference = CS.ShanghaiWindy.Core.Data.DIYMapBaseReference
+
+--- @class DIYMapItemComponent
+--- @field transform Transfrom
+--- @field GetData fun():DIYMapBaseData
+--- @field GetJson fun():DIYMapItemComponentJson
+DIYMapItemComponent = CS.ShanghaiWindy.Core.DIYMapItemComponent
+
+--- @class DIYMapSerializationUtil
+--- @field DeserializeToCurrentScene fun(userDefined:DIYMapUserDefined,isRuntimeMode:boolean):void
+--- @field SerializeCurrentScene fun(definedName:string):DIYMapUserDefined
+--- @field CleanScene fun():void
+DIYMapSerializationUtil = CS.ShanghaiWindy.Core.DIYMapSerializationUtil
+
+--- @class DIYMapCreateUtil
+--- @field AutoPlaceItem fun(itemGuid:string,cameraPos:Vector3,cameraDir:Vector3):void
+DIYMapCreateUtil = CS.ShanghaiWindy.Core.DIYMapCreateUtil
+
+--- @class DIYMapBaseData
+--- @field itemGUID string
+DIYMapBaseData = CS.ShanghaiWindy.Core.DIYMapBaseData
+
 SerializeVector3 = CS.ShanghaiWindy.Core.Data.SerializeVector3
 uGUI_Localization = CS.ShanghaiWindy.Core.uGUI_Localization
 
@@ -87,7 +126,6 @@ InternalModule = CS.ShanghaiWindy.Core.InternalModule
 --- @class uGUI_Localsize
 --- @field GetContent fun(_Key:string):void
 uGUI_Localsize = CS.ShanghaiWindy.Core.uGUI_Localsize
-
 
 eDIYControlType = CS.ShanghaiWindy.Core.eDIYControlType
 
@@ -102,6 +140,34 @@ GameObjectPool = CS.ShanghaiWindy.Core.Utils.GameObjectPool
 --- @field HandleScale float
 RuntimeHandlesComponent = CS.Battlehub.RTHandles.RuntimeHandlesComponent
 
+--- @class FreeCamera
+--- @field CreateFreeCamera fun():void 创建摄像机
+FreeCamera = CS.ShanghaiWindy.Core.FreeCamera
+
+Joystick = CS.ShanghaiWindy.Core.Joystick
+
+--- @class DIYHandleManager
+--- @field Instance DIYHandleManager
+--- @field isDragging boolean
+DIYHandleManager = CS.ShanghaiWindy.Core.DIYHandleManager
+
+--- @class DIYMapItemComponentDragPicker
+--- @param Instance DIYMapItemComponentDragPicker
+--- @param GetRayItem fun(screenPoint:Vector2)
+DIYMapItemComponentDragPicker = CS.ShanghaiWindy.Core.DIYMapItemComponentDragPicker
+
+--- @class DIYDragPicker
+--- @param Instance DIYDragPicker
+--- @param GetRayItem fun(screenPoint:Vector2)
+DIYDragPicker = CS.ShanghaiWindy.Core.DIYDragPicker
+
+--- @class RuntimeInspector
+--- @field Inspect fun(obj:object):void
+RuntimeInspector = CS.RuntimeInspectorNamespace.RuntimeInspector
+
+--- @class UIEventUtil
+UIEventUtil = CS.ShanghaiWindy.Core.UIEventUtil
+
 -- UnityEngine
 --- @class GameObject
 --- @field Instantiate fun() 实例化
@@ -112,6 +178,8 @@ Vector2 = CS.UnityEngine.Vector2
 Vector3 = CS.UnityEngine.Vector3
 Quaternion = CS.UnityEngine.Quaternion
 Color = CS.UnityEngine.Color
+Mathf = CS.UnityEngine.Mathf
+Handheld = CS.UnityEngine.Handheld
 
 --- @class JsonUtility
 --- @field ToJson fun(object:obj) Generate a JSON representation of the public fields of an object.
@@ -139,3 +207,8 @@ MeshRenderer = CS.UnityEngine.MeshRenderer
 
 Input = CS.UnityEngine.Input
 KeyCode = CS.UnityEngine.KeyCode
+Camera = CS.UnityEngine.Camera
+
+--- @class EventTrigger
+EventTrigger = CS.UnityEngine.EventSystems.EventTrigger
+EventTriggerType = CS.UnityEngine.EventSystems.EventTriggerType
