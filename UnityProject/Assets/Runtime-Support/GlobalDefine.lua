@@ -168,6 +168,10 @@ RuntimeInspector = CS.RuntimeInspectorNamespace.RuntimeInspector
 --- @class UIEventUtil
 UIEventUtil = CS.ShanghaiWindy.Core.UIEventUtil
 
+PositionHandle = CS.Battlehub.RTHandles.PositionHandle
+RotationHandle = CS.Battlehub.RTHandles.RotationHandle
+ScaleHandle = CS.Battlehub.RTHandles.ScaleHandle
+
 -- UnityEngine
 --- @class GameObject
 --- @field Instantiate fun() 实例化
@@ -180,6 +184,7 @@ Quaternion = CS.UnityEngine.Quaternion
 Color = CS.UnityEngine.Color
 Mathf = CS.UnityEngine.Mathf
 Handheld = CS.UnityEngine.Handheld
+Physics = CS.UnityEngine.Physics
 
 --- @class JsonUtility
 --- @field ToJson fun(object:obj) Generate a JSON representation of the public fields of an object.
