@@ -16,16 +16,20 @@ MonoBehaviour:
   description: 'A template for a custom map.  '
   author: Doreamonsky
   supportURL: 403036847@qq.com
-  modVersion: 1.1
+  modVersion: 1
   testedGameVersion: 2020.3p2
   buildTarget: StandaloneWindows64
   isAuthorizeOwnerShip: 0
   packUuid: 
-  relatedAssets:
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/packages
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/packages.manifest
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.mapdata
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.mapdata.manifest
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.scene
-  - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.scene.manifest
+  buildCaches:
+  - targetPlatform: StandaloneWindows64
+    relatedAssets:
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/packages
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/packages.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.mapdata
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.mapdata.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.scene
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-Blank/packages/template-blank.scene.manifest
+  isLoadManifest: 0
+  luaScripts: []
   installedDirectory: Assigned-Runtime
