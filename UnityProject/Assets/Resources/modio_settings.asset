@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1429667630, guid: 9441801c9fb18024bab81bca2903bd23, type: 3}
+  m_Name: modio_settings
+  m_EditorClassIdentifier: 
+  m_data:
+    version: 2
+    apiURL: https://api.mod.io/v1
+    gameId: 0
+    gameAPIKey: 
+    userPortal: 0
+    requestCacheSizeKB: -1
+    requestLogging:
+      errorsAsWarnings: 1
+      logAllResponses: 0
+      logOnSend: 0
+    installationDirectory: $DATA_PATH$/mod.io/mods
+    cacheDirectory: $DATA_PATH$/mod.io/cache
+    userDirectory: $PERSISTENT_DATA_PATH$/mod.io-$GAME_ID$
+    installationDirectoryEditor: $CURRENT_DIRECTORY$/mod.io/editor/$GAME_ID$/mods
+    cacheDirectoryEditor: $CURRENT_DIRECTORY$/mod.io/editor/$GAME_ID$/cache
+    userDirectoryEditor: $CURRENT_DIRECTORY$/mod.io/editor/$GAME_ID$/user

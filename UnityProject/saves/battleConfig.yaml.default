@@ -1,0 +1,70 @@
+title: 局内配置文件，用于自定义部分核心参数。
+description: 使用方法：将此文件的后缀 .default 删除，则此配置文件将会生效。
+# @Comment: 配置文件版本号 @Type: System.Int32
+verion: 1
+# @Comment: 瞄具倍率 @Type: ShanghaiWindy.Core.Data.Conf+ZoomFov
+zoomFOV:
+# @Comment: 最小 FOV @Type: System.Single
+  minFov: 4
+  # @Comment: 最大 FOV @Type: System.Single
+  maxFov: 35
+# @Comment: 击穿规则 @Type: ShanghaiWindy.Core.Data.Conf+PenetrateRule
+penetrateRule:
+# @Comment: 强制击穿口径倍率 @Type: System.Single
+  caliberRule: 3
+# @Comment: 模块伤害规则 @Type: ShanghaiWindy.Core.Data.Conf+ModuleDamageRule
+moduleRule:
+# @Comment: 弹头随机散射角度 @Type: ShanghaiWindy.Core.Data.Conf+ModuleDamageRule+WarHeadAngle
+  angleComplete:
+    ap: 15
+    apcr: 15
+    apfsds: 15
+    apc: 45
+    apcbc: 45
+    ac: 0
+    aphe: 90
+    aphebc: 90
+    mg: 0
+    heat: 10
+  # @Comment: 碎片随机散射角度 @Type: ShanghaiWindy.Core.Data.Conf+ModuleDamageRule+WarHeadAngle
+  angleFrag:
+    ap: 30
+    apcr: 30
+    apfsds: 30
+    apc: 60
+    apcbc: 60
+    ac: 0
+    aphe: 90
+    aphebc: 90
+    mg: 20
+    heat: 20
+  # @Comment: 弹头采样碰撞次数 @Type: System.Int32
+  raycastCountComplete: 4
+  # @Comment: 弹头反弹次数 @Type: System.Int32
+  maxBoundsCountComplete: 4
+  # @Comment: 碎片采样碰撞次数 @Type: System.Int32
+  raycastCountFrag: 12
+  # @Comment: 碎片反弹次数 @Type: System.Int32
+  maxBoundsCountFrag: 2
+  # @Comment: 低后效能量比例 @Type: System.Single
+  shellStrengthLowRatio: 0.25
+  # @Comment: 低后效采样碰撞比例 @Type: System.Single
+  shellStrengthLowRaycastRatio: 1
+  # @Comment: 标准后效能量比例 @Type: System.Single
+  shellStrengthStandardRatio: 2
+  # @Comment: 标准后效采样碰撞比例 @Type: System.Single
+  shellStrengthStandardRaycastRatio: 4
+  # @Comment: 强后效能量比例 @Type: System.Single
+  shellStrengthHighRatio: 4
+  # @Comment: 强后效采样碰撞比例 @Type: System.Single
+  shellStrengthHighRaycastRatio: 2
+# @Comment: 热成像规则 @Type: ShanghaiWindy.Core.Data.Conf+ThermalRule
+thermalRule:
+# @Comment: 白天热成像强度 @Type: System.Single
+  daylightPower: 1
+  # @Comment: 夜晚热成像强度 @Type: System.Single
+  nightPower: 15
+  # @Comment: 白天，夜晚光照分界强度 @Type: System.Single
+  lightIntensity: 0.5
+# @Comment: 撞击伤害系数 @Type: System.Single
+ramDamageCoff: 1
