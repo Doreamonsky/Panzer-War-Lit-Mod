@@ -9,6 +9,7 @@ cp -r  UnityProject/Assets $releaseName/Assets
 cp -r  UnityProject/ProjectSettings $releaseName/ProjectSettings
 cp -r  UnityProject/Packages $releaseName/Packages
 cp -r  UnityProject/BuildPiplineCI $releaseName/BuildPiplineCI
+cp -r  UnityProject/RuntimeRes $releaseName/RuntimeRes
 
 ./zip.exe -r $output $releaseName
 
