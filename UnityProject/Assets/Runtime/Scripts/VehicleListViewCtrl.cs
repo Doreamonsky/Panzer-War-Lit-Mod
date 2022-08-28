@@ -1,21 +1,56 @@
-using System.Collections;
+using ShanghaiWindy.Core.RuntimeEditor;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ShanghaiWindy.Core
 {
     public class VehicleListViewCtrl : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public EditorStartup editorStartup;
+        public Dropdown vehicleDp;
+        public Button driveBtn;
 
+        private List<VehicleInfo> vehicleList = new List<VehicleInfo>();
+
+        public void Awake()
+        {
+            editorStartup.OnInit += () =>
+            {
+                foreach (var x in VehicleInfoManager.Instance.GetAllDriveableVehicleList(true))
+                {
+                    RefershVehicleList(x);
+                }
+
+                VehicleInfoManager.OnNewVehicleAdded += (x) =>
+                {
+                    RefershVehicleList(x);
+                };
+            };
+
+            driveBtn.onClick.AddListener(() =>
+            {
+                var vehicleInfo = vehicleList[vehicleDp.value];
+
+                GameDataManager.isCoreRP = false;
+                CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
+                {
+
+                });
+            });
         }
 
-        // Update is called once per frame
-        void Update()
+        public void RefershVehicleList(VehicleInfo x)
         {
+            vehicleDp.AddOptions(new List<Dropdown.OptionData>()
+            {
+                new Dropdown.OptionData()
+                {
+                    text = x.GetDisplayName()
+                }
+            });
 
+            vehicleList.Add(x);
         }
     }
 
