@@ -32,11 +32,29 @@ namespace ShanghaiWindy.Core
             {
                 var vehicleInfo = vehicleList[vehicleDp.value];
 
-                GameDataManager.isCoreRP = false;
-                CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
-                {
 
-                });
+                switch (vehicleInfo.type)
+                {
+                    case VehicleInfo.Type.Ground:
+                        CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
+                        {
+
+                        });
+                        break;
+                    case VehicleInfo.Type.Aviation:
+                        CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false, p =>
+                        {
+
+                        });
+                        break;
+                    case VehicleInfo.Type.Army:
+                        CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
+                        {
+
+                        });
+                        break;
+                }
+
             });
         }
 
