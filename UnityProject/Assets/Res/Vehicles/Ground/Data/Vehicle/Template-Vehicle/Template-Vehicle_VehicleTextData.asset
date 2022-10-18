@@ -27,7 +27,6 @@ MonoBehaviour:
     ammunitionStoreType: 0
     hasThermalVision: 0
     overrideFireCrossData: {fileID: 0}
-    isMech: 0
   PTCParameter:
     TankWheelCollider: {fileID: 9129519116861611582, guid: 50fb5c45a8510044b882765828f2827e,
       type: 3}
@@ -92,6 +91,7 @@ MonoBehaviour:
     steerTorque: 4
     maxAngularVelocity: 36
     transmissionFlowType: 0
+    engineAction: {fileID: 0}
     isSupportPhysicTrack: 0
   sharedGunData: {fileID: 0}
   TFParameter:
@@ -109,25 +109,28 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
     muzzleFire: 0
     overrideMuzzleFires: []
+    disableGunAnimation: 0
+    disableGunSmoke: 0
     fireState: 0
     advanceFireClass:
-      LargeFinish: 0
-      LargeNowTime: 0
-      smallNowTime: 0
       SmallReloadTime: 0
       LargeReloadTime: 0
-      SmallAmmoLeft: 0
       MaxSmallAmmo: 0
     drumFire:
       fireDuration: 0
       reloadTime: []
-      reloadNowTime: 0
-      reloadDurationNowTime: 0
-      reloadState: 
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
     isInRangeFire: 0
     fireActionData: {fileID: 0}
     customSightData: {fileID: 0}
     canBrakeSubFireLoop: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
   sharedTurretData: {fileID: 0}
   MTParameter:
     maxTurretAngle: 180
@@ -148,8 +151,8 @@ MonoBehaviour:
   simpleVehicleFireSystemParameters: []
   MechParameter:
     isMech: 0
-    autoCreateEssentialTransforms: 1
     walkClip: {fileID: 0}
+    timeToFullyTurn: 0.5
     overridePlayWalkClip: 0
     hasWalkSoundEvent: 0
     hasWalkParticle: 0
@@ -168,3 +171,7 @@ MonoBehaviour:
     fireBurstVFX: {fileID: 0}
     fuelTime: 15
     chargeCDTime: 5
+  CarControllerParameter:
+    isCar: 0
+    carControllerType: 0
+  keepMatsIfSameRP: 0

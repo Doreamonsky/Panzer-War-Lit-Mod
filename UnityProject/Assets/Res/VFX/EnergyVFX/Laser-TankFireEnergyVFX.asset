@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1152498088, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: Mech
+  m_Script: {fileID: 1343766553, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Laser-TankFireEnergyVFX
   m_EditorClassIdentifier: 
-  identifier: {fileID: 11400000, guid: 17344bdf1aa1e2d438b7049d4e35f91d, type: 2}
-  spawnReses:
-  - spawnName: MechWalk
-    spawnObject: {fileID: 0}
-    isBuff: 0
-    instanceCount: -1
-    lifeTime: 2
+  energyVFXType: 1
+  energyVFX: LaserEffect
+  overrideEnergyVFXs: []
+  energyStartEventID: 0
+  energyStopEventID: 0
+  energyLoopSound: {fileID: 0}

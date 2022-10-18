@@ -1,0 +1,9 @@
+老工程如果要升级 Mod 相关工具，则需要覆盖如下目录
+1. UnityProject/Assets/Runtime-Support
+2. UnityProject/RuntimeRes
+3. UnityProject/ProjectSettings
+4. UnityProject/Package
+
+否则可能会出现意想不到的报错，导致无法正常编译打包。如果无法打包，则点击 Console，将报错堆栈信息发送给开发者。
+
+
