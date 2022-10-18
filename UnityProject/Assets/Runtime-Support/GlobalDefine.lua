@@ -8,8 +8,10 @@
 ---@field RandomVehicleFromList fun(vehicleList:List<VehicleInfo>):VehicleInfo 从 vehicle 数组随机获取一个非火炮的载具
 ---@field CreateTankPlayer fun(vehicleName:string,pos:Vector3,rot:Quaternion):TankInitSystem 创建玩家坦克
 ---@field CreateFlightPlayer fun(vehicleName:string,pos:Vector3,rot:Quaternion,isSpawnOnAirPort:boolean):FlightInitSystem 创建玩家坦克
----@field CreateTankBot fun(vehicleName:string,pos:Vector3,rot:Quaternion,botTeam:TeamManager.Team):TankInitSystem 创建人机坦克\
+---@field CreateTankBot fun(vehicleName:string,pos:Vector3,rot:Quaternion,botTeam:TeamManager.Team):TankInitSystem 创建人机坦克
+---@field CreateFreeCamera fun(pos:Vector3,rot:Quaternion):FreeCameraInitSystem 创建自由摄像机
 ---@field RequestScene fun(sceneName:string,onLoaded:System.Action):void 异步加载场景
+---@field RequestGarageScene fun():void 加载车库场景
 ---@field CreateDIYVehicle fun(userDefined:DIYUserDefined,onLoaded:System.Action<GameObject, VehicleTextData>):void 异步加载DIY载具
 ---@field GetGUID fun():string 创建 GUID
 ---@field SetRuleAsMain fun(userDefined:DIYUserDefined,mainRuleGuid:string) 设置 Rule 为 Main
@@ -178,6 +180,12 @@ UIEventUtil = CS.ShanghaiWindy.Core.UIEventUtil
 PositionHandle = CS.Battlehub.RTHandles.PositionHandle
 RotationHandle = CS.Battlehub.RTHandles.RotationHandle
 ScaleHandle = CS.Battlehub.RTHandles.ScaleHandle
+
+--- @class UIManager
+--- @field Instance UIManager
+--- @field ShowUI fun(uiEnum:UIEnum,cb:function(ctrl))
+UIManager = CS.ShanghaiWindy.Core.UIManager
+UIEnum = CS.ShanghaiWindy.Core.UIEnum
 
 -- UnityEngine
 --- @class GameObject
