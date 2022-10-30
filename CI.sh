@@ -8,7 +8,7 @@ read comment
 
 # 提交 Commit
 git add .
-git commit -m $comment
+git commit -m "$comment"
 git push
 git push github
 

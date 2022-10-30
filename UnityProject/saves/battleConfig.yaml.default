@@ -12,6 +12,12 @@ zoomFOV:
 penetrateRule:
 # @Comment: 强制击穿口径倍率 @Type: System.Single
   caliberRule: 3
+  # @Comment: 飞行 1M 穿深衰减比例 @Type: System.Single
+  distanceDeclineRatio: 0.0500000007
+  # @Comment: 随机上限比例 @Type: System.Single
+  maxRandomRatio: 1.04999995
+  # @Comment: 随机下限比例 @Type: System.Single
+  minRandomRatio: 0.949999988
 # @Comment: 模块伤害规则 @Type: ShanghaiWindy.Core.Data.Conf+ModuleDamageRule
 moduleRule:
 # @Comment: 弹头随机散射角度 @Type: ShanghaiWindy.Core.Data.Conf+ModuleDamageRule+WarHeadAngle
@@ -66,5 +72,11 @@ thermalRule:
   nightPower: 15
   # @Comment: 白天，夜晚光照分界强度 @Type: System.Single
   lightIntensity: 0.5
+# @Comment: 准镜规则 @Type: ShanghaiWindy.Core.Data.Conf+CrossHairRule
+crossHairRule:
+# @Comment: 主瞄准环大小比例 @Type: System.Single
+  mainCrossHairRatio: 1.5
+  # @Comment: 副瞄准环大小比例 @Type: System.Single
+  subCrossHairRatio: 1
 # @Comment: 撞击伤害系数 @Type: System.Single
 ramDamageCoff: 1
