@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2020154626, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Template-Vehicle-SharedHull
+  m_EditorClassIdentifier: 
+  comment: 
+  engineName: 
+  vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
+    type: 2}
+  vehicleEngineFmodSoundData: {fileID: 0}
+  engineTorqueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.5
+      inSlope: -0.1
+      outSlope: -0.1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 1
+      inSlope: Infinity
+      outSlope: 0.0009124496
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.12988073
+    - serializedVersion: 3
+      time: 22
+      value: 0.8
+      inSlope: -0.030739471
+      outSlope: -0.030739471
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.11627568
+    - serializedVersion: 3
+      time: 36
+      value: 0
+      inSlope: -0.07568217
+      outSlope: -0.07568217
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09616846
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  engineTorque: 4200
+  reversingEngineTorque: 4100
+  brakeTorque: 42000
+  gearParameter:
+    enableGear: 0
+    gears: []
+    totalGears: 6
+    finalRatio: 3.23
+    gearShiftingDelay: 0.35
+    gearShiftingThreshold: 0.75
+    clutchInertia: 0.25
+    gearShiftUpRPM: 6500
+    gearShiftDownRPM: 3500
+    engineInertia: 0.15
+    minEngineRPM: 1000
+    maxEngineRPM: 5000
+  maxSpeed: 36
+  minSpeed: 22
+  steerTorque: 4
+  maxAngularVelocity: 36
+  transmissionFlowType: 0

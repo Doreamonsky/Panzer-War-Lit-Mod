@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2015680895
+CRC: 1634276332
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b2eb2462e6f2a41ed53b1474bf09cdcd
+    Hash: f8ce2b57c6322b3337263bbd47b7dd49
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c27712e9df3685d011dde7de9d19239d
+    Hash: a90836b1194afc7b11823d7454529499
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -66,9 +66,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: d0549747a8c8fbc4aa2b70de2afbd845, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: ccc5c8b79be041540926a6a1c0ae8ee2, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4ed6a94fa88919545b7c15130da68d57, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ccc5c8b79be041540926a6a1c0ae8ee2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
 - Class: 114
@@ -187,6 +187,8 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.BuiltInUserSightDataConfig
 - AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.Config.BeHitSoundConfig
+- AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuilitInVehicleInfoConfig
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInBuffConfig
@@ -213,6 +215,8 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInSoundBankConfig
 - AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.Config.BuiltInSoundConfig
+- AssemblyName: Core
   ClassName: ShanghaiWindy.Core.InternalModuleBulletData
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.ItemLocalizedName
@@ -228,6 +232,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.ModPackageCachedLocalizedName/Cache
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.ModPatchInfo
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.ReloadFmodSoundParameter
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.SpawnRes
 - AssemblyName: Core
@@ -246,6 +252,10 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.VehicleDecalData/DecalInfo
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.VehicleTemplate/VehicleData
+- AssemblyName: FMODUnity
+  ClassName: FMOD.GUID
+- AssemblyName: FMODUnity
+  ClassName: FMODUnity.EventReference
 - AssemblyName: Unity.Addressables
   ClassName: UnityEngine.AddressableAssets.AssetReference
 - AssemblyName: Unity.InputSystem

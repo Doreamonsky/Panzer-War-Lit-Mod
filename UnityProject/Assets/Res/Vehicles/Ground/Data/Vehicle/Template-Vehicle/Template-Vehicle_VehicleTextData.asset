@@ -36,9 +36,10 @@ MonoBehaviour:
     isWheelVehicle: 0
     markWidth: 0.8
     steerableWheels: []
-    sharedEngineData: {fileID: 0}
+    sharedEngineData: {fileID: 11400000, guid: 3cc092bace0ea4243b5392a9a66db851, type: 2}
     vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
       type: 2}
+    vehicleEngineFmodSoundData: {fileID: 0}
     engineTorqueCurve:
       serializedVersion: 2
       m_Curve:
@@ -84,8 +85,19 @@ MonoBehaviour:
     engineTorque: 4200
     reversingEngineTorque: 4100
     brakeTorque: 42000
-    minEngineRPM: 1000
-    maxEngineRPM: 5000
+    gearParameter:
+      enableGear: 0
+      gears: []
+      totalGears: 6
+      finalRatio: 3.23
+      gearShiftingDelay: 0.35
+      gearShiftingThreshold: 0.75
+      clutchInertia: 0.25
+      gearShiftUpRPM: 6500
+      gearShiftDownRPM: 3500
+      engineInertia: 0.15
+      minEngineRPM: 1000
+      maxEngineRPM: 5000
     maxSpeed: 36
     minSpeed: 22
     steerTorque: 4
@@ -93,38 +105,57 @@ MonoBehaviour:
     transmissionFlowType: 0
     engineAction: {fileID: 0}
     isSupportPhysicTrack: 0
-  sharedGunData: {fileID: 0}
+  sharedGunData: {fileID: 11400000, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
   TFParameter:
+    fireState: 0
     ReloadTime: 4.8
+    isEnableSimpleReloadSound: 0
+    overrideSimpleReloadSound:
+      rid: -2
     AmmoCount: 66
     hasSlot: 0
     slotCount: 0
     slotDuration: 0
-    fireDymScale: 0
-    fireCycleTime: 0
-    isFireDymIfExtraTurret: 0
-    dispersion: 0
-    bulletSound: {fileID: 11400000, guid: 1c107d664be3f8841b60f6a3a42b012f, type: 2}
-    bulletData:
-    - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
-    muzzleFire: 0
-    overrideMuzzleFires: []
-    disableGunAnimation: 0
-    disableGunSmoke: 0
-    fireState: 0
     advanceFireClass:
       SmallReloadTime: 0
       LargeReloadTime: 0
       MaxSmallAmmo: 0
+      disableMegaIcon: 0
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 0
+      overrideLargeReloadSound:
+        rid: -2
     drumFire:
       fireDuration: 0
       reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
     energyVFX: {fileID: 0}
     energyFire:
       perShotEnergy: 0
       totalEnergy: 0
       perShotInterval: 0
       vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0
+    bulletSound: {fileID: 0}
+    fmodBulletSound: {fileID: 6020117968614087079, guid: 47609dbafbe81fa4fa8735f80b396b48,
+      type: 3}
+    bulletData:
+    - {fileID: 3957054737420944067, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
+    muzzleFire: 0
+    overrideMuzzleFires: []
+    fireDymScale: 0
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
     isInRangeFire: 0
     fireActionData: {fileID: 0}
     customSightData: {fileID: 0}
@@ -138,7 +169,8 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
-  sharedTurretData: {fileID: 0}
+  vehicleSelfExplosionParams: []
+  sharedTurretData: {fileID: 11400000, guid: 5dafd252df3127b4db1085778bde5bdd, type: 2}
   MTParameter:
     maxTurretAngle: 180
     ffPointAlignType: 0
@@ -149,6 +181,8 @@ MonoBehaviour:
     offset: 0
     actionData: {fileID: 0}
     spgDistanceAdjustRatio: 0
+    isEnableTurretSound: 0
+    overrideTurretSound: {fileID: 0}
     overrideRanges: []
     moduleData:
       hasOverride: 0
@@ -181,4 +215,10 @@ MonoBehaviour:
   CarControllerParameter:
     isCar: 0
     carControllerType: 0
+  engineSmokeParams: []
   keepMatsIfSameRP: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
