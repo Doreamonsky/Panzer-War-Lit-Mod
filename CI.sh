@@ -23,7 +23,7 @@ cp -r  UnityProject/ProjectSettings $releaseName/ProjectSettings
 cp -r  UnityProject/Packages $releaseName/Packages
 cp -r  UnityProject/BuildPiplineCI $releaseName/BuildPiplineCI
 cp -r  UnityProject/RuntimeRes $releaseName/RuntimeRes
-cp -r  UnityProject/PanzerWar-FMod-UGC-Project $releaseName/PanzerWar-FMod-UGC-Project
+cp -r  PanzerWar-FMod-UGC-Project $releaseName/PanzerWar-FMod-UGC-Project
 cp -r  更新工程必看.txt $releaseName/更新工程必看.txt
 
 ./zip.exe -r $output $releaseName
