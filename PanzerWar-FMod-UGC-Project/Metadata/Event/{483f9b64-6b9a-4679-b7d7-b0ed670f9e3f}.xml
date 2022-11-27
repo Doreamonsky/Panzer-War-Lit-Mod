@@ -265,6 +265,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{d5a8922b-d09e-45fb-a82e-db500447f0a8}">
+		<property name="start">
+			<value>2</value>
+		</property>
 		<property name="length">
 			<value>20.000001907348633</value>
 		</property>
@@ -772,6 +775,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{3390258b-9263-471e-add6-56911b3d7d74}">
 		<relationship name="effects">
+			<destination>{8edd9200-3e10-4114-9187-23693a7d466b}</destination>
 			<destination>{26ca8149-1280-4711-90e8-19aa8ec9c249}</destination>
 			<destination>{2b2ab25d-c969-4a83-9fe1-ca309f5c7b0d}</destination>
 		</relationship>
@@ -1094,7 +1098,7 @@
 	</object>
 	<object class="AutomationPoint" id="{273d7063-071b-40f2-8443-5c5770771d2f}">
 		<property name="position">
-			<value>20.000001907348633</value>
+			<value>22.000001907348633</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -1113,7 +1117,7 @@
 	</object>
 	<object class="AutomationPoint" id="{3c441e91-2645-49c3-9ad1-697d1926502c}">
 		<property name="position">
-			<value>20.000001907348633</value>
+			<value>22.000001907348633</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -1214,6 +1218,11 @@
 			<destination>{e02af96e-06fd-41a7-9d07-88818358fa64}</destination>
 			<destination>{3cea2540-5b14-4992-9c98-9f3e75b6ef41}</destination>
 		</relationship>
+	</object>
+	<object class="GainEffect" id="{8edd9200-3e10-4114-9187-23693a7d466b}">
+		<property name="gain">
+			<value>-18</value>
+		</property>
 	</object>
 	<object class="MixerBusFader" id="{26ca8149-1280-4711-90e8-19aa8ec9c249}" />
 	<object class="GainEffect" id="{2b2ab25d-c969-4a83-9fe1-ca309f5c7b0d}">

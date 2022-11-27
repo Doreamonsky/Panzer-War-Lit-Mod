@@ -66,7 +66,7 @@
 			<destination>{7ef1f852-22f3-4d0e-a4c6-8bcd5e14f23a}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{641d5faa-06da-4f4d-98a1-137da1b9b52b}</destination>
+			<destination>{e8100996-163f-45e3-bfeb-391080051d19}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{71281f91-0183-4ae7-a2c9-ccd9a58595b1}">
@@ -708,7 +708,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{fe14ac14-dc63-418e-85ff-2abdc20740fa}" />
 	<object class="MixerBusFader" id="{ecd31fa8-52ce-4aa1-90ea-884b8fb54ce6}" />
-	<object class="GainEffect" id="{a8e52294-6ff7-4583-a63c-683f326df737}" />
+	<object class="GainEffect" id="{a8e52294-6ff7-4583-a63c-683f326df737}">
+		<property name="gain">
+			<value>-35</value>
+		</property>
+	</object>
 	<object class="ProxyEffect" id="{605fc6d4-fa5f-4de7-af23-5ee90ec7222c}">
 		<property name="inputFormat">
 			<value>1</value>
