@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{5e5e5501-b1d0-4f21-874b-ad24a86330de}">
+		<property name="name">
+			<value>sounds</value>
+		</property>
+		<property name="instanceStealing">
+			<value>1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{92ce629e-87f0-4b78-b9a2-62c74dd0f084}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{43dbe28e-ea5b-4b27-a105-f810c1d7ad80}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{641d5faa-06da-4f4d-98a1-137da1b9b52b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{92ce629e-87f0-4b78-b9a2-62c74dd0f084}">
+		<relationship name="effects">
+			<destination>{d76d63ec-f55b-44eb-81b4-bcc742e199c5}</destination>
+			<destination>{cb528f6c-18e3-47cc-b21b-08da832542ae}</destination>
+			<destination>{4878de06-66e9-46df-8274-b4aab2ebb815}</destination>
+			<destination>{a464afbf-f0c9-4c02-b853-9608512540be}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{43dbe28e-ea5b-4b27-a105-f810c1d7ad80}" />
+	<object class="MixerBusFader" id="{d76d63ec-f55b-44eb-81b4-bcc742e199c5}" />
+	<object class="LimiterEffect" id="{cb528f6c-18e3-47cc-b21b-08da832542ae}">
+		<property name="release">
+			<value>180</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{4878de06-66e9-46df-8274-b4aab2ebb815}">
+		<property name="threshold">
+			<value>-23</value>
+		</property>
+		<property name="ratio">
+			<value>4</value>
+		</property>
+		<property name="attackTime">
+			<value>10</value>
+		</property>
+		<property name="releaseTime">
+			<value>160</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{16ded50e-49c7-448c-b65f-a338b4ad382e}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{a464afbf-f0c9-4c02-b853-9608512540be}">
+		<property name="filterTypeB">
+			<value>7</value>
+		</property>
+		<property name="frequencyA">
+			<value>22000</value>
+		</property>
+		<property name="frequencyB">
+			<value>80.1999969</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{df8dd475-9d42-4807-8324-6312df5d811f}">
+		<property name="name">
+			<value>guns</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{221bcf9e-00fc-4ed4-a433-3c4636bfa603}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{47f8e3ec-e82b-47f4-a4c6-9087e0f07936}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{5e5e5501-b1d0-4f21-874b-ad24a86330de}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{221bcf9e-00fc-4ed4-a433-3c4636bfa603}">
+		<relationship name="effects">
+			<destination>{1011e304-719a-4fc3-b47c-0af1872b1e50}</destination>
+			<destination>{383b2698-21b2-4cdf-8696-6dd5edd7c4d6}</destination>
+			<destination>{f94add07-0e30-4c22-af88-d4506ee12bb7}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{47f8e3ec-e82b-47f4-a4c6-9087e0f07936}" />
+	<object class="Sidechain" id="{1011e304-719a-4fc3-b47c-0af1872b1e50}" />
+	<object class="MixerBusFader" id="{383b2698-21b2-4cdf-8696-6dd5edd7c4d6}" />
+	<object class="MultibandEqEffect" id="{f94add07-0e30-4c22-af88-d4506ee12bb7}">
+		<property name="filterTypeB">
+			<value>7</value>
+		</property>
+		<property name="frequencyA">
+			<value>22000</value>
+		</property>
+		<property name="frequencyB">
+			<value>33</value>
+		</property>
+	</object>
+</objects>

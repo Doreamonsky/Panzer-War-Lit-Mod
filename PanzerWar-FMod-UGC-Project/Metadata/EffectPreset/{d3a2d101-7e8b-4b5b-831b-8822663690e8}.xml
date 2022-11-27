@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{d3a2d101-7e8b-4b5b-831b-8822663690e8}">
+		<property name="name">
+			<value>Spatializer_3D_Ground_Tracks</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{8f62a30d-a89c-47ba-a37b-83e059bd58ea}</destination>
+		</relationship>
+	</object>
+	<object class="SpatialiserEffect" id="{8f62a30d-a89c-47ba-a37b-83e059bd58ea}">
+		<property name="distanceRolloffType">
+			<value>4</value>
+		</property>
+		<property name="minimumDistance">
+			<value>10</value>
+		</property>
+		<property name="maximumDistance">
+			<value>300</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>3</value>
+		</property>
+		<property name="dopplerMultiplier">
+			<value>0</value>
+		</property>
+		<property name="userLFELevel">
+			<value>-80</value>
+		</property>
+	</object>
+</objects>

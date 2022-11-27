@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{d72d0a55-a6d9-46fa-968d-c79ceb2bd2ce}">
+		<property name="name">
+			<value>aircraft</value>
+		</property>
+		<property name="maxInstances">
+			<value>5</value>
+		</property>
+		<property name="instanceStealing">
+			<value>1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{10428f5a-a046-4ddf-88ca-e9b047c5b1c5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{3acb5f9f-5fd8-4211-88c5-67cf15a5e3f9}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{43b36b12-4ba6-4e33-ad46-417fa03c1cdf}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{10428f5a-a046-4ddf-88ca-e9b047c5b1c5}">
+		<relationship name="effects">
+			<destination>{96da8f0f-f21f-4002-9aec-8eab58571aef}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{3acb5f9f-5fd8-4211-88c5-67cf15a5e3f9}" />
+	<object class="MixerBusFader" id="{96da8f0f-f21f-4002-9aec-8eab58571aef}" />
+</objects>

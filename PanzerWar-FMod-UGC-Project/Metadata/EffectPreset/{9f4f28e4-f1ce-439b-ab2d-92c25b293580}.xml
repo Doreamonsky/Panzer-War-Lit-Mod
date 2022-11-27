@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{9f4f28e4-f1ce-439b-ab2d-92c25b293580}">
+		<property name="name">
+			<value>Tank_Cannons_Distance_Gain</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{330055ce-d247-4570-a3cb-38091ee18c00}</destination>
+		</relationship>
+	</object>
+	<object class="GainEffect" id="{330055ce-d247-4570-a3cb-38091ee18c00}">
+		<relationship name="automators">
+			<destination>{3f7aa65e-c6aa-4646-a90c-432ae664bce2}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{3f7aa65e-c6aa-4646-a90c-432ae664bce2}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{1b2da2a0-7ec4-4d41-b339-6766fda908e8}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{1b2da2a0-7ec4-4d41-b339-6766fda908e8}">
+		<relationship name="parameter">
+			<destination>{4892c4fb-df28-4333-9294-cb47ec6ce7b1}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{71e12c50-fa08-46b5-8bc8-e2a6cf8f0d38}</destination>
+			<destination>{f4e9d255-12d1-4a06-98ab-29551e84e128}</destination>
+			<destination>{ecb7eca3-5bca-4ee0-95c8-fcb5a19f6a68}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{71e12c50-fa08-46b5-8bc8-e2a6cf8f0d38}">
+		<property name="position">
+			<value>62.146883427777325</value>
+		</property>
+		<property name="value">
+			<value>4</value>
+		</property>
+		<property name="curveShape">
+			<value>0.287045509</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{f4e9d255-12d1-4a06-98ab-29551e84e128}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>4</value>
+		</property>
+		<property name="curveShape">
+			<value>0.219589278</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{ecb7eca3-5bca-4ee0-95c8-fcb5a19f6a68}">
+		<property name="position">
+			<value>2000</value>
+		</property>
+		<property name="value">
+			<value>-56.6666679</value>
+		</property>
+	</object>
+</objects>

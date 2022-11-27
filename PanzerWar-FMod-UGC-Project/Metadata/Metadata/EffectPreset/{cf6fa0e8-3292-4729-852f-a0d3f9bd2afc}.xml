@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{cf6fa0e8-3292-4729-852f-a0d3f9bd2afc}">
+		<property name="name">
+			<value>Tank_Auto_Cannons_AI_Distance_Multiband EQ</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{72177e0d-3017-4a27-90e8-683b46bcc593}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{72177e0d-3017-4a27-90e8-683b46bcc593}">
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="filterTypeE">
+			<value>8</value>
+		</property>
+		<property name="frequencyC">
+			<value>100</value>
+		</property>
+		<property name="frequencyD">
+			<value>110</value>
+		</property>
+		<property name="frequencyE">
+			<value>2828.78833</value>
+		</property>
+		<property name="qualityB">
+			<value>0.899999976</value>
+		</property>
+		<property name="qualityC">
+			<value>0.100000001</value>
+		</property>
+		<property name="gainD">
+			<value>6.5</value>
+		</property>
+		<property name="gainE">
+			<value>3.10344815</value>
+		</property>
+		<relationship name="automators">
+			<destination>{162b85be-8936-4143-a891-2fa38f80e752}</destination>
+			<destination>{7cf750d8-1de8-4c13-9b77-0369d4be40b9}</destination>
+			<destination>{3407e32c-3e65-458d-aee7-09fb49ecb9cd}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{162b85be-8936-4143-a891-2fa38f80e752}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyA</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{8e98e360-6f24-4595-88a4-59039fc5748d}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{7cf750d8-1de8-4c13-9b77-0369d4be40b9}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyB</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{824cbc4a-b659-4c7a-a6ff-2dcc2116f8e7}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{3407e32c-3e65-458d-aee7-09fb49ecb9cd}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gainC</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{fbbaa7ae-c4b7-4340-9e08-a9135ce47f3b}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{8e98e360-6f24-4595-88a4-59039fc5748d}">
+		<relationship name="parameter">
+			<destination>{4892c4fb-df28-4333-9294-cb47ec6ce7b1}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{136d69c3-53b2-4bf6-a8c2-888ece2349af}</destination>
+			<destination>{0f84ba54-e459-4338-ba3d-2e327b7b4821}</destination>
+			<destination>{ba8622ca-d62c-47c2-95d9-f22e1f8914c3}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{824cbc4a-b659-4c7a-a6ff-2dcc2116f8e7}">
+		<relationship name="parameter">
+			<destination>{4892c4fb-df28-4333-9294-cb47ec6ce7b1}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{05070b65-4638-4cbc-93f7-1bf81234487c}</destination>
+			<destination>{7ff703fc-fc36-4c22-8ba2-45a979f033ce}</destination>
+			<destination>{fb9e6726-aeca-4d6a-8eee-d26a6b66c2d5}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{fbbaa7ae-c4b7-4340-9e08-a9135ce47f3b}">
+		<relationship name="parameter">
+			<destination>{f039e07a-58d3-4583-8db1-f6b9da489d5c}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{7cf26848-b001-498e-95a5-ab2e682ba142}</destination>
+			<destination>{b58699cf-c35c-4aa3-94b9-121afabc7b3f}</destination>
+			<destination>{cf89b223-94df-4506-9dd2-014f663fe4c7}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{136d69c3-53b2-4bf6-a8c2-888ece2349af}">
+		<property name="position">
+			<value>501.90973635944135</value>
+		</property>
+		<property name="value">
+			<value>10000</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.316987693</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{0f84ba54-e459-4338-ba3d-2e327b7b4821}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>20000</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{ba8622ca-d62c-47c2-95d9-f22e1f8914c3}">
+		<property name="position">
+			<value>2000</value>
+		</property>
+		<property name="value">
+			<value>2400</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{05070b65-4638-4cbc-93f7-1bf81234487c}">
+		<property name="position">
+			<value>573.25859651732651</value>
+		</property>
+		<property name="value">
+			<value>60</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{7ff703fc-fc36-4c22-8ba2-45a979f033ce}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>20</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.171691358</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{fb9e6726-aeca-4d6a-8eee-d26a6b66c2d5}">
+		<property name="position">
+			<value>2000</value>
+		</property>
+		<property name="value">
+			<value>300</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{7cf26848-b001-498e-95a5-ab2e682ba142}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>4</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{b58699cf-c35c-4aa3-94b9-121afabc7b3f}">
+		<property name="position">
+			<value>180</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{cf89b223-94df-4506-9dd2-014f663fe4c7}">
+		<property name="position">
+			<value>46.271186440677965</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

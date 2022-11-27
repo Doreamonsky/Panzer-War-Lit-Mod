@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{ceaff1e6-ccb7-4e1e-a198-a4a5e9bf1ba2}">
+		<property name="name">
+			<value>Object_3D_Ground_Engines</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{422f9fde-e919-4571-9406-8cbf9b9ccb55}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{422f9fde-e919-4571-9406-8cbf9b9ccb55}">
+		<relationship name="effects">
+			<destination>{8c7386a9-5ae6-45ae-b1b4-2b139fed83c7}</destination>
+			<destination>{1e691dc7-a72b-463c-9021-565eca7a43cb}</destination>
+		</relationship>
+	</object>
+	<object class="GainEffect" id="{8c7386a9-5ae6-45ae-b1b4-2b139fed83c7}">
+		<property name="gain">
+			<value>7</value>
+		</property>
+	</object>
+	<object class="ObjectSpatialiserEffect" id="{1e691dc7-a72b-463c-9021-565eca7a43cb}">
+		<property name="distanceRolloffType">
+			<value>4</value>
+		</property>
+		<property name="minimumDistance">
+			<value>30</value>
+		</property>
+		<property name="maximumDistance">
+			<value>1000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
+</objects>

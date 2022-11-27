@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{4a5b38a6-879e-4e03-b950-b5cb05d9c72c}">
+		<property name="name">
+			<value>tank_engine_Spatializer</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{c63681a6-58af-44c5-9c78-42e7a00bd56d}</destination>
+		</relationship>
+	</object>
+	<object class="SpatialiserEffect" id="{c63681a6-58af-44c5-9c78-42e7a00bd56d}">
+		<property name="distanceRolloffType">
+			<value>4</value>
+		</property>
+		<property name="minimumDistance">
+			<value>5</value>
+		</property>
+		<property name="maximumDistance">
+			<value>720</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>2</value>
+		</property>
+		<property name="dopplerMultiplier">
+			<value>0</value>
+		</property>
+		<property name="userPanDirection">
+			<value>-6.27938032</value>
+		</property>
+		<property name="userPanExtent">
+			<value>315.544037</value>
+		</property>
+		<property name="userLFELevel">
+			<value>-9.99999046</value>
+		</property>
+		<property name="stereoToSurroundUserPanMode">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{dc432ef0-25bd-48b0-8dce-79a2ad37cf13}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{dc432ef0-25bd-48b0-8dce-79a2ad37cf13}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>panBlend</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{481dbf7c-fec0-4218-b8de-1cfd10d0a6d6}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{481dbf7c-fec0-4218-b8de-1cfd10d0a6d6}">
+		<relationship name="parameter">
+			<destination>{9f8f7e20-49e3-4162-b678-44930ce5d4d2}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{b82bd8ca-977b-4445-9067-491386c63fc3}</destination>
+			<destination>{d1b561b4-5d80-48a8-844c-b4aff610019a}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{b82bd8ca-977b-4445-9067-491386c63fc3}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>1</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{d1b561b4-5d80-48a8-844c-b4aff610019a}">
+		<property name="position">
+			<value>4</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

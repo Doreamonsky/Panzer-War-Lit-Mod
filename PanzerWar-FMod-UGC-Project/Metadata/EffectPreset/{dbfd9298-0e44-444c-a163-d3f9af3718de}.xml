@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{dbfd9298-0e44-444c-a163-d3f9af3718de}">
+		<property name="name">
+			<value>Tank_Engine_AI_Multiband EQ</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{b6e67b54-3f9b-45de-a9d8-0a3cc65e6eb4}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{b6e67b54-3f9b-45de-a9d8-0a3cc65e6eb4}">
+		<property name="filterTypeA">
+			<value>0</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>8</value>
+		</property>
+		<property name="frequencyA">
+			<value>210</value>
+		</property>
+		<property name="frequencyC">
+			<value>3000</value>
+		</property>
+		<property name="frequencyD">
+			<value>80</value>
+		</property>
+		<property name="qualityA">
+			<value>1.89999998</value>
+		</property>
+		<property name="qualityD">
+			<value>0.599999964</value>
+		</property>
+		<property name="gainA">
+			<value>6</value>
+		</property>
+		<property name="gainB">
+			<value>-18</value>
+		</property>
+		<relationship name="automators">
+			<destination>{8e027e44-9572-441e-801e-d31c9373f390}</destination>
+			<destination>{d9eec287-deb4-4d30-ab50-835c63214809}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{8e027e44-9572-441e-801e-d31c9373f390}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gainC</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{e5620a17-103e-490b-993c-85447054007e}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{d9eec287-deb4-4d30-ab50-835c63214809}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyB</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{02a5233b-4d7f-453c-8fab-6b49116520e7}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{e5620a17-103e-490b-993c-85447054007e}">
+		<relationship name="parameter">
+			<destination>{0e3c2dcd-65b5-4add-b625-c9ca4d8e42d0}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{6cfa63cd-64bd-4d5d-a2d5-24d1b2102e73}</destination>
+			<destination>{69551293-a3d7-4ab2-96c1-ee684da5a23a}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{02a5233b-4d7f-453c-8fab-6b49116520e7}">
+		<relationship name="parameter">
+			<destination>{846ff96a-6f74-4d93-a744-db3d2dbc2e65}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{f8e02c64-b5fe-4238-9b69-ad5cb0309884}</destination>
+			<destination>{4f66233b-d601-4bd8-923e-e0b1b6f9eb81}</destination>
+			<destination>{c63a8ccf-fcf7-49ff-b682-fc717d1e139c}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{6cfa63cd-64bd-4d5d-a2d5-24d1b2102e73}">
+		<property name="position">
+			<value>0.0070621468926553672</value>
+		</property>
+		<property name="value">
+			<value>-12</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{69551293-a3d7-4ab2-96c1-ee684da5a23a}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{f8e02c64-b5fe-4238-9b69-ad5cb0309884}">
+		<property name="position">
+			<value>300</value>
+		</property>
+		<property name="value">
+			<value>3000</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{4f66233b-d601-4bd8-923e-e0b1b6f9eb81}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>16000</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.190301642</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{c63a8ccf-fcf7-49ff-b682-fc717d1e139c}">
+		<property name="position">
+			<value>100</value>
+		</property>
+		<property name="value">
+			<value>9000</value>
+		</property>
+		<property name="curveShape">
+			<value>0.213015988</value>
+		</property>
+	</object>
+</objects>

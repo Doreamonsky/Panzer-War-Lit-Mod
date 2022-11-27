@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{2a9a58cb-7617-481a-a17b-0acc9e166b14}">
+		<property name="name">
+			<value>velH</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a90932cc-47b0-439c-bdc2-a3867a373822}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a3cf69f2-0612-4133-86cc-ea446f16490e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a3cf69f2-0612-4133-86cc-ea446f16490e}">
+		<property name="maximum">
+			<value>25</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>10</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>30</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

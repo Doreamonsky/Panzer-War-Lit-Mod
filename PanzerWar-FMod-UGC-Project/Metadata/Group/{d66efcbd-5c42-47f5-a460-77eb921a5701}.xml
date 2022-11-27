@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{d66efcbd-5c42-47f5-a460-77eb921a5701}">
+		<property name="name">
+			<value>modules</value>
+		</property>
+		<property name="instanceStealing">
+			<value>1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{eaaff680-ca27-4bd4-8ac1-33a0bf15352d}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{e0ab6150-b862-428a-9854-2fb722c6869f}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{641d5faa-06da-4f4d-98a1-137da1b9b52b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{eaaff680-ca27-4bd4-8ac1-33a0bf15352d}">
+		<relationship name="effects">
+			<destination>{f1e5b866-de81-4d53-b9de-6ceb6e4a18f3}</destination>
+			<destination>{cd2d64d9-fb4f-4c95-b174-454d13159936}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{e0ab6150-b862-428a-9854-2fb722c6869f}" />
+	<object class="MixerBusFader" id="{f1e5b866-de81-4d53-b9de-6ceb6e4a18f3}" />
+	<object class="GainEffect" id="{cd2d64d9-fb4f-4c95-b174-454d13159936}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="gain">
+			<value>-30</value>
+		</property>
+	</object>
+</objects>

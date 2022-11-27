@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{48ec617a-9043-4134-9d50-e667934fbbb6}">
+		<property name="name">
+			<value>Aircraft_Weapon_Close_ai_Multiband EQ</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{6421cdcc-1247-421f-9b51-c99391ae0f39}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{6421cdcc-1247-421f-9b51-c99391ae0f39}">
+		<relationship name="automators">
+			<destination>{cb91cfad-6495-430c-8a00-f0ba428ac3a1}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{cb91cfad-6495-430c-8a00-f0ba428ac3a1}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyA</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{bf2d75ad-8791-4c66-997a-576982c55f78}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{bf2d75ad-8791-4c66-997a-576982c55f78}">
+		<relationship name="parameter">
+			<destination>{4892c4fb-df28-4333-9294-cb47ec6ce7b1}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{68909a25-fc47-4203-a0e4-949e1943ad2a}</destination>
+			<destination>{722ad3ba-668e-48d4-bca9-d324f93b778b}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{68909a25-fc47-4203-a0e4-949e1943ad2a}">
+		<property name="position">
+			<value>200.56497175141243</value>
+		</property>
+		<property name="value">
+			<value>2600</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{722ad3ba-668e-48d4-bca9-d324f93b778b}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>22000</value>
+		</property>
+	</object>
+</objects>

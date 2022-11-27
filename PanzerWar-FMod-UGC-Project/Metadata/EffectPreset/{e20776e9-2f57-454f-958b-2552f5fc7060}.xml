@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{e20776e9-2f57-454f-958b-2552f5fc7060}">
+		<property name="name">
+			<value>Object_3D_Ground_Weapon</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{8a6da2b8-10f4-4d7d-81be-99025e6a0cf8}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{8a6da2b8-10f4-4d7d-81be-99025e6a0cf8}">
+		<relationship name="effects">
+			<destination>{52e2818b-7335-496c-966e-de263e36cf88}</destination>
+		</relationship>
+	</object>
+	<object class="GainEffect" id="{52e2818b-7335-496c-966e-de263e36cf88}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="gain">
+			<value>-6</value>
+		</property>
+	</object>
+</objects>

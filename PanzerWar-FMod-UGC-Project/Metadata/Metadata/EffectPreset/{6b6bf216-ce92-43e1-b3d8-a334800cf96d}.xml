@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EffectPreset" id="{6b6bf216-ce92-43e1-b3d8-a334800cf96d}">
+		<property name="name">
+			<value>Tank_Mguns_AI_Close_Gain</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d00944df-6fdb-4c87-875f-59e7f18a18e0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{01ba8aaf-847e-4a4a-8d87-be12d2157d06}</destination>
+		</relationship>
+	</object>
+	<object class="GainEffect" id="{01ba8aaf-847e-4a4a-8d87-be12d2157d06}">
+		<relationship name="automators">
+			<destination>{e0a33986-0716-47bd-a028-32b38fd31714}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{e0a33986-0716-47bd-a028-32b38fd31714}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{e2af81f0-1bb1-4ca4-82a8-0c50af1e55de}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{e2af81f0-1bb1-4ca4-82a8-0c50af1e55de}">
+		<relationship name="parameter">
+			<destination>{4892c4fb-df28-4333-9294-cb47ec6ce7b1}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{ffe64d61-6847-4500-9862-969678532077}</destination>
+			<destination>{b0f336d8-a0b7-4c70-82d9-7575873b8c64}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{ffe64d61-6847-4500-9862-969678532077}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-2</value>
+		</property>
+		<property name="curveShape">
+			<value>0.323272109</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{b0f336d8-a0b7-4c70-82d9-7575873b8c64}">
+		<property name="position">
+			<value>300</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+	</object>
+</objects>

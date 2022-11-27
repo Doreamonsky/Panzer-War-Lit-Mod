@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{03e960b0-8473-47af-8d6a-bdb530893182}">
+		<property name="name">
+			<value>building_density</value>
+		</property>
+		<relationship name="folder">
+			<destination>{47a10726-98fb-4c14-ac74-b48cc151cca3}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{50f4328d-9eab-4a25-ae03-9c7992e94165}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{50f4328d-9eab-4a25-ae03-9c7992e94165}">
+		<property name="maximum">
+			<value>1000</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>200</value>
+		</property>
+	</object>
+</objects>
