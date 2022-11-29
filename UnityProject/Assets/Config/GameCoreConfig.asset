@@ -12,12 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 906589783, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: GameCoreConfig
   m_EditorClassIdentifier: 
+  comment: 
   builitInVehicleInfoConfig:
     vehicleList: []
   builtInMapInfoConfig:
     mapList: []
   builtInSoundBankConfig:
     soundBankList: []
+  builtInSoundConfig:
+    beHitSoundConfig:
+      beHitEvent:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+      beHitRicochetEvent:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+      beHitNotPiercedEvent:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+    defaultTurretFmodSoundData: {fileID: 0}
+    reloadSoundParam:
+      advancePlayTime: 1
+      soundData: {fileID: 0}
+  builtInFmodCompatibleConfig:
+    compatibleBulletFmodSound: {fileID: 11400000, guid: b76da0ff7ee95804fbb0f9ac315bb358,
+      type: 2}
+    compatibleVehicleEngineFmodSound: {fileID: 11400000, guid: 03a24e5450b6e624b8199e5ee42056b1,
+      type: 2}
   builtInUserSightDataConfig:
     userSightList: []
   builtInBuffConfig:
