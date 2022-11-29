@@ -19,7 +19,7 @@ output=$time-UnityProject.zip
 mkdir $releaseName
 mkdir $releaseName/UnityProject
 
-cp -r  UnityProject/MiddleLibLayer $releaseName/MiddleLibLayer
+cp -r  MiddleLibLayer $releaseName/MiddleLibLayer
 cp -r  UnityProject/Assets $releaseName/UnityProject/Assets
 cp -r  UnityProject/ProjectSettings $releaseName/UnityProject/ProjectSettings
 cp -r  UnityProject/Packages $releaseName/UnityProject/Packages
