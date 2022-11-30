@@ -20,15 +20,26 @@ MonoBehaviour:
     defaultName: Template Turret
     items: []
   icon: {fileID: 21300000, guid: 8a191120667c05e45b327a2fa86446a0, type: 3}
+  is3DIcon: 0
   rank: 6
+  hp: 300
   isModuleReady: 1
   slotInfos:
   - position: {x: 0, y: 0.34, z: 1.37}
-    forwardAxis: 2
     isAttachToGun: 1
   renderType: 0
+  isGenLOD: 1
+  visualModelFileProp:
+    assetGUID: f11a6a6a4ed48c04ba60c92a17a13d4a
+    extra: Assets/Template-DIY/Turret/Template-Turret.prefab
   visualModelFilePath: Assets/Template-DIY/Turret/Template-Turret.prefab
+  hitBoxFileProp:
+    assetGUID: 5d30e1e5f1c3e65469fde9bc2f26b7e6
+    extra: Assets/Template-DIY/Turret/Template-Turret-HitBox.asset
   hitBoxFilePath: Assets/Template-DIY/Turret/Template-Turret-HitBox.asset
+  prefabFileProp:
+    assetGUID: acb11939d178f2c4f91966133c87c2d0
+    extra: Assets\Template-DIY\Turret/472d76261bf4442c8f8d2c79b0b6da93_pre.prefab
   prefabFilePath: Assets\Template-DIY\Turret/472d76261bf4442c8f8d2c79b0b6da93_pre.prefab
   MainCameraFollowTarget:
     localPosition: {x: 0, y: 1.2, z: 0}
@@ -36,6 +47,8 @@ MonoBehaviour:
   MainCameraGunner:
     localPosition: {x: 0, y: 0.35, z: 0}
     localEulerAngle: {x: 0, y: 0, z: 0}
+  viewRange: 360
+  sharedTurretData: {fileID: 0}
   turretParameter:
     maxTurretAngle: 180
     ffPointAlignType: 0
@@ -46,6 +59,8 @@ MonoBehaviour:
     offset: 0
     actionData: {fileID: 0}
     spgDistanceAdjustRatio: 0
+    isEnableTurretSound: 0
+    overrideTurretSound: {fileID: 0}
     overrideRanges: []
     moduleData:
       hasOverride: 0

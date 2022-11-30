@@ -20,15 +20,26 @@ MonoBehaviour:
     defaultName: hull
     items: []
   icon: {fileID: 21300000, guid: 95103e890613c134e990eb6cad2242d4, type: 3}
+  is3DIcon: 0
   rank: 8
+  hp: 300
   isModuleReady: 1
   slotInfos:
   - position: {x: 0, y: 1.26, z: 0}
-    forwardAxis: 2
     isAttachToGun: 0
   renderType: 0
+  isGenLOD: 1
+  visualModelFileProp:
+    assetGUID: 5220f8f603c785d4e88ecaba707217ab
+    extra: Assets/Template-DIY/Hull/Template-Vehicle.prefab
   visualModelFilePath: Assets/Template-DIY/Hull/Template-Vehicle.prefab
+  hitBoxFileProp:
+    assetGUID: c7f2641d15e750f40b874d0f21630f4a
+    extra: Assets/Template-DIY/Hull/Template-Hull-HitBox.asset
   hitBoxFilePath: Assets/Template-DIY/Hull/Template-Hull-HitBox.asset
+  prefabFileProp:
+    assetGUID: e21ea196e04c12e4aaca3830c34ef877
+    extra: Assets\Template-DIY\Hull/fb2d07c582db4704a186da308281013a_pre.prefab
   prefabFilePath: Assets\Template-DIY\Hull/fb2d07c582db4704a186da308281013a_pre.prefab
   EngineSound:
     localPosition: {x: 0, y: 0.71, z: -2.33}
@@ -54,6 +65,7 @@ MonoBehaviour:
     sharedEngineData: {fileID: 0}
     vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
       type: 2}
+    vehicleEngineFmodSoundData: {fileID: 0}
     engineTorqueCurve:
       serializedVersion: 2
       m_Curve:
@@ -99,11 +111,49 @@ MonoBehaviour:
     engineTorque: 4200
     reversingEngineTorque: 4100
     brakeTorque: 42000
-    minEngineRPM: 1000
-    maxEngineRPM: 5000
+    gearParameter:
+      enableGear: 0
+      gears: []
+      totalGears: 5
+      finalRatio: 3.23
+      gearShiftingDelay: 0.35
+      gearShiftingThreshold: 0.75
+      clutchInertia: 0.25
+      gearShiftUpRPM: 1300
+      gearShiftDownRPM: 800
+      engineInertia: 0.15
+      minEngineRPM: 600
+      maxEngineRPM: 1500
     maxSpeed: 36
     minSpeed: 22
     steerTorque: 4
     maxAngularVelocity: 36
     transmissionFlowType: 1
+    engineAction: {fileID: 0}
     isSupportPhysicTrack: 0
+  hydraulicAction: {fileID: 0}
+  MechParameter:
+    isMech: 0
+    walkClip: {fileID: 0}
+    timeToFullyTurn: 0.5
+    overridePlayWalkClip: 0
+    hasWalkSoundEvent: 0
+    hasWalkParticle: 0
+    walkParticleYOffset: 0
+    isOverrideWalkParticle: 0
+    overrideWalkParticles: []
+    isFlyable: 0
+    hasFlyAnimation: 0
+    flyVelocity: 5
+    modeToggleDuration: 1
+    flyUpwardVelocity: 5
+    flyDownwardVelocity: 5
+    maxFlyHeight: 15
+    flyDrag: 0.5
+    flyAngularVelocity: 135
+    fireBurstVFX: {fileID: 0}
+    fuelTime: 15
+    chargeCDTime: 5
+  CarControllerParameter:
+    isCar: 0
+    carControllerType: 0
