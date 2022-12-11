@@ -7,7 +7,6 @@ namespace ShanghaiWindy.Core
 {
     public class VehicleListViewCtrl : MonoBehaviour
     {
-        public EditorStartup editorStartup;
         public Dropdown vehicleDp;
         public Button driveBtn;
 
@@ -15,7 +14,7 @@ namespace ShanghaiWindy.Core
 
         public void Awake()
         {
-            editorStartup.OnInit += () =>
+            EditorModeStartup.OnInit += () =>
             {
                 foreach (var x in VehicleInfoManager.Instance.GetAllDriveableVehicleList(true))
                 {

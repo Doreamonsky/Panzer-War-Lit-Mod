@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3101243040459645832}
   - component: {fileID: 3101243040459645839}
-  - component: {fileID: 3101243040459645838}
+  - component: {fileID: 5935875920647314151}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -619,10 +619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184414aafb271d74cb07b220a270c8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorStartup: {fileID: 3101243040459645838}
   vehicleDp: {fileID: 3101243041394743828}
   driveBtn: {fileID: 3101243040482687605}
---- !u!114 &3101243040459645838
+--- !u!114 &5935875920647314151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -631,9 +630,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3101243040459645834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 47335264, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Script: {fileID: 11500000, guid: eff70c0ee029b1f48844723ed4ed59a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: b99d8a84dfec66342a86abd3b2ed9dcc, type: 2}
 --- !u!1 &3101243040482687607
 GameObject:
   m_ObjectHideFlags: 0
