@@ -27,6 +27,12 @@ cp -r  UnityProject/BuildPiplineCI $releaseName/UnityProject/BuildPiplineCI
 cp -r  PanzerWar-FMod-UGC-Project $releaseName/PanzerWar-FMod-UGC-Project
 cp -r  更新工程必看.txt $releaseName/更新工程必看.txt
 
+# URP Proj
+mkdir $releaseName/UnityURPProject
+cp -r  UnityURPProject/Assets $releaseName/UnityURPProject/Assets
+cp -r  UnityURPProject/ProjectSettings $releaseName/UnityURPProject/ProjectSettings
+cp -r  UnityURPProject/Packages $releaseName/UnityURPProject/Packages
+
 ./zip.exe -r $output $releaseName
 
 rm -r -f $releaseName
