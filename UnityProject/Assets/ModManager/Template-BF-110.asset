@@ -39,6 +39,12 @@ MonoBehaviour:
     - Build/Mod-BuildPipline/Android/BuildPipline-Template-BF-110/packages/packages.manifest
   - targetPlatform: StandaloneWindows64
     relatedAssets:
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606124f72daca28a2045a8ce62c75144bc3.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606124f72daca28a2045a8ce62c75144bc3.unity3d.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606bcc046bad798bd24489d479351f6378b.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606bcc046bad798bd24489d479351f6378b.unity3d.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606df503173db5eb4c4baee3752c34321c0.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/25606df503173db5eb4c4baee3752c34321c0.unity3d.manifest
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c.data
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c.data.manifest
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c_pre.clientextramesh
@@ -47,7 +53,36 @@ MonoBehaviour:
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c_pre.masterextramesh.manifest
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c_vehicleinfo.vehicleinfo
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/bf-110-c_vehicleinfo.vehicleinfo.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/manifest.mark
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/packages
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-Template-BF-110/packages/packages.manifest
-  isLoadManifest: 0
+  modFileManifiests:
+  - n: 25606124f72daca28a2045a8ce62c75144bc3.unity3d
+    h: 083a8a362653ba2362972e20ce38289a
+    d: []
+  - n: 25606bcc046bad798bd24489d479351f6378b.unity3d
+    h: 04bdfc9eaa0346b2a18008a09e330c66
+    d: []
+  - n: 25606df503173db5eb4c4baee3752c34321c0.unity3d
+    h: a7b992706ee77bc98f8ba3eaae5ac644
+    d: []
+  - n: bf-110-c.data
+    h: 24da6e2289511e46348798809f13c582
+    d: []
+  - n: bf-110-c_pre.clientextramesh
+    h: 8fba8e1a5f8796d4fa407fb7f905cf97
+    d:
+    - 25606124f72daca28a2045a8ce62c75144bc3.unity3d
+    - 25606bcc046bad798bd24489d479351f6378b.unity3d
+    - 25606df503173db5eb4c4baee3752c34321c0.unity3d
+  - n: bf-110-c_pre.masterextramesh
+    h: 8a010dc97a67a9852e0020c0f0f9285d
+    d:
+    - 25606124f72daca28a2045a8ce62c75144bc3.unity3d
+    - 25606bcc046bad798bd24489d479351f6378b.unity3d
+    - 25606df503173db5eb4c4baee3752c34321c0.unity3d
+  - n: bf-110-c_vehicleinfo.vehicleinfo
+    h: 6404577f4e540c1311d41a42c8cb3cfa
+    d: []
+  isLoadManifest: 1
   luaScripts: []

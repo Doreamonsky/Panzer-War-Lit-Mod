@@ -14,10 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedObjects:
   - {fileID: 11400000, guid: d163479976e0abf4b83c5dc624626ed3, type: 2}
-  isLoadManifest: 0
-  shareDependenceMaterials: 0
-  shareDependenceModels: 0
-  appenModPackHashToDependence: 0
+  isLoadManifest: 1
+  shareDependenceMaterials: 1
+  shareDependenceModels: 1
+  appenModPackHashToDependences: 1
+  modPackageBuildDependenciesCache:
+  - AssetName: Assets/Res/Vehicles/Aviation/Data/Planes/BF-110-C/BF-110-C.asset
+    Dependencies: []
+    Hash: 5830865faea0aa7c80efebf89bf08d5d
+  - AssetName: Assets/Res/Vehicles/Aviation/Data/Planes/BF-110-C/BF-110-C_FlightTextData.asset
+    Dependencies: []
+    Hash: 649c2387adfeebc0b991462180922bf8
+  - AssetName: Assets/res/Cooked/bf-110-c_pre.prefab
+    Dependencies:
+    - Assets/Template-Flight/Glass.mat
+    - Assets/Template-Flight/BF-110.mat
+    - Assets/Res/Vehicles/Aviation/Prefab/prop.mat
+    Hash: 34661abf989727effc9ac88a65708594
+  - AssetName: Assets/res/Cooked/DelicatedServer/bf-110-c_pre.prefab
+    Dependencies:
+    - Assets/Template-Flight/Glass.mat
+    - Assets/Template-Flight/BF-110.mat
+    - Assets/Res/Vehicles/Aviation/Prefab/prop.mat
+    Hash: 14c75767de9218b662e0b663ab4ec2d5
   useAddressableKeyAsPath: 0
   linkedModPackage: {fileID: 11400000, guid: 4afb0bd90f5a2624eab91ceafb4cfee8, type: 2}
   isEncryption: 0
