@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BuildPipline-Template-BF-110
   m_EditorClassIdentifier: 
   linkedObjects:
-  - {fileID: 11400000, guid: d163479976e0abf4b83c5dc624626ed3, type: 2}
-  isLoadManifest: 1
+  - {fileID: 11400000, guid: d3d1ce6fe2089934baf47c3863215d67, type: 2}
+  isLoadManifest: 0
   shareDependenceMaterials: 1
   shareDependenceModels: 1
   appenModPackHashToDependences: 1
@@ -37,6 +37,30 @@ MonoBehaviour:
     - Assets/Template-Flight/BF-110.mat
     - Assets/Res/Vehicles/Aviation/Prefab/prop.mat
     Hash: 14c75767de9218b662e0b663ab4ec2d5
+  - AssetName: Assets/Res/Vehicles/Ground/Data/Vehicle/Hotchkiss_EBR/Hotchkiss_EBR.asset
+    Dependencies: []
+    Hash: e4f97d259e8a69fa3632b30e753b24a6
+  - AssetName: Assets/Res/Vehicles/Ground/Data/Vehicle/Hotchkiss_EBR/Hotchkiss_EBR_VehicleTextData.asset
+    Dependencies: []
+    Hash: 9db5b5f3a523239d2774e64317f3af21
+  - AssetName: Assets/res/Cooked/b7b30129-865d-474a-bab6-a672b3e9d71f_pre.prefab
+    Dependencies:
+    - Assets/HotchkissEBR/HotchEBRWheel.mat
+    - Assets/HotchkissEBR/HotchEBRTurret.mat
+    - Assets/HotchkissEBR/HotchEBRTurretEQ.mat
+    - Assets/HotchkissEBR/HotchEBRGun.mat
+    - Assets/HotchkissEBR/HotchHitBox.fbx
+    - Assets/HotchkissEBR/HotchInternal.fbx
+    - Assets/HotchkissEBR/HotchEBRHull.mat
+    - Assets/HotchkissEBR/EBRHotch.fbx
+    - Assets/HotchkissEBR/EBRCO.fbx
+    Hash: 1a0e7feb0122cc2fdac8ee740b07460a
+  - AssetName: Assets/res/Cooked/DelicatedServer/b7b30129-865d-474a-bab6-a672b3e9d71f_pre.prefab
+    Dependencies:
+    - Assets/HotchkissEBR/HotchHitBox.fbx
+    - Assets/HotchkissEBR/HotchInternal.fbx
+    - Assets/HotchkissEBR/EBRCO.fbx
+    Hash: 912eb436e9e09c11d210b8927c1c70bb
   useAddressableKeyAsPath: 0
   linkedModPackage: {fileID: 11400000, guid: 4afb0bd90f5a2624eab91ceafb4cfee8, type: 2}
   isEncryption: 0
