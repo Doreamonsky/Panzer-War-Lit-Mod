@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -155347938, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Template-TechTree
+  m_EditorClassIdentifier: 
+  nationName:
+    defaultName: 
+    items: []
+  nationThumbnail: {fileID: 0}
+  guid: bf9ae021-9d93-4edd-8aa9-9561de4a2a65
+  techTreeNodes:
+  - nodeGUID: 2e21712f-b780-4396-9ed9-795710b3877b
+    vehicleName: Template-Vehicle
+    researchEXP: 2400
+    postion: {x: 600, y: 0}
+    outputPortGuids: []
+  nodeLinks:
+  - baseNodeGUID: 65215194-e3e7-4f1f-965f-08cdfd238a20
+    basePortName: EntryPoint
+    targetNodeGUID: 2e21712f-b780-4396-9ed9-795710b3877b
