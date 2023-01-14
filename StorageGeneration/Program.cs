@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using ShanghaiWindy.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Text;
 
 namespace StorageGeneration
@@ -63,13 +65,52 @@ namespace StorageGeneration
 
                 foreach (var file in authorDir.GetFiles("*.modpack"))
                 {
+                    string author = authorDir.Name;
+                    string packageDes = string.Empty;
+
                     readMeBuilder.AppendLine($"### {Path.GetFileNameWithoutExtension(file.Name)}");
                     readMeBuilder.AppendLine();
 
-                    var mdName = Path.GetFileNameWithoutExtension(file.Name.Replace("Android_", "").Replace("StandaloneWindows64_", ""));
-                    var modRMStream = new FileStream($"{authorDir}/{mdName}.md", FileMode.OpenOrCreate);
-                    var streamReader = new StreamReader(modRMStream);
-                    readMeBuilder.Append(streamReader.ReadToEnd());
+                    using (var fileSteam = new FileStream(file.FullName, FileMode.Open))
+                    {
+                        using (var archive = new ZipArchive(fileSteam, ZipArchiveMode.Read))
+                        {
+                            foreach(var entry in archive.Entries)
+                            {
+                                if(entry.Name == "package.json")
+                                {
+                                    var reader = new StreamReader(entry.Open());
+                                    var text = reader.ReadToEnd();
+                                    var package = JsonConvert.DeserializeObject<ModPackageInfo>(text);
+
+                                    if(package != null)
+                                    {
+                                        if (package.description != "The Description of the mod")
+                                        {
+                                            packageDes = package.description;
+                                        }
+
+                                        if (package.dependencies.Length > 0)
+                                        {
+                                            foreach (var dependency in package.dependencies)
+                                            {
+                                                packageDes += $"Dependecy:{dependency.packageName} {dependency.packageGuid}";
+                                            }
+                                        }
+
+                                        if (package.author != "Your Name")
+                                        {
+                                            author = package.author;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        };
+                    }
+                   
+
+                    readMeBuilder.Append(packageDes);
                     readMeBuilder.AppendLine();
 
 
@@ -99,6 +140,13 @@ namespace StorageGeneration
                         platform = "Windows64";
                     }
 
+                    if (file.Name.Contains("iOS"))
+                    {
+                        readMeBuilder.AppendLine($"Platform:iOS");
+                        platform = "iOS";
+                    }
+
+
                     readMeBuilder.AppendLine($"[Click To Download](https://github.com/Doreamonsky/Panzer-War-Mod-Storage/blob/master/{authorDir.Name}/{file.Name}?raw=true)");
                     readMeBuilder.AppendLine();
 
@@ -108,15 +156,12 @@ namespace StorageGeneration
                         link = $"{authorDir.Name}/{file.Name}",
                         packName = Path.GetFileNameWithoutExtension(file.Name),
                         size = size.ToString("f1"),
-                        description = $"第三方模组 / Game Mod {streamReader.ReadToEnd()}",
+                        description = $"第三方模组 / Game Mod. {packageDes}",
                         platform = platform,
                         editTime = $"{file.LastWriteTime.Year}/{file.LastWriteTime.Month}/{file.LastWriteTime.Day}",
                         date = file.LastWriteTime,
-                        author = authorDir.Name
+                        author = author
                     });
-
-                    streamReader.Close();
-                    modRMStream.Close();
                 }
             }
 
