@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1845641451, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: New Feature Sight
+  m_EditorClassIdentifier: 
+  displayName:
+    defaultName: 
+    items: []
+  guid: 944a3416-b227-4f65-a242-b56c29368348
+  thousandth: 0
+  drawCentralLineVert: 1
+  drawCentralLineHorz: 1
+  centralLineVertThickness: 1
+  centralLineHorzThickness: 1
+  ballistics:
+  - defaultGravity: 9.8
+    dynamicGravity: 1
+    defaultVelocity: 480
+    dynamicVelocity: 1
+    crosshairDistances:
+    - range: 200
+      number: 0
+      notchSize: 0
+    - range: 400
+      number: 0.4
+      notchSize: -0.005
+    - range: 600
+      number: 0
+      notchSize: 0
+    - range: 800
+      number: 0.8
+      notchSize: -0.005
+    - range: 1000
+      number: 0
+      notchSize: 0
+    - range: 1200
+      number: 1.2
+      notchSize: -0.005
+    horzOffSet: 0
+    textHorzOffSet: -0.006
+    textVertOffSet: -0.004
+    crosshairHorRanges:
+    - range: 4
+      number: 0
+      notchSize: 0.005
+    - range: 8
+      number: 8
+      notchSize: 0.015
+    - range: 12
+      number: 0
+      notchSize: 0.005
+    - range: 16
+      number: 16
+      notchSize: 0.015
+    - range: 20
+      number: 0
+      notchSize: 0.005
+    - range: 24
+      number: 24
+      notchSize: 0.015
+    - range: 28
+      number: 0
+      notchSize: 0.005
+    - range: 32
+      number: 32
+      notchSize: 0.015
+    - range: -4
+      number: 0
+      notchSize: 0.005
+    - range: -8
+      number: 8
+      notchSize: 0.015
+    - range: -12
+      number: 0
+      notchSize: 0.005
+    - range: -16
+      number: 16
+      notchSize: 0.015
+    - range: -20
+      number: 0
+      notchSize: 0.005
+    - range: -24
+      number: 24
+      notchSize: 0.015
+    - range: -28
+      number: 0
+      notchSize: 0.005
+    - range: -32
+      number: 32
+      notchSize: 0.015
+    crosshairHorRangeVertOffSet: 0
+    textHorRangeVertOffSet: 0.015
+    drawCircle: 1
+  lineThousandths: []
+  lines: []
+  circles: []
+  uiTexts: []
+  uiImages:
+  - img: {fileID: 21300000, guid: 562790a87aa90914c9ba899c9f1c23aa, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    pos: {x: 0.25, y: 0.25}
+    size: {x: 300, y: 300}
+  circleMode: 0
+  radialAngle: 180
+  initialRadialAngle: 90
+  drawCircleLines: 1
+  circleEdge: 0.7
+  circleTextOffSet: 0.05
+  circleNotchOffSet: 0.025
+  overrideFireCrossEffectData: {fileID: 11400000, guid: e160bc6ad8ed06d438d9017256595f73,
+    type: 2}
