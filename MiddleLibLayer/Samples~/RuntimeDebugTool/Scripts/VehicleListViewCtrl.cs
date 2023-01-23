@@ -1,9 +1,10 @@
-using ShanghaiWindy.Core.RuntimeEditor;
 using System.Collections.Generic;
+using ShanghaiWindy.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShanghaiWindy.Core
+
+namespace ShanghaiWindy.Editor.PlayMode
 {
     public class VehicleListViewCtrl : MonoBehaviour
     {
@@ -21,10 +22,7 @@ namespace ShanghaiWindy.Core
                     RefershVehicleList(x);
                 }
 
-                VehicleInfoManager.OnNewVehicleAdded += (x) =>
-                {
-                    RefershVehicleList(x);
-                };
+                VehicleInfoManager.OnNewVehicleAdded += (x) => { RefershVehicleList(x); };
             };
 
             driveBtn.onClick.AddListener(() =>
@@ -35,25 +33,17 @@ namespace ShanghaiWindy.Core
                 switch (vehicleInfo.type)
                 {
                     case VehicleInfo.Type.Ground:
-                        CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
-                        {
-
-                        });
+                        CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
                         break;
                     case VehicleInfo.Type.Aviation:
-                        CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false, p =>
-                        {
-
-                        });
+                        CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false, p => { });
                         break;
                     case VehicleInfo.Type.Army:
-                        CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p =>
-                        {
-
-                        });
+                        CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
                         break;
                 }
 
+                MouseLockModule.Instance.Hide();
             });
         }
 
@@ -70,5 +60,4 @@ namespace ShanghaiWindy.Core
             vehicleList.Add(x);
         }
     }
-
 }
