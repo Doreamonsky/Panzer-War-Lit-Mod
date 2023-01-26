@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ShanghaiWindy.Core;
 using UnityEngine;
@@ -23,6 +24,12 @@ namespace ShanghaiWindy.Editor.PlayMode
                 }
 
                 VehicleInfoManager.OnNewVehicleAdded += (x) => { RefershVehicleList(x); };
+
+                vehicleList.Sort((a, b) => String.Compare(a.GetDisplayName(), b.GetDisplayName(), StringComparison.Ordinal));
+                vehicleDp.options.Sort((a, b) => String.Compare(a.text, b.text, StringComparison.Ordinal));
+
+                vehicleDp.value = PlayerPrefs.GetInt("VehicleDp");
+                vehicleDp.onValueChanged.AddListener((val) => { PlayerPrefs.SetInt("VehicleDp", val); });
             };
 
             driveBtn.onClick.AddListener(() =>
