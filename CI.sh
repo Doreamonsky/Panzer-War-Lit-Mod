@@ -14,5 +14,5 @@ git push github
 
 # 归档
 output=$time-UnityProject.zip
-git archive --format=zip--output=$output
+git archive master --format=zip --output=$output
 mv $output archive/$output
