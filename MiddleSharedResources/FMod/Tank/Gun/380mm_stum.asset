@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 522437, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 380mm_stum
+  m_EditorClassIdentifier: 
+  comment: 
+  shotDuration: 2
+  playFromStart: 1
+  exteriorFireEvent:
+    Guid:
+      Data1: -1729106354
+      Data2: 1228013283
+      Data3: -1160883532
+      Data4: -1551065912
+    Path: event:/ground/weapon/cannons/simple/380mm_stum
+  aiFireEvent:
+    Guid:
+      Data1: -362581999
+      Data2: 1246949929
+      Data3: -2110597992
+      Data4: -1944317182
+    Path: event:/ground/weapon/cannons/simple/380mm_stum_ai
+  interiorFireEvent:
+    Guid:
+      Data1: -1522766323
+      Data2: 1117725066
+      Data3: 746788538
+      Data4: 212496476
+    Path: event:/ground/weapon/cannons/simple/380mm_stum_interior

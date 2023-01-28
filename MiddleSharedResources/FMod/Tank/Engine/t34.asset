@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -235337512, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: t34
+  m_EditorClassIdentifier: 
+  comment: 
+  engineRunDelay: 4
+  engineStartEvent:
+    Guid:
+      Data1: -971153584
+      Data2: 1313258189
+      Data3: -978249831
+      Data4: 1864617149
+    Path: event:/ground/engines/t34/engine_start
+  engineRunningEvent:
+    Guid:
+      Data1: -443237643
+      Data2: 1095958213
+      Data3: -733717060
+      Data4: 514580662
+    Path: event:/ground/engines/t34/engine
+  engineRunningInteriorEvent:
+    Guid:
+      Data1: -334882012
+      Data2: 1250110058
+      Data3: 111536032
+      Data4: 463257977
+    Path: event:/ground/engines/t34/engine_interior
+  engineRunningAIEvent:
+    Guid:
+      Data1: -2078567924
+      Data2: 1154559049
+      Data3: 1518523022
+      Data4: 42577969
+    Path: event:/ground/engines/t34/engine_ai
+  surfaceEvent:
+    Guid:
+      Data1: -1017575528
+      Data2: 1125037490
+      Data3: -2073618283
+      Data4: 1504028497
+    Path: event:/ground/engines/surface
+  trackEvent:
+    Guid:
+      Data1: -154576359
+      Data2: 1174868359
+      Data3: 1135396756
+      Data4: 459143779
+    Path: event:/ground/engines/tracks
+  trackAIEvent:
+    Guid:
+      Data1: -1316005301
+      Data2: 1320779802
+      Data3: 1001580446
+      Data4: 168965679
+    Path: event:/ground/engines/tracks_ai_middle

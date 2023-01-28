@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7731986168267774766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Sprgr
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
+  penetration: 46
+  damage: 360
+  velocity: 820
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 88
+  moduleData:
+    explosiveMassEqualTNT: 698
+    mass: 9
+    fuseDelay: 0.1
+  ExplosionRange: 2.8
+  isDeclineByDistance: 0
+  maxDamagePershell: 50
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 359232964, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 88 mm KwK36
+  m_EditorClassIdentifier: 
+  comment: 
+  tankFireParameter:
+    fireState: 0
+    ReloadTime: 8.51
+    isEnableSimpleReloadSound: 1
+    overrideSimpleReloadSound:
+      rid: -2
+    AmmoCount: 60
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    advanceFireClass:
+      SmallReloadTime: 0
+      LargeReloadTime: 0
+      MaxSmallAmmo: 0
+      disableMegaIcon: 0
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 0
+      overrideLargeReloadSound:
+        rid: -2
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0
+    bulletSound: {fileID: 0}
+    fmodBulletSound: {fileID: 11400000, guid: bcb948413bf423c43abdb6c0e041ad4a, type: 2}
+    bulletData:
+    - {fileID: 7722306553945638468}
+    - {fileID: -7731986168267774766}
+    - {fileID: 3352367722012513487}
+    muzzleFire: 1
+    overrideMuzzleFires: []
+    fireDymScale: 1
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 11400000, guid: 1261da894e6be0f4290dda13ecfcecae, type: 2}
+    canBrakeSubFireLoop: 0
+    canFireIfMainClick: 0
+    canFireIfSubClick: 0
+    isEnableFireGroup: 0
+    fireGroupParm:
+      groupID: 0
+      priority: 0
+      fireMinDelay: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3352367722012513487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: PzGr 40
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 220
+  damage: 180
+  velocity: 1000
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 88
+  moduleData:
+    explosiveMassEqualTNT: 285.6
+    mass: 9.5
+    fuseDelay: 1.2
+  warhead: 7
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -1
+--- !u!114 &7722306553945638468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: PzGr 39
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 165
+  damage: 260
+  velocity: 773
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 88
+  moduleData:
+    explosiveMassEqualTNT: 108
+    mass: 10.2
+    fuseDelay: 1.2
+  warhead: 7
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -1

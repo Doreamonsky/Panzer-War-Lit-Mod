@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2020154626, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: V-2K
+  m_EditorClassIdentifier: 
+  comment: "KV-1 \u5F15\u64CE "
+  engineName: V-2K
+  vehicleEngineSoundData: {fileID: 0}
+  vehicleEngineFmodSoundData: {fileID: 11400000, guid: 6b0af4b3dab4a2d4eb776e2e40c275ac,
+    type: 2}
+  engineTorqueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: -0.2
+      outSlope: -0.2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 1
+      inSlope: Infinity
+      outSlope: 0.0009124496
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.12988073
+    - serializedVersion: 3
+      time: 32
+      value: 0.4222206
+      inSlope: -0.007557037
+      outSlope: -0.007557037
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08066389
+      outWeight: 0.34721205
+    - serializedVersion: 3
+      time: 37
+      value: 0
+      inSlope: -0.102180235
+      outSlope: -0.102180235
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08869446
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  engineTorque: 2800
+  reversingEngineTorque: 2600
+  brakeTorque: 4600
+  gearParameter:
+    enableGear: 1
+    gears:
+    - maxRatio: 4.23
+      targetSpeedForNextGear: 5
+    - maxRatio: 2.52
+      targetSpeedForNextGear: 11
+    - maxRatio: 1.66
+      targetSpeedForNextGear: 16
+    - maxRatio: 1.22
+      targetSpeedForNextGear: 22
+    - maxRatio: 1
+      targetSpeedForNextGear: 27
+    totalGears: 5
+    finalRatio: 3
+    gearShiftingDelay: 0.25
+    gearShiftingThreshold: 0.75
+    clutchInertia: 0.5
+    gearShiftUpRPM: 1300
+    gearShiftDownRPM: 800
+    engineInertia: 0.05
+    minEngineRPM: 600
+    maxEngineRPM: 1500
+  maxSpeed: 37
+  minSpeed: 7
+  steerTorque: 4.5
+  maxAngularVelocity: 32
+  transmissionFlowType: 0

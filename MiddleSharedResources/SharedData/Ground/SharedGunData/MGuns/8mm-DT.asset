@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 359232964, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 8mm-DT
+  m_EditorClassIdentifier: 
+  comment: "\u82CF\u7CFB\u901A\u7528\u673A\u67AA"
+  tankFireParameter:
+    fireState: 1
+    ReloadTime: 0.15
+    isEnableSimpleReloadSound: 0
+    overrideSimpleReloadSound:
+      rid: -2
+    AmmoCount: 1900
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    advanceFireClass:
+      SmallReloadTime: 0.1
+      LargeReloadTime: 7.4
+      MaxSmallAmmo: 63
+      disableMegaIcon: 1
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 1
+      overrideLargeReloadSound:
+        rid: 2421261383233175554
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0.5
+    bulletSound: {fileID: 0}
+    fmodBulletSound: {fileID: 11400000, guid: 10ca25e23a4604c418646ed121585123, type: 2}
+    bulletData:
+    - {fileID: 11400000, guid: b74c7243ba6d13b4ca56ee2ac0e6bed9, type: 2}
+    muzzleFire: 3
+    overrideMuzzleFires: []
+    fireDymScale: 0
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
+    canFireIfMainClick: 0
+    canFireIfSubClick: 0
+    isEnableFireGroup: 0
+    fireGroupParm:
+      groupID: 0
+      priority: 0
+      fireMinDelay: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2421261383233175554
+      type: {class: ReloadFmodSoundParameter, ns: ShanghaiWindy.Core, asm: Core}
+      data:
+        advancePlayTime: 1
+        soundData: {fileID: 11400000, guid: 99dde0d4dd1e4ef43bed87ab8dc02df0, type: 2}

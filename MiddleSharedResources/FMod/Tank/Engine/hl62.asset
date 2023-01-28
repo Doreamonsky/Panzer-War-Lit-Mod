@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -235337512, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: hl62
+  m_EditorClassIdentifier: 
+  comment: 
+  engineRunDelay: 4
+  engineStartEvent:
+    Guid:
+      Data1: 313887646
+      Data2: 1106413119
+      Data3: 1213290928
+      Data4: 2139067079
+    Path: event:/ground/engines/hl62/engine_start
+  engineRunningEvent:
+    Guid:
+      Data1: 1212128100
+      Data2: 1182362522
+      Data3: -307177545
+      Data4: 1067323239
+    Path: event:/ground/engines/hl62/engine
+  engineRunningInteriorEvent:
+    Guid:
+      Data1: 1846131781
+      Data2: 1235038593
+      Data3: -551781996
+      Data4: 972973425
+    Path: event:/ground/engines/hl62/engine_interior
+  engineRunningAIEvent:
+    Guid:
+      Data1: -1318185518
+      Data2: 1119164354
+      Data3: -1945204549
+      Data4: 1154471449
+    Path: event:/ground/engines/hl62/engine_ai
+  surfaceEvent:
+    Guid:
+      Data1: -1017575528
+      Data2: 1125037490
+      Data3: -2073618283
+      Data4: 1504028497
+    Path: event:/ground/engines/surface
+  trackEvent:
+    Guid:
+      Data1: -154576359
+      Data2: 1174868359
+      Data3: 1135396756
+      Data4: 459143779
+    Path: event:/ground/engines/tracks
+  trackAIEvent:
+    Guid:
+      Data1: -1316005301
+      Data2: 1320779802
+      Data3: 1001580446
+      Data4: 168965679
+    Path: event:/ground/engines/tracks_ai_middle

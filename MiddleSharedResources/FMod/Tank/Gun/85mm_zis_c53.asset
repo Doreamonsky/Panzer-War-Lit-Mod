@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 522437, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 85mm_zis_c53
+  m_EditorClassIdentifier: 
+  comment: 
+  shotDuration: 2
+  playFromStart: 1
+  exteriorFireEvent:
+    Guid:
+      Data1: 881631452
+      Data2: 1080417368
+      Data3: -303953252
+      Data4: -814512953
+    Path: event:/ground/weapon/cannons/simple/85mm_zis_c53
+  interiorFireEvent:
+    Guid:
+      Data1: 150179359
+      Data2: 1100632956
+      Data3: 595474608
+      Data4: 280170676
+    Path: event:/ground/weapon/cannons/simple/85mm_zis_c53_interior
+  aiFireEvent:
+    Guid:
+      Data1: 428214204
+      Data2: 1194393060
+      Data3: -815165030
+      Data4: -2007789467
+    Path: event:/ground/weapon/cannons/simple/85mm_zis_c53_ai

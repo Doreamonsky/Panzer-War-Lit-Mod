@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 359232964, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 85mm-ZIS-S-53
+  m_EditorClassIdentifier: 
+  comment: "t-34-85 \u4E3B\u70AE"
+  tankFireParameter:
+    fireState: 0
+    ReloadTime: 8.52
+    isEnableSimpleReloadSound: 1
+    overrideSimpleReloadSound:
+      rid: -2
+    AmmoCount: 60
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    advanceFireClass:
+      SmallReloadTime: 0
+      LargeReloadTime: 0
+      MaxSmallAmmo: 0
+      disableMegaIcon: 0
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 0
+      overrideLargeReloadSound:
+        rid: -2
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0
+    bulletSound: {fileID: 0}
+    fmodBulletSound: {fileID: 11400000, guid: 82bc9ff67dce78849840f9be74db868e, type: 2}
+    bulletData:
+    - {fileID: 3412968085722888007}
+    - {fileID: 4304987242819621524}
+    - {fileID: 6785819904146220186}
+    muzzleFire: 1
+    overrideMuzzleFires: []
+    fireDymScale: 1
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
+    canFireIfMainClick: 0
+    canFireIfSubClick: 0
+    isEnableFireGroup: 0
+    fireGroupParm:
+      groupID: 0
+      priority: 0
+      fireMinDelay: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3412968085722888007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-365K
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 148
+  damage: 160
+  velocity: 792
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 85
+  moduleData:
+    explosiveMassEqualTNT: 221.76
+    mass: 9.2
+    fuseDelay: 1.2
+  warhead: 4
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -1
+--- !u!114 &4304987242819621524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: "BR-365P\t"
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 195
+  damage: 140
+  velocity: 1050
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 85
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 5
+    fuseDelay: 0
+  warhead: 6
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -1
+--- !u!114 &6785819904146220186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: O-365K
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
+  penetration: 28
+  damage: 260
+  velocity: 792
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 85
+  moduleData:
+    explosiveMassEqualTNT: 660
+    mass: 9.85
+    fuseDelay: 0.1
+  ExplosionRange: 2.4
+  isDeclineByDistance: 0
+  maxDamagePershell: 50

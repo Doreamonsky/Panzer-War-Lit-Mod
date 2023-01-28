@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 522437, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 8mm-mg42
+  m_EditorClassIdentifier: 
+  comment: 
+  shotDuration: 0.2
+  playFromStart: 0
+  exteriorFireEvent:
+    Guid:
+      Data1: -587105007
+      Data2: 1257295313
+      Data3: -426693207
+      Data4: -1816038613
+    Path: event:/ground/weapon/mguns/complicated/8mm_mg42
+  aiFireEvent:
+    Guid:
+      Data1: -1231282774
+      Data2: 1304096051
+      Data3: -1524366665
+      Data4: 1315322006
+    Path: event:/ground/weapon/mguns/complicated/8mm_mg42_ai
+  interiorFireEvent:
+    Guid:
+      Data1: 1323552101
+      Data2: 1292050109
+      Data3: 2121123241
+      Data4: -1082349932
+    Path: event:/ground/weapon/mguns/complicated/8mm_mg42_interior

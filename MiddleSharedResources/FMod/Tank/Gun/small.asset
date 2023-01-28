@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 522437, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: small
+  m_EditorClassIdentifier: 
+  comment: 
+  shotDuration: 2
+  playFromStart: 1
+  exteriorFireEvent:
+    Guid:
+      Data1: -801037000
+      Data2: 1102578810
+      Data3: -683481179
+      Data4: 199261152
+    Path: event:/ground/weapon/cannons/common/small
+  aiFireEvent:
+    Guid:
+      Data1: -1223866539
+      Data2: 1271516323
+      Data3: 1751235006
+      Data4: 1741335815
+    Path: event:/ground/weapon/cannons/common/small_ai
+  interiorFireEvent:
+    Guid:
+      Data1: 801929928
+      Data2: 1092631474
+      Data3: 835942574
+      Data4: 451930974
+    Path: event:/ground/weapon/cannons/common/small_interior
