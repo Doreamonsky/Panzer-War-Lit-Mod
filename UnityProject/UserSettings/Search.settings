@@ -1,6 +1,6 @@
 trackSelection = true
 fetchPreview = true
-wantsMore = false
+defaultFlags = 256
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
@@ -10,6 +10,9 @@ scopes = {
 	"last_search.8788AF05" = "postcamera"
 	"OpenInspectorPreview.8788AF05" = "0"
 	"currentGroup.8788AF05" = "scene"
+	"last_search.982FBD6D" = "t:shanghaiwindy.core.bulletvfx "
+	"OpenInspectorPreview.982FBD6D" = "0"
+	"currentGroup.982FBD6D" = "all"
 }
 providers = {
 	adb = {
@@ -52,8 +55,36 @@ providers = {
 		priority = 50
 		defaultAction = null
 	}
+	menu = {
+		active = true
+		priority = 80
+		defaultAction = null
+	}
+	settings = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	help = {
+		active = true
+		priority = -1
+		defaultAction = null
+	}
+	calculator = {
+		active = true
+		priority = 10
+		defaultAction = null
+	}
+	static_methods = {
+		active = true
+		priority = 85
+		defaultAction = null
+	}
+}
+objectSelectors = {
 }
 recentSearches = [
+	":"
 	"postcamera"
 ]
 searchItemFavorites = [
