@@ -47,14 +47,13 @@ namespace ShanghaiWindy.Editor.PlayMode
             GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
             SimpleResourceManager.Instance = new SimpleResourceManager(AssetBundleEntry.Instance.BundleManager);
 
-
             // 正式游戏加载流程
             RuntimeLogger.Init();
 
             var externalDirs = new List<DirectoryInfo>
             {
-                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/"),
-                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/")
+                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
+                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/")
             };
 
             var buildDir = new DirectoryInfo(Application.dataPath + "/../Build/Mod-BuildPipline");
@@ -62,20 +61,19 @@ namespace ShanghaiWindy.Editor.PlayMode
             {
                 foreach (var packageDir in platformDir.GetDirectories())
                 {
-                    externalDirs.Add(packageDir);
+                    var subPackageDir = new DirectoryInfo($"{packageDir}/packages/");
+                    if (subPackageDir.Exists)
+                    {
+                        externalDirs.Add(subPackageDir);
+                    }
                 }
-            }
-
-            foreach (var externalDir in externalDirs)
-            {
-                ResourceLog.Log($"Find dir {externalDir.FullName} as external dir");
             }
 
             AssetBundleEntry.Instance.PackageManager.AddExternalModFolders(externalDirs.ToArray());
 
             foreach (var packageInfo in AssetBundleEntry.Instance.PackageManager.GetPackageInfos(true))
             {
-                Debug.Log(packageInfo.PackageFolder);
+                ResourceLog.Log($"{packageInfo.PackageName} is added to package manager.");
             }
 
             SimpleResourceManager.Instance.InstantiateAsync(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>

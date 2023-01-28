@@ -7,7 +7,8 @@
       "dependencies": {
         "com.unity.addressables": "1.19.19",
         "com.unity.jobs": "0.70.0-preview.7",
-        "com.unity.timeline": "1.6.4"
+        "com.unity.timeline": "1.6.4",
+        "com.unity.shadergraph": "12.1.7"
       }
     },
     "com.shanghaiwindy.workshop": {
@@ -101,12 +102,38 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.render-pipelines.core": {
+      "version": "12.1.7",
+      "depth": 2,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      }
+    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.20.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
+    },
+    "com.unity.searcher": {
+      "version": "4.9.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.shadergraph": {
+      "version": "12.1.7",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "12.1.7",
+        "com.unity.searcher": "4.9.1"
+      }
     },
     "com.unity.sysroot": {
       "version": "2.0.4",
