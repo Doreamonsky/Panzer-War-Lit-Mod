@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: 125 MM AP
   m_EditorClassIdentifier: 
-  bulletVFX: {fileID: 11400000, guid: fb512188be6dc804f88e4f69869d3883, type: 2}
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
   penetration: 263
   damage: 420
   velocity: 960
   gravityDamper: 9.8
+  projectileType: 0
   fireRecoil: 240
   caliber: 125
   moduleData:
@@ -24,4 +26,5 @@ MonoBehaviour:
     mass: 6.5
     fuseDelay: 0.1
   warhead: 1
+  isDeclineByDistance: 1
   overrideNormalizeAngle: -1
