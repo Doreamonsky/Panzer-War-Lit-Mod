@@ -12,29 +12,7 @@ git commit -m "$comment"
 git push
 git push github
 
-# 创建缓存工程
-releaseName=UnityProject-Release
+# 归档
 output=$time-UnityProject.zip
-
-mkdir $releaseName
-mkdir $releaseName/UnityProject
-
-cp -r  MiddleLibLayer $releaseName/MiddleLibLayer
-cp -r  MiddleLibWorkshop $releaseName/MiddleLibWorkshop
-cp -r  UnityProject/Assets $releaseName/UnityProject/Assets
-cp -r  UnityProject/ProjectSettings $releaseName/UnityProject/ProjectSettings
-cp -r  UnityProject/Packages $releaseName/UnityProject/Packages
-cp -r  UnityProject/BuildPiplineCI $releaseName/UnityProject/BuildPiplineCI
-cp -r  PanzerWar-FMod-UGC-Project $releaseName/PanzerWar-FMod-UGC-Project
-cp -r  更新工程必看.txt $releaseName/更新工程必看.txt
-
-# URP Proj
-mkdir $releaseName/UnityURPProject
-cp -r  UnityURPProject/Assets $releaseName/UnityURPProject/Assets
-cp -r  UnityURPProject/ProjectSettings $releaseName/UnityURPProject/ProjectSettings
-cp -r  UnityURPProject/Packages $releaseName/UnityURPProject/Packages
-
-./zip.exe -r $output $releaseName
-
-rm -r -f $releaseName
+git archive --format=zip--output=$output
 mv $output archive/$output
