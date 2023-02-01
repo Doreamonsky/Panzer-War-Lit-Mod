@@ -13,6 +13,14 @@ MonoBehaviour:
   m_Name: BF-110-C_FlightTextData
   m_EditorClassIdentifier: 
   assetName: BF-110-C
+  causalData:
+    flightCausualType: 0
+    aggressiveTurnAngle: 15
+    fighterMass: 1000
+    figerDrag: 1
+    figterAngularDrag: 5
+    fighterEnginePower: 60
+    turnTorque: {x: 8, y: 7, z: 35}
   mass: 4800
   drag: 0.0125
   angularDrag: 0.8
@@ -23,6 +31,7 @@ MonoBehaviour:
   takeOffFlap: 1
   flightFireDatas:
   - weaponName: '2 x 20 mm MG FF/M cannon '
+    isFireTurns: 0
     firePoints:
     - Cannon_L
     - Cannon_R
@@ -34,7 +43,13 @@ MonoBehaviour:
     dispersion: 0.1
     fireClip: {fileID: 8300000, guid: e595b95608ac3a2408220137c877b77b, type: 3}
     fireVolume: 0.75
+    isFireSoundOverride: 0
+    fmodBulletSound: {fileID: 0}
+    hasFireCircle: 0
+    hasBombCircle: 0
+    isWeaponCrossing: 0
   - weaponName: '2 x 500 kg SC500K bombs '
+    isFireTurns: 0
     firePoints:
     - Bomb
     keyType: 2
@@ -45,6 +60,24 @@ MonoBehaviour:
     dispersion: 0
     fireClip: {fileID: 8300000, guid: 1a1eb74b30462ec42bb9f16d3bcf2e11, type: 3}
     fireVolume: 1
+    isFireSoundOverride: 0
+    fmodBulletSound: {fileID: 0}
+    hasFireCircle: 0
+    hasBombCircle: 0
+    isWeaponCrossing: 0
+  flightTurretDatas: []
+  weaponCrossingDistance: 800
+  rocketCricleDistance: 200
+  requireRocketCircle: 0
   HP: 320
   defaultHeight: 300
+  defaultAirSpeed: 120
   flyingAnimationName: Flying
+  maxCameraDistance: 15
+  climbRateLimit: -1
+  isOverridePid: 0
+  pitchPid: {x: 5, y: 2, z: 3}
+  yawPid: {x: 5, y: 2, z: 3}
+  rollPid: {x: 5, y: 2, z: 3}
+  nationType: 3
+  hasThermalVision: 0
