@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "Diff ==========================="
+git status
+echo "Diff End ==========================="
 
 time=$(date "+%Y%m%d%H%M%S")
 
