@@ -1,13 +1,33 @@
 {
   "dependencies": {
+    "com.shanghaiwindy.gittool": {
+      "version": "file:../../GitTool",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.shanghaiwindy.middlelayer": {
       "version": "file:../../MiddleLibLayer",
       "depth": 0,
       "source": "local",
       "dependencies": {
         "com.unity.addressables": "1.19.19",
-        "com.unity.jobs": "0.70.0-preview.7"
+        "com.unity.jobs": "0.70.0-preview.7",
+        "com.unity.timeline": "1.6.4",
+        "com.unity.shadergraph": "12.1.7"
       }
+    },
+    "com.shanghaiwindy.middlesharedresources": {
+      "version": "file:../../MiddleSharedResources",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.shanghaiwindy.workshop": {
+      "version": "file:../../MiddleLibWorkshop",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -162,6 +182,18 @@
         "com.unity.ext.nunit": "1.0.6",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.timeline": {
+      "version": "1.6.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.director": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
