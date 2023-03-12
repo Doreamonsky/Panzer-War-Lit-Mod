@@ -37,6 +37,8 @@ MonoBehaviour:
     isWheelVehicle: 0
     markWidth: 0.8
     steerableWheels: []
+    engineAction: {fileID: 0}
+    isSupportPhysicTrack: 0
     sharedEngineData: {fileID: 11400000, guid: 3cc092bace0ea4243b5392a9a66db851, type: 2}
     vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
       type: 2}
@@ -105,8 +107,31 @@ MonoBehaviour:
     maxAngularVelocity: 36
     angularVelocitySmoothTime: 1
     transmissionFlowType: 0
-    engineAction: {fileID: 0}
-    isSupportPhysicTrack: 0
+  MechParameter:
+    isMech: 0
+    walkClip: {fileID: 0}
+    timeToFullyTurn: 0.5
+    overridePlayWalkClip: 0
+    hasWalkSoundEvent: 0
+    hasWalkParticle: 0
+    walkParticleYOffset: 0
+    isOverrideWalkParticle: 0
+    overrideWalkParticles: []
+    isFlyable: 0
+    hasFlyAnimation: 0
+    flyVelocity: 5
+    modeToggleDuration: 1
+    flyUpwardVelocity: 5
+    flyDownwardVelocity: 5
+    maxFlyHeight: 15
+    flyDrag: 0.5
+    flyAngularVelocity: 135
+    fireBurstVFX: {fileID: 0}
+    fuelTime: 15
+    chargeCDTime: 5
+  CarControllerParameter:
+    isCar: 0
+    carControllerType: 0
   sharedGunData: {fileID: 11400000, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
   TFParameter:
     fireState: 0
@@ -192,31 +217,6 @@ MonoBehaviour:
       gunDegreesPerSecond: 0
   MultiFireSystemData: []
   simpleVehicleFireSystemParameters: []
-  MechParameter:
-    isMech: 0
-    walkClip: {fileID: 0}
-    timeToFullyTurn: 0.5
-    overridePlayWalkClip: 0
-    hasWalkSoundEvent: 0
-    hasWalkParticle: 0
-    walkParticleYOffset: 0
-    isOverrideWalkParticle: 0
-    overrideWalkParticles: []
-    isFlyable: 0
-    hasFlyAnimation: 0
-    flyVelocity: 5
-    modeToggleDuration: 1
-    flyUpwardVelocity: 5
-    flyDownwardVelocity: 5
-    maxFlyHeight: 15
-    flyDrag: 0.5
-    flyAngularVelocity: 135
-    fireBurstVFX: {fileID: 0}
-    fuelTime: 15
-    chargeCDTime: 5
-  CarControllerParameter:
-    isCar: 0
-    carControllerType: 0
   engineSmokeParams: []
   references:
     version: 2

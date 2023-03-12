@@ -12,7 +12,9 @@ namespace ShanghaiWindy.Editor.PlayMode
     public class EditorModeStartup : MonoBehaviour
     {
         public static System.Action OnInit;
+
         public GameCoreConfig Config;
+        public AssetHotFixConfig[] HotFixConfigs = new AssetHotFixConfig[] { };
 
         private Camera bgCamera;
 
@@ -22,7 +24,7 @@ namespace ShanghaiWindy.Editor.PlayMode
 
             // Initialize Asset Entry
             var entry = gameObject.AddComponent<AssetBundleEntry>();
-            entry.OnPackageInitialized += Init;
+            entry.OnPackageInitialized += OnPackageInitialized;
             StartCoroutine(entry.AsyncInitialize());
 
             GameEventManager.OnNewVehicleSpawned.AddListener(vehicle =>
@@ -42,45 +44,54 @@ namespace ShanghaiWindy.Editor.PlayMode
             });
         }
 
-        private void Init()
+        private void OnPackageInitialized()
         {
-            GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
-            SimpleResourceManager.Instance = new SimpleResourceManager(AssetBundleEntry.Instance.BundleManager);
+            var hotFixEntry = gameObject.AddComponent<AssetHotFixEntry>();
+            hotFixEntry.Initialize(HotFixConfigs);
 
-            // 正式游戏加载流程
-            RuntimeLogger.Init();
-
-            var externalDirs = new List<DirectoryInfo>
-            {
-                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
-                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/")
-            };
-
-            var buildDir = new DirectoryInfo(Application.dataPath + "/../Build/Mod-BuildPipline");
-            foreach (var platformDir in buildDir.GetDirectories())
-            {
-                foreach (var packageDir in platformDir.GetDirectories())
+            StartCoroutine(AssetBundleManager.HotFix(() =>
                 {
-                    var subPackageDir = new DirectoryInfo($"{packageDir}/packages/");
-                    if (subPackageDir.Exists)
+                    AssetBundleManager.RunLuaEnvs();
+
+                    GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
+                    SimpleResourceManager.Instance = new SimpleResourceManager(AssetBundleEntry.Instance.BundleManager);
+
+                    // 正式游戏加载流程
+                    RuntimeLogger.Init();
+
+                    var externalDirs = new List<DirectoryInfo>
                     {
-                        externalDirs.Add(subPackageDir);
+                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
+                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/")
+                    };
+
+                    var buildDir = new DirectoryInfo(Application.dataPath + "/../Build/Mod-BuildPipline");
+                    foreach (var platformDir in buildDir.GetDirectories())
+                    {
+                        foreach (var packageDir in platformDir.GetDirectories())
+                        {
+                            var subPackageDir = new DirectoryInfo($"{packageDir}/packages/");
+                            if (subPackageDir.Exists)
+                            {
+                                externalDirs.Add(subPackageDir);
+                            }
+                        }
                     }
+
+                    AssetBundleEntry.Instance.PackageManager.AddExternalModFolders(externalDirs.ToArray());
+
+                    foreach (var packageInfo in AssetBundleEntry.Instance.PackageManager.GetPackageInfos(true))
+                    {
+                        ResourceLog.Log($"{packageInfo.PackageName} is added to package manager.");
+                    }
+
+                    SimpleResourceManager.Instance.InstantiateAsync(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>
+                    {
+                        DontDestroyOnLoad(runtimeSupportGo);
+                        AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
+                    });
                 }
-            }
-
-            AssetBundleEntry.Instance.PackageManager.AddExternalModFolders(externalDirs.ToArray());
-
-            foreach (var packageInfo in AssetBundleEntry.Instance.PackageManager.GetPackageInfos(true))
-            {
-                ResourceLog.Log($"{packageInfo.PackageName} is added to package manager.");
-            }
-
-            SimpleResourceManager.Instance.InstantiateAsync(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>
-            {
-                DontDestroyOnLoad(runtimeSupportGo);
-                AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
-            });
+            ));
         }
 
         private IEnumerator InitializeAsync()
