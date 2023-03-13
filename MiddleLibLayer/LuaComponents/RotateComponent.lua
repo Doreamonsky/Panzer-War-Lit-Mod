@@ -1,7 +1,10 @@
 local RotateComponent = class("RotateComponent")
 
 Propery = {
-    rotateSpeed = "number",
+    rotateSpeed = {
+        type = "number",
+        value = 15
+    },
 }
 
 
