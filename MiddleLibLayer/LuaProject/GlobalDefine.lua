@@ -187,6 +187,11 @@ ScaleHandle = CS.Battlehub.RTHandles.ScaleHandle
 UIManager = CS.ShanghaiWindy.Core.UIManager
 UIEnum = CS.ShanghaiWindy.Core.UIEnum
 
+VehicleAPI = CS.ShanghaiWindy.Core.API.VehicleAPI
+SpawnVehicleAPI = CS.ShanghaiWindy.Core.API.SpawnVehicleAPI
+TankAPI = CS.ShanghaiWindy.Core.API.TankAPI
+InputAPI = CS.ShanghaiWindy.Core.API.InputAPI
+
 -- UnityEngine
 --- @class GameObject
 --- @field Instantiate fun() 实例化
