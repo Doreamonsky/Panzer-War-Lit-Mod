@@ -2,7 +2,7 @@ Behavior()
 
 -- 定义属性
 -- Define properties
-Propery = {
+Property = {
     keycode = {
         type = "string", -- 类型：字符串 Type: string
         value = "w"      -- 键码值：W键 Key code value: W key

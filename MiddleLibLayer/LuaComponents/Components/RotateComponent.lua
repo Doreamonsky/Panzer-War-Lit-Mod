@@ -2,7 +2,7 @@ local RotateComponent = class("RotateComponent")
 
 Behavior()
 
-Propery = {
+Property = {
     rotateSpeed = {
         type = "number",
         value = 15

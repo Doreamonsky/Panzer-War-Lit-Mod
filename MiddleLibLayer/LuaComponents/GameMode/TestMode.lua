@@ -2,7 +2,7 @@ local TestMode = class("TestMode")
 
 GameMode()
 
-Propery = {
+Property = {
     enemyCount = {
         type = "number",
         value = 5
