@@ -1,5 +1,7 @@
 local PlayAnimationComponent = class("PlayAnimationComponent")
 
+Behavior()
+
 Propery = {
 
 }
