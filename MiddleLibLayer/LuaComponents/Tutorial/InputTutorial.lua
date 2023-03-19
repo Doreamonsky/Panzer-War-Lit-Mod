@@ -2,12 +2,13 @@ Behavior()
 
 -- 定义属性
 -- Define properties
-Property = {
+Propery = {
     keycode = {
         type = "string", -- 类型：字符串 Type: string
         value = "w"      -- 键码值：W键 Key code value: W key
     }
 }
+
 
 -- 定义一个名为 InputTest 的类
 -- Define a class called InputTest
