@@ -13,18 +13,75 @@ local TeamManager = {}
 
 return TeamManager
 
----通用 Lua 模块接口，用于定义一组通用的游戏逻辑方法。
----Common Lua module interface, providing a set of general game logic methods.
+---Common() 定义下的类型接口。通用 Lua 模块接口，用于定义一组通用的游戏逻辑方法。
+---Interrface for Common() define. Common Lua module interface, providing a set of general game logic methods.
 ---@class ShanghaiWindy.Core.Lua.ILuaCommonMod
 local ILuaCommonMod = {}
 
+---当模块启动时调用。
+---Called when the module is started.
+---@instance
+---@function [ILuaCommonMod.OnStarted]
+function ILuaCommonMod.OnStarted() end
+---每帧更新时调用。
+---Called on every frame update.
+---@instance
+---@function [ILuaCommonMod.OnUpdated]
+function ILuaCommonMod.OnUpdated() end
+---固定更新时调用。
+---Called on fixed update.
+---@instance
+---@function [ILuaCommonMod.OnFixedUpdated]
+function ILuaCommonMod.OnFixedUpdated() end
+---当绘制图形用户界面时调用。
+---Called when drawing the graphical user interface.
+---@instance
+---@function [ILuaCommonMod.OnGUI]
+function ILuaCommonMod.OnGUI() end
+---在每帧的最后更新时调用。
+---Called on the late update of each frame.
+---@instance
+---@function [ILuaCommonMod.OnLateUpdated]
+function ILuaCommonMod.OnLateUpdated() end
+---当场景加载完成时调用。
+---Called when a scene is loaded.
+---@instance
+---@function [ILuaCommonMod.OnSceneLoaded]
+function ILuaCommonMod.OnSceneLoaded(levelName) end
 return ILuaCommonMod
 
----Lua 游戏模式模块接口，用于定义游戏模式的行为和逻辑。
----Lua game mode module interface, providing game mode behaviors and logic.
+---GameMode() 定义下的类型接口。Lua 游戏模式模块接口，用于定义游戏模式的行为和逻辑。
+---Interface for GameMode() define. Lua game mode module interface, providing game mode behaviors and logic.
 ---@class ShanghaiWindy.Core.Lua.ILuaGameModeMod
 local ILuaGameModeMod = {}
 
+---获取游戏模式的名称。
+---Get the name of the game mode.
+---@instance
+---@function [ILuaGameModeMod.GetGameModeName]
+---@return System.String 游戏模式名称 - Game mode name
+function ILuaGameModeMod.GetGameModeName(lang) end
+---当游戏模式开始时调用。
+---Called when the game mode starts.
+---@instance
+---@function [ILuaGameModeMod.OnStartMode]
+function ILuaGameModeMod.OnStartMode() end
+---每帧更新时调用。
+---Called on every frame update.
+---@instance
+---@function [ILuaGameModeMod.OnUpdated]
+function ILuaGameModeMod.OnUpdated() end
+---当退出游戏模式时调用。
+---Called when exiting the game mode.
+---@instance
+---@function [ILuaGameModeMod.OnExitMode]
+function ILuaGameModeMod.OnExitMode() end
+---是否让用户自己管理进入战斗的加载流程。
+---Determine if the user should manage the battle loading process.
+---@instance
+---@function [ILuaGameModeMod.IsProxyBattle]
+---@return System.Boolean 如果为 true，则用户自己管理进入战斗的加载流程。If true, the user manages the battle loading process.
+function ILuaGameModeMod.IsProxyBattle() end
 return ILuaGameModeMod
 
 ---Lua 模组接口，用于定义模组的基本信息。
@@ -226,6 +283,25 @@ local TankAPI = {}
 ---@return System.Collections.Generic.List`1[[ShanghaiWindy.Core.TankFire, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]] 坦克火力系统列表 List of tank fire systems
 function TankAPI.GetTankFireList(vehicle) end
 return TankAPI
+
+---团队接口
+---Team API
+---@class ShanghaiWindy.Core.API.TeamAPI
+local TeamAPI = {}
+
+---获取玩家所在团队
+---Get Player Team
+---@static
+---@function [TeamAPI.GetPlayerTeam]
+---@return ShanghaiWindy.Core.TeamManager+Team 玩家所在团队 Player Team
+function TeamAPI.GetPlayerTeam() end
+---获取敌对团队
+---Get Enemy Team
+---@static
+---@function [TeamAPI.GetEnemyTeam]
+---@return ShanghaiWindy.Core.TeamManager+Team 敌对团队 Enemy Team
+function TeamAPI.GetEnemyTeam() end
+return TeamAPI
 
 ---当载具资源和组件加载时触发事件。
 ---Dispatch event when vehicle assets and components are loaded.

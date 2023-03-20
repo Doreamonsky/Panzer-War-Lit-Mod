@@ -14,5 +14,7 @@ SoundAPI = CS.ShanghaiWindy.Core.API.SoundAPI
 SpawnVehicleAPI = CS.ShanghaiWindy.Core.API.SpawnVehicleAPI
 --- @class ShanghaiWindy.Core.API.TankAPI
 TankAPI = CS.ShanghaiWindy.Core.API.TankAPI
+--- @class ShanghaiWindy.Core.API.TeamAPI
+TeamAPI = CS.ShanghaiWindy.Core.API.TeamAPI
 --- @class ShanghaiWindy.Core.API.VehicleAPI
 VehicleAPI = CS.ShanghaiWindy.Core.API.VehicleAPI

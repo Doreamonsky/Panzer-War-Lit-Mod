@@ -41,6 +41,8 @@ namespace ShanghaiWindy.Editor.PlayMode
 
                 enterMode.onClick.AddListener(() =>
                 {
+                    GameDataManager.PlayerTeam = TeamManager.Team.blue;
+                    
                     if (_curGameModeMod == null)
                     {
                         _curGameModeMod = _luaGameModeInstanceDatas[modeIndex];
