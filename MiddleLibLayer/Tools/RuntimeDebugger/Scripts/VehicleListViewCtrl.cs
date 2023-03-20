@@ -11,8 +11,10 @@ namespace ShanghaiWindy.Editor.PlayMode
     {
         public Dropdown vehicleDp;
         public Button driveBtn;
+        public Button killBtn;
 
-        private List<VehicleInfo> vehicleList = new List<VehicleInfo>();
+        private readonly List<VehicleInfo> _vehicleList = new List<VehicleInfo>();
+        private BaseInitSystem _playerVehicle = null;
 
         public void Awake()
         {
@@ -25,7 +27,7 @@ namespace ShanghaiWindy.Editor.PlayMode
 
                 VehicleInfoManager.OnNewVehicleAdded += (x) => { RefershVehicleList(x); };
 
-                vehicleList.Sort((a, b) => String.Compare(a.GetDisplayName(), b.GetDisplayName(), StringComparison.Ordinal));
+                _vehicleList.Sort((a, b) => String.Compare(a.GetDisplayName(), b.GetDisplayName(), StringComparison.Ordinal));
                 vehicleDp.options.Sort((a, b) => String.Compare(a.text, b.text, StringComparison.Ordinal));
 
                 vehicleDp.value = PlayerPrefs.GetInt("VehicleDp");
@@ -34,23 +36,30 @@ namespace ShanghaiWindy.Editor.PlayMode
 
             driveBtn.onClick.AddListener(() =>
             {
-                var vehicleInfo = vehicleList[vehicleDp.value];
+                var vehicleInfo = _vehicleList[vehicleDp.value];
 
 
                 switch (vehicleInfo.type)
                 {
                     case VehicleInfo.Type.Ground:
-                        CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
+                        _playerVehicle = CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
                         break;
                     case VehicleInfo.Type.Aviation:
-                        CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false, p => { });
+                        _playerVehicle = CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false,
+                            p => { });
                         break;
                     case VehicleInfo.Type.Army:
-                        CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
+                        _playerVehicle = CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
                         break;
                 }
 
                 MouseLockModule.Instance.Hide();
+            });
+
+            killBtn.onClick.AddListener(() =>
+            {
+                _playerVehicle.basePlayerState.OnDeadActionCalled();
+                DestroyImmediate(_playerVehicle.gameObject);
             });
         }
 
@@ -64,7 +73,7 @@ namespace ShanghaiWindy.Editor.PlayMode
                 }
             });
 
-            vehicleList.Add(x);
+            _vehicleList.Add(x);
         }
     }
 }
