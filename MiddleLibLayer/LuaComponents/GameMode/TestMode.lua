@@ -14,19 +14,19 @@ Property = {
 }
 
 
-function TestMode:getModeName(lang)
+function TestMode:GetGameModeName(lang)
     return "Lua 测试模式"
 end
 
-function TestMode:onStartMode()
+function TestMode:OnStartMode()
     print("Enter a test game mode")
 end
 
-function TestMode:onExitMode()
+function TestMode:OnExitMode()
     print("Exit a test game mode")
 end
 
-function TestMode:isProxyBattle()
+function TestMode:IsProxyBattle()
     return true
 end
 
