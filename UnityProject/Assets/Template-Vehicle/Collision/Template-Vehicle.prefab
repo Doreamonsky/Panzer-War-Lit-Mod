@@ -739,7 +739,6 @@ Transform:
   - {fileID: 8748402315373587798}
   - {fileID: 2334981299504713379}
   - {fileID: 6413180391505348721}
-  - {fileID: 8972458798006693757}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -826,56 +825,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4001817056146811051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8972458798006693757}
-  - component: {fileID: 7209015310133019296}
-  m_Layer: 0
-  m_Name: TankEventComponent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8972458798006693757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4001817056146811051}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5209105831887346547}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7209015310133019296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4001817056146811051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1272985159, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luaScript: {fileID: 2213920135882650261, guid: 50316cd667eee8047b81bc862c748672,
-    type: 3}
-  objectFields: []
-  numberFields: []
-  stringFields: []
-  boolFields: []
 --- !u!1 &4380172363545533104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2051,7 @@ GameObject:
   - component: {fileID: 3185192291006838312}
   - component: {fileID: 6405047342235654463}
   - component: {fileID: 6854673002309810749}
-  - component: {fileID: 7523206357711420800}
+  - component: {fileID: 5990329236035446877}
   m_Layer: 0
   m_Name: RotateComponent
   m_TagString: Untagged
@@ -2188,7 +2137,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7523206357711420800
+--- !u!114 &5990329236035446877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2197,17 +2146,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8594655290280525893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1272985159, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Script: {fileID: 1949057647, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luaScript: {fileID: 2213920135882650261, guid: 7626c775265965c41a6385cd8d3ce0cd,
+  luaBehavior: {fileID: 1698442380299581340, guid: 2b20da719afa98243834f36dcefd78f6,
     type: 3}
-  objectFields: []
-  numberFields:
-  - variableName: rotateSpeed
-    value: 30
-  stringFields: []
-  boolFields: []
+  instanceLuaProperty:
+    objectProperties: []
+    numberProperties: []
+    stringProperties: []
+    boolProperties: []
 --- !u!1 &8628060731429482878
 GameObject:
   m_ObjectHideFlags: 0

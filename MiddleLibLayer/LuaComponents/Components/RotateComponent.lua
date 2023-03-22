@@ -11,6 +11,7 @@ Property = {
 
 
 function RotateComponent:OnUpdated()
+    print(self.rotateSpeed)
     local r = Vector3.up * Time.deltaTime * self.rotateSpeed
     self.transform:Rotate(r)
 end

@@ -196,6 +196,7 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   vehicleSelfExplosionParams: []
   sharedTurretData: {fileID: 11400000, guid: 5dafd252df3127b4db1085778bde5bdd, type: 2}
   MTParameter:
@@ -215,9 +216,18 @@ MonoBehaviour:
       hasOverride: 0
       turretDegreesPerSecond: 0
       gunDegreesPerSecond: 0
+    vehicleLuaBehaviors: []
   MultiFireSystemData: []
   simpleVehicleFireSystemParameters: []
   engineSmokeParams: []
+  vehicleLuaBehaviors:
+  - luaBehavior: {fileID: 1698442380299581340, guid: 059769c7fa0aa7448b60e849c2c58ea6,
+      type: 3}
+    instanceLuaProperty:
+      objectProperties: []
+      numberProperties: []
+      stringProperties: []
+      boolProperties: []
   references:
     version: 2
     RefIds:
