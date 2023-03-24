@@ -24,10 +24,11 @@ MonoBehaviour:
   rank: 8
   hp: 300
   isModuleReady: 1
+  isOverrideSlotParent: 0
+  overrideSlotParentPath: 
   slotInfos:
   - position: {x: 0, y: 1.26, z: 0}
     isAttachToGun: 0
-  renderType: 0
   isGenLOD: 1
   visualModelFileProp:
     assetGUID: 5220f8f603c785d4e88ecaba707217ab
@@ -39,7 +40,7 @@ MonoBehaviour:
   hitBoxFilePath: Assets/Template-DIY/Hull/Template-Hull-HitBox.asset
   prefabFileProp:
     assetGUID: e21ea196e04c12e4aaca3830c34ef877
-    extra: Assets\Template-DIY\Hull/fb2d07c582db4704a186da308281013a_pre.prefab
+    extra: Assets/Template-DIY/Hull/fb2d07c582db4704a186da308281013a_pre.prefab
   prefabFilePath: Assets\Template-DIY\Hull/fb2d07c582db4704a186da308281013a_pre.prefab
   EngineSound:
     localPosition: {x: 0, y: 0.71, z: -2.33}
@@ -62,6 +63,8 @@ MonoBehaviour:
     isWheelVehicle: 0
     markWidth: 0.8
     steerableWheels: []
+    engineAction: {fileID: 0}
+    isSupportPhysicTrack: 0
     sharedEngineData: {fileID: 0}
     vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
       type: 2}
@@ -128,9 +131,8 @@ MonoBehaviour:
     minSpeed: 22
     steerTorque: 4
     maxAngularVelocity: 36
+    angularVelocitySmoothTime: 1
     transmissionFlowType: 1
-    engineAction: {fileID: 0}
-    isSupportPhysicTrack: 0
   hydraulicAction: {fileID: 0}
   MechParameter:
     isMech: 0
@@ -157,3 +159,8 @@ MonoBehaviour:
   CarControllerParameter:
     isCar: 0
     carControllerType: 0
+  engineSmokeParams: []
+  isCustomExplodeParticle: 0
+  customExplodeParticles: []
+  isOverrideCameraDistance: 0
+  overrideCameraDistance: 0
