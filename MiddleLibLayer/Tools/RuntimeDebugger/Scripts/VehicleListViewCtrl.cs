@@ -12,6 +12,7 @@ namespace ShanghaiWindy.Editor.PlayMode
         public Dropdown vehicleDp;
         public Button driveBtn;
         public Button killBtn;
+        public Button refreshBtn;
 
         private readonly List<VehicleInfo> _vehicleList = new List<VehicleInfo>();
         private BaseInitSystem _playerVehicle = null;
@@ -37,30 +38,35 @@ namespace ShanghaiWindy.Editor.PlayMode
             driveBtn.onClick.AddListener(() =>
             {
                 var vehicleInfo = _vehicleList[vehicleDp.value];
-
-
-                switch (vehicleInfo.type)
-                {
-                    case VehicleInfo.Type.Ground:
-                        _playerVehicle = CreateVehicleUtility.CreateTankPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
-                        break;
-                    case VehicleInfo.Type.Aviation:
-                        _playerVehicle = CreateVehicleUtility.CreateFlightPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, false,
-                            p => { });
-                        break;
-                    case VehicleInfo.Type.Army:
-                        _playerVehicle = CreateVehicleUtility.CreateArmyPlayer(vehicleInfo.GetVehicleName(), Vector3.zero, Quaternion.identity, p => { });
-                        break;
-                }
-
-                MouseLockModule.Instance.Hide();
+                CreateVehicle(vehicleInfo, Vector3.zero, Quaternion.identity);
             });
 
-            killBtn.onClick.AddListener(() =>
+            killBtn.onClick.AddListener(KillCurVehicle);
+
+            refreshBtn.onClick.AddListener(() =>
             {
-                _playerVehicle.basePlayerState.OnDeadActionCalled();
-                DestroyImmediate(_playerVehicle.gameObject);
+                if (_playerVehicle != null)
+                {
+                    var curVehicleInfo = VehicleInfoManager.Instance.GetVehicleInfo(_playerVehicle.VehicleName);
+                    var pos = _playerVehicle.GetRigidbody().position;
+                    var rot = _playerVehicle.GetRigidbody().rotation;
+
+                    KillCurVehicle();
+                    CreateVehicle(curVehicleInfo, pos, rot);
+                }
             });
+        }
+
+        private void CreateVehicle(VehicleInfo vehicleInfo, Vector3 pos, Quaternion rot)
+        {
+            _playerVehicle = CreateVehicleUtility.CreatePlayer(vehicleInfo, pos, rot, p => { });
+            MouseLockModule.Instance.Hide();
+        }
+
+        private void KillCurVehicle()
+        {
+            _playerVehicle.basePlayerState.OnDeadActionCalled();
+            DestroyImmediate(_playerVehicle.gameObject);
         }
 
         public void RefershVehicleList(VehicleInfo x)
