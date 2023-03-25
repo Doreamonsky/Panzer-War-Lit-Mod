@@ -22,6 +22,9 @@ namespace ShanghaiWindy.Editor.PlayMode
         {
             bgCamera = gameObject.AddComponent<Camera>();
 
+            gameObject.AddComponent<LuaScriptableModManager>();
+            gameObject.AddComponent<ILScriptableModManager>();
+
             // Initialize Asset Entry
             var entry = gameObject.AddComponent<AssetBundleEntry>();
             entry.OnPackageInitialized += OnPackageInitialized;
