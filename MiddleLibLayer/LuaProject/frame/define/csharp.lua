@@ -1,12 +1,28 @@
+---飞行玩家状态类，继承自基础玩家状态类。
+---FlightPlayerState class, inherits from the BasePlayerState.
+---@class ShanghaiWindy.Core.FlightPlayerState
+local FlightPlayerState = {}
+
+return FlightPlayerState
+
 ---@class ShanghaiWindy.Core.BaseFireSystem
 local BaseFireSystem = {}
 
 return BaseFireSystem
 
+---基本初始化系统类，用于游戏任何载具的基本初始化。该类实现了 IDynamicDataPatchable 接口和 IIndex 接口。
+---The BaseInitSystem class is used for basic initialization of any vehicle. This class implements the IDynamicDataPatchable and IIndex interfaces.
 ---@class ShanghaiWindy.Core.BaseInitSystem
 local BaseInitSystem = {}
 
 return BaseInitSystem
+
+---基础玩家状态类，用于处理玩家状态的改变，如受到伤害、击中反弹等事件。
+---Base player state class for handling changes in player states such as taking damage, ricocheting hits, etc.
+---@class ShanghaiWindy.Core.BasePlayerState
+local BasePlayerState = {}
+
+return BasePlayerState
 
 ---@class ShanghaiWindy.Core.TeamManager
 local TeamManager = {}
@@ -90,6 +106,20 @@ return ILuaGameModeMod
 local ILuaMod = {}
 
 return ILuaMod
+
+---@class ShanghaiWindy.Core.Lua.LuaBehaviorMono
+local LuaBehaviorMono = {}
+
+---@instance
+---@function [LuaBehaviorMono.TryGetTankInitSystem]
+function LuaBehaviorMono.TryGetTankInitSystem(tankInitSystem) end
+---@instance
+---@function [LuaBehaviorMono.TryGetFlightInitSystem]
+function LuaBehaviorMono.TryGetFlightInitSystem(flightInitSystem) end
+---@instance
+---@function [LuaBehaviorMono.TryGetArmyInitSystem]
+function LuaBehaviorMono.TryGetArmyInitSystem(armyInitSystem) end
+return LuaBehaviorMono
 
 ---子弹发射信息
 ---Bullet Fired Info
