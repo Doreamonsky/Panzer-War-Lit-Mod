@@ -17,9 +17,9 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         public Dropdown modeDropdown;
 
-        private List<ILuaGameModeMod> _luaGameModeInstanceDatas = new List<ILuaGameModeMod>();
+        private List<ILuaGameMode> _luaGameModeInstanceDatas = new List<ILuaGameMode>();
 
-        private ILuaGameModeMod _curGameModeMod = null;
+        private ILuaGameMode _curGameModeMod = null;
 
         private void Start()
         {
