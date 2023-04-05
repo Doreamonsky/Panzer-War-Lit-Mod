@@ -25,4 +25,4 @@ TransformUtil.UnityVectorToSerializeVector = function(vec)
     return SerializeVector3(vec.x, vec.y, vec.z)
 end
 
-return this
+return TransformUtil

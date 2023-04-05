@@ -2,12 +2,16 @@
 ArmyAPI = CS.ShanghaiWindy.Core.API.ArmyAPI
 --- @class ShanghaiWindy.Core.API.AssetAPI
 AssetAPI = CS.ShanghaiWindy.Core.API.AssetAPI
+--- @class ShanghaiWindy.Core.API.ComponentAPI
+ComponentAPI = CS.ShanghaiWindy.Core.API.ComponentAPI
 --- @class ShanghaiWindy.Core.API.FlightAPI
 FlightAPI = CS.ShanghaiWindy.Core.API.FlightAPI
 --- @class ShanghaiWindy.Core.API.GameAPI
 GameAPI = CS.ShanghaiWindy.Core.API.GameAPI
 --- @class ShanghaiWindy.Core.API.InputAPI
 InputAPI = CS.ShanghaiWindy.Core.API.InputAPI
+--- @class ShanghaiWindy.Core.API.PointAPI
+PointAPI = CS.ShanghaiWindy.Core.API.PointAPI
 --- @class ShanghaiWindy.Core.API.SoundAPI
 SoundAPI = CS.ShanghaiWindy.Core.API.SoundAPI
 --- @class ShanghaiWindy.Core.API.SpawnVehicleAPI

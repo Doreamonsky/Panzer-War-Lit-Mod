@@ -29,83 +29,120 @@ local TeamManager = {}
 
 return TeamManager
 
+---弹夹炮逻辑
+---@class ShanghaiWindy.Core.TankFire
+local TankFire = {}
+
+return TankFire
+
+---车辆组件
+---Vehicle Components
+---@class ShanghaiWindy.Core.TankVehicleComponents
+local TankVehicleComponents = {}
+
+return TankVehicleComponents
+
+---坦克初始化系统
+---Tank Initialization System
+---@class ShanghaiWindy.Core.TankInitSystem
+local TankInitSystem = {}
+
+return TankInitSystem
+
+---@class ShanghaiWindy.Core.TurretController
+local TurretController = {}
+
+return TurretController
+
+---Lua 模组接口，用于定义模组的基本信息。
+---Lua mod interface, providing basic information about the mod.
+---@class ShanghaiWindy.Core.Lua.ILuaBase
+local ILuaBase = {}
+
+return ILuaBase
+
+---@class ShanghaiWindy.Core.Lua.ILuaBehavior
+local ILuaBehavior = {}
+
+return ILuaBehavior
+
 ---Common() 定义下的类型接口。通用 Lua 模块接口，用于定义一组通用的游戏逻辑方法。
 ---Interrface for Common() define. Common Lua module interface, providing a set of general game logic methods.
----@class ShanghaiWindy.Core.Lua.ILuaCommonMod
-local ILuaCommonMod = {}
+---@class ShanghaiWindy.Core.Lua.ILuaCommon
+local ILuaCommon = {}
 
 ---当模块启动时调用。
 ---Called when the module is started.
 ---@instance
----@function [ILuaCommonMod.OnStarted]
-function ILuaCommonMod.OnStarted() end
+---@function [ILuaCommon.OnStarted]
+function ILuaCommon.OnStarted() end
 ---每帧更新时调用。
 ---Called on every frame update.
 ---@instance
----@function [ILuaCommonMod.OnUpdated]
-function ILuaCommonMod.OnUpdated() end
+---@function [ILuaCommon.OnUpdated]
+function ILuaCommon.OnUpdated() end
 ---固定更新时调用。
 ---Called on fixed update.
 ---@instance
----@function [ILuaCommonMod.OnFixedUpdated]
-function ILuaCommonMod.OnFixedUpdated() end
+---@function [ILuaCommon.OnFixedUpdated]
+function ILuaCommon.OnFixedUpdated() end
 ---当绘制图形用户界面时调用。
 ---Called when drawing the graphical user interface.
 ---@instance
----@function [ILuaCommonMod.OnGUI]
-function ILuaCommonMod.OnGUI() end
+---@function [ILuaCommon.OnGUI]
+function ILuaCommon.OnGUI() end
 ---在每帧的最后更新时调用。
 ---Called on the late update of each frame.
 ---@instance
----@function [ILuaCommonMod.OnLateUpdated]
-function ILuaCommonMod.OnLateUpdated() end
+---@function [ILuaCommon.OnLateUpdated]
+function ILuaCommon.OnLateUpdated() end
 ---当场景加载完成时调用。
 ---Called when a scene is loaded.
 ---@instance
----@function [ILuaCommonMod.OnSceneLoaded]
-function ILuaCommonMod.OnSceneLoaded(levelName) end
-return ILuaCommonMod
+---@function [ILuaCommon.OnSceneLoaded]
+function ILuaCommon.OnSceneLoaded(levelName) end
+return ILuaCommon
+
+---Vehicle() 定义下的类型接口。Lua 游戏载具模块接口，用于定义游戏载具的行为和逻辑。
+---Interface for Vehicle() define. Lua vehicle module interface, providing vehicle behaviors and logic.
+---@class ShanghaiWindy.Core.Lua.ILuaControllableVehicle
+local ILuaControllableVehicle = {}
+
+return ILuaControllableVehicle
 
 ---GameMode() 定义下的类型接口。Lua 游戏模式模块接口，用于定义游戏模式的行为和逻辑。
 ---Interface for GameMode() define. Lua game mode module interface, providing game mode behaviors and logic.
----@class ShanghaiWindy.Core.Lua.ILuaGameModeMod
-local ILuaGameModeMod = {}
+---@class ShanghaiWindy.Core.Lua.ILuaGameMode
+local ILuaGameMode = {}
 
 ---获取游戏模式的名称。
 ---Get the name of the game mode.
 ---@instance
----@function [ILuaGameModeMod.GetGameModeName]
+---@function [ILuaGameMode.GetGameModeName]
 ---@return System.String 游戏模式名称 - Game mode name
-function ILuaGameModeMod.GetGameModeName(lang) end
+function ILuaGameMode.GetGameModeName(lang) end
 ---当游戏模式开始时调用。
 ---Called when the game mode starts.
 ---@instance
----@function [ILuaGameModeMod.OnStartMode]
-function ILuaGameModeMod.OnStartMode() end
+---@function [ILuaGameMode.OnStartMode]
+function ILuaGameMode.OnStartMode() end
 ---每帧更新时调用。
 ---Called on every frame update.
 ---@instance
----@function [ILuaGameModeMod.OnUpdated]
-function ILuaGameModeMod.OnUpdated() end
+---@function [ILuaGameMode.OnUpdated]
+function ILuaGameMode.OnUpdated() end
 ---当退出游戏模式时调用。
 ---Called when exiting the game mode.
 ---@instance
----@function [ILuaGameModeMod.OnExitMode]
-function ILuaGameModeMod.OnExitMode() end
+---@function [ILuaGameMode.OnExitMode]
+function ILuaGameMode.OnExitMode() end
 ---是否让用户自己管理进入战斗的加载流程。
 ---Determine if the user should manage the battle loading process.
 ---@instance
----@function [ILuaGameModeMod.IsProxyBattle]
+---@function [ILuaGameMode.IsProxyBattle]
 ---@return System.Boolean 如果为 true，则用户自己管理进入战斗的加载流程。If true, the user manages the battle loading process.
-function ILuaGameModeMod.IsProxyBattle() end
-return ILuaGameModeMod
-
----Lua 模组接口，用于定义模组的基本信息。
----Lua mod interface, providing basic information about the mod.
----@class ShanghaiWindy.Core.Lua.ILuaMod
-local ILuaMod = {}
-
-return ILuaMod
+function ILuaGameMode.IsProxyBattle() end
+return ILuaGameMode
 
 ---@class ShanghaiWindy.Core.Lua.LuaBehaviorMono
 local LuaBehaviorMono = {}
@@ -128,6 +165,76 @@ local BulletFiredInfo = {}
 
 return BulletFiredInfo
 
+---资源加载完成时的委托
+---Asset Loaded Delegate
+---@class ShanghaiWindy.Core.Delegate.AssetLoadedDelegate
+local AssetLoadedDelegate = {}
+
+return AssetLoadedDelegate
+
+---当载具资源和组件加载时触发全局游戏事件。
+---Dispatch global event when vehicle assets and components are loaded.
+---@class ShanghaiWindy.Core.Delegate.OnGameVehicleLoadedDelegate
+local OnGameVehicleLoadedDelegate = {}
+
+return OnGameVehicleLoadedDelegate
+
+---当载具被摧毁时触发全局游戏事件。
+---Dispatch global event when vehicle is destroyed.
+---@class ShanghaiWindy.Core.Delegate.OnGameVehicleDestroyedDelegate
+local OnGameVehicleDestroyedDelegate = {}
+
+return OnGameVehicleDestroyedDelegate
+
+---按键执行时的委托
+---Key Performed Delegate
+---@class ShanghaiWindy.Core.Delegate.OnKeyPerformed
+local OnKeyPerformed = {}
+
+return OnKeyPerformed
+
+---按键取消时的委托
+---Key Canceled Delegate
+---@class ShanghaiWindy.Core.Delegate.OnKeyCanceled
+local OnKeyCanceled = {}
+
+return OnKeyCanceled
+
+---音频事件加载完成时的委托
+---Post Event Loaded Delegate
+---@class ShanghaiWindy.Core.Delegate.PostEventLoadedDelegate
+local PostEventLoadedDelegate = {}
+
+return PostEventLoadedDelegate
+
+---当载具资源和组件加载时触发事件。
+---Dispatch event when vehicle assets and components are loaded.
+---@class ShanghaiWindy.Core.Delegate.OnVehicleLoadedDelegate
+local OnVehicleLoadedDelegate = {}
+
+return OnVehicleLoadedDelegate
+
+---当载具被摧毁时触发事件。
+---Dispatch event when vehicle is destroyed.
+---@class ShanghaiWindy.Core.Delegate.OnVehicleDestroyedDelegate
+local OnVehicleDestroyedDelegate = {}
+
+return OnVehicleDestroyedDelegate
+
+---当载具从场景中移除时触发事件。
+---Dispatch event when vehicle is removed from scene.
+---@class ShanghaiWindy.Core.Delegate.OnVehicleRemovedDelegate
+local OnVehicleRemovedDelegate = {}
+
+return OnVehicleRemovedDelegate
+
+---当载具开火时触发事件。
+---Dispatch event when vehicle is fired.
+---@class ShanghaiWindy.Core.Delegate.OnFiredDelegate
+local OnFiredDelegate = {}
+
+return OnFiredDelegate
+
 ---陆军相关 API
 ---Army-related API
 ---@class ShanghaiWindy.Core.API.ArmyAPI
@@ -140,13 +247,6 @@ local ArmyAPI = {}
 ---@return System.Collections.Generic.List`1[[ShanghaiWindy.Core.FPS.WeaponController, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]] 武器控制器列表 List of weapon controllers
 function ArmyAPI.GetWeaponConrollerList(vehicle) end
 return ArmyAPI
-
----资源加载完成时的委托
----Asset Loaded Delegate
----@class ShanghaiWindy.Core.API.AssetLoadedDelegate
-local AssetLoadedDelegate = {}
-
-return AssetLoadedDelegate
 
 ---资源相关 API
 ---Asset-related API
@@ -165,6 +265,59 @@ function AssetAPI.LoadAssetBundle(abName, format, callBack) end
 function AssetAPI.ForceResolvePackage() end
 return AssetAPI
 
+---@class ShanghaiWindy.Core.API.ComponentAPI
+local ComponentAPI = {}
+
+---根据类名获取指定 GameObject 上的 Lua 组件。
+---Gets a Lua component with the specified class name on the given GameObject.
+---@static
+---@function [ComponentAPI.GetLuaComponent]
+---@return XLua.LuaTable 指定的 Lua 组件，如果不存在则返回 null。The specified Lua component, or null if it does not exist.
+function ComponentAPI.GetLuaComponent(target, className) end
+---根据类名获取指定 GameObject 上的所有 Lua 组件。
+---Gets all Lua components with the specified class name on the given GameObject.
+---@static
+---@function [ComponentAPI.GetLuaComponents]
+---@return XLua.LuaTable[] 指定的 Lua 组件数组。An array of the specified Lua components.
+function ComponentAPI.GetLuaComponents(target, className) end
+---在指定 GameObject 的父级中，根据类名获取所有 Lua 组件。
+---Gets all Lua components with the specified class name in the parent hierarchy of the given GameObject.
+---@static
+---@function [ComponentAPI.GetLuaComponentsInParent]
+---@return XLua.LuaTable[] 指定的 Lua 组件数组。An array of the specified Lua components.
+function ComponentAPI.GetLuaComponentsInParent(target, className) end
+---在指定 GameObject 的子级中，根据类名获取所有 Lua 组件。
+---Gets all Lua components with the specified class name in the children of the given GameObject.
+---@static
+---@function [ComponentAPI.GetLuaComponentsInChildren]
+---@return XLua.LuaTable[] 指定的 Lua 组件数组。An array of the specified Lua components.
+function ComponentAPI.GetLuaComponentsInChildren(target, className) end
+---根据组件类型名获取指定 GameObject 上的原生组件。
+---Gets the native component with the specified type name on the given GameObject.
+---@static
+---@function [ComponentAPI.GetNativeComponent]
+---@return UnityEngine.Component 指定的原生组件。The specified native component.
+function ComponentAPI.GetNativeComponent(target, componentName) end
+---根据组件类型名获取指定 GameObject 上的所有原生组件。
+---Gets all native components with the specified type name on the given GameObject.
+---@static
+---@function [ComponentAPI.GetNativeComponents]
+---@return UnityEngine.Component[] 指定的原生组件数组。An array of the specified native components.
+function ComponentAPI.GetNativeComponents(target, componentName) end
+---在指定 GameObject 的父级中，根据组件类型名获取所有原生组件。
+---Gets all native components with the specified type name in the parent hierarchy of the given GameObject.
+---@static
+---@function [ComponentAPI.GetNativeComponentsInParent]
+---@return UnityEngine.Component[] 指定的原生组件数组。An array of the specified native components.
+function ComponentAPI.GetNativeComponentsInParent(target, componentName) end
+---在指定 GameObject 的子级中，根据组件类型名获取所有原生组件。
+---Gets all native components with the specified type name in the children of the given GameObject.
+---@static
+---@function [ComponentAPI.GetNativeComponentsInChildren]
+---@return UnityEngine.Component[] 指定的原生组件数组。An array of the specified native components.
+function ComponentAPI.GetNativeComponentsInChildren(target, componentName) end
+return ComponentAPI
+
 ---飞行器相关 API
 ---Flight-related API
 ---@class ShanghaiWindy.Core.API.FlightAPI
@@ -177,20 +330,6 @@ local FlightAPI = {}
 ---@return System.Collections.Generic.List`1[[ShanghaiWindy.Core.FlightFireSystem, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]] 飞行火力系统列表 List of flight fire systems
 function FlightAPI.GetFlightFireList(vehicle) end
 return FlightAPI
-
----当载具资源和组件加载时触发全局游戏事件。
----Dispatch global event when vehicle assets and components are loaded.
----@class ShanghaiWindy.Core.API.OnGameVehicleLoadedDelegate
-local OnGameVehicleLoadedDelegate = {}
-
-return OnGameVehicleLoadedDelegate
-
----当载具被摧毁时触发全局游戏事件。
----Dispatch global event when vehicle is destroyed.
----@class ShanghaiWindy.Core.API.OnGameVehicleDestroyedDelegate
-local OnGameVehicleDestroyedDelegate = {}
-
-return OnGameVehicleDestroyedDelegate
 
 ---游戏相关全局 API
 ---Game related global api
@@ -219,20 +358,6 @@ function GameAPI.RegisterVehicleDestroyedEvent(gameVehicleDestroyedDelegate) end
 function GameAPI.UnRegisterVehicleDestroyedEvent(gameVehicleDestroyedDelegate) end
 return GameAPI
 
----按键执行时的委托
----Key Performed Delegate
----@class ShanghaiWindy.Core.API.OnKeyPerformed
-local OnKeyPerformed = {}
-
-return OnKeyPerformed
-
----按键取消时的委托
----Key Canceled Delegate
----@class ShanghaiWindy.Core.API.OnKeyCanceled
-local OnKeyCanceled = {}
-
-return OnKeyCanceled
-
 ---输入处理 API
 ---Input Handler API
 ---@class ShanghaiWindy.Core.API.InputAPI
@@ -250,12 +375,30 @@ function InputAPI.RegisterKeyInput(actionName, keyCode, keyPerformed, keyCancele
 function InputAPI.UnregisterKeyInput(actionName) end
 return InputAPI
 
----音频事件加载完成时的委托
----Post Event Loaded Delegate
----@class ShanghaiWindy.Core.API.PostEventLoadedDelegate
-local PostEventLoadedDelegate = {}
+---位置点 API
+---Point API
+---@class ShanghaiWindy.Core.API.PointAPI
+local PointAPI = {}
 
-return PostEventLoadedDelegate
+---获取 A 队起始点
+---Get Team A Start Points
+---@static
+---@function [PointAPI.GetTeamAStartPoints]
+---@return UnityEngine.GameObject[] 包含 A 队起始点的 GameObject 数组
+function PointAPI.GetTeamAStartPoints() end
+---获取 B 队起始点
+---Get Team B Start Points
+---@static
+---@function [PointAPI.GetTeamBStartPoints]
+---@return UnityEngine.GameObject[] 包含 B 队起始点的 GameObject 数组
+function PointAPI.GetTeamBStartPoints() end
+---获取巡逻点
+---Get Patrol Points
+---@static
+---@function [PointAPI.GetPatrolPoints]
+---@return UnityEngine.GameObject[] 包含巡逻点的 GameObject 数组
+function PointAPI.GetPatrolPoints() end
+return PointAPI
 
 ---声音相关 API
 ---Sound-related API
@@ -332,34 +475,6 @@ function TeamAPI.GetPlayerTeam() end
 ---@return ShanghaiWindy.Core.TeamManager+Team 敌对团队 Enemy Team
 function TeamAPI.GetEnemyTeam() end
 return TeamAPI
-
----当载具资源和组件加载时触发事件。
----Dispatch event when vehicle assets and components are loaded.
----@class ShanghaiWindy.Core.API.OnVehicleLoadedDelegate
-local OnVehicleLoadedDelegate = {}
-
-return OnVehicleLoadedDelegate
-
----当载具被摧毁时触发事件。
----Dispatch event when vehicle is destroyed.
----@class ShanghaiWindy.Core.API.OnVehicleDestroyedDelegate
-local OnVehicleDestroyedDelegate = {}
-
-return OnVehicleDestroyedDelegate
-
----当载具从场景中移除时触发事件。
----Dispatch event when vehicle is removed from scene.
----@class ShanghaiWindy.Core.API.OnVehicleRemovedDelegate
-local OnVehicleRemovedDelegate = {}
-
-return OnVehicleRemovedDelegate
-
----当载具开火时触发事件。
----Dispatch event when vehicle is fired.
----@class ShanghaiWindy.Core.API.OnFiredDelegate
-local OnFiredDelegate = {}
-
-return OnFiredDelegate
 
 ---载具通用 API
 ---Vehicle Common APIs
