@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: -494410347, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-MainProperty
   m_EditorClassIdentifier: 
+  comment: 
   coolDown: 0.12
   clipMaxBulletCount: 30
   bulletData: {fileID: 11400000, guid: 34fcaf4fbbb7f144d98a2c6242346037, type: 2}
   reloadTime: 2.5
   hasEmptyReload: 1
   emptyReloadTime: 3.2
+  hasReloadAim: 0
   SpreadOverTime:
     serializedVersion: 2
     m_Curve:
@@ -60,11 +62,49 @@ MonoBehaviour:
   m_Script: {fileID: 1725313798, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-FPWeaponMiscData
   m_EditorClassIdentifier: 
-  ReloadSounds: []
-  ReloadStartSounds: []
-  ReloadEndSounds: []
-  EmptyReloadSounds: []
-  FireSounds: []
+  comment: 
+  ReloadSoundEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  EmptyReloadSoundEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ReloadStartEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ReloadEndEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  FireEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  FireP3Event:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   ReloadLoopCamForces:
   - delay: 0.1
     Force:
@@ -133,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 1689531979, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-FPWeaponPhysicsData
   m_EditorClassIdentifier: 
+  comment: 
   GeneralSettings:
     PivotPosition: {x: 0.06, y: -0.1, z: 0.25}
     BasePosOffset: {x: 0, y: 0, z: 0}
@@ -176,6 +217,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   WalkState:
     PositionSpring:
       Stiffness: {x: 0.012, y: 0.012, z: 0.012}
@@ -215,6 +257,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   RunState:
     PositionSpring:
       Stiffness: {x: 0.02, y: 0.02, z: 0.02}
@@ -254,6 +297,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   AimState:
     PositionSpring:
       Stiffness: {x: 0.04, y: 0.04, z: 0.03}
@@ -293,6 +337,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: -0.0006, y: -0.0005, z: 0}
       Distribution: 3
+    DeltaPosition: {x: 0, y: 0, z: 0}
   CrouchState:
     PositionSpring:
       Stiffness: {x: 0.012, y: 0.012, z: 0.012}
@@ -332,6 +377,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   isDefaultCommonData: 1
   commonData: {fileID: 0}
 --- !u!114 &11400000
@@ -353,7 +399,9 @@ MonoBehaviour:
   tpsFFPointLocation: 
   tpsFireEffectLocation: 
   tpsFireShellLocation: 
-  weaponInfo: {fileID: 11400000, guid: 57698f1b45477a940832d1589975e26a, type: 2}
+  weaponInfoProp:
+    assetGUID: 57698f1b45477a940832d1589975e26a
+    extra: Assets/Template-AKM/Editor-AKM-WeaponInfo.asset
   mainPropertyData: {fileID: -6805214099085939807}
   fpCrossHairData: {fileID: 1051394947232076010}
   fpVisualData: {fileID: 5607740452587545784}
@@ -372,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 289569920, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-FPWeaponRecoilData
   m_EditorClassIdentifier: 
+  comment: 
   fpCameraRecoil:
     AimMultiplier: 0.9
     RecoilPatternMultiplier: 1.3
@@ -524,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: -201026791, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-FPWeaponCrosshairData
   m_EditorClassIdentifier: 
+  comment: 
   NormalColor: {r: 1, g: 1, b: 1, a: 1}
   OnEntityColor: {r: 1, g: 0, b: 0, a: 1}
   ShowWhenAiming: 0
@@ -554,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 136203270, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Editor-AKM-FPWeaponVisualData
   m_EditorClassIdentifier: 
+  comment: 
   visualType: 1
   fpWeaponSkin:
     FPMesh: {fileID: -5883083112642402032, guid: aebc5757cb26e464e8a59137dbdc17c8,

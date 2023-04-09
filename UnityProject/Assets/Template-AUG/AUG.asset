@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 136203270, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-FPWeaponVisualData
   m_EditorClassIdentifier: 
+  comment: 
   visualType: 3
   fpWeaponSkin:
     FPMesh: {fileID: 0}
@@ -70,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 1689531979, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-FPWeaponPhysicsData
   m_EditorClassIdentifier: 
+  comment: 
   GeneralSettings:
     PivotPosition: {x: 0, y: 0, z: 0}
     BasePosOffset: {x: -0.04, y: -0.08, z: 0.08}
@@ -113,6 +115,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 1
+    DeltaPosition: {x: 0, y: 0, z: 0}
   WalkState:
     PositionSpring:
       Stiffness: {x: 0.012, y: 0.012, z: 0.012}
@@ -152,6 +155,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   RunState:
     PositionSpring:
       Stiffness: {x: 0.02, y: 0.02, z: 0.02}
@@ -191,6 +195,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   AimState:
     PositionSpring:
       Stiffness: {x: 0.04, y: 0.04, z: 0.03}
@@ -230,6 +235,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: -0.0006, y: -0.0005, z: 0}
       Distribution: 3
+    DeltaPosition: {x: 0, y: 0, z: 0}
   CrouchState:
     PositionSpring:
       Stiffness: {x: 0.012, y: 0.012, z: 0.012}
@@ -269,6 +275,7 @@ MonoBehaviour:
     PosExitForce:
       Force: {x: 0, y: 0, z: 0}
       Distribution: 0
+    DeltaPosition: {x: 0, y: 0, z: 0}
   isDefaultCommonData: 1
   commonData: {fileID: 0}
 --- !u!114 &11400000
@@ -290,7 +297,9 @@ MonoBehaviour:
   tpsFFPointLocation: 
   tpsFireEffectLocation: 
   tpsFireShellLocation: 
-  weaponInfo: {fileID: 11400000, guid: 72812f29fa91b324f9139306b69f79bf, type: 2}
+  weaponInfoProp:
+    assetGUID: 72812f29fa91b324f9139306b69f79bf
+    extra: Assets/Template-AUG/AUG-WeaponInfo.asset
   mainPropertyData: {fileID: 848920755914730943}
   fpCrossHairData: {fileID: 6871314429010484799}
   fpVisualData: {fileID: -6999856786891747708}
@@ -309,12 +318,14 @@ MonoBehaviour:
   m_Script: {fileID: -494410347, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-MainProperty
   m_EditorClassIdentifier: 
+  comment: 
   coolDown: 0.1
   clipMaxBulletCount: 30
-  bulletData: {fileID: 11400000, guid: efd7f10f1a5128942ae0f0528ae23d48, type: 2}
+  bulletData: {fileID: 11400000, guid: 34fcaf4fbbb7f144d98a2c6242346037, type: 2}
   reloadTime: 1
   hasEmptyReload: 0
   emptyReloadTime: 1
+  hasReloadAim: 0
   SpreadOverTime:
     serializedVersion: 2
     m_Curve:
@@ -357,11 +368,49 @@ MonoBehaviour:
   m_Script: {fileID: 1725313798, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-FPWeaponMiscData
   m_EditorClassIdentifier: 
-  ReloadSounds: []
-  ReloadStartSounds: []
-  ReloadEndSounds: []
-  EmptyReloadSounds: []
-  FireSounds: []
+  comment: 
+  ReloadSoundEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  EmptyReloadSoundEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ReloadStartEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ReloadEndEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  FireEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  FireP3Event:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   ReloadLoopCamForces: []
   ReloadStartCamForces: []
   ReloadEndCamForces: []
@@ -382,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 289569920, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-FPWeaponRecoilData
   m_EditorClassIdentifier: 
+  comment: 
   fpCameraRecoil:
     AimMultiplier: 0.9
     RecoilPatternMultiplier: 1.3
@@ -534,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: -201026791, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: AUG-FPWeaponCrosshairData
   m_EditorClassIdentifier: 
+  comment: 
   NormalColor: {r: 1, g: 1, b: 1, a: 1}
   OnEntityColor: {r: 1, g: 0, b: 0, a: 1}
   ShowWhenAiming: 0

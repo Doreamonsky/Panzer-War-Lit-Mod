@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4154691449
+CRC: 2614526143
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 04c5f68cad287e7b25ac63406b93b266
+    Hash: 8f0bcbfb66f87edd5a38cb7a01afde8d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8866c2360cdc8e965a2a54857e43b713
+    Hash: 35c45eb66dcff36a9bf04d7e88e986d2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -102,6 +102,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: d3c115dc2441e88428dba49560f77c05, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: e46384277704b054ba586e7635da9018, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ec3d4ae801834e0498fa3e9815a9ee37, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d6aac2b55fbbb414da2a00ebac793f84, type: 3}
@@ -146,8 +148,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 31829bec55f164345b28e01d08d3beb9, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 46cf7a348efd2fd4a91a7f77a837be6d, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: c3cc1b407f337e641ad32a2e91d5b478, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fc4ce3e7afce1f9408ab5a947838287c, type: 3}
@@ -162,8 +162,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 10b27201f8c989d43829cead0b8842b1, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: b08e25875d9e6904ca2a7a7060b2207e, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 6a4f16ed905adcd4ab0d7c8c11f0d72c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 633b800ba581ca041a198d78d0323dbc, type: 3}
@@ -171,11 +169,11 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 57c1a9c479f4d6f44a6202d3c8ed5e51, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b08e25875d9e6904ca2a7a7060b2207e, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
-  Script: {instanceID: 0}
-- Class: 134
   Script: {instanceID: 0}
 - Class: 137
   Script: {instanceID: 0}
@@ -243,7 +241,15 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInUserSightDataConfig
 - AssemblyName: Core
-  ClassName: ShanghaiWindy.Core.Data.AssetProp
+  ClassName: ShanghaiWindy.Core.FPS.FPFallImpactModule
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FPS.FPInputModule
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FPS.FPStepForceModule
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FPS.FPSwayModule
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FPS.SpringForce
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.InternalModuleBulletData
 - AssemblyName: Core
@@ -349,4 +355,4 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Addressable/Framework/RuntimeSupport.prefab
 Dependencies:
-- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/main.font.ab
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d

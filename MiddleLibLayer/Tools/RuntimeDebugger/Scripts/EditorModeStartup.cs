@@ -65,7 +65,8 @@ namespace ShanghaiWindy.Editor.PlayMode
                     var externalDirs = new List<DirectoryInfo>
                     {
                         new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
-                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/")
+                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/"),
+                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Solider/packages/"),
                     };
 
                     var buildDir = new DirectoryInfo(Application.dataPath + "/../Build/Mod-BuildPipline");
