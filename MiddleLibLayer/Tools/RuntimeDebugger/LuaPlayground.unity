@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 2
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 14
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.6666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 96b26b68d303c424b8a355c2e7e90e22, type: 2}
 --- !u!1 &48011121
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +220,60 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48011121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &187767813
+--- !u!1 &249413347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249413348}
+  - component: {fileID: 249413349}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249413348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249413347}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1137858522}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249413349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249413347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1949057647, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luaBehavior: {fileID: 1698442380299581340, guid: 3dc196e56bd77aa4b9119f1c83db8a7e,
+    type: 3}
+  instanceLuaProperty:
+    objectProperties: []
+    numberProperties: []
+    stringProperties:
+    - variableName: keycode
+      value: w
+    boolProperties: []
+--- !u!1001 &824834440
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -230,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 3101243039744756686, guid: d196d4da0e00b65429d5365f630efe9a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3101243039744756686, guid: d196d4da0e00b65429d5365f630efe9a,
         type: 3}
@@ -287,61 +340,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: RuntimeDebugTool
       objectReference: {fileID: 0}
+    - target: {fileID: 5935875920647314151, guid: d196d4da0e00b65429d5365f630efe9a,
+        type: 3}
+      propertyPath: HotFixConfigs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935875920647314151, guid: d196d4da0e00b65429d5365f630efe9a,
+        type: 3}
+      propertyPath: HotFixConfigs.Array.data[0].skipHotFix
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935875920647314151, guid: d196d4da0e00b65429d5365f630efe9a,
+        type: 3}
+      propertyPath: HotFixConfigs.Array.data[0].luaEnvFolder
+      value: Packages/com.shanghaiwindy.middlelayer/LuaProject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d196d4da0e00b65429d5365f630efe9a, type: 3}
---- !u!1 &249413347
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 249413348}
-  - component: {fileID: 249413349}
-  m_Layer: 0
-  m_Name: Input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &249413348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249413347}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1137858522}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &249413349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249413347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1949057647, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luaBehavior: {fileID: 1698442380299581340, guid: 3dc196e56bd77aa4b9119f1c83db8a7e,
-    type: 3}
-  instanceLuaProperty:
-    objectProperties: []
-    numberProperties: []
-    stringProperties:
-    - variableName: keycode
-      value: w
-    boolProperties: []
 --- !u!1 &833214695
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +452,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035834202
 GameObject:
@@ -521,7 +536,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 21.048, y: 180, z: 0}
 --- !u!1 &1137858521
 GameObject:
@@ -556,7 +571,7 @@ Transform:
   - {fileID: 833214696}
   - {fileID: 1205606978}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205606977
 GameObject:
@@ -851,7 +866,7 @@ GameObject:
   m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &2090911368
 BoxCollider:
