@@ -7,6 +7,9 @@ Property = {
 }
 
 function PlayAnimationComponent:OnStarted()
+    local animator = self.script:GetNativeComponent("Animator")
+    animator:SetTrigger("Up")
+    
     local animation = self.script:GetNativeComponent("Animation")
     local ret, vehicle = self.script:TryGetTankInitSystem()
     if ret then
