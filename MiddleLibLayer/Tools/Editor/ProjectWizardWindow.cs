@@ -44,7 +44,7 @@ public class ProjectWizardWindow : EditorWindow
 
     private void ReplaceSettings()
     {
-        string outputPath = Path.GetDirectoryName(Application.dataPath) + "../ProjectSettings";
+        string outputPath = Application.dataPath + "/../ProjectSettings";
         string zipPath = "Packages/com.shanghaiwindy.middlelayer/ProjectSettings.zip";
 
         FastZip fastZip = new FastZip();
