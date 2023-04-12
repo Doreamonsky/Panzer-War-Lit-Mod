@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BF-110-C_FlightTextData
   m_EditorClassIdentifier: 
   assetName: BF-110-C
+  editorAssetGuid: 
   causalData:
     flightCausualType: 0
     aggressiveTurnAngle: 15
@@ -48,6 +49,7 @@ MonoBehaviour:
     hasFireCircle: 0
     hasBombCircle: 0
     isWeaponCrossing: 0
+    vehicleLuaBehaviors: []
   - weaponName: '2 x 500 kg SC500K bombs '
     isFireTurns: 0
     firePoints:
@@ -65,6 +67,7 @@ MonoBehaviour:
     hasFireCircle: 0
     hasBombCircle: 0
     isWeaponCrossing: 0
+    vehicleLuaBehaviors: []
   flightTurretDatas: []
   weaponCrossingDistance: 800
   rocketCricleDistance: 200
@@ -75,9 +78,6 @@ MonoBehaviour:
   flyingAnimationName: Flying
   maxCameraDistance: 15
   climbRateLimit: -1
-  isOverridePid: 0
-  pitchPid: {x: 5, y: 2, z: 3}
-  yawPid: {x: 5, y: 2, z: 3}
-  rollPid: {x: 5, y: 2, z: 3}
   nationType: 3
   hasThermalVision: 0
+  vehicleLuaBehaviors: []
