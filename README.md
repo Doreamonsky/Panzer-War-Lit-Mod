@@ -1,4 +1,4 @@
-# Panzer War Lit Mod Hub
+# Panzer War Mod Dev Doc 装甲纷争模组开发教程
 
 Localization:
 [点击查看中文文档](https://www.yuque.com/chaojiduolajiang/panzerwar/hxsy4x)
