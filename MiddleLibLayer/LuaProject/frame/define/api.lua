@@ -10,6 +10,8 @@ FlightAPI = CS.ShanghaiWindy.Core.API.FlightAPI
 GameAPI = CS.ShanghaiWindy.Core.API.GameAPI
 --- @class ShanghaiWindy.Core.API.InputAPI
 InputAPI = CS.ShanghaiWindy.Core.API.InputAPI
+--- @class ShanghaiWindy.Core.API.ModeAPI
+ModeAPI = CS.ShanghaiWindy.Core.API.ModeAPI
 --- @class ShanghaiWindy.Core.API.PointAPI
 PointAPI = CS.ShanghaiWindy.Core.API.PointAPI
 --- @class ShanghaiWindy.Core.API.SoundAPI

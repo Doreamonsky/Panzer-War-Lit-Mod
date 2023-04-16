@@ -375,6 +375,18 @@ function InputAPI.RegisterKeyInput(actionName, keyCode, keyPerformed, keyCancele
 function InputAPI.UnregisterKeyInput(actionName) end
 return InputAPI
 
+---模式 API
+---Mode API
+---@class ShanghaiWindy.Core.API.ModeAPI
+local ModeAPI = {}
+
+---退出模式
+---Exit Mode
+---@static
+---@function [ModeAPI.ExitMode]
+function ModeAPI.ExitMode() end
+return ModeAPI
+
 ---位置点 API
 ---Point API
 ---@class ShanghaiWindy.Core.API.PointAPI

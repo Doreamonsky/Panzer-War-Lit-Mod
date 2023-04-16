@@ -1,37 +1,48 @@
 local profiler = class("profiler")
 
 function profiler:ctor()
-    self.last_time = nil
-    self.frame_start_time = nil
-    self.frame_end_time = nil
+    self.lastTime = nil
+    self.frameStartTime = nil
+    self.frameEndTime = nil
+    self.averageCostTime = 0
+    self.enableProfiler = false
 end
 
 function profiler:EnableProfile()
-    debug.sethook(self.Hook, "cr")
+    self.enableProfiler = true
+    self.hookHandler = function(event)
+        self:Hook(event)
+    end
+
+    debug.sethook(self.hookHandler, "cr")
 end
 
 function profiler:DisableProfile()
+    self.enableProfiler = false
     debug.sethook(nil)
 end
 
 function profiler:Hook(event)
     if event == "call" then
-        if self.frame_start_time == nil then
-            self.frame_start_time = os.clock()
+        if self.frameStartTime == nil then
+            self.frameStartTime = os.clock()
         end
     elseif event == "return" then
-        self.frame_end_time = os.clock()
+        if self.frameStartTime ~= nil then
+            local now = os.clock()
+            self.averageCostTime = self.averageCostTime + (now - self.frameStartTime)
+            self.frameStartTime = now
+        end
     end
 end
 
 function profiler:OnProfile()
-    if self.frame_start_time and self.frame_end_time then
-        local delta_time = self.frame_end_time - self.frame_start_time
-        print("上一帧所有函数耗时: " .. delta_time .. " 秒")
-    end
+    local costTime = self.averageCostTime
+    self.frameStartTime = nil
+    self.frameEndTime = nil
+    self.averageCostTime = 0
 
-    self.frame_start_time = nil
-    self.frame_end_time = nil
+    return costTime
 end
 
 return profiler
