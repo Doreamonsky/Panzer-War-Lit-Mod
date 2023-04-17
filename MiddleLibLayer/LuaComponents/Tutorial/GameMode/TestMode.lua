@@ -15,6 +15,7 @@ Property = {
 
 
 function TestMode:GetGameModeName(lang)
+    self.hello = {}
     return "Lua 测试模式"
 end
 

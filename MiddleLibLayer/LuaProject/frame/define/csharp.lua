@@ -186,6 +186,13 @@ local OnGameVehicleDestroyedDelegate = {}
 
 return OnGameVehicleDestroyedDelegate
 
+---当载具物体被摧毁时触发全局游戏事件。
+---Dispatch global event when vehicle gameobject is destroyed.
+---@class ShanghaiWindy.Core.Delegate.OnGameVehicleGameObjectRemovedDelegate
+local OnGameVehicleGameObjectRemovedDelegate = {}
+
+return OnGameVehicleGameObjectRemovedDelegate
+
 ---按键执行时的委托
 ---Key Performed Delegate
 ---@class ShanghaiWindy.Core.Delegate.OnKeyPerformed
@@ -356,6 +363,16 @@ function GameAPI.RegisterVehicleDestroyedEvent(gameVehicleDestroyedDelegate) end
 ---@static
 ---@function [GameAPI.UnRegisterVehicleDestroyedEvent]
 function GameAPI.UnRegisterVehicleDestroyedEvent(gameVehicleDestroyedDelegate) end
+---注册车辆物体销毁事件
+---Register Vehicle GameObject Destroyed Event
+---@static
+---@function [GameAPI.RegisterVehicleGameObjectDestroyedEvent]
+function GameAPI.RegisterVehicleGameObjectDestroyedEvent(gameVehicleGameObjectDestroyedDelegate) end
+---注销车辆物体销毁事件
+---UnRegister Vehicle GameObject Destroyed Event
+---@static
+---@function [GameAPI.UnRegisterVehicleGameObjectDestroyedEvent]
+function GameAPI.UnRegisterVehicleGameObjectDestroyedEvent(gameVehicleGameObjectDestroyedDelegate) end
 return GameAPI
 
 ---输入处理 API

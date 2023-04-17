@@ -9,7 +9,7 @@ local SpawnTutorial = class("SpawnTutorial")
 -- Get a drivable vehicle
 function SpawnTutorial:GetVehicle()
     local vehicleList = VehicleAPI.GetAllDriveableVehicleList(false)
-    return vehicleList[0]
+    return vehicleList[1]
 end
 
 -- 当 SpawnTutorial 开始时调用此函数

@@ -30,6 +30,8 @@ namespace ShanghaiWindy.Editor.PlayMode
             entry.OnPackageInitialized += OnPackageInitialized;
             StartCoroutine(entry.AsyncInitialize());
 
+            bgCamera.depth = -99;
+            
             GameEventManager.OnNewVehicleSpawned.AddListener(vehicle =>
             {
                 if (BaseInitSystem.IsLocalPlayer(vehicle._InstanceNetType))
