@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2112693636, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: MYE-T26E5_VehicleTextData
+  m_EditorClassIdentifier: 
+  AssetName: MYE-T26E5
+  editorAssetGuid: 1668ede8e1dfdec41bb46dfbf5ae2d93
+  PSParameter:
+    Health: 1800
+    isOverrideCameraDistance: 0
+    overrideCameraDistance: 0
+    nationType: 3
+    vehicleType: 2
+    isOverrideBotVehicleTypeLogic: 0
+    overrideBotTypeLogic: 0
+    viewRange: 390
+    isCustomExplodeParticle: 0
+    customExplodeParticles: []
+    repairCoff: 1
+    ammunitionStoreType: 1
+    ammunitionSortNameReversing: 0
+    hasThermalVision: 1
+    overrideFireCrossData: {fileID: 0}
+  PTCParameter:
+    TankWheelCollider: {fileID: 3193271794682835698, guid: 8c39efd42121bba4da350e60edfa25e6,
+      type: 3}
+    Mass: 46000
+    TrackData: {fileID: 11400000, guid: b528c479fae1af546aa30af37fa13cc6, type: 2}
+    trackAxis: 0
+    isWheelVehicle: 0
+    markWidth: 0.8
+    steerableWheels: []
+    engineAction: {fileID: 0}
+    isSupportPhysicTrack: 1
+    sharedEngineData: {fileID: 0}
+    vehicleEngineSoundData: {fileID: 11400000, guid: cc02ada8d6ff1914e947d14d8b75e240,
+      type: 2}
+    vehicleEngineFmodSoundData: {fileID: 11400000, guid: e16000067253eb7459e8f2e8a3ba0699,
+      type: 2}
+    engineTorqueCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -0.051475644
+        outSlope: -0.051475644
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.100562625
+      - serializedVersion: 3
+        time: 12.757173
+        value: 0.9406742
+        inSlope: 0.023068262
+        outSlope: 0.023068262
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.09493637
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 45.032837
+        value: 0.5070801
+        inSlope: -0.009649232
+        outSlope: -0.009649232
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.0529956
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    engineTorque: 2800
+    reversingEngineTorque: 2800
+    brakeTorque: 6000
+    gearParameter:
+      enableGear: 0
+      gears: []
+      totalGears: 6
+      finalRatio: 3.23
+      gearShiftingDelay: 0.35
+      gearShiftingThreshold: 0.75
+      clutchInertia: 0.25
+      gearShiftUpRPM: 1300
+      gearShiftDownRPM: 800
+      engineInertia: 0.15
+      minEngineRPM: 600
+      maxEngineRPM: 1500
+    maxSpeed: 40
+    minSpeed: 12
+    steerTorque: 5
+    maxAngularVelocity: 30
+    angularVelocitySmoothTime: 1
+    transmissionFlowType: 0
+  MechParameter:
+    isMech: 0
+    walkClip: {fileID: 0}
+    timeToFullyTurn: 0.5
+    overridePlayWalkClip: 0
+    hasWalkSoundEvent: 0
+    hasWalkParticle: 0
+    walkParticleYOffset: 0
+    isOverrideWalkParticle: 0
+    overrideWalkParticles: []
+    isFlyable: 0
+    hasFlyAnimation: 0
+    flyVelocity: 5
+    modeToggleDuration: 1
+    flyUpwardVelocity: 5
+    flyDownwardVelocity: 5
+    maxFlyHeight: 15
+    flyDrag: 0.5
+    flyAngularVelocity: 135
+    fireBurstVFX: {fileID: 0}
+    fuelTime: 15
+    chargeCDTime: 5
+  CarControllerParameter:
+    isCar: 0
+    carControllerType: 0
+  LuaVehicleControllerParameter:
+    isLua: 0
+    luaControllableVehicle: {fileID: 0}
+  sharedGunData: {fileID: 0}
+  TFParameter:
+    fireState: 0
+    ReloadTime: 7.4
+    isEnableSimpleReloadSound: 0
+    overrideSimpleReloadSound:
+      rid: -2
+    AmmoCount: 70
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    advanceFireClass:
+      SmallReloadTime: 0
+      LargeReloadTime: 0
+      MaxSmallAmmo: 0
+      disableMegaIcon: 0
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 0
+      overrideLargeReloadSound:
+        rid: -2
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0.2
+    bulletSound: {fileID: 0}
+    fmodBulletSound: {fileID: 11400000, guid: bcb948413bf423c43abdb6c0e041ad4a, type: 2}
+    bulletData:
+    - {fileID: 11400000, guid: 95a692b04a054034db541ca740440203, type: 2}
+    - {fileID: 11400000, guid: dcc7fab648a2f014f856a09c2fd69bbe, type: 2}
+    - {fileID: 11400000, guid: c9a8bed17b891d440b13375c6f49f7f8, type: 2}
+    muzzleFire: 0
+    overrideMuzzleFires: []
+    fireDymScale: 0.3
+    fireCycleTime: 1
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
+    canFireIfMainClick: 0
+    canFireIfSubClick: 0
+    isEnableFireGroup: 0
+    fireGroupParm:
+      groupID: 0
+      priority: 0
+      fireMinDelay: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
+    vehicleLuaBehaviors: []
+  vehicleSelfExplosionParams: []
+  sharedTurretData: {fileID: 0}
+  MTParameter:
+    maxTurretAngle: 180
+    ffPointAlignType: 0
+    UpMaxDegree: 20
+    DownMaxDegree: 10
+    turretDegreesPerSecond: 25
+    gunDegreesPerSecond: 7
+    offset: 0
+    actionData: {fileID: 0}
+    spgDistanceAdjustRatio: 0
+    isEnableTurretSound: 1
+    overrideTurretSound: {fileID: 11400000, guid: 46844d2fc87005a4e97f00dee0869e90,
+      type: 2}
+    overrideRanges: []
+    moduleData:
+      hasOverride: 0
+      turretDegreesPerSecond: 0
+      gunDegreesPerSecond: 0
+    vehicleLuaBehaviors: []
+  MultiFireSystemData:
+  - turretPath: Turret/Gun/SubTurret
+    gunPath: SubGun
+    dymPath: SubDym
+    gunFollowerOffSet: {x: 0, y: 0, z: 0}
+    turretFollowerOffSet: {x: 0, y: 0, z: 0}
+    sharedTurretData: {fileID: 0}
+    turretParameter:
+      maxTurretAngle: 0
+      ffPointAlignType: 0
+      UpMaxDegree: 0
+      DownMaxDegree: 0
+      turretDegreesPerSecond: 0
+      gunDegreesPerSecond: 0
+      offset: 0
+      actionData: {fileID: 0}
+      spgDistanceAdjustRatio: 0
+      isEnableTurretSound: 0
+      overrideTurretSound: {fileID: 0}
+      overrideRanges: []
+      moduleData:
+        hasOverride: 0
+        turretDegreesPerSecond: 0
+        gunDegreesPerSecond: 0
+      vehicleLuaBehaviors: []
+    ffPointOffSet: 0
+    effectStartOffSet: 0
+    sharedGunData: {fileID: 0}
+    tankFireParameter:
+      fireState: 0
+      ReloadTime: 0.1
+      isEnableSimpleReloadSound: 0
+      overrideSimpleReloadSound:
+        rid: -2
+      AmmoCount: 600
+      hasSlot: 0
+      slotCount: 0
+      slotDuration: 0
+      advanceFireClass:
+        SmallReloadTime: 0
+        LargeReloadTime: 0
+        MaxSmallAmmo: 0
+        disableMegaIcon: 0
+        isEnableSmallReloadSound: 0
+        overrideSmallReloadSound:
+          rid: -2
+        isEnableLargeReloadSound: 0
+        overrideLargeReloadSound:
+          rid: -2
+      drumFire:
+        fireDuration: 0
+        reloadTime: []
+        isEnableDrumReloadSound: 0
+        overrideDrumReloadSound:
+          rid: -2
+        disableMegaIcon: 0
+      energyVFX: {fileID: 0}
+      energyFire:
+        perShotEnergy: 0
+        totalEnergy: 0
+        perShotInterval: 0
+        vfxDuration: 0
+        isEnableEnergyReloadSound: 0
+        overrideEnergyReloadSound:
+          rid: -2
+      dispersion: 0.1
+      bulletSound: {fileID: 0}
+      fmodBulletSound: {fileID: 0}
+      bulletData:
+      - {fileID: 11400000, guid: befbd750e48913c4ba0d69c14a47c984, type: 2}
+      muzzleFire: 3
+      overrideMuzzleFires: []
+      fireDymScale: 0
+      fireCycleTime: 0
+      isFireDymIfExtraTurret: 0
+      disableGunAnimation: 0
+      disableGunSmoke: 0
+      isInRangeFire: 0
+      fireActionData: {fileID: 0}
+      customSightData: {fileID: 0}
+      canBrakeSubFireLoop: 0
+      canFireIfMainClick: 0
+      canFireIfSubClick: 0
+      isEnableFireGroup: 0
+      fireGroupParm:
+        groupID: 0
+        priority: 0
+        fireMinDelay: 0
+      isOverrideGunMark: 0
+      gunMarkLerp: 0
+      vehicleLuaBehaviors: []
+  simpleVehicleFireSystemParameters: []
+  engineSmokeParams: []
+  vehicleLuaBehaviors: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

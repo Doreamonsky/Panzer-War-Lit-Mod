@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -592638491, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 14.5DefaultChain
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: cdcde80d63ad0694f9f1d6ade891065b, type: 2}
+  penetration: 50
+  damage: 15
+  velocity: 1000
+  gravityDamper: 4
+  projectileType: 0
+  fireRecoil: 0
+  caliber: 15
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 0.06
+    fuseDelay: 0
+  warhead: 9
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: 0
+  chainBullets:
+  - {fileID: 11400000, guid: 1a20e3eb653ceb64a86c82aa9ff1e7b0, type: 2}
+  - {fileID: 11400000, guid: d7ef10be578ac5a48b573a5adbbceff1, type: 2}
+  - {fileID: 11400000, guid: 1a20e3eb653ceb64a86c82aa9ff1e7b0, type: 2}
+  - {fileID: 11400000, guid: 45e3ed614d9bcba4fa8e391c36a5e19d, type: 2}
