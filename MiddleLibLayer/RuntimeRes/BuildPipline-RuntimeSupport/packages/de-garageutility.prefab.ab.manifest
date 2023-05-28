@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1980727398
+CRC: 2044426183
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7da1a710f27e0cb0e4aec26d37f8b2da
+    Hash: 3c0d6d8e3d8de0df8790bd8a8a9dc705
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4d37a20426e366f787477fd81aad5066
+    Hash: bb0032e20d507e4244c501c9c5380fd8
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,6 +30,8 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
@@ -41,8 +43,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
 - Class: 114
@@ -96,6 +96,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 64edabcd02edd1148b3e9b9d7ffbda1a, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 98589f945248fe34096004ac1994dfb1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
@@ -126,8 +128,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: db7d01bc933f27143a65ab22c43e8d6c, type: 3}
 - Class: 115
   Script: {instanceID: 0}
@@ -152,6 +152,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.LocalizedName
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.TutorialManager/Target
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.URPCore.URPGarageManager/ButtonField
 - AssemblyName: Core
   ClassName: ShanghaiWindy.URPCore.URPGarageManager/DropdownField
 - AssemblyName: Core

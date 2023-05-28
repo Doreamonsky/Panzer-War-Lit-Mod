@@ -13,6 +13,7 @@ namespace ShanghaiWindy.Editor.PlayMode
         public Button driveBtn;
         public Button killBtn;
         public Button refreshBtn;
+        public Toggle moduleToggle;
 
         private readonly List<VehicleInfo> _vehicleList = new List<VehicleInfo>();
         private BaseInitSystem _playerVehicle = null;
@@ -55,6 +56,9 @@ namespace ShanghaiWindy.Editor.PlayMode
                     CreateVehicle(curVehicleInfo, pos, rot);
                 }
             });
+
+            moduleToggle.SetIsOnWithoutNotify(GameDataManager.IsModuleMode);
+            moduleToggle.onValueChanged.AddListener(x => { GameDataManager.IsModuleMode = x; });
         }
 
         private void CreateVehicle(VehicleInfo vehicleInfo, Vector3 pos, Quaternion rot)
