@@ -29,7 +29,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     SampleRate:
-      Value: 0
+      Value: 22050
       HasValue: 0
     BuildDirectory:
       Value: Mobile
@@ -38,16 +38,16 @@ MonoBehaviour:
       Value: 3
       HasValue: 1
     VirtualChannelCount:
-      Value: 0
+      Value: 2048
       HasValue: 0
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 128
+      HasValue: 1
     DSPBufferLength:
-      Value: 0
+      Value: 256
       HasValue: 0
     DSPBufferCount:
-      Value: 0
+      Value: 4
       HasValue: 0
     Plugins:
       Value: []
@@ -65,8 +65,12 @@ MonoBehaviour:
   displaySortOrder: 0
   childIdentifiers: []
   codecChannels:
-    Value: []
-    HasValue: 0
+    Value:
+    - format: 0
+      channels: 128
+    - format: 1
+      channels: 128
+    HasValue: 1
 --- !u!114 &-8325644605308324507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +91,8 @@ MonoBehaviour:
       Value: 1
       HasValue: 1
     LiveUpdatePort:
-      Value: 0
-      HasValue: 0
+      Value: 9000
+      HasValue: 1
     Overlay:
       Value: 1
       HasValue: 1
@@ -96,7 +100,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     SampleRate:
-      Value: 48000
+      Value: 0
       HasValue: 1
     BuildDirectory:
       Value: Desktop
@@ -256,9 +260,7 @@ MonoBehaviour:
     StaticPlugins:
       Value: []
       HasValue: 0
-    CallbackHandler:
-      Value: {fileID: 0}
-      HasValue: 0
+    CallbackHandler: {Value: {fileID: 0}, HasValue: 0}
   OutputTypeName: 
   threadAffinities:
     Value: []
@@ -285,20 +287,20 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 2
+      HasValue: 1
     LiveUpdatePort:
       Value: 9264
       HasValue: 1
     Overlay:
-      Value: 0
-      HasValue: 0
+      Value: 2
+      HasValue: 1
     Logging:
       Value: 0
       HasValue: 0
     SampleRate:
       Value: 0
-      HasValue: 0
+      HasValue: 1
     BuildDirectory:
       Value: 
       HasValue: 0
@@ -306,17 +308,17 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 256
+      HasValue: 1
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 128
+      HasValue: 1
     DSPBufferLength:
       Value: 0
-      HasValue: 0
+      HasValue: 1
     DSPBufferCount:
       Value: 0
-      HasValue: 0
+      HasValue: 1
     Plugins:
       Value: []
       HasValue: 1
@@ -334,16 +336,18 @@ MonoBehaviour:
   childIdentifiers:
   - 2fea114e74ecf3c4f920e1d5cc1c4c40
   - c88d16e5272a4e241b0ef0ac2e53b73d
-  - e7a046c753c3c3d4aacc91f6597f310d
   - 2c5177b11d81d824dbb064f9ac8527da
   - fd7c55dab0fce234b8c25f6ffca523c1
   - 52eb9df5db46521439908db3a29a1bbb
-  - 46fbfdf3fc43db0458918377fd40293e
   - b7716510a1f36934c87976f3a81dbf3d
   - 0f8eb3f400726694eb47beb1a9f94ce8
   codecChannels:
-    Value: []
-    HasValue: 0
+    Value:
+    - format: 0
+      channels: 128
+    - format: 1
+      channels: 128
+    HasValue: 1
 --- !u!114 &-2892405226161021110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,17 +497,17 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../FModUGCFolder/PanzerWar-FMod-Project/PanzerWar-FMod-Project.fspro
-  sourceBankPath: ../../FModUGCFolder/PanzerWar-FMod-Project/Build
+  sourceProjectPath: ../PanzerWar-FMod-Project/PanzerWar-FMod-Project.fspro
+  sourceBankPath: ../PanzerWar-FMod-Project/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 0
   BankLoadType: 1
-  AutomaticSampleLoading: 0
+  AutomaticSampleLoading: 1
   EncryptionKey: 
-  ImportType: 0
-  TargetAssetPath: FMODBanks
+  ImportType: 1
+  TargetAssetPath: Cache/SoundBank
   TargetBankFolder: Banks
   EventLinkage: 0
   LoggingLevel: 1
@@ -518,8 +522,21 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - aircrafts_engines
   - aircrafts_weapons
+  - army_weapons
+  - environment_bgm
+  - tanks_crew_gup_hana
+  - tanks_crew_gup_kuromarimine
+  - tanks_crew_gup_majiko
+  - tanks_crew_gup_mako
+  - tanks_crew_gup_miho
+  - tanks_crew_gup_noona
+  - tanks_crew_gup_saori
+  - tanks_crew_ru
+  - tanks_crew_uk
   - tanks_crews_cn
+  - tanks_crews_coh
   - tanks_crews_jp
   - tanks_effects
   - tanks_engines
@@ -527,27 +544,26 @@ MonoBehaviour:
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
-  AndroidUseOBB: 0
+  AndroidUseOBB: 1
+  AndroidPatchBuild: 0
   MeterChannelOrdering: 0
   StopEventsOutsideMaxDistance: 0
   BoltUnitOptionsBuildPending: 0
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131593
+  CurrentVersion: 131605
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131593
   Platforms:
   - {fileID: -9062631567198906023}
   - {fileID: -8325644605308324507}
   - {fileID: -4479264055505403562}
-  - {fileID: -3354820180773172543}
   - {fileID: -3029806130042623708}
   - {fileID: -2892405226161021110}
   - {fileID: -857544168364293357}
   - {fileID: 1102606391806331678}
   - {fileID: 5900366597259353808}
-  - {fileID: 8064332010624875051}
   - {fileID: 9189263762501919361}
   MigratedPlatforms: 0c000000150000000b0000000a00000009000000120000000800000005000000060000000200000001000000
 --- !u!114 &1102606391806331678
@@ -655,11 +671,11 @@ MonoBehaviour:
       Value: 3
       HasValue: 1
     VirtualChannelCount:
-      Value: 0
+      Value: 2048
       HasValue: 0
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 128
+      HasValue: 1
     DSPBufferLength:
       Value: 0
       HasValue: 0
@@ -682,8 +698,12 @@ MonoBehaviour:
   displaySortOrder: 1
   childIdentifiers: []
   codecChannels:
-    Value: []
-    HasValue: 0
+    Value:
+    - format: 0
+      channels: 128
+    - format: 1
+      channels: 128
+    HasValue: 1
 --- !u!114 &8064332010624875051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,9 +759,7 @@ MonoBehaviour:
     StaticPlugins:
       Value: []
       HasValue: 0
-    CallbackHandler:
-      Value: {fileID: 0}
-      HasValue: 0
+    CallbackHandler: {Value: {fileID: 0}, HasValue: 0}
   OutputTypeName: 
   threadAffinities:
     Value: []

@@ -10,7 +10,7 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         private void Start()
         {
-            menuBtn.onClick.AddListener(() => { uGUI_QualitySetting.Open(); });
+            menuBtn.onClick.AddListener(() => { UIManager.Instance.ShowUI(UIEnum.GAME_SETTING_UI); });
         }
     }
 }

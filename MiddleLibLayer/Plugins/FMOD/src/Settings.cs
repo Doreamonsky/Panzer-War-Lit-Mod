@@ -72,6 +72,7 @@ namespace FMODUnity
         void CleanTemporaryFiles();
         void DeleteTemporaryFile(string assetPath);
         bool CanBuildTarget(BuildTarget target, Platform.BinaryType binaryType, out string error);
+        void CheckActiveBuildTarget();
 #endif
     }
 
@@ -185,6 +186,9 @@ namespace FMODUnity
 
         [SerializeField]
         public bool AndroidUseOBB = false;
+
+        [SerializeField]
+        public bool AndroidPatchBuild = false;
 
         [SerializeField]
         public MeterChannelOrderingType MeterChannelOrdering;
@@ -343,7 +347,7 @@ namespace FMODUnity
                     }
                 }
                 else
-                { 
+                {
                     if (string.IsNullOrEmpty(TargetBankFolder))
                     {
                         return Application.streamingAssetsPath;
@@ -376,7 +380,7 @@ namespace FMODUnity
                     TargetAssetPath = value;
                 }
                 else
-                { 
+                {
                     TargetBankFolder = value;
                 }
             }
@@ -665,6 +669,15 @@ namespace FMODUnity
             }
 
 #if UNITY_EDITOR
+            // Remove any invalid child platforms (ie. deprecated platforms).
+            foreach (Platform newPlatform in assetPlatforms)
+            {
+                if (newPlatform.ChildIdentifiers.RemoveAll(x => FindPlatform(x) == null) > 0)
+                {
+                    EditorUtility.SetDirty(newPlatform);
+                }
+            }
+
             if (editorSettings != null)
             {
                 Platforms.ForEach(editorSettings.UpdateMigratedPlatform);
@@ -788,7 +801,7 @@ namespace FMODUnity
             UWP,
             Switch,
             WebGL,
-            Stadia,
+            Deprecated_4,
             Reserved_1,
             Reserved_2,
             Reserved_3,
@@ -886,8 +899,6 @@ namespace FMODUnity
                     return "High-End Mobile";
                 case Platform.MobileLow:
                     return "Low-End Mobile";
-                case Platform.Stadia:
-                    return "Stadia";
                 case Platform.Switch:
                     return "Switch";
                 case Platform.WebGL:
@@ -925,8 +936,6 @@ namespace FMODUnity
                     return 3.2f;
                 case Platform.Switch:
                     return 3.3f;
-                case Platform.Stadia:
-                    return 3.4f;
                 default:
                     return 0;
             }
@@ -952,7 +961,6 @@ namespace FMODUnity
                 case Platform.Switch:
                 case Platform.XboxOne:
                 case Platform.PS4:
-                case Platform.Stadia:
                 case Platform.Reserved_1:
                 case Platform.Reserved_2:
                 case Platform.Reserved_3:

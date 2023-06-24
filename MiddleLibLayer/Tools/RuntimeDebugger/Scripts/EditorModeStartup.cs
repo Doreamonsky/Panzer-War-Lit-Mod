@@ -22,8 +22,10 @@ namespace ShanghaiWindy.Editor.PlayMode
         {
             bgCamera = gameObject.AddComponent<Camera>();
 
-            gameObject.AddComponent<LuaScriptableModManager>();
-            gameObject.AddComponent<ILScriptableModManager>();
+            AttachComponent<LuaScriptableModManager>();
+            AttachComponent<ILScriptableModManager>();
+            AttachComponent<AchievementManager>();
+            AttachComponent<Core.CommonDataManager>();
 
             // Initialize Asset Entry
             var entry = gameObject.AddComponent<AssetBundleEntry>();
@@ -31,7 +33,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             StartCoroutine(entry.AsyncInitialize());
 
             bgCamera.depth = -99;
-            
+
             GameEventManager.OnNewVehicleSpawned.AddListener(vehicle =>
             {
                 if (BaseInitSystem.IsLocalPlayer(vehicle._InstanceNetType))
@@ -105,10 +107,23 @@ namespace ShanghaiWindy.Editor.PlayMode
             yield return new WaitUntil(() => !AssetBundleManager.IsLoadingAB());
             OnInit?.Invoke();
 
-            uGUI_QualitySetting.Initialize();
+            Core.CommonDataManager.Instance.ApplySettings();
             PoolManager.Initialize();
 
             Debug.Log("Enter Game");
+        }
+
+        private void AttachComponent<T>() where T : Component
+        {
+            var root = gameObject;
+
+#if UNITY_EDITOR
+            var go = new GameObject(typeof(T).Name);
+            go.transform.SetParent(root.transform);
+            go.AddComponent<T>();
+#else
+            root.AddComponent<T>();
+#endif
         }
     }
 }

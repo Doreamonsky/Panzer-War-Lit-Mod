@@ -54,7 +54,7 @@ namespace FMODUnity
             return new BinaryAssetFolderInfo("android", "Plugins/Android/libs");
         }
 
-        private static readonly string[] Architectures = { "arm64-v8a", "armeabi-v7a", "x86" };
+        private static readonly string[] Architectures = { "arm64-v8a", "armeabi-v7a", "x86", "x86_64" };
 
         protected override IEnumerable<FileRecord> GetBinaryFiles(BuildTarget buildTarget, bool allVariants, string suffix)
         {
@@ -93,7 +93,8 @@ namespace FMODUnity
 
         internal static string StaticGetBankFolder()
         {
-            return Settings.Instance.AndroidUseOBB ? Application.streamingAssetsPath : "file:///android_asset";
+            return (Settings.Instance.AndroidUseOBB || Settings.Instance.AndroidPatchBuild)
+                ? Application.streamingAssetsPath : "file:///android_asset";
         }
 
         internal override string GetPluginPath(string pluginName)

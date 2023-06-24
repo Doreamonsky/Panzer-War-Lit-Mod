@@ -192,7 +192,6 @@ UIEnum = CS.ShanghaiWindy.Core.UIEnum
 --- @field Instantiate fun() 实例化
 --- @field Destroy fun()
 GameObject = CS.UnityEngine.GameObject
-AudioListener = CS.UnityEngine.AudioListener
 Vector2 = CS.UnityEngine.Vector2
 Vector3 = CS.UnityEngine.Vector3
 Quaternion = CS.UnityEngine.Quaternion

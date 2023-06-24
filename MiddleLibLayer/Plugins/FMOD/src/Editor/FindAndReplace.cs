@@ -41,7 +41,7 @@ namespace FMODUnity
 
             if (!prefabScope)
             {
-                emitters.RemoveAll(x => PrefabUtility.GetPrefabAssetType(x) == PrefabAssetType.NotAPrefab);
+                emitters.RemoveAll(x => PrefabUtility.GetPrefabAssetType(x) != PrefabAssetType.NotAPrefab);
             }
         }
 
@@ -186,6 +186,5 @@ namespace FMODUnity
             ReplaceText(emitters[lastMatch]);
             FindNext();
         }
-        
     }
 }
