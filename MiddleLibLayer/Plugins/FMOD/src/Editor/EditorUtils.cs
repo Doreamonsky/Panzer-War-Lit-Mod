@@ -191,7 +191,7 @@ namespace FMODUnity
 
         public static Texture2D LoadImage(string filename)
         {
-            Texture2D texture = EditorGUIUtility.Load($"Assets/{RuntimeUtils.PluginBasePath}/images/{filename}") as Texture2D;
+            Texture2D texture = EditorGUIUtility.Load($"Packages/com.shanghaiwindy.middlelayer/Plugins/FMOD/images/{filename}") as Texture2D;
 
             if (texture == null)
             {
