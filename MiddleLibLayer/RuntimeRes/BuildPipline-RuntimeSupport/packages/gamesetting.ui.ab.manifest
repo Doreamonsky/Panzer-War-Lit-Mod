@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3010625636
+CRC: 357615332
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4063a3a7bb932992f582d441a91dd2a7
+    Hash: 9988ddf9d426690b76e7ea4f6d2f1b73
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b4a236b446908418a273d84f1e72b527
+    Hash: 402f231b80ebab761ea14d9623cc94ad
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,10 +21,10 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 84
   Script: {instanceID: 0}
-- Class: 91
+- Class: 111
   Script: {instanceID: 0}
-- Class: 95
-  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
@@ -38,11 +38,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
 - Class: 114
@@ -66,6 +64,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: bdfba15d2b4044149c2c8fa53280d174, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 64edabcd02edd1148b3e9b9d7ffbda1a, type: 3}
@@ -86,6 +86,10 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 347b5b322945c334f952ce8019f936b1, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 787cb71729487ea43961a7671954765b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3e79eeb86e0afa44c8eb948b3610d98c, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0196f5f3c33938e43a1cc0bd61e0c2ca, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
@@ -93,6 +97,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 65af205888b2a2443864cb604daf5baf, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f7a0751d140cf7344bc75ac9b192727a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 296c3f13c6760674bb6e1e790438159a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ff586a0a787a83647a56565b7ab064ae, type: 3}
 - Class: 115
@@ -107,7 +113,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FlightGUIManager/GUI
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.FlightMobileControl/GUI
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.ItemLocalizedName
 - AssemblyName: Core
@@ -152,3 +164,7 @@ Assets:
 - Packages/com.shanghaiwindy.coreresources/GUI/Common/Prefab/Panel/GameSettingPanel.prefab
 Dependencies:
 - F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/armuisystem.prefab.ab
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/flightuisystem.ui.ab
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/tankuisystem.ui.ab
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/vehiclebase.ui.ab

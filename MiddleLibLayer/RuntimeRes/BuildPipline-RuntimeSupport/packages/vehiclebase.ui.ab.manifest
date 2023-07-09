@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3529998181
+CRC: 3028329736
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9ce364c1fe5451bd89b65ed548991a21
+    Hash: 110a01d2c1b34c2ce27cd572aa6a87ab
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 37f5348674ce91090472dbbaa4f0eb71
+    Hash: 66309bfaa8009cf5af0263e500faeca2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -19,8 +19,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
 - Class: 111
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
@@ -28,7 +32,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9c504a3b9f1a07c42855ea8eed1770c9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5b33b2e663e78774c9f0c9af55018725, type: 3}
 - Class: 114
@@ -54,10 +66,23 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.LocalizedName
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.RectOffset
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.AnimationTriggers
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Button/ButtonClickedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.ColorBlock
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.FontData
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Navigation
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.SpriteState
 Assets:
 - Packages/com.shanghaiwindy.coreresources/GUI/Common/Prefab/RuntimePlayerPrefab/VehicleBaseUIPanel.prefab
-Dependencies: []
+Dependencies:
+- F:/Projects/PanzerWar-Lit-CP/Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-RuntimeSupport/packages/6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d

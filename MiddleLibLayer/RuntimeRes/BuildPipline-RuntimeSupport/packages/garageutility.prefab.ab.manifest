@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 552213468
+CRC: 2009091987
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 13722ecda89e3f2e9c18031d3cbf4b75
+    Hash: 851b48560a324718b0c91c4e7b52e607
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 05d0b6b1e39d99a6cd8c181ba2268e7f
+    Hash: fcea8063b8e95f0d491e90082348ee56
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,6 +40,8 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
@@ -56,13 +58,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
 - Class: 114
@@ -81,6 +81,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 7c3c51875d7580547822e2e943e2d70e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ad2d70de41c4119498d4e3ab4c7b5847, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 89e9ea64bf9c8254d9844adadde27b8e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5b33b2e663e78774c9f0c9af55018725, type: 3}
 - Class: 114
@@ -141,8 +143,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 6c46a99a67cb82d45bcfd266571dbeae, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9c1b74f910281224a8cae6d8e4fc1f43, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: be5a82d7f9ffbf74daec221c0572eb1f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d1d7db25230f8254fa37b001ba252396, type: 3}
 - Class: 114
@@ -213,6 +213,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 2e2c0cc1d1bf2b442a89a10d43c295a8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 87d2b8f2049757f4abbd35c1ab7e0ab3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: be5a82d7f9ffbf74daec221c0572eb1f, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 119
@@ -240,8 +242,6 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.GarageEquipmentBuffManager/UILayout
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.GarageManagerUI
-- AssemblyName: Core
-  ClassName: ShanghaiWindy.Core.GarageManagerUI/ButtonField
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.GarageManagerUI/ImageField
 - AssemblyName: Core
@@ -284,6 +284,10 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.WaveAttack
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.WaveAttackInfo
+- AssemblyName: FMODUnity
+  ClassName: FMOD.GUID
+- AssemblyName: FMODUnity
+  ClassName: FMODUnity.EventReference
 - AssemblyName: PostProcessing
   ClassName: UnityEngine.PostProcessing.AmbientOcclusionModel
 - AssemblyName: PostProcessing

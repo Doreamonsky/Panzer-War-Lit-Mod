@@ -1,17 +1,19 @@
 ManifestFileVersion: 0
-CRC: 3636553676
+CRC: 3940508256
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 435299c718cbf0468683c208b77b01b4
+    Hash: 0ab1c493ed48d3dc8fc59ad97a12b633
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1245047398a75064b6323bdad5e84f3d
+    Hash: b5cc4044704aad5302eed09e81672360
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
+  Script: {instanceID: 0}
+- Class: 20
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
@@ -30,6 +32,8 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
@@ -46,13 +50,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
 - Class: 114
@@ -75,6 +77,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 34d6e281874c61b4599024dcd49c3e2e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 90f363416542ee3439748881ff7752d6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 64a2feccb5a04c8ea2ede88402e92fd8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d2ea291be9de70a4abfec595203c96c1, type: 3}
 - Class: 114
@@ -215,6 +219,8 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInFmodCompatibleConfig
 - AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.Config.BuiltInIconConfig
+- AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInLocalizationConfig
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInMapInfoConfig
@@ -234,6 +240,12 @@ SerializeReferenceClassIdentifiers:
   ClassName: ShanghaiWindy.Core.Config.BuiltInSoundConfig
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.Config.BuiltInUserSightDataConfig
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.EquipmentEngineBuff
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.EquipmentFireBuff
+- AssemblyName: Core
+  ClassName: ShanghaiWindy.Core.EquipmentStateBuff
 - AssemblyName: Core
   ClassName: ShanghaiWindy.Core.FPS.FPFallImpactModule
 - AssemblyName: Core

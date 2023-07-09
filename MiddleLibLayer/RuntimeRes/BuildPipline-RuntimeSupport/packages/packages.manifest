@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4109131610
+CRC: 1411635951
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -42,7 +42,8 @@ AssetBundleManifest:
         Dependency_0: 6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d
     Info_10:
       Name: vehiclebase.ui.ab
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: 6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d
     Info_11:
       Name: garageconfig.ui.ab
       Dependencies: {}
@@ -81,7 +82,11 @@ AssetBundleManifest:
     Info_20:
       Name: gamesetting.ui.ab
       Dependencies:
-        Dependency_0: 6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d
+        Dependency_0: vehiclebase.ui.ab
+        Dependency_1: tankuisystem.ui.ab
+        Dependency_2: flightuisystem.ui.ab
+        Dependency_3: armuisystem.prefab.ab
+        Dependency_4: 6f3a8-fb900f52c575e124d8b6030db12239b5.unity3d
     Info_21:
       Name: discord.ui.ab
       Dependencies:

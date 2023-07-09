@@ -58,7 +58,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             });
 
             moduleToggle.SetIsOnWithoutNotify(GameDataManager.IsModuleMode);
-            moduleToggle.onValueChanged.AddListener(x => { GameDataManager.IsModuleMode = x; });
+            moduleToggle.onValueChanged.AddListener(x => { GameDataManager.DamageMode = x ? EDamageMode.ModuleBased : EDamageMode.HealthBased; });
         }
 
         private void CreateVehicle(VehicleInfo vehicleInfo, Vector3 pos, Quaternion rot)
