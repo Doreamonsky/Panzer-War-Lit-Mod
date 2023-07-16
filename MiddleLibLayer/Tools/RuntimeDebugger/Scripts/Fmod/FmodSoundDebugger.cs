@@ -47,7 +47,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             {
                 debugger = this
             };
-            m_FireComponent.OnInitialized(null);
+            m_FireComponent.Initialize();
 
             while (true)
             {

@@ -7,6 +7,11 @@ namespace ShanghaiWindy.Editor.PlayMode
     {
         public FmodSoundDebugger debugger;
 
+        public void Initialize()
+        {
+            OnInitialized();
+        }
+        
         protected override BulletFmodSound GetBulletSound()
         {
             return debugger.bulletSound;
