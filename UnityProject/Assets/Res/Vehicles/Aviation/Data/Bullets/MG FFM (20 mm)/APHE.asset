@@ -12,13 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: APHE
   m_EditorClassIdentifier: 
+  comment: 
   bulletVFX: {fileID: 11400000, guid: 20ff1543d934232478f85bd0e4b675cb, type: 2}
-  penetration: 24
   damage: 20
   velocity: 420
   gravityDamper: 9.8
+  projectileType: 0
   fireRecoil: 5
   caliber: 20
-  isMissile: 0
-  isBomb: 0
+  isOverrideLifeTime: 0
+  overrideLifetime: 10
+  penetration: 24
+  warHeadMaterial: {fileID: 0}
+  warheadSlope: {fileID: 0}
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 0
+    fuseDelay: 0
   ExplosionRange: 0.1
+  maxDamagePershell: 50
+  explosionWarhead: 3001
