@@ -20,10 +20,12 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         private void Awake()
         {
-            bgCamera = gameObject.AddComponent<Camera>();
+            GameDataManager.isCoreRP = true;
+            GameDataManager.isURP = true;
 
+            bgCamera = gameObject.AddComponent<Camera>();
+            
             AttachComponent<LuaScriptableModManager>();
-            AttachComponent<ILScriptableModManager>();
             AttachComponent<AchievementManager>();
             AttachComponent<Core.CommonDataManager>();
 

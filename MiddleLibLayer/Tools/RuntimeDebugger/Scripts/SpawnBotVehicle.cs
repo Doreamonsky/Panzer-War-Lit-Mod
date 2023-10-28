@@ -19,9 +19,9 @@ namespace ShanghaiWindy.Editor.PlayMode
             {
                 if (botVehicleInfo != null)
                 {
-                    if (VehicleInfoManager.Instance.GetVehicleInfo(botVehicleInfo.GetVehicleName()) != null)
+                    if (VehicleInfoManager.Instance.GetVehicleInfoByName(botVehicleInfo.GetVehicleName()) != null)
                     {
-                        CreateVehicleUtility.CreateLocalBot(botVehicleInfo.GetVehicleName(), transform.position, transform.rotation, botTeam, true, isIdle);
+                        CreateVehicleUtility.CreateLocalBot(botVehicleInfo, transform.position, transform.rotation, botTeam, true, isIdle);
                     }
                 }
             };

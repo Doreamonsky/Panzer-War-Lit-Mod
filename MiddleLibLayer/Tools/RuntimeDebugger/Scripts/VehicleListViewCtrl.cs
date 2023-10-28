@@ -48,7 +48,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             {
                 if (_playerVehicle != null)
                 {
-                    var curVehicleInfo = VehicleInfoManager.Instance.GetVehicleInfo(_playerVehicle.VehicleName);
+                    var curVehicleInfo = VehicleInfoManager.Instance.GetVehicleInfoByName(_playerVehicle.VehicleName);
                     var pos = _playerVehicle.GetRigidbody().position;
                     var rot = _playerVehicle.GetRigidbody().rotation;
 

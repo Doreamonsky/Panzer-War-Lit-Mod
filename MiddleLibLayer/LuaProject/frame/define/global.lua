@@ -23,10 +23,7 @@
 ---@field OnLuaExitModeReq UnityEvent
 CSharpAPI = CS.ShanghaiWindy.Core.LuaCallCSharpHelper
 
---- @class VehicleInfo
---- @field GetDisplayName fun():string 载具显示名称
---- @field rank int 等级
-VehicleInfo = CS.ShanghaiWindy.Core.VehicleInfo
+
 
 AssetLoader = CS.ShanghaiWindy.Core.AssetLoader
 AssetBundleManager = CS.ShanghaiWindy.Core.AssetBundleManager

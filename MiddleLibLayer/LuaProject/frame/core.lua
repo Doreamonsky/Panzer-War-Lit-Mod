@@ -6,6 +6,8 @@ require("frame.eventsystem")               -- 事件系统
 require("frame.define.all")                -- 声明与注释
 require("frame.lib.all")                   -- 第三方库
 require("frame.util.all")                  -- 常用帮助方法
+require("frame.ui.all")                    -- ui
+
 local profiler = require("frame.profiler") -- 性能监控
 -----------------------------------------------------
 
@@ -35,6 +37,12 @@ end
 traceback = function(err)
     print(debug.traceback())
     error("lua error " .. err)
+end
+
+handler = function(instance, method)
+    return function(...)
+        return method(instance, ...)
+    end
 end
 
 LuaProfiler = profiler.new()

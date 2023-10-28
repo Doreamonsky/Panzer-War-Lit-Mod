@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2434733792
+CRC: 3513540264
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a17342ba0376e26a6ccaffbffbc3d46
+    Hash: e4272bccf441683e1fa7a70faaf70e2f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7f7ec5ad40fbd9fa1c3e54d1cd74ff93
+    Hash: ac9eec39aab9786f445cbf60718b9434
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,8 +17,6 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 28
   Script: {instanceID: 0}
-- Class: 81
-  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
 - Class: 114
@@ -26,9 +24,23 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: cacb8db83b75acc44bb5a167ba40516c, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c208cfb329ec19144a26b1667ce0fe00, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b62cd45efff4f82b8275fd39c0808cf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2194bb3474b047d0acf5ba6e49ebe08e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b240e37cf80be91438d95db1ea1f94b3, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
@@ -128,6 +140,14 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.PostProcessing.VignetteModel
 - AssemblyName: PostProcessing
   ClassName: UnityEngine.PostProcessing.VignetteModel/Settings
+- AssemblyName: Unity.RenderPipelines.Core.Runtime
+  ClassName: UnityEngine.Rendering.BoolParameter
+- AssemblyName: Unity.RenderPipelines.Core.Runtime
+  ClassName: UnityEngine.Rendering.ClampedFloatParameter
+- AssemblyName: Unity.RenderPipelines.Core.Runtime
+  ClassName: UnityEngine.Rendering.ColorParameter
+- AssemblyName: Unity.RenderPipelines.Core.Runtime
+  ClassName: UnityEngine.Rendering.Vector2Parameter
 Assets:
-- Assets/Addressable/Cameras/ObserveCamera.prefab
+- Packages/com.shanghaiwindy.urpresources/Main/Cameras/ObserveCamera.prefab
 Dependencies: []
