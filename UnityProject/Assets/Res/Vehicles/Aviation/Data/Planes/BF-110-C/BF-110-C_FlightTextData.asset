@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BF-110-C_FlightTextData
   m_EditorClassIdentifier: 
   assetName: BF-110-C
-  editorAssetGuid: 
+  editorAssetGuid: 38417ba8dbc884f4dbeaccc8c0ae41bd
   causalData:
     flightCausualType: 0
     aggressiveTurnAngle: 15
@@ -42,13 +42,11 @@ MonoBehaviour:
     fireRate: 0.1
     fireEndureTime: 3
     dispersion: 0.1
-    fireClip: {fileID: 8300000, guid: e595b95608ac3a2408220137c877b77b, type: 3}
-    fireVolume: 0.75
-    isFireSoundOverride: 0
     fmodBulletSound: {fileID: 0}
     hasFireCircle: 0
     hasBombCircle: 0
-    isWeaponCrossing: 0
+    isInRangeFire: 0
+    inRangeFireDegree: 5
     vehicleLuaBehaviors: []
   - weaponName: '2 x 500 kg SC500K bombs '
     isFireTurns: 0
@@ -60,13 +58,11 @@ MonoBehaviour:
     fireRate: 0.1
     fireEndureTime: 0
     dispersion: 0
-    fireClip: {fileID: 8300000, guid: 1a1eb74b30462ec42bb9f16d3bcf2e11, type: 3}
-    fireVolume: 1
-    isFireSoundOverride: 0
     fmodBulletSound: {fileID: 0}
     hasFireCircle: 0
     hasBombCircle: 0
-    isWeaponCrossing: 0
+    isInRangeFire: 0
+    inRangeFireDegree: 5
     vehicleLuaBehaviors: []
   flightTurretDatas: []
   weaponCrossingDistance: 800
@@ -80,4 +76,7 @@ MonoBehaviour:
   climbRateLimit: -1
   nationType: 3
   hasThermalVision: 0
+  flightModuleGuid:
+    gunGuids: []
+    turretGuids: []
   vehicleLuaBehaviors: []
