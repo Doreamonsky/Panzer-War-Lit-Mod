@@ -8,44 +8,55 @@
 		_MaskMap("Metallic", 2D) = "white" { }
 	}
 
-		SubShader
-	{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+   SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        LOD 100
 
-		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            // make fog work
+            #pragma multi_compile_fog
 
-		#pragma target 3.0
+            #include "UnityCG.cginc"
 
-		sampler2D _MainTex;
-		sampler2D _MaskMap;
-		sampler2D _BumpMap;
-		float4 _Color;
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-		struct Input
-		{
-			float2 uv_MainTex;
-		};
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
 
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
 
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                UNITY_TRANSFER_FOG(o,o.vertex);
+                return o;
+            }
 
-		UNITY_INSTANCING_BUFFER_START(Props)
-		UNITY_INSTANCING_BUFFER_END(Props)
-
-		void surf(Input IN, inout SurfaceOutputStandard o)
-		{
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex)*_Color;
-			fixed4 m = tex2D(_MaskMap, IN.uv_MainTex);
-			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_MainTex));
-
-			o.Albedo = c.rgb;
-			o.Metallic = m.rgb;
-			o.Smoothness = m.a;
-			o.Alpha = c.a;
-		}
-		ENDCG
-	}
-
-		FallBack "Diffuse"
+            fixed4 frag (v2f i) : SV_Target
+            {
+                // sample the texture
+                fixed4 col = tex2D(_MainTex, i.uv);
+                // apply fog
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return col;
+            }
+            ENDCG
+        }
+    }
 }

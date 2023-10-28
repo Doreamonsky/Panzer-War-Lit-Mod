@@ -20,93 +20,55 @@
 		[KeywordEnum(UV1, UV2)] _UV_CHANNEL("Pattern UV-Channel", Float) = 0
 	}
 	
-	SubShader
-	{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+   SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        LOD 100
 
-		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            // make fog work
+            #pragma multi_compile_fog
 
-		#pragma target 3.0
+            #include "UnityCG.cginc"
 
-		sampler2D _MainTex;
-		//sampler2D _MetallicGlossMap;
-		sampler2D _BumpMap;
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-		// Camo
-		fixed4 _CamoBlackTint;
-		fixed4 _CamoRedTint;
-		fixed4 _CamoGreenTint;
-		fixed4 _CamoBlueTint;
-		sampler2D _CamoPatternMap;
-		
-		float4 _Color;
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
 
-		sampler2D _CamoColorTex;
-		int _CamoColor;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
 
-		struct Input
-		{
-			float2 uv_MainTex;
-			float2 uv_CamoColorTex;
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                UNITY_TRANSFER_FOG(o,o.vertex);
+                return o;
+            }
 
-	#if _UV_CHANNEL_UV1
-			fixed2 uv_CamoPatternMap;
-	#else
-			fixed2 uv2_CamoPatternMap;
-	#endif
-		};
-
-		UNITY_INSTANCING_BUFFER_START(Props)
-		UNITY_INSTANCING_BUFFER_END(Props)
-
-		fixed OverlayBlendMode(fixed basePixel, fixed blendPixel) {
-			if (basePixel < 0.5) {
-				return (2.0 * basePixel * blendPixel);
-			} else {
-				return (1.0 - 2.0 * (1.0 - basePixel) * (1.0 - blendPixel));
-			}
-		}
-
-		void surf(Input IN, inout SurfaceOutputStandard o)
-		{
-			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
-			//fixed4 m = tex2D(_MetallicGlossMap, IN.uv_MainTex);
-			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_MainTex));
-
-	#if _UV_CHANNEL_UV1
-			fixed4 camoPattern = tex2D(_CamoPatternMap, IN.uv_CamoPatternMap);
-	#else
-			fixed4 camoPattern = tex2D(_CamoPatternMap, IN.uv2_CamoPatternMap);
-	#endif
-			
-			if(_CamoColor)
-			{
-				fixed4 camo = tex2D(_CamoColorTex,IN.uv_CamoColorTex);
-				
-				camo.r = OverlayBlendMode(camo.r,c.r);
-				camo.g = OverlayBlendMode(camo.g,c.g);
-				camo.b = OverlayBlendMode(camo.b,c.b);
-
-				o.Albedo = camo * _Color;
-			}
-			else
-			{
-				// Camo 
-				fixed4 camo = lerp(_CamoBlackTint, _CamoRedTint, camoPattern.r);
-				camo = lerp(camo, _CamoGreenTint, camoPattern.g);
-				camo = lerp(camo, _CamoBlueTint, camoPattern.b);
-
-				o.Albedo = lerp(c.rgb,camo,camo.a*0.5f)*_Color;
-			}
-
-			o.Metallic = 0;//m.rgb;
-			o.Smoothness = 0;//m.a;
-			o.Alpha = c.a;
-		}
-		ENDCG
-	}
-	FallBack "Diffuse"
+            fixed4 frag (v2f i) : SV_Target
+            {
+                // sample the texture
+                fixed4 col = tex2D(_MainTex, i.uv);
+                // apply fog
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return col;
+            }
+            ENDCG
+        }
+    }
 }
