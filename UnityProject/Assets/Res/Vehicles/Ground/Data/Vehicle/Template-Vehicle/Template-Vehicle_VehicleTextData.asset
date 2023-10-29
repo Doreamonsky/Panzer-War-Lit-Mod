@@ -111,7 +111,6 @@ MonoBehaviour:
     transmissionFlowType: 0
   MechParameter:
     isMech: 0
-    walkClip: {fileID: 0}
     timeToFullyTurn: 0.5
     overridePlayWalkClip: 0
     hasWalkSoundEvent: 0
@@ -177,7 +176,6 @@ MonoBehaviour:
       overrideEnergyReloadSound:
         rid: -2
     dispersion: 0
-    bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: e36affa73be1b404286fa8e2a8769f08, type: 2}
     bulletData:
     - {fileID: 3957054737420944067, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
@@ -202,7 +200,6 @@ MonoBehaviour:
     isOverrideGunMark: 0
     gunMarkLerp: 0
     vehicleLuaBehaviors: []
-  vehicleSelfExplosionParams: []
   isTurretWrapper: 1
   sharedTurretData: {fileID: 11400000, guid: 5dafd252df3127b4db1085778bde5bdd, type: 2}
   MTParameter:
@@ -234,6 +231,12 @@ MonoBehaviour:
       numberProperties: []
       stringProperties: []
       boolProperties: []
+  vehicleSelfExplosionParams: []
+  tankModuleGuid:
+    multiFireGunGuids: []
+    multiFireTurretGuids: []
+    simpleFireGunGuids: []
+    simpleFireTurretGuids: []
   references:
     version: 2
     RefIds:
