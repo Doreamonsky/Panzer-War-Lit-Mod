@@ -966,6 +966,13 @@ function ComponentAPI.GetNativeComponentsInParent(target, componentName) end
 ---@param target UnityEngine.GameObject
 ---@param componentName System.String
 function ComponentAPI.GetNativeComponentsInChildren(target, componentName) end
+---通过组件找到指定物体组
+---Find objects by component
+---@static
+---@function [ComponentAPI.GetObjectsInWorld]
+---@return UnityEngine.Object[]
+---@param componentName System.String
+function ComponentAPI.GetObjectsInWorld(componentName) end
 return ComponentAPI
 
 ---@class ShanghaiWindy.Core.API.ConfigAPI
