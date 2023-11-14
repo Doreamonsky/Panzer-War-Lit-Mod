@@ -97,6 +97,12 @@ namespace ShanghaiWindy.Core
                     Object.DestroyImmediate(importedGameObject);
                 }
 
+                var textureGuids = AssetDatabase.FindAssets("t:texture2d", new string[] { assetFolderPath });
+                foreach (var textureGuid in textureGuids)
+                {
+                    AssetDatabase.DeleteAsset(AssetDatabase.GUIDToAssetPath(textureGuid));
+                }
+
                 File.WriteAllText(hashFile.FullName, hash);
                 Debug.Log(mesh);
                 return mesh;
