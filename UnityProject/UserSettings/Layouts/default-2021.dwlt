@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 71
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 82
+  controlID: 77
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 83
+  controlID: 40
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -217,14 +217,14 @@ MonoBehaviour:
     height: 213
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 13}
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 3
+  m_Selected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -304,7 +304,7 @@ MonoBehaviour:
     x: 301
     y: 73
     width: 472
-    height: 330
+    height: 192
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1121,7 +1121,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 0
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -1134,7 +1134,7 @@ MonoBehaviour:
       y: 21
       width: 472
       height: 171
-    m_Scale: {x: 0.15833333, y: 0.15833333}
+    m_Scale: {x: 0.17777778, y: 0.17777778}
     m_Translation: {x: 236, y: 85.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1142,12 +1142,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1490.5264
-      y: -540
-      width: 2981.0527
-      height: 1080
+      x: -1327.5
+      y: -480.9375
+      width: 2655
+      height: 961.875
     m_MinimalGUI: 1
-  m_defaultScale: 0.15833333
+  m_defaultScale: 0.17777778
   m_LastWindowPixelSize: {x: 472, y: 192}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -1187,9 +1187,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 0c6e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 48f1ffff
+      m_ExpandedIDs: 3ce5ffff40e5ffffcae5ffff8cecffffe2eeffff1af2ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1234,10 +1234,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 451
+    x: 301
     y: 73
-    width: 709
-    height: 544
+    width: 472
+    height: 192
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1267,7 +1267,7 @@ MonoBehaviour:
     x: 301
     y: 73
     width: 472
-    height: 330
+    height: 192
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1343,9 +1343,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: -174}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 2
       id: unity-transform-toolbar
       index: 0
       layout: 2
@@ -1355,7 +1355,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 67.5, y: 86}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: -17}
       snapCorner: 0
       id: Orientation
       index: 0
@@ -1541,13 +1541,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.073579684, y: -0.9228467, z: 0.22174153, w: -0.30622518}
+    m_Target: {x: -0.040063094, y: -0.95987326, z: 0.20189153, w: -0.19047606}
     speed: 2
-    m_Value: {x: 0.07357969, y: 0.92284673, z: -0.22174154, w: 0.30622518}
+    m_Value: {x: -0.040365823, y: -0.959585, z: 0.2018309, w: -0.19191536}
   m_Size:
-    m_Target: 2.4279754
+    m_Target: 3.4528253
     speed: 2
-    m_Value: 2.4279754
+    m_Value: 3.3041391
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1611,25 +1611,25 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 1
+    m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Packages/com.shanghaiwindy.middlelayer/Shader
     m_Globs: []
     m_OriginalText: 
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Packages/com.shanghaiwindy.middlelayer/Shader
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Projects\PanzerWar-Mods\UnityProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 28830000
-    m_LastClickedID: 33576
-    m_ExpandedIDs: 0000000026830000288300002a8300002c8300002e83000030830000328300004c83000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 771}
+    m_SelectedIDs: 0c6e0000
+    m_LastClickedID: 28172
+    m_ExpandedIDs: 00000000906d0000926d0000946d0000966d0000986d00009a6d00009c6d0000c86d0000d46d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1657,7 +1657,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000026830000288300002a8300002c8300002e8300003083000032830000
+    m_ExpandedIDs: 00000000906d0000926d0000946d0000966d0000986d00009a6d00009c6d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1684,22 +1684,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004c7500008a740000b68000007a3f00006c3f0000006e00008a730000000000009a1a0000ba1a0000ce760000b0760000bc520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: SRP-Vehicle-Camouflage
+      m_OriginalName: SRP-Vehicle-Camouflage
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 31068
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
