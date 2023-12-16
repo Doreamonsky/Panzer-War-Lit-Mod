@@ -54,7 +54,7 @@ MonoBehaviour:
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: d4d18863e5c3070478d00b089a963a32, type: 2}
     bulletData:
-    - {fileID: 11400000, guid: 095dfc5d4c12dfa4cbd748a9773d2afb, type: 2}
+    - {fileID: 5171985081885236183}
     muzzleFire: 3
     overrideMuzzleFires: []
     fireDymScale: 0
@@ -75,6 +75,7 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
@@ -85,3 +86,35 @@ MonoBehaviour:
       data:
         advancePlayTime: 1
         soundData: {fileID: 11400000, guid: 99dde0d4dd1e4ef43bed87ab8dc02df0, type: 2}
+--- !u!114 &5171985081885236183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 12mm-M2HB-Bullet
+  m_EditorClassIdentifier: 
+  comment: 'The 7.62 mm DT is a Soviet machine gun used on a variety of armoured
+    fighting vehicles. A conversion of an infantry light machine gun for ground vehicle
+    mounts, the DT provides a steady rate of fire to suppress or harass enemy vehicles
+    and their crew with.  '
+  bulletVFX: {fileID: 11400000, guid: d0f021dc94eab464b8d021fbfd3f4be9, type: 2}
+  damage: 4
+  velocity: 420
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 0
+  caliber: 8
+  penetration: 30
+  warHeadMaterial: {fileID: 0}
+  moduleData:
+    explosiveMassEqualTNT: 10
+    mass: 0.01
+    fuseDelay: 0
+  warhead: 9
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -1

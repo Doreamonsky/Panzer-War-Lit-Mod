@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7812180236452655300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: O-365K
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
+  penetration: 11
+  damage: 260
+  velocity: 792
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 85
+  moduleData:
+    explosiveMassEqualTNT: 660
+    mass: 9.85
+    fuseDelay: 0.1
+  ExplosionRange: 1.2
+  isDeclineByDistance: 0
+  maxDamagePershell: 50
+--- !u!114 &-2527398236707976142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-365K
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 148
+  damage: 160
+  velocity: 792
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 85
+  moduleData:
+    explosiveMassEqualTNT: 73.92
+    mass: 9.2
+    fuseDelay: 1.2
+  warhead: 4
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,9 +110,9 @@ MonoBehaviour:
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: 82bc9ff67dce78849840f9be74db868e, type: 2}
     bulletData:
-    - {fileID: 3412968085722888007}
-    - {fileID: 4304987242819621524}
-    - {fileID: 6785819904146220186}
+    - {fileID: -2527398236707976142}
+    - {fileID: 3465188646917032746}
+    - {fileID: -7812180236452655300}
     muzzleFire: 1
     overrideMuzzleFires: []
     fireDymScale: 1
@@ -77,40 +133,13 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &3412968085722888007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: BR-365K
-  m_EditorClassIdentifier: 
-  comment: 
-  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 148
-  damage: 160
-  velocity: 792
-  gravityDamper: 9.8
-  projectileType: 0
-  fireRecoil: 120
-  caliber: 85
-  moduleData:
-    explosiveMassEqualTNT: 221.76
-    mass: 9.2
-    fuseDelay: 1.2
-  warhead: 4
-  isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
---- !u!114 &4304987242819621524
+--- !u!114 &3465188646917032746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,32 +166,4 @@ MonoBehaviour:
     fuseDelay: 0
   warhead: 6
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
---- !u!114 &6785819904146220186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: O-365K
-  m_EditorClassIdentifier: 
-  comment: 
-  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
-  penetration: 28
-  damage: 260
-  velocity: 792
-  gravityDamper: 9.8
-  projectileType: 0
-  fireRecoil: 120
-  caliber: 85
-  moduleData:
-    explosiveMassEqualTNT: 660
-    mass: 9.85
-    fuseDelay: 0.1
-  ExplosionRange: 2.4
-  isDeclineByDistance: 0
-  maxDamagePershell: 50
+  overrideNormalizeAngle: -6

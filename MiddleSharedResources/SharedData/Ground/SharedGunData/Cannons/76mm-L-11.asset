@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5481106575975941091
+--- !u!114 &-8011747322197014969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: UBR-365P
+  m_Name: BR-350SP
   m_EditorClassIdentifier: 
   comment: 
-  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 136
-  damage: 100
-  velocity: 990
+  bulletVFX: {fileID: 11400000, guid: 282db7a4061fcf7459757b0ecd3e4031, type: 2}
+  penetration: 90
+  damage: 110
+  velocity: 615
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
   caliber: 76
   moduleData:
     explosiveMassEqualTNT: 0
-    mass: 3.02
+    mass: 6.5
     fuseDelay: 0
-  warhead: 6
+  warhead: 2
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
+  overrideNormalizeAngle: -2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,9 +82,9 @@ MonoBehaviour:
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: 126e2605c27426046a4c1e44b7257921, type: 2}
     bulletData:
-    - {fileID: 1136546036746377998}
-    - {fileID: -5481106575975941091}
-    - {fileID: 1895053563235091171}
+    - {fileID: 5951717153450546959}
+    - {fileID: -8011747322197014969}
+    - {fileID: 3642502514575497681}
     muzzleFire: 1
     overrideMuzzleFires: []
     fireDymScale: 1
@@ -105,40 +105,13 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &1136546036746377998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: UBR-365K
-  m_EditorClassIdentifier: 
-  comment: 
-  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 102
-  damage: 120
-  velocity: 792
-  gravityDamper: 9.8
-  projectileType: 0
-  fireRecoil: 120
-  caliber: 76
-  moduleData:
-    explosiveMassEqualTNT: 150
-    mass: 6.3
-    fuseDelay: 1.2
-  warhead: 4
-  isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
---- !u!114 &1895053563235091171
+--- !u!114 &3642502514575497681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,13 +121,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: UOF-365K
+  m_Name: OF-350M
   m_EditorClassIdentifier: 
   comment: 
-  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
-  penetration: 43
-  damage: 180
-  velocity: 792
+  bulletVFX: {fileID: 11400000, guid: c0e084fe3cf0b6048b13568624fea39a, type: 2}
+  penetration: 10
+  damage: 175
+  velocity: 615
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
@@ -162,7 +135,35 @@ MonoBehaviour:
   moduleData:
     explosiveMassEqualTNT: 621
     mass: 6.2
-    fuseDelay: 0.05
-  ExplosionRange: 3
+    fuseDelay: 0.1
+  ExplosionRange: 1
   isDeclineByDistance: 0
   maxDamagePershell: 50
+--- !u!114 &5951717153450546959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-350A
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 282db7a4061fcf7459757b0ecd3e4031, type: 2}
+  penetration: 78
+  damage: 110
+  velocity: 615
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 76
+  moduleData:
+    explosiveMassEqualTNT: 150
+    mass: 6.3
+    fuseDelay: 1.2
+  warhead: 2
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -2

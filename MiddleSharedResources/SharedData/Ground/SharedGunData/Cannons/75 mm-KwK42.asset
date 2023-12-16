@@ -54,8 +54,9 @@ MonoBehaviour:
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: 627bed3d6a00dd94dab0331e6c75a5c5, type: 2}
     bulletData:
-    - {fileID: 8753034696540557279}
-    - {fileID: 4078459268959839362}
+    - {fileID: 8502619096703850885}
+    - {fileID: 6581915716001299249}
+    - {fileID: 9202225841253292538}
     muzzleFire: 1
     overrideMuzzleFires: []
     fireDymScale: 1
@@ -76,12 +77,13 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &4078459268959839362
+--- !u!114 &6581915716001299249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,13 +97,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comment: 
   bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
-  penetration: 32
   damage: 180
   velocity: 700
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
   caliber: 75
+  penetration: 11
+  warHeadMaterial: {fileID: 0}
   moduleData:
     explosiveMassEqualTNT: 725
     mass: 5.74
@@ -109,7 +112,7 @@ MonoBehaviour:
   ExplosionRange: 2.1
   isDeclineByDistance: 0
   maxDamagePershell: 50
---- !u!114 &8753034696540557279
+--- !u!114 &8502619096703850885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,17 +126,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comment: 
   bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 160
   damage: 140
   velocity: 935
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
   caliber: 75
+  penetration: 192
+  warHeadMaterial: {fileID: 0}
   moduleData:
     explosiveMassEqualTNT: 28.9
     mass: 6.8
     fuseDelay: 1.2
-  warhead: 2
+  warhead: 8
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
+  overrideNormalizeAngle: -4
+--- !u!114 &9202225841253292538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: PzGr 40_42
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c52bfaeb81d7a4641a5361068c15a2ec, type: 2}
+  damage: 110
+  velocity: 1120
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 75
+  penetration: 228
+  warHeadMaterial: {fileID: 0}
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 4.75
+    fuseDelay: 0
+  warhead: 6
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -6

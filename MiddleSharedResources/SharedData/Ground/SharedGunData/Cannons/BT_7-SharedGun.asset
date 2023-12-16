@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3894776732394358400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-240SP
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c52bfaeb81d7a4641a5361068c15a2ec, type: 2}
+  penetration: 73
+  damage: 32
+  velocity: 757
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 30
+  caliber: 45
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 1.43
+    fuseDelay: 0
+  warhead: 1
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -3
+--- !u!114 &-2600262311171289873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-240
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c52bfaeb81d7a4641a5361068c15a2ec, type: 2}
+  penetration: 70
+  damage: 40
+  velocity: 760
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 30
+  caliber: 45
+  moduleData:
+    explosiveMassEqualTNT: 29.3
+    mass: 1.43
+    fuseDelay: 1.2
+  warhead: 2
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 359232964, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BT_7-SharedGun
+  m_EditorClassIdentifier: 
+  comment: 
+  tankFireParameter:
+    fireState: 0
+    ReloadTime: 3.3
+    isEnableSimpleReloadSound: 1
+    overrideSimpleReloadSound:
+      rid: -2
+    AmmoCount: 188
+    hasSlot: 0
+    slotCount: 0
+    slotDuration: 0
+    advanceFireClass:
+      SmallReloadTime: 0
+      LargeReloadTime: 0
+      MaxSmallAmmo: 0
+      disableMegaIcon: 0
+      isEnableSmallReloadSound: 0
+      overrideSmallReloadSound:
+        rid: -2
+      isEnableLargeReloadSound: 0
+      overrideLargeReloadSound:
+        rid: -2
+    drumFire:
+      fireDuration: 0
+      reloadTime: []
+      isEnableDrumReloadSound: 0
+      overrideDrumReloadSound:
+        rid: -2
+      disableMegaIcon: 0
+    energyVFX: {fileID: 0}
+    energyFire:
+      perShotEnergy: 0
+      totalEnergy: 0
+      perShotInterval: 0
+      vfxDuration: 0
+      isEnableEnergyReloadSound: 0
+      overrideEnergyReloadSound:
+        rid: -2
+    dispersion: 0.1
+    bulletSound: {fileID: 11400000, guid: 098d0013dfc7f90438c76f7d16231b35, type: 2}
+    fmodBulletSound: {fileID: 11400000, guid: cd7e8a4e8906b0749ba2420b1ae8799a, type: 2}
+    bulletData:
+    - {fileID: -2600262311171289873}
+    - {fileID: -3894776732394358400}
+    - {fileID: 2607676717254878136}
+    muzzleFire: 0
+    overrideMuzzleFires: []
+    fireDymScale: 1
+    fireCycleTime: 0
+    isFireDymIfExtraTurret: 0
+    disableGunAnimation: 0
+    disableGunSmoke: 0
+    isInRangeFire: 0
+    fireActionData: {fileID: 0}
+    customSightData: {fileID: 0}
+    canBrakeSubFireLoop: 0
+    canFireIfMainClick: 0
+    canFireIfSubClick: 0
+    isEnableFireGroup: 0
+    fireGroupParm:
+      groupID: 0
+      priority: 0
+      fireMinDelay: 0
+    isOverrideGunMark: 0
+    gunMarkLerp: 0
+    vehicleLuaBehaviors: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2607676717254878136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: BR-240P
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c52bfaeb81d7a4641a5361068c15a2ec, type: 2}
+  penetration: 106
+  damage: 40
+  velocity: 1070
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 40
+  caliber: 45
+  moduleData:
+    explosiveMassEqualTNT: 0
+    mass: 0.85
+    fuseDelay: 0
+  warhead: 6
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -8

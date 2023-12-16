@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8216485626451564326
+--- !u!114 &-8685819256498674601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,52 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: AP M62
+  m_Name: T45
   m_EditorClassIdentifier: 
   comment: 
   bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 128
-  damage: 115
-  velocity: 792
+  penetration: 139
+  damage: 110
+  velocity: 868
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
-  caliber: 76
+  caliber: 75
   moduleData:
-    explosiveMassEqualTNT: 63.7
-    mass: 6.79
-    fuseDelay: 1.2
-  warhead: 8
+    explosiveMassEqualTNT: 0
+    mass: 3.81
+    fuseDelay: 0
+  warhead: 6
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
---- !u!114 &-401233010023082243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: HE M42A1
-  m_EditorClassIdentifier: 
-  comment: 
-  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
-  penetration: 38
-  damage: 185
-  velocity: 792
-  gravityDamper: 9.8
-  projectileType: 0
-  fireRecoil: 120
-  caliber: 76
-  moduleData:
-    explosiveMassEqualTNT: 666
-    mass: 6.3
-    fuseDelay: 0.1
-  ExplosionRange: 1.09
-  isDeclineByDistance: 0
-  maxDamagePershell: 50
+  overrideNormalizeAngle: -6
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,14 +40,14 @@ MonoBehaviour:
   m_Script: {fileID: 359232964, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: 75mm-M3
   m_EditorClassIdentifier: 
-  comment: "M4A1 76 \u70AE"
+  comment: "M4A1 75 \u70AE"
   tankFireParameter:
     fireState: 0
-    ReloadTime: 5.75
+    ReloadTime: 5.6
     isEnableSimpleReloadSound: 1
     overrideSimpleReloadSound:
       rid: -2
-    AmmoCount: 97
+    AmmoCount: 90
     hasSlot: 0
     slotCount: 0
     slotDuration: 0
@@ -106,13 +78,14 @@ MonoBehaviour:
       isEnableEnergyReloadSound: 0
       overrideEnergyReloadSound:
         rid: -2
-    dispersion: 0
+    dispersion: 0.1
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: b7c111a9222d18d49afb656b056a36d0, type: 2}
     bulletData:
-    - {fileID: -8216485626451564326}
-    - {fileID: 8776535628103496898}
-    - {fileID: -401233010023082243}
+    - {fileID: 7588634151649993216}
+    - {fileID: 458668136923804308}
+    - {fileID: -8685819256498674601}
+    - {fileID: 1990063158564391554}
     muzzleFire: 1
     overrideMuzzleFires: []
     fireDymScale: 1
@@ -133,12 +106,13 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &8776535628103496898
+--- !u!114 &458668136923804308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,21 +122,77 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: HVAP M93
+  m_Name: M72
   m_EditorClassIdentifier: 
   comment: 
   bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 177
-  damage: 105
-  velocity: 990
+  penetration: 91
+  damage: 110
+  velocity: 619
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
-  caliber: 76
+  caliber: 75
   moduleData:
     explosiveMassEqualTNT: 0
     mass: 6.3
     fuseDelay: 0
   warhead: 1
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
+  overrideNormalizeAngle: -2
+--- !u!114 &1990063158564391554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: M48
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
+  penetration: 10
+  damage: 175
+  velocity: 463
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 75
+  moduleData:
+    explosiveMassEqualTNT: 666
+    mass: 6.3
+    fuseDelay: 0
+  ExplosionRange: 1.1
+  isDeclineByDistance: 0
+  maxDamagePershell: 17.5
+--- !u!114 &7588634151649993216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: M61
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
+  penetration: 104
+  damage: 110
+  velocity: 618
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 75
+  moduleData:
+    explosiveMassEqualTNT: 63.7
+    mass: 6.79
+    fuseDelay: 1.2
+  warhead: 8
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -3

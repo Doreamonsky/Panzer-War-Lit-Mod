@@ -15,6 +15,48 @@ MonoBehaviour:
   comment: 
   identifier: {fileID: 11400000, guid: a040449af6771cb4bafae066fb76d4d0, type: 2}
   spawnReses:
+  - spawnName: KillAchievementSound
+    spawnObject: {fileID: 1292169219813342710, guid: 7b139f1f2a5c6b2418c1a4018d6dd72b,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u51FB\u6740\u97F3\u6548"
+  - spawnName: XXXXXXShellReload
+    spawnObject: {fileID: 1292169219813342710, guid: 1a8ccbf6dbf728642a653f286a27ddac,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u88C5\u5F39\u97F3\u6548"
+  - spawnName: ap_critical_hit_huge
+    spawnObject: {fileID: 5671462786363429659, guid: 490c05f7ab880dd45860584e34801264,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u66B4\u51FB\u97F3\u6548\u5927"
+  - spawnName: ap_critical_hit_medium
+    spawnObject: {fileID: 5671462786363429659, guid: 490c05f7ab880dd45860584e34801264,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u66B4\u51FB\u97F3\u6548\u4E2D"
+  - spawnName: ap_critical_hit_small
+    spawnObject: {fileID: 5671462786363429659, guid: 490c05f7ab880dd45860584e34801264,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u66B4\u51FB\u97F3\u6548\u5C0F"
+  - spawnName: apcr_ricochet_main
+    spawnObject: {fileID: 8930260103213545111, guid: 306767976e5954f4991429e8249791db,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u8DF3\u5F39\u97F3\u6548"
+  - spawnName: ap_armor_not_pierce_main
+    spawnObject: {fileID: 7017992107154749780, guid: 132947bfff48c014db5fe7eb53f1c767,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 3
+    comment: "\u6742\u9879/\u672A\u51FB\u7A7F\u97F3\u6548"
   - spawnName: MuzzleFire_Small
     spawnObject: {fileID: 100006, guid: f6e623422510ea14fbb3ad0df9d566b5, type: 3}
     instanceCount: -1
@@ -136,12 +178,90 @@ MonoBehaviour:
     instanceCount: 20
     lifeTime: 5
     comment: "\u6742\u9879/\u8F7D\u5177\u64E6\u78B0\u706B\u82B1"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u5C0F\u5C0F\u5C0F-ra\u7279\u6548"
+    spawnObject: {fileID: 1879272669879180, guid: 9c6dc941e0e64ea4281ebcf7508014fe,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u5C0F\u5C0F\u5C0F-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u4E2D\u4E2D\u4E2D-ra\u7279\u6548"
+    spawnObject: {fileID: 1879272669879180, guid: 656fd7bbd20122748841bbff684d3a62,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u4E2D\u4E2D\u4E2D-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u5927\u5927\u5927-ra\u7279\u6548"
+    spawnObject: {fileID: 1329845292236604, guid: 299166ecd764f2e40a54194217e5ffae,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u79D1\u5E7B\u7206\u70B8\u5927\u5927\u5927-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u5C0F"
+    spawnObject: {fileID: 331614962127125950, guid: 2dab18ce4c1dcea41a69a4af43c46834,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 0
+    comment: "\u8F7D\u5177\u5F39\u836F/\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u5C0F"
+  - spawnName: "\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u4E2D"
+    spawnObject: {fileID: 331614962127125950, guid: b5cfc1678d5676342b34300b6edeb155,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 0
+    comment: "\u8F7D\u5177\u5F39\u836F/\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u4E2D"
+  - spawnName: "\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u5927"
+    spawnObject: {fileID: 331614962127125950, guid: 40ef5a1a26cf4574c9d4457945ffd65d,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 0
+    comment: "\u8F7D\u5177\u5F39\u836F/\u5317\u6781\u661F-\u84DD\u8272\u70AE\u5F39\u5927"
+  - spawnName: NO-VFX
+    spawnObject: {fileID: 876274221056044776, guid: e7f013d805531fa4a9aa80960116bc2d,
+      type: 3}
+    instanceCount: 1
+    lifeTime: 1
+    comment: NO-VFX
   - spawnName: FlightWeaponProjectile
     spawnObject: {fileID: 611590392870655257, guid: c1851822afbf129419e8e9f746c22099,
       type: 3}
     instanceCount: -1
     lifeTime: 0
     comment: "\u8F7D\u5177\u5F39\u836F/\u98DE\u673A\u673A\u70AE\u70AE\u5F39\u7279\u6548-25~35mm\u98DE\u673A\u901A\u7528\uFF08\u4E2D\uFF09"
+  - spawnName: "\u84DD\u8272\u70AE\u5F39"
+    spawnObject: {fileID: 331614962127125950, guid: 1ad4fe907ffc9b348a2af263dc3d508e,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 0
+    comment: "\u8F7D\u5177\u5F39\u836F/\u84DD\u8272\u70AE\u5F39"
+  - spawnName: "\u6FC0\u5149\u84DD\u8272\u7206\u70B8Laser_Blue_Small_Impact-ra\u7279\u6548"
+    spawnObject: {fileID: 1879272669879180, guid: 88742cd24ce37804eb55c785fade6512,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u84DD\u8272\u7206\u70B8Laser_Blue_Small_Impact-ra\u7279\u6548"
+  - spawnName: "\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5C0FLaser_Blue_Medium_MuzzleFlare-ra\u7279\u6548"
+    spawnObject: {fileID: 1000012903210382, guid: 80a26d9b3cd0d4a4a9276800d8cd9f03,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5C0FLaser_Blue_Medium_MuzzleFlare-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5927-ra\u7279\u6548"
+    spawnObject: {fileID: 1000012903210382, guid: 09e57cad92d22744e847bb67f269db95,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5927-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u4E2D-ra\u7279\u6548"
+    spawnObject: {fileID: 1000012903210382, guid: a7a502e0f9174b742bb1b35309ab33c8,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u4E2D-ra\u7279\u6548"
+  - spawnName: "\u5317\u6781\u661F-\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5C0F-ra\u7279\u6548"
+    spawnObject: {fileID: 1000012903210382, guid: 8f135a7cd13013c4d866ff786b6ef945,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 8
+    comment: "\u5317\u6781\u661F/\u6FC0\u5149\u70AE\u53E3\u84DD\u8272\u706B\u7130\u5C0F-ra\u7279\u6548"
   - spawnName: ATGMWeaponProjectile-M-Gun
     spawnObject: {fileID: 3793216760692596300, guid: 49d9ce55c1c814a4f82af13fa9213fd4,
       type: 3}
@@ -154,6 +274,18 @@ MonoBehaviour:
     instanceCount: -1
     lifeTime: 0
     comment: "\u8F7D\u5177\u5F39\u836F/\u9676\u6C0F\u5BFC\u5F39\u70AE\u5F39\u7279\u6548-\u9676\u6C0F\u5BFC\u5F39\u4E24\u8FB9\u55B7\u5C04\u578B\uFF08\u4E2D\uFF09"
+  - spawnName: MechWalkSmoke-M
+    spawnObject: {fileID: 3324807463006440169, guid: 51a3f7469cb5e4c4d936b6cd45050fd1,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 4
+    comment: "\u673A\u7532/\u811A\u6B65\u70DF\u96FE\uFF08\u4E2D\uFF09"
+  - spawnName: MechWalkSmoke-B
+    spawnObject: {fileID: 3324807463006440169, guid: 235457e88b027e947b63bee9d225edaf,
+      type: 3}
+    instanceCount: -1
+    lifeTime: 4
+    comment: "\u673A\u7532/\u811A\u6B65\u70DF\u96FE\uFF08\u5927\uFF09"
   - spawnName: Flamethrower-30M-15Angle
     spawnObject: {fileID: 100002, guid: cad2322898fcc334dbb716c6f948c5fc, type: 3}
     instanceCount: -1

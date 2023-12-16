@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7731986168267774766
+--- !u!114 &-2749832842616925213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,25 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2110409414, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: Sprgr
+  m_Script: {fileID: 2055631538, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: Gr.39 Hl
   m_EditorClassIdentifier: 
   comment: 
-  bulletVFX: {fileID: 11400000, guid: c65b6a353c7152c439ce780e94d74bc4, type: 2}
-  penetration: 46
-  damage: 360
-  velocity: 820
+  bulletVFX: {fileID: 11400000, guid: 85ea3a1e7c1abb546a32378a357ad755, type: 2}
+  damage: 260
+  velocity: 600
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
   caliber: 88
+  penetration: 110
+  warHeadMaterial: {fileID: 0}
   moduleData:
-    explosiveMassEqualTNT: 698
-    mass: 9
-    fuseDelay: 0.1
-  ExplosionRange: 2.8
+    explosiveMassEqualTNT: 1100
+    mass: 7.64
+    fuseDelay: 0
+  warhead: 12
   isDeclineByDistance: 0
-  maxDamagePershell: 50
+  overrideNormalizeAngle: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,9 +83,9 @@ MonoBehaviour:
     bulletSound: {fileID: 0}
     fmodBulletSound: {fileID: 11400000, guid: bcb948413bf423c43abdb6c0e041ad4a, type: 2}
     bulletData:
-    - {fileID: 7722306553945638468}
-    - {fileID: -7731986168267774766}
-    - {fileID: 3352367722012513487}
+    - {fileID: 2288848403892203283}
+    - {fileID: 2860599914445571479}
+    - {fileID: -2749832842616925213}
     muzzleFire: 1
     overrideMuzzleFires: []
     fireDymScale: 1
@@ -105,12 +106,13 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &3352367722012513487
+--- !u!114 &2288848403892203283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,49 +122,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: PzGr 40
+  m_Name: PzGr
   m_EditorClassIdentifier: 
   comment: 
-  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 220
+  bulletVFX: {fileID: 11400000, guid: 282db7a4061fcf7459757b0ecd3e4031, type: 2}
+  damage: 220
+  velocity: 810
+  gravityDamper: 9.8
+  projectileType: 0
+  fireRecoil: 120
+  caliber: 88
+  penetration: 153
+  warHeadMaterial: {fileID: 0}
+  moduleData:
+    explosiveMassEqualTNT: 215.04
+    mass: 9.3
+    fuseDelay: 1.2
+  warhead: 8
+  isDeclineByDistance: 1
+  overrideNormalizeAngle: -2
+--- !u!114 &2860599914445571479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: PzGr.40
+  m_EditorClassIdentifier: 
+  comment: 
+  bulletVFX: {fileID: 11400000, guid: 282db7a4061fcf7459757b0ecd3e4031, type: 2}
   damage: 180
-  velocity: 1000
+  velocity: 930
   gravityDamper: 9.8
   projectileType: 0
   fireRecoil: 120
   caliber: 88
+  penetration: 211
+  warHeadMaterial: {fileID: 0}
   moduleData:
-    explosiveMassEqualTNT: 285.6
-    mass: 9.5
-    fuseDelay: 1.2
-  warhead: 7
+    explosiveMassEqualTNT: 0
+    mass: 7.3
+    fuseDelay: 0
+  warhead: 6
   isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
---- !u!114 &7722306553945638468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1355950744, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
-  m_Name: PzGr 39
-  m_EditorClassIdentifier: 
-  comment: 
-  bulletVFX: {fileID: 11400000, guid: 1f43bc75465ab554da410a1c67167a6f, type: 2}
-  penetration: 165
-  damage: 260
-  velocity: 773
-  gravityDamper: 9.8
-  projectileType: 0
-  fireRecoil: 120
-  caliber: 88
-  moduleData:
-    explosiveMassEqualTNT: 108
-    mass: 10.2
-    fuseDelay: 1.2
-  warhead: 7
-  isDeclineByDistance: 1
-  overrideNormalizeAngle: -1
+  overrideNormalizeAngle: -5
