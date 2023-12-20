@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 4302691177308178615}
   - component: {fileID: 2990650880351499570}
   - component: {fileID: 8585675583011948581}
+  - component: {fileID: 551501060435729103}
   m_Layer: 0
   m_Name: MainBody
   m_TagString: Untagged
@@ -501,6 +502,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.022645032, y: 0.070016, z: 0.008305336}
   m_Center: {x: 0, y: -0.009320295, z: 0.0007013158}
+--- !u!114 &551501060435729103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875741778741639173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1305117935, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isComponentBased: 1
+  matData: {fileID: 0}
+  indexCoreRPMatParams:
+  - coreRPShaderType: 3
+    vehicleCamoflageMatParam:
+      hasMask: 0
+      maskTex: {fileID: 0}
+    transparencyMatParam:
+      color: {r: 0, g: 0, b: 0, a: 0}
+      smoothness: 0
+    customNatParam:
+      customTextureChannels: []
+      urpMaterialGuid: 3c2cf65d-b78f-4ef9-b864-7668b0bd2c70
+      hdrpMaterialGuid: 
+    index: 0
 --- !u!1 &3287579757019410336
 GameObject:
   m_ObjectHideFlags: 0

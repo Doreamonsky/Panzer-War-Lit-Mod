@@ -95,7 +95,7 @@ namespace ShanghaiWindy.Editor.PlayMode
                         ResourceLog.Log($"{packageInfo.PackageName} is added to package manager.");
                     }
 
-                    SimpleResourceManager.Instance.InstantiateAsync(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>
+                    SimpleResourceManager.Instance.Instantiate(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>
                     {
                         DontDestroyOnLoad(runtimeSupportGo);
                         AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
