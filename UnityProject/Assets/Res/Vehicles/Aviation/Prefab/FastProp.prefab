@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8132682758573497751}
   - component: {fileID: 5528150918256374527}
   - component: {fileID: 1950585770334597820}
+  - component: {fileID: 1254485729403239543}
   m_Layer: 0
   m_Name: Side
   m_TagString: Untagged
@@ -28,6 +29,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7107318780729762092}
   m_RootOrder: 0
@@ -51,9 +53,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,6 +83,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1254485729403239543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288494675565340486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1305117935, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isComponentBased: 1
+  matData: {fileID: 0}
+  indexCoreRPMatParams:
+  - coreRPShaderType: 1
+    vehicleCamoflageMatParam:
+      hasMask: 0
+      maskTex: {fileID: 0}
+    transparencyMatParam:
+      color: {r: 1, g: 1, b: 1, a: 0.9019608}
+      smoothness: 0
+    customNatParam:
+      customTextureChannels: []
+      customColorChannel: []
+      urpMaterialGuid: 
+      hdrpMaterialGuid: 
+    index: 0
 --- !u!1 &5827553320152515627
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +123,7 @@ GameObject:
   - component: {fileID: 8979811819146269914}
   - component: {fileID: 1433774803328775005}
   - component: {fileID: 6475233475575123692}
+  - component: {fileID: 7430998141771350568}
   m_Layer: 0
   m_Name: Side
   m_TagString: Untagged
@@ -106,6 +141,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000009834765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7107318780729762092}
   m_RootOrder: 1
@@ -129,9 +165,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -156,6 +195,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7430998141771350568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827553320152515627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1305117935, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isComponentBased: 1
+  matData: {fileID: 0}
+  indexCoreRPMatParams:
+  - coreRPShaderType: 1
+    vehicleCamoflageMatParam:
+      hasMask: 0
+      maskTex: {fileID: 0}
+    transparencyMatParam:
+      color: {r: 1, g: 1, b: 1, a: 0.9019608}
+      smoothness: 0
+    customNatParam:
+      customTextureChannels: []
+      customColorChannel: []
+      urpMaterialGuid: 
+      hdrpMaterialGuid: 
+    index: 0
 --- !u!1 &9107558597217829517
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +250,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2912.8306, y: -130.49251, z: 4163.614}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8132682758573497751}
   - {fileID: 8979811819146269914}
