@@ -1,0 +1,76 @@
+What's New to RealToon V5.0.8p8 (Patch#8) (October 2023)
+=====================================
+
+[New]
+- APV (Adaptive Probe Volume) [URP 15 to later]
+- Arealight out of beta. [HDRP 16 to later]
+- DeNorSob Outline does not need a separate Depth-Normals Render Feature [URP 15 to later]
+- URP Deferred Support [URP 12 to later]
+
+[Improvements]
+- DeNorSob Outline can now be affected by the Cutout feature. [URP 15 to later]
+- Arealight light falloff is improved and can now be set to any XY size without any noise. [HDRP 16]
+
+[Changes]
+- DeNorSob Outline will not affect transparency [URP and HDRP]
+- In Transparent Mode, On Shader Screen Space Outline will be disabled except Cutout Feature. [URP and HDRP]
+- DeNorSob Outline Injection is now AfterOpaqueAndSky and transparent object will not affected by the outline. [HDRP]
+- URP 7 - 8 and HDRP 7 - 8 are not supported and removed.
+
+[Fix]
+- Blinking/Flashing when using Cutout Feature [HDRP]
+- Blinking/Flashing colors [HDRP 14 to later]
+- "INDIRECTDIFFUSEMODE_RAYTRACE" error [HDRP 14 to later]
+- Arealight errors [HDRP 16 to later]
+- DeNorSob Outline not working [URP 15 to later]
+
+
+
+What's New to RealToon V5.0.8 Update (March 2020) (Main Update)
+=====================================
+
+[New Options]
+
+- Use Vertex Color As Normal Direction (Outline) [URP and HDRP]
+*Use the vertex colors of the object as normal direction for outline.
+
+- Affect Shadow (Transparency) [URP]
+*Transparency affects shadow.
+
+- PTexture Color (PTexture) [URP]
+*Can now color the PTexture feature.
+
+- Optimize for [Light Mode:Baked] (Lightmapping) [URP]
+*Optimize the shader for [Light Mode: Baked]
+
+- On shader "Screen Space Outline" (Outline) [URP and HDRP]
+*Screen space - depth based outline on the shader.
+
+- Blending (Transparency) [URP and HDRP]
+- Rim Light Intensity (RimLight) [URP]
+
+- Refresh Settings (URP)
+*This will refresh the settings and apply it properly.
+*Useful if the settings are not applied properly or after change shader or if there is a problem on the shader.
+
+
+[New Features and Support]
+
+- DeNorSob Outline (Post - Processing Effect) [URP and HDRP]
+*Sobel, Depth and Normal based outline.
+
+- Smooth Object Normal - Helper Script (Smooth Object Normal) [URP and HDRP]
+*This helper script will help "Smooth Object Normal" feature to follow object animation or movement.
+
+- Lightmap Support [URP]
+- PlayStation Support [URP and HDRP]
+- URP 11 Support
+- HDRP 11 Support
+- Unity DOTS Ready [URP and HDRP]
+=====================================
+
+#Read the "Change - Fix Log.txt." file for previous updates.
+#This update supports Unity 5, 2017, 2018, 2019, 2020, 2022, 2023 and future unity versions.
+
+[Other Notes]
+* If you encounter some problems or need help just contact by email.
