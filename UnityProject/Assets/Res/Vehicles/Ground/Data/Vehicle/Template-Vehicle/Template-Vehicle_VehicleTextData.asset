@@ -42,8 +42,6 @@ MonoBehaviour:
     engineAction: {fileID: 0}
     isSupportPhysicTrack: 0
     sharedEngineData: {fileID: 11400000, guid: 3cc092bace0ea4243b5392a9a66db851, type: 2}
-    vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
-      type: 2}
     vehicleEngineFmodSoundData: {fileID: 0}
     engineTorqueCurve:
       serializedVersion: 2
@@ -176,6 +174,14 @@ MonoBehaviour:
       overrideEnergyReloadSound:
         rid: -2
     dispersion: 0
+    fireSpread:
+      dispersion: 0.3
+      aimTime: 2.7
+      moveSpreadCoff: 0.2
+      traverseSpreadCoff: 0.2
+      gunSpreadCoff: 0.2
+      afterFiredCoff: 1
+      damagedCoff: 2
     fmodBulletSound: {fileID: 11400000, guid: e36affa73be1b404286fa8e2a8769f08, type: 2}
     bulletData:
     - {fileID: 3957054737420944067, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
@@ -232,6 +238,7 @@ MonoBehaviour:
       stringProperties: []
       boolProperties: []
   vehicleSelfExplosionParams: []
+  tanksGGName: 
   tankModuleGuid:
     multiFireGunGuids: []
     multiFireTurretGuids: []
