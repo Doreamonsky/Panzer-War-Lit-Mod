@@ -18,13 +18,13 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         private Camera bgCamera;
 
-        private void Awake()
+        private async void Awake()
         {
             GameDataManager.isCoreRP = true;
             GameDataManager.isURP = true;
 
             bgCamera = gameObject.AddComponent<Camera>();
-            
+
             AttachComponent<LuaScriptableModManager>();
             AttachComponent<AchievementManager>();
             AttachComponent<Core.CommonDataManager>();
@@ -32,7 +32,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             // Initialize Asset Entry
             var entry = gameObject.AddComponent<AssetBundleEntry>();
             entry.OnPackageInitialized += OnPackageInitialized;
-            StartCoroutine(entry.AsyncInitialize());
+            await entry.AsyncInitialize();
 
             bgCamera.depth = -99;
 
@@ -58,7 +58,7 @@ namespace ShanghaiWindy.Editor.PlayMode
             var hotFixEntry = gameObject.AddComponent<AssetHotFixEntry>();
             hotFixEntry.Initialize(HotFixConfigs);
 
-            StartCoroutine(AssetBundleManager.HotFix(() =>
+            AssetBundleManager.HotFix(() =>
                 {
                     AssetBundleManager.RunLuaEnvs();
 
@@ -71,7 +71,8 @@ namespace ShanghaiWindy.Editor.PlayMode
                     var externalDirs = new List<DirectoryInfo>
                     {
                         new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
-                        new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/"),
+                        new(
+                            "Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/"),
                         new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Solider/packages/"),
                     };
 
@@ -101,7 +102,7 @@ namespace ShanghaiWindy.Editor.PlayMode
                         AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
                     });
                 }
-            ));
+            );
         }
 
         private IEnumerator InitializeAsync()
