@@ -53,14 +53,13 @@ namespace ShanghaiWindy.Editor.PlayMode
             });
         }
 
-        private void OnPackageInitialized()
+        private  async void OnPackageInitialized()
         {
             var hotFixEntry = gameObject.AddComponent<AssetHotFixEntry>();
             hotFixEntry.Initialize(HotFixConfigs);
 
-            AssetBundleManager.HotFix(() =>
-                {
-                    AssetBundleManager.RunLuaEnvs();
+            await AssetBundleManager.AsyncHotFix();
+            AssetBundleManager.RunLuaEnvs();
 
                     GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
                     SimpleResourceManager.Instance = new SimpleResourceManager(AssetBundleEntry.Instance.BundleManager);
@@ -101,8 +100,6 @@ namespace ShanghaiWindy.Editor.PlayMode
                         DontDestroyOnLoad(runtimeSupportGo);
                         AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
                     });
-                }
-            );
         }
 
         private IEnumerator InitializeAsync()
