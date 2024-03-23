@@ -191,10 +191,14 @@ namespace FMODUnity
         CollisionExit2D,
         ObjectEnable,
         ObjectDisable,
-        MouseEnter,
-        MouseExit,
-        MouseDown,
-        MouseUp,
+        ObjectMouseEnter,
+        ObjectMouseExit,
+        ObjectMouseDown,
+        ObjectMouseUp,
+        UIMouseEnter,
+        UIMouseExit,
+        UIMouseDown,
+        UIMouseUp,
     }
 
     public enum LoaderGameEvent : int
@@ -305,7 +309,7 @@ namespace FMODUnity
         private static string pluginBasePath;
 
         public const string BaseFolderGUID = "06ae579381df01a4a87bb149dec89954";
-        public const string PluginBasePathDefault = "Plugins/FMOD";
+        public const string PluginBasePathDefault = "Assets/Plugins/FMOD";
 
         public static string PluginBasePath
         {
@@ -315,16 +319,7 @@ namespace FMODUnity
                 {
                     pluginBasePath = AssetDatabase.GUIDToAssetPath(BaseFolderGUID);
 
-                    if (!string.IsNullOrEmpty(pluginBasePath))
-                    {
-                        const string AssetsFolder = "Assets/";
-
-                        if (pluginBasePath.StartsWith(AssetsFolder))
-                        {
-                            pluginBasePath = pluginBasePath.Substring(AssetsFolder.Length);
-                        }
-                    }
-                    else
+                    if (string.IsNullOrEmpty(pluginBasePath))
                     {
                         pluginBasePath = PluginBasePathDefault;
 
@@ -548,7 +543,7 @@ namespace FMODUnity
 
         public static void DebugLog(string message)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel == FMOD.DEBUG_FLAGS.LOG)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel == FMOD.DEBUG_FLAGS.LOG)
             {
                 Debug.Log(message);
             }
@@ -556,7 +551,7 @@ namespace FMODUnity
 
         public static void DebugLogFormat(string format, params object[] args)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel == FMOD.DEBUG_FLAGS.LOG)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel == FMOD.DEBUG_FLAGS.LOG)
             {
                 Debug.LogFormat(format, args);
             }
@@ -564,7 +559,7 @@ namespace FMODUnity
 
         public static void DebugLogWarning(string message)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.WARNING)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.WARNING)
             {
                 Debug.LogWarning(message);
             }
@@ -572,7 +567,7 @@ namespace FMODUnity
 
         public static void DebugLogWarningFormat(string format, params object[] args)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.WARNING)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.WARNING)
             {
                 Debug.LogWarningFormat(format, args);
             }
@@ -580,7 +575,7 @@ namespace FMODUnity
 
         public static void DebugLogError(string message)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
             {
                 Debug.LogError(message);
             }
@@ -588,7 +583,7 @@ namespace FMODUnity
 
         public static void DebugLogErrorFormat(string format, params object[] args)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
             {
                 Debug.LogErrorFormat(format, args);
             }
@@ -596,10 +591,24 @@ namespace FMODUnity
 
         public static void DebugLogException(Exception e)
         {
-            if (Settings.Instance == null || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
+            if (!Settings.IsInitialized() || Settings.Instance.LoggingLevel >= FMOD.DEBUG_FLAGS.ERROR)
             {
                 Debug.LogException(e);
             }
         }
+
+#if UNITY_EDITOR
+        public static string WritableAssetPath(string subPath)
+        {
+            if (RuntimeUtils.PluginBasePath.StartsWith("Assets/"))
+            {
+                return $"{RuntimeUtils.PluginBasePath}/{subPath}.asset";
+            }
+            else
+            {
+                return $"Assets/Plugins/FMOD/{subPath}.asset";
+            }
+        }
+#endif
     }
 }

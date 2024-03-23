@@ -51,6 +51,18 @@ namespace FMODUnity
         Development,
     }
 
+    public enum ScreenPosition
+    {
+        TopLeft,
+        TopCenter,
+        TopRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight,
+        Center,
+        VR,
+    }
+
     public interface IEditorSettings
     {
 #if UNITY_EDITOR
@@ -290,9 +302,24 @@ namespace FMODUnity
                     }
 #endif
                 }
+                else
+                {
+#if UNITY_EDITOR
+                    if (AssetDatabase.GetAssetPath(instance).StartsWith("Packages"))
+                    {
+                        RuntimeUtils.DebugLogError($"[FMOD] {SettingsAssetName} initialization failed. {SettingsAssetName} located in \"Packages\" folder. Please delete {SettingsAssetName} in file explorer.");
+                        instance = CreateInstance<Settings>();
+                    }
+#endif
+                }
 
                 isInitializing = false;
             }
+        }
+
+        internal static bool IsInitialized()
+        {
+            return !(instance == null || isInitializing);
         }
 
         internal static IEditorSettings EditorSettings

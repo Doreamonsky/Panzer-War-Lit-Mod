@@ -186,7 +186,7 @@ namespace FMODUnity
         {
             foreach (BinaryFileInfo info in GetBinaryFileInfo(buildTarget, binaryType))
             {
-                yield return string.Format("{0}/{1}", prefix, info.LatestLocation());
+                yield return info.LatestLocation();
             }
         }
 
@@ -420,7 +420,7 @@ namespace FMODUnity
         {
             foreach (string path in GetObsoleteFiles())
             {
-                yield return $"Assets/{RuntimeUtils.PluginBasePath}/{path}";
+                yield return $"{RuntimeUtils.PluginBasePath}/{path}";
             }
         }
 
@@ -428,7 +428,7 @@ namespace FMODUnity
         // build target and logging state.
         internal virtual IEnumerable<string> GetBinaryFilePaths(BuildTarget buildTarget, BinaryType binaryType)
         {
-            return GetBinaryPaths(buildTarget, binaryType, Application.dataPath);
+            return GetBinaryPaths(buildTarget, binaryType, RuntimeUtils.PluginBasePath);
         }
 
         // Called by Settings.SelectBinaries to get:
@@ -437,7 +437,7 @@ namespace FMODUnity
         // * All binaries; any that weren't enabled in the previous step get disabled.
         internal virtual IEnumerable<string> GetBinaryAssetPaths(BuildTarget buildTarget, BinaryType binaryType)
         {
-            return GetBinaryPaths(buildTarget, binaryType, "Assets");
+            return GetBinaryPaths(buildTarget, binaryType, RuntimeUtils.PluginBasePath);
         }
 
         public enum FileLayout : uint
@@ -702,6 +702,11 @@ namespace FMODUnity
         }
 
         [Serializable]
+        public class PropertyScreenPosition : Property<ScreenPosition>
+        {
+        }
+
+        [Serializable]
         public class PropertyInt : Property<int>
         {
         }
@@ -804,6 +809,8 @@ namespace FMODUnity
             public PropertyBool LiveUpdate = new PropertyBool();
             public PropertyInt LiveUpdatePort = new PropertyInt();
             public PropertyBool Overlay = new PropertyBool();
+            public PropertyScreenPosition OverlayPosition = new PropertyScreenPosition();
+            public PropertyInt OverlayFontSize = new PropertyInt();
             public PropertyBool Logging = new PropertyBool();
             public PropertyInt SampleRate = new PropertyInt();
             public PropertyString BuildDirectory = new PropertyString();
@@ -830,6 +837,8 @@ namespace FMODUnity
                         Properties.LiveUpdate.HasValue
                         || Properties.LiveUpdatePort.HasValue
                         || Properties.Overlay.HasValue
+                        || Properties.OverlayPosition.HasValue
+                        || Properties.OverlayFontSize.HasValue
                         || Properties.Logging.HasValue
                         || Properties.SampleRate.HasValue
                         || Properties.BuildDirectory.HasValue
@@ -848,6 +857,9 @@ namespace FMODUnity
         public TriStateBool LiveUpdate { get { return PropertyAccessors.LiveUpdate.Get(this); } }
         public int LiveUpdatePort { get { return PropertyAccessors.LiveUpdatePort.Get(this); } }
         public TriStateBool Overlay { get { return PropertyAccessors.Overlay.Get(this); } }
+        public ScreenPosition OverlayRect { get { return PropertyAccessors.OverlayPosition.Get(this); } }
+        public int OverlayFontSize { get { return PropertyAccessors.OverlayFontSize.Get(this); } }
+        public void SetOverlayFontSize(int size) { PropertyAccessors.OverlayFontSize.Set(this, size); }
         public TriStateBool Logging { get { return PropertyAccessors.Logging.Get(this); } }
         public int SampleRate { get { return PropertyAccessors.SampleRate.Get(this); } }
         public string BuildDirectory { get { return PropertyAccessors.BuildDirectory.Get(this); } }
@@ -871,6 +883,10 @@ namespace FMODUnity
 
             public static readonly PropertyAccessor<TriStateBool> Overlay
                     = new PropertyAccessor<TriStateBool>(properties => properties.Overlay, TriStateBool.Disabled);
+
+            public static readonly PropertyAccessor<ScreenPosition> OverlayPosition = new PropertyAccessor<ScreenPosition>(properties => properties.OverlayPosition, ScreenPosition.TopLeft);
+
+            public static readonly PropertyAccessor<int> OverlayFontSize = new PropertyAccessor<int>(properties => properties.OverlayFontSize, 14);
 
             public static readonly PropertyAccessor<TriStateBool> Logging
                     = new PropertyAccessor<TriStateBool>(properties => properties.Logging, TriStateBool.Disabled);

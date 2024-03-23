@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Build;
 using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
 using System.IO;
@@ -14,6 +15,8 @@ namespace FMODUnity
     public class SettingsEditor : Editor
     {
         private static readonly string[] ToggleDisplay = new string[] { "Disabled", "Enabled", "Development Build Only",  };
+
+        private static readonly string[] OverlayLocations = new string[] { "TopLeft", "TopCenter", "TopRight", "BottomLeft", "BottomCenter", "BottomRight", "Center", "VR", };
 
         private static readonly string[] FrequencyDisplay = new string[] {
             "Platform Default",
@@ -373,6 +376,28 @@ namespace FMODUnity
             if (EditorGUI.EndChangeCheck())
             {
                 property.Set(platform, (TriStateBool)next);
+            }
+        }
+
+        private void DisplayPositionRect(string label, Platform platform, Platform.PropertyAccessor<ScreenPosition> property)
+        {
+            Rect rect = DrawPlatformPropertyLabel(label, platform, property);
+            EditorGUI.BeginChangeCheck();
+            int next = DrawPopup(rect, (int)property.Get(platform), OverlayLocations);
+            if (EditorGUI.EndChangeCheck())
+            {
+                property.Set(platform, (ScreenPosition)next);
+            }
+        }
+
+        private void DisplayDebugFontSelection(string label, Platform platform, Platform.PropertyAccessor<int> property)
+        {
+            Rect rect = DrawPlatformPropertyLabel(label, platform, property);
+            EditorGUI.BeginChangeCheck();
+            int next = EditorGUI.IntField(rect, property.Get(platform));
+            if (EditorGUI.EndChangeCheck())
+            {
+                property.Set(platform, Mathf.Min(next, 20));
             }
         }
 
@@ -1095,6 +1120,12 @@ namespace FMODUnity
                 }
 
                 DisplayTriStateBool("Debug Overlay", platform, Platform.PropertyAccessors.Overlay);
+                if (platform.IsOverlayEnabled)
+                {
+                    DisplayPositionRect("Debug Location", platform, Platform.PropertyAccessors.OverlayPosition);
+                    DisplayDebugFontSelection("Font size", platform, Platform.PropertyAccessors.OverlayFontSize);
+                }
+
                 DisplayOutputMode("Output Mode", platform);
                 DisplaySampleRate("Sample Rate", platform);
 
@@ -1109,28 +1140,30 @@ namespace FMODUnity
 
                 DisplayCallbackHandler("Callback Handler", platform);
 
-                if (!(platform is PlatformPlayInEditor))
+                DisplayInt("Virtual Channel Count", platform, Platform.PropertyAccessors.VirtualChannelCount, 1, 2048);
+                DisplayInt("Real Channel Count", platform, Platform.PropertyAccessors.RealChannelCount, 1, 256);
+
+                DisplayCodecChannels("Codec Counts", platform);
+
+                DisplayDSPBufferSettings(platform);
+
+                string warning = null;
+
+                BuildTargetGroup buildTargetGroup =
+                BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
+#if UNITY_2021_2_OR_NEWER
+                NamedBuildTarget namedBuildTarget = NamedBuildTarget.FromBuildTargetGroup(buildTargetGroup);
+                ScriptingImplementation scriptingBackend = PlayerSettings.GetScriptingBackend(namedBuildTarget);
+#else
+                ScriptingImplementation scriptingBackend = PlayerSettings.GetScriptingBackend(buildTargetGroup);
+#endif
+
+                if (scriptingBackend != ScriptingImplementation.IL2CPP)
                 {
-                    DisplayInt("Virtual Channel Count", platform, Platform.PropertyAccessors.VirtualChannelCount, 1, 2048);
-                    DisplayInt("Real Channel Count", platform, Platform.PropertyAccessors.RealChannelCount, 1, 256);
-
-                    DisplayCodecChannels("Codec Counts", platform);
-
-                    DisplayDSPBufferSettings(platform);
-
-                    string warning = null;
-
-                    BuildTargetGroup buildTargetGroup =
-                        BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget);
-                    ScriptingImplementation scriptingBackend = PlayerSettings.GetScriptingBackend(buildTargetGroup);
-
-                    if (scriptingBackend != ScriptingImplementation.IL2CPP)
-                    {
-                        warning = "Only supported on the IL2CPP scripting backend";
-                    }
-
-                    DisplayPlugins("Static Plugins", staticPluginsView, platform, ref expandStaticPlugins, warning);
+                    warning = "Only supported on the IL2CPP scripting backend";
                 }
+
+                DisplayPlugins("Static Plugins", staticPluginsView, platform, ref expandStaticPlugins, warning);
 
                 DisplayPlugins("Dynamic Plugins", dynamicPluginsView, platform, ref expandDynamicPlugins);
 

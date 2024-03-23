@@ -191,7 +191,7 @@ namespace FMODUnity
 
         public static Texture2D LoadImage(string filename)
         {
-            Texture2D texture = EditorGUIUtility.Load($"Packages/com.shanghaiwindy.middlelayer/Plugins/FMOD/images/{filename}") as Texture2D;
+            Texture2D texture = EditorGUIUtility.Load($"{RuntimeUtils.PluginBasePath}/images/{filename}") as Texture2D;
 
             if (texture == null)
             {
@@ -684,7 +684,7 @@ namespace FMODUnity
             CheckResult(lowlevel.getVersion(out version));
 
             string text = string.Format(
-                "Version: {0}\n\nCopyright \u00A9 Firelight Technologies Pty, Ltd. 2014-2023 \n\n" +
+                "Version: {0}\n\nCopyright \u00A9 Firelight Technologies Pty, Ltd. 2014-2024 \n\n" +
                 "See LICENSE.TXT for additional license information.",
                 VersionString(version));
 
@@ -739,15 +739,25 @@ namespace FMODUnity
             foreach (EditorParamRef param in eventRef.Parameters)
             {
                 FMOD.Studio.PARAMETER_DESCRIPTION paramDesc;
-                CheckResult(eventDescription.getParameterDescriptionByName(param.Name, out paramDesc));
-                param.ID = paramDesc.id;
                 if (param.IsGlobal)
                 {
-                    CheckResult(System.setParameterByID(param.ID, previewParamValues[param.Name]));
+                    CheckResult(System.getParameterDescriptionByName(param.Name, out paramDesc));
                 }
                 else
                 {
-                    CheckResult(eventInstance.setParameterByID(param.ID, previewParamValues[param.Name]));
+                    CheckResult(eventDescription.getParameterDescriptionByName(param.Name, out paramDesc));
+                }
+
+                float value = previewParamValues.ContainsKey(param.Name) ? previewParamValues[param.Name] : param.Default;
+                param.ID = paramDesc.id;
+
+                if (param.IsGlobal)
+                {
+                    CheckResult(System.setParameterByID(param.ID, value));
+                }
+                else
+                {
+                    CheckResult(eventInstance.setParameterByID(param.ID, value));
                 }
             }
 
@@ -1053,7 +1063,7 @@ namespace FMODUnity
         {
             if (string.IsNullOrEmpty(AssetDatabase.GUIDToAssetPath(RuntimeUtils.BaseFolderGUID)))
             {
-                string folderPath = $"Assets/{RuntimeUtils.PluginBasePathDefault}";
+                string folderPath = RuntimeUtils.PluginBasePathDefault;
 
                 if (!Directory.Exists(folderPath))
                 {
@@ -1222,7 +1232,7 @@ namespace FMODUnity
                 return;
             }
 
-            string obsoleteFolder = $"Assets/{RuntimeUtils.PluginBasePath}/obsolete";
+            string obsoleteFolder = $"{RuntimeUtils.PluginBasePath}/obsolete";
 
             if (AssetDatabase.IsValidFolder(obsoleteFolder))
             {
@@ -1245,12 +1255,24 @@ namespace FMODUnity
                 EditorApplication.UnlockReloadAssemblies();
             }
         }
+
+        public static string WritableAssetPath(string cacheAssetName)
+        {
+            if (RuntimeUtils.PluginBasePath.StartsWith("Assets/"))
+            {
+                return $"{RuntimeUtils.PluginBasePath}/Cache/Editor/{cacheAssetName}.asset";
+            }
+            else
+            {
+                return $"Assets/Plugins/FMOD/Cache/Editor/{cacheAssetName}.asset";
+            }
+        }
     }
 
     public class StagingSystem
     {
-        private static string PlatformsFolder => $"Assets/{RuntimeUtils.PluginBasePath}/platforms";
-        private static string StagingFolder => $"Assets/{RuntimeUtils.PluginBasePath}/staging";
+        private static string PlatformsFolder => $"{RuntimeUtils.PluginBasePath}/platforms";
+        private static string StagingFolder => $"{RuntimeUtils.PluginBasePath}/staging";
         private const string AnyCPU = "AnyCPU";
 
         private static readonly LibInfo[] LibrariesToUpdate = {

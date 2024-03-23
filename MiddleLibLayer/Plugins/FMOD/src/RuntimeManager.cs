@@ -7,6 +7,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using UnityEngine;
 
+#if UNITY_URP_EXIST
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+#endif
+
 #if UNITY_ADDRESSABLES_EXIST
 using UnityEngine.AddressableAssets;
 #endif
@@ -57,6 +62,28 @@ namespace FMODUnity
 
         private int loadingBanksRef = 0;
 
+        private static byte[] masterBusPrefix;
+        private static byte[] eventSet3DAttributes;
+        private static byte[] systemGetBus;
+
+#if UNITY_URP_EXIST
+        private GameObject vrDebugOverlay;
+        private RectTransform vrDebugRectTransform;
+        private Text vrDebugText;
+        private Camera vrDebugCamera;
+        private string GUIText;
+#endif
+
+        static RuntimeManager()
+        {
+            UTF8Encoding encoding = new UTF8Encoding();
+
+            masterBusPrefix = encoding.GetBytes("bus:/, ");
+            eventSet3DAttributes = encoding.GetBytes("EventInstance::set3DAttributes");
+            systemGetBus = encoding.GetBytes("System::getBus");
+        }
+
+
         public static bool IsMuted
         {
             get
@@ -99,8 +126,15 @@ namespace FMODUnity
                 return FMOD.RESULT.OK;
             }
             if (callbackInfo.instancetype == FMOD.ERRORCALLBACK_INSTANCETYPE.STUDIO_EVENTINSTANCE
-                && callbackInfo.functionname == "EventInstance::set3DAttributes"
+                && callbackInfo.functionname.Equals(eventSet3DAttributes)
                 && callbackInfo.result == FMOD.RESULT.ERR_INVALID_HANDLE)
+            {
+                return FMOD.RESULT.OK;
+            }
+            if (callbackInfo.instancetype == FMOD.ERRORCALLBACK_INSTANCETYPE.STUDIO_SYSTEM
+                && callbackInfo.functionname.Equals(systemGetBus)
+                && callbackInfo.result == FMOD.RESULT.ERR_EVENT_NOTFOUND
+                && callbackInfo.functionparams.StartsWith(masterBusPrefix))
             {
                 return FMOD.RESULT.OK;
             }
@@ -180,11 +214,6 @@ namespace FMODUnity
                             initException = new SystemNotInitializedException(e);
                         }
                         throw initException;
-                    }
-
-                    if (initResult != FMOD.RESULT.OK)
-                    {
-                        throw new SystemNotInitializedException(initResult, "Output forced to NO SOUND mode");
                     }
                 }
                 return instance;
@@ -376,10 +405,14 @@ retry:
             currentPlatform.LoadPlugins(coreSystem, CheckInitResult);
             LoadBanks(fmodSettings);
 
-            #if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+            #if (UNITY_IOS || UNITY_TVOS || UNITY_VISIONOS) && !UNITY_EDITOR
             RegisterSuspendCallback(HandleInterrupt);
             #endif
 
+            if (currentPlatform.IsOverlayEnabled)
+            {
+                SetOverlayPosition();
+            }
             return initResult;
         }
 
@@ -470,8 +503,12 @@ retry:
                         else
                         {
                             var position = attachedInstances[i].transform.position;
-                            var velocity = (position - attachedInstances[i].lastFramePosition) / Time.deltaTime;
-                            velocity = Vector3.ClampMagnitude(velocity, 20.0f); // Stops pitch fluttering when moving too quickly
+                            var velocity = Vector3.zero;
+                            if (Time.deltaTime != 0)
+                            {
+                                velocity = (position - attachedInstances[i].lastFramePosition) / Time.deltaTime;
+                                velocity = Vector3.ClampMagnitude(velocity, 20.0f); // Stops pitch fluttering when moving too quickly
+                            }
                             attachedInstances[i].lastFramePosition = position;
                             attachedInstances[i].instance.set3DAttributes(RuntimeUtils.To3DAttributes(attachedInstances[i].transform, velocity));
                         }
@@ -587,20 +624,35 @@ retry:
 
         internal void ExecuteOnGUI()
         {
-            if (studioSystem.isValid() && isOverlayEnabled)
+            if (currentPlatform.OverlayRect != ScreenPosition.VR)
             {
-                windowRect = GUI.Window(GetInstanceID(), windowRect, DrawDebugOverlay, "FMOD Studio Debug");
+                GUIStyle debugStyle = GUI.skin.GetStyle("window");
+                debugStyle.fontSize = currentPlatform.OverlayFontSize;
+                if (studioSystem.isValid() && isOverlayEnabled)
+                {
+                    windowRect = GUI.Window(GetInstanceID(), windowRect, DrawDebugOverlay, "FMOD Studio Debug", debugStyle);
+                }
+            }
+            else
+            {
+#if UNITY_URP_EXIST
+                if (vrDebugOverlay != null && vrDebugText != null)
+                {
+                    UpdateDebugText();
+                    vrDebugText.text = lastDebugText;
+                }
+#endif
             }
         }
 
-        #if !UNITY_EDITOR
+#if !UNITY_EDITOR
         private void Start()
         {
             isOverlayEnabled = currentPlatform.IsOverlayEnabled;
         }
-        #endif
+#endif
 
-        private void DrawDebugOverlay(int windowID)
+        private void UpdateDebugText()
         {
             if (lastDebugUpdate + 0.25f < Time.unscaledTime)
             {
@@ -650,8 +702,18 @@ retry:
                     lastDebugUpdate = Time.unscaledTime;
                 }
             }
+        }
 
-            GUI.Label(new Rect(10, 20, 290, 100), lastDebugText);
+        private void DrawDebugOverlay(int windowID)
+        {
+            UpdateDebugText();
+
+            GUIStyle debugStyle = GUI.skin.GetStyle("label");
+
+            debugStyle.fontSize = currentPlatform.OverlayFontSize;
+            float width = currentPlatform.OverlayFontSize * 20;
+            float height = currentPlatform.OverlayFontSize * 7;
+            GUI.Label(new Rect(30, 20, width, height), lastDebugText, debugStyle);
             GUI.DragWindow();
         }
 
@@ -697,7 +759,7 @@ retry:
         }
 #endif
 
-        #if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+        #if (UNITY_IOS || UNITY_TVOS || UNITY_VISIONOS) && !UNITY_EDITOR
         [AOT.MonoPInvokeCallback(typeof(Action<bool>))]
         private static void HandleInterrupt(bool began)
         {
@@ -1336,13 +1398,10 @@ retry:
 
         public static void PauseAllEvents(bool paused)
         {
-            if (HaveMasterBanksLoaded)
+            FMOD.Studio.Bus masterBus;
+            if (StudioSystem.getBus("bus:/", out masterBus) == FMOD.RESULT.OK)
             {
-                FMOD.Studio.Bus masterBus;
-                if (StudioSystem.getBus("bus:/", out masterBus) == FMOD.RESULT.OK)
-                {
-                    masterBus.setPaused(paused);
-                }
+                masterBus.setPaused(paused);
             }
         }
 
@@ -1355,17 +1414,14 @@ retry:
 
         private static void ApplyMuteState()
         {
-            if (HaveMasterBanksLoaded)
+            FMOD.Studio.Bus masterBus;
+            if (StudioSystem.getBus("bus:/", out masterBus) == FMOD.RESULT.OK)
             {
-                FMOD.Studio.Bus masterBus;
-                if (StudioSystem.getBus("bus:/", out masterBus) == FMOD.RESULT.OK)
-                {
-                    #if UNITY_EDITOR
-                    masterBus.setMute(Instance.isMuted || EditorUtility.audioMasterMute);
-                    #else
-                    masterBus.setMute(Instance.isMuted);
-                    #endif
-                }
+#if UNITY_EDITOR
+                masterBus.setMute(Instance.isMuted || EditorUtility.audioMasterMute);
+#else
+            masterBus.setMute(Instance.isMuted);
+#endif
             }
         }
 
@@ -1403,9 +1459,103 @@ retry:
             return (Instance.loadedBanks.ContainsKey(loadedBank));
         }
 
-#if (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_TVOS || UNITY_VISIONOS) && !UNITY_EDITOR
         [DllImport("__Internal")]
         private static extern void RegisterSuspendCallback(Action<bool> func);
 #endif
+
+        private void SetOverlayPosition()
+        {
+            float width = currentPlatform.OverlayFontSize * 20;
+            float height = currentPlatform.OverlayFontSize * 7;
+            float margin = 30;
+
+            switch (currentPlatform.OverlayRect)
+            {
+                case ScreenPosition.TopLeft:
+                    windowRect = new Rect(margin, margin, width, height);
+                    break;
+                case ScreenPosition.TopCenter:
+                    windowRect = new Rect((Screen.width / 2) - (width / 2), margin, width, height);
+                    break;
+                case ScreenPosition.TopRight:
+                    windowRect = new Rect(Screen.width - (width + margin), margin, width, height);
+                    break;
+                case ScreenPosition.BottomLeft:
+                    windowRect = new Rect(margin, Screen.height - (height + margin), width, height);
+                    break;
+                case ScreenPosition.BottomCenter:
+                    windowRect = new Rect((Screen.width / 2) - (width / 2), Screen.height - (height + margin), width, height);
+                    break;
+                case ScreenPosition.BottomRight:
+                    windowRect = new Rect(Screen.width - (width + margin), Screen.height - (height + margin), width, height);
+                    break;
+                case ScreenPosition.Center:
+                    windowRect = new Rect((Screen.width / 2) - (width / 2), (Screen.height / 2) - (height / 2), width, height);
+                    break;
+                case ScreenPosition.VR:
+#if UNITY_URP_EXIST
+                    int fmodOverlayLayer = LayerMask.NameToLayer("fmodOverlayLayer");
+                    UniversalAdditionalCameraData mainCameraData = Camera.main.GetComponent<UniversalAdditionalCameraData>();
+                    if (fmodOverlayLayer != -1 && mainCameraData != null)
+                    {
+                        vrDebugCamera = Instantiate(Camera.main, Camera.main.transform);
+                        vrDebugCamera.name = "FMOD: UI Camera";
+                        vrDebugCamera.transform.DetachChildren();
+                        vrDebugCamera.cullingMask = (1 << fmodOverlayLayer);
+                        Camera.main.cullingMask &= ~(1 << fmodOverlayLayer);
+                        vrDebugCamera.GetComponent<UniversalAdditionalCameraData>().renderType = CameraRenderType.Overlay;
+                        mainCameraData.cameraStack.Add(vrDebugCamera);
+                        vrDebugOverlay = new GameObject();
+                        vrDebugOverlay.layer = fmodOverlayLayer;
+                        vrDebugOverlay.transform.position = Vector3.zero;
+                        vrDebugOverlay.name = "FMOD: VRDebugOverlay";
+                        Canvas canvas = vrDebugOverlay.AddComponent<Canvas>();
+                        vrDebugRectTransform = vrDebugOverlay.GetComponent<RectTransform>();
+                        vrDebugRectTransform.position = new Vector3(0, 0, 500);
+                        vrDebugRectTransform.sizeDelta = new Vector2(300, 100);
+                        vrDebugRectTransform.localScale = new Vector3(-1, 1, 1);
+                        vrDebugText = vrDebugOverlay.AddComponent<Text>();
+                        canvas.renderMode = RenderMode.WorldSpace;
+                        canvas.worldCamera = vrDebugCamera;
+                        vrDebugText.color = Color.black;
+#if UNITY_2022_1_OR_NEWER
+                        vrDebugText.font = Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf") as Font;
+#else
+                        vrDebugText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+#endif
+                        Quaternion rot = vrDebugCamera.transform.rotation;
+                        rot.z = 0;
+                        Vector3 pos = vrDebugCamera.transform.position + (rot * Vector3.forward * 500);
+                        pos.y = 0;
+                        vrDebugRectTransform.transform.position = pos;
+                        vrDebugRectTransform.transform.LookAt(vrDebugCamera.transform.position);
+                        canvas.transform.SetParent(vrDebugCamera.transform);
+                    }
+                    else
+                    {
+                        if (fmodOverlayLayer == -1)
+                        {
+                            RuntimeUtils.DebugLogWarning("[FMOD] Missing 'fmodOverlayLayer' layer, Cannot display Debug Overlay");
+                        }
+                        else if (mainCameraData == null)
+                        {
+                            RuntimeUtils.DebugLogWarning("[FMOD] Universal Render Pipeline Required, Cannot display Debug Overlay");
+                        }
+                        else
+                        {
+                            RuntimeUtils.DebugLogWarning("[FMOD] Unknown Debug Overlay issue. Contact Support");
+                        }
+                    }
+                    break;
+#else
+                    RuntimeUtils.DebugLogWarning("[FMOD] UNITY_URP_EXIST is not defined. The VR debug overlay requires the Universal Render Pipeline.");
+                    break;
+#endif
+                default:
+                    windowRect = new Rect(margin, margin, width, height);
+                    break;
+            }
+        }
     }
 }
