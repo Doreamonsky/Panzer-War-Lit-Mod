@@ -33,7 +33,6 @@ RectTransform:
   m_Children:
   - {fileID: 1840625073}
   m_Father: {fileID: 3101243039681868305}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -153,7 +152,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 379969114}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -202,6 +200,85 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u8BBE\u7F6E / Setting"
+--- !u!1 &2346832308272897826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8937485527587126395}
+  - component: {fileID: 2686378661710928301}
+  - component: {fileID: 6436527107732171192}
+  m_Layer: 5
+  m_Name: Error
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8937485527587126395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346832308272897826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3101243039681868305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 17.615}
+  m_SizeDelta: {x: 1276.8306, y: 35.2303}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2686378661710928301
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346832308272897826}
+  m_CullTransparentMesh: 1
+--- !u!114 &6436527107732171192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346832308272897826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 6
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: aaaaaa
 --- !u!1 &3101243039681868301
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,10 +310,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8937485527587126395}
   - {fileID: 379969114}
   - {fileID: 3101243040181090210}
   m_Father: {fileID: 3101243039744756686}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -260,7 +337,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -327,6 +406,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3101243039744756687}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.806241, y: 0.1497879, z: 2.7025118}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -335,7 +415,6 @@ Transform:
   - {fileID: 3101243040459645832}
   - {fileID: 3101243039681868305}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3101243040181090211
 GameObject:
@@ -368,7 +447,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3101243039681868305}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -405,7 +483,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -416,9 +494,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u672C\u5DE5\u7A0B\u4EC5\u7528\u4E8E\u8C03\u8BD5\uFF0C\u7981\u6B62\u7528\u4E8E\u4E8C\u6B21\u6253\u5305\u3002\u8F6F\u4EF6\u8457\u4F5C\u6743\u5F52\u738B\u8BD7\u6C5F\u6240\u6709\u3002\nThis
-    project is only for debugging,you should not re-ship this project. Copy right
-    belongs Wang Shijiang (ShanghaiWindy)"
+  m_Text: "\u672C\u5DE5\u7A0B\u4EC5\u7528\u4E8E\u8C03\u8BD5\uFF0C\u7981\u6B62\u7528\u4E8E\u4E8C\u6B21\u6253\u5305\u3002\u8F6F\u4EF6\u8457\u4F5C\u6743\u5F52
+    WINDYVERSE PTE. LTD. \u6240\u6709\u3002\nThis project is only for debugging,you
+    should not re-ship this project. Copy right belongs WINDYVERSE PTE. LTD."
 --- !u!1 &3101243040459645834
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,13 +522,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3101243040459645834}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3101243039744756686}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5935875920647314151
 MonoBehaviour:
@@ -464,13 +542,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff70c0ee029b1f48844723ed4ed59a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 4beb6cdf9004b54409cffcc4066c0fbb, type: 2}
-  HotFixConfigs:
+  errorText: {fileID: 6436527107732171192}
+  isTrailerMode: 0
+  isOverSea: 1
+  clientType: 0
+  renderPiplineType: 2
+  entryName: 
+  useCustomConfig: 0
+  _gameCoreConfig: {fileID: 0}
+  hotFixConfigs:
   - hotFixChannel: 0
     luaEnvFolder: Packages/com.shanghaiwindy.middlelayer/LuaProject
     skipHotFix: 1
     hotFixFolder: 
     hasRemoteDiffHotFix: 0
+  langs: []
+  mainFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  Config: {fileID: 11400000, guid: 4beb6cdf9004b54409cffcc4066c0fbb, type: 2}
 --- !u!114 &4388872424201562189
 MonoBehaviour:
   m_ObjectHideFlags: 0
