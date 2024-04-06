@@ -87,6 +87,7 @@ namespace ShanghaiWindy.Editor.PlayMode
         private void HandleVehicleTestKillEvent(VehicleTestKillEvent evtData)
         {
             KillCurVehicle();
+            ShowVehicle();
         }
 
 
