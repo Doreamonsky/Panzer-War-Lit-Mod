@@ -20,7 +20,6 @@ namespace ShanghaiWindy.Editor.PlayMode
         public override void OnStartNode()
         {
             base.OnStartNode();
-            GameDataManager.DamageMode = EDamageMode.ModuleBased;
             MapDataManager.Instance.currentMap = ScriptableObject.CreateInstance<MapData>();
 
             _localPlayer = OfflineBattlePlayerManager.Instance.CreateOfflineMainPlayer(1, null);

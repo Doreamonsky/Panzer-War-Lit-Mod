@@ -14,10 +14,11 @@ namespace ShanghaiWindy.Editor.PlayMode
     {
         public static System.Action OnInit;
         public GameCoreConfig Config;
-
+        public EDamageMode DamageMode = EDamageMode.ModuleBased;
 
         public override async UniTask EnterGame()
         {
+            GameDataManager.DamageMode = DamageMode;
             GameDataManager.isCustomEditor = true;
 
             GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
