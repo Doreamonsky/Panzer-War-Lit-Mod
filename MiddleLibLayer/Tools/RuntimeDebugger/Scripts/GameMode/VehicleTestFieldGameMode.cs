@@ -21,12 +21,16 @@ namespace ShanghaiWindy.Editor.PlayMode
         {
             base.OnStartNode();
             GameDataManager.DamageMode = EDamageMode.ModuleBased;
-
             MapDataManager.Instance.currentMap = ScriptableObject.CreateInstance<MapData>();
 
             _localPlayer = OfflineBattlePlayerManager.Instance.CreateOfflineMainPlayer(1, null);
             GameModeManager.Instance.AddBattlePlayer(_localPlayer);
-            ShowVehicle();
+
+            GameModeManager.Instance.LoadBattleUI(() =>
+            {
+                GameModeManager.Instance.EnableCheat();
+                ShowVehicle();
+            });
         }
 
         public override void AddListeners()
