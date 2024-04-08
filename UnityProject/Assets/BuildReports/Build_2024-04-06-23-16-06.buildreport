@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1126 &-7310288881396515966
+PackedAssets:
+  m_ShortPath: CAB-10d6eeedef6eca9213196bd682d08ff3
+  m_Overhead: 4032
+  m_Contents:
+  - fileID: 1
+    classID: 142
+    packedSize: 104
+    offset: 4032
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: AssetBundle Object
+  - fileID: 2
+    classID: 290
+    packedSize: 304
+    offset: 4136
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: 'Built-in AssetBundleManifest: AssetBundleManifest'
+--- !u!1125 &1
+BuildReport:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Build_2024-04-06-23-16-06
+  m_Summary:
+    buildStartTime:
+      serializedVersion: 2
+      ticks: 638480133645515517
+    buildGUID: 00000000000000000000000000000000
+    platformName: Win64
+    platformGroupName: 
+    subtarget: 0
+    options: 0
+    assetBundleOptions: 256
+    outputPath: D:/Projects/PanzerWarMods/UnityProject/Build/Mod-BuildPipline/StandaloneWindows64/Test_d163479976e0abf4b83c5dc624626ed3/packages/
+    crc: 0
+    totalSize: 5794
+    totalTimeTicks: 17821814
+    totalErrors: 0
+    totalWarnings: 0
+    buildType: 2
+    buildResult: 1
+  m_Files:
+  - path: D:/Projects/PanzerWarMods/UnityProject/1273d9b1-deb7-46b9-99ca-edb956d3859b_vehicleinfo.vehicleinfo/CAB-2e4d64e035a075e694b87a147cecb058
+    role: SharedAssets
+    id: 0
+    totalSize: 8160
+  - path: D:/Projects/PanzerWarMods/UnityProject/1273d9b1-deb7-46b9-99ca-edb956d3859b_vehicleinfo.vehicleinfo
+    role: AssetBundle
+    id: 1
+    totalSize: 2981
+  - path: D:/Projects/PanzerWarMods/UnityProject/1273d9b1-deb7-46b9-99ca-edb956d3859b_vehicleinfo.vehicleinfo.manifest
+    role: AssetBundleTextManifest
+    id: 2
+    totalSize: 730
+  - path: D:/Projects/PanzerWarMods/UnityProject/packages/CAB-10d6eeedef6eca9213196bd682d08ff3
+    role: ResourcesFile
+    id: 3
+    totalSize: 4440
+  - path: D:/Projects/PanzerWarMods/UnityProject/packages
+    role: ManifestAssetBundle
+    id: 4
+    totalSize: 1703
+  - path: D:/Projects/PanzerWarMods/UnityProject/packages.manifest
+    role: AssetBundleTextManifest
+    id: 5
+    totalSize: 380
+  m_BuildSteps:
+  - stepName: Build Asset Bundles
+    durationTicks: 17821814
+    depth: 0
+    messages: []
+  - stepName: Calculate asset bundles to be built
+    durationTicks: 9749307
+    depth: 1
+    messages: []
+  - stepName: Prebuild Cleanup and Recompile
+    durationTicks: 3355204
+    depth: 1
+    messages: []
+  - stepName: Compile scripts
+    durationTicks: 2864045
+    depth: 2
+    messages: []
+  - stepName: Generate and validate platform script types
+    durationTicks: 422787
+    depth: 2
+    messages: []
+  - stepName: 'Build bundle: 1273d9b1-deb7-46b9-99ca-edb956d3859b_vehicleinfo'
+    durationTicks: 649616
+    depth: 1
+    messages: []
+  m_Appendices:
+  - {fileID: 932160124553261932}
+  - {fileID: 5103005558615509285}
+  - {fileID: -7310288881396515966}
+--- !u!668709126 &932160124553261932
+BuiltAssetBundleInfoSet:
+  bundleInfos:
+  - bundleName: 1273d9b1-deb7-46b9-99ca-edb956d3859b_vehicleinfo.vehicleinfo
+    bundleArchiveFile: 1
+    packagedFileIndices: 00000000
+  - bundleName: packages
+    bundleArchiveFile: 4
+    packagedFileIndices: 03000000
+--- !u!1126 &5103005558615509285
+PackedAssets:
+  m_ShortPath: CAB-2e4d64e035a075e694b87a147cecb058
+  m_Overhead: 7524
+  m_Contents:
+  - fileID: -679440058681984759
+    classID: 114
+    packedSize: 268
+    offset: 7608
+    sourceAssetGUID: d163479976e0abf4b83c5dc624626ed3
+    buildTimeAssetPath: Assets/Res/Vehicles/Aviation/Data/Planes/BF-110-C/BF-110-C.asset
+  - fileID: 1
+    classID: 142
+    packedSize: 280
+    offset: 7880
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: AssetBundle Object
+  - fileID: 1554978128952555499
+    classID: 115
+    packedSize: 88
+    offset: 7520
+    sourceAssetGUID: 0512a3c011ce1c84db3d9ccc1f4d6d2e
+    buildTimeAssetPath: Packages/com.shanghaiwindy.middlelayer/Runtime/Core.dll

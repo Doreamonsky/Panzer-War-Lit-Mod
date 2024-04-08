@@ -14,7 +14,8 @@
         "com.unity.addressables": "1.19.19",
         "com.unity.jobs": "0.70.0-preview.7",
         "com.unity.timeline": "1.6.4",
-        "com.unity.render-pipelines.universal": "12.1.12"
+        "com.unity.render-pipelines.universal": "12.1.12",
+        "com.unity.project-auditor": "0.10.0"
       }
     },
     "com.shanghaiwindy.middlesharedresources": {
@@ -122,9 +123,18 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
-      "depth": 3,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.project-auditor": {
+      "version": "0.10.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.mono-cecil": "1.10.2"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
