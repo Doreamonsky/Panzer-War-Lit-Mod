@@ -6,7 +6,7 @@ using ShanghaiWindy.Editor;
 public class ProjectWizardWindow : EditorWindow
 {
     private const string STORAGE_KEY = "PROJECT_WIZARD_V2";
-    private const string CONFIG_VER = "1";
+    private const string CONFIG_VER = "2";
 
     [InitializeOnLoadMethod]
     private static void OpenWindowOnFirstLaunch()
