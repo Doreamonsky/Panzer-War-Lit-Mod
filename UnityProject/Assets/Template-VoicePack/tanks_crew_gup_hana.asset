@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 33833199, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
+  m_Name: tanks_crew_gup_hana
+  m_EditorClassIdentifier: 
+  comment: 
+  soundBankName: tanks_crew_gup_hana
+  eventRefList:
+  - Guid:
+      Data1: 1271716695
+      Data2: 1131330978
+      Data3: -887097199
+      Data4: -418569322
+    Path: event:/crew/ground/gup-hana/start_battle_hana
+  - Guid:
+      Data1: 473142398
+      Data2: 1211051508
+      Data3: -221824104
+      Data4: 1070426201
+    Path: event:/crew/ground/gup-hana/vehicle_destroyed_hana
+  - Guid:
+      Data1: 677785516
+      Data2: 1315016974
+      Data3: -638228063
+      Data4: 991065538
+    Path: event:/crew/ground/gup-hana/armor_ricochet_hana
+  - Guid:
+      Data1: -1849858114
+      Data2: 1230655790
+      Data3: 1586760378
+      Data4: 730533671
+    Path: event:/crew/ground/gup-hana/armor_not_pierced_hana
+  - Guid:
+      Data1: 1316854726
+      Data2: 1169615627
+      Data3: -1277074282
+      Data4: 1601425479
+    Path: event:/crew/ground/gup-hana/armor_pierced_hana
+  - Guid:
+      Data1: -952009997
+      Data2: 1290304550
+      Data3: 1477167761
+      Data4: 1271336037
+    Path: event:/crew/ground/gup-hana/enemy_killed_hana
+  loadOnAwake: 0
