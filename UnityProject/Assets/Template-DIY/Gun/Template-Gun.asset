@@ -13,19 +13,31 @@ MonoBehaviour:
   m_Name: Template-Gun
   m_EditorClassIdentifier: 
   itemGUID: 6ce18d37-0275-4e1e-a4d0-d1866e2177f6
+  editorAssetGuid: 
   displayName:
+    isLocalizeTable: 0
     defaultName: Template Gun
     items: []
+    localizeTableKey: 
   description:
+    isLocalizeTable: 0
     defaultName: Template Gun
     items: []
+    localizeTableKey: 
+  tag:
+    isLocalizeTable: 0
+    defaultName: 
+    items: []
+    localizeTableKey: 
   icon: {fileID: 21300000, guid: 751ba562cef953348b7079bf14093c25, type: 3}
   is3DIcon: 0
   rank: 8
   hp: 300
   isModuleReady: 1
+  isOverrideSlotParent: 0
+  overrideSlotParentPath: 
   slotInfos: []
-  renderType: 0
+  diyLuaBehaviors: []
   isGenLOD: 1
   visualModelFileProp:
     assetGUID: f0be281e40fb5084bb87f31943d21ff6
@@ -37,7 +49,7 @@ MonoBehaviour:
   hitBoxFilePath: Assets/Template-DIY/Gun/Template-Gun-HitBox.asset
   prefabFileProp:
     assetGUID: 4b6db169e86edf44a9bb81c2bc364a72
-    extra: Assets\Template-DIY\Gun/6ce18d3702754e1ea4d0d1866e2177f6_pre.prefab
+    extra: Assets/Template-DIY/Gun/6ce18d3702754e1ea4d0d1866e2177f6_pre.prefab
   prefabFilePath: Assets\Template-DIY\Gun/6ce18d3702754e1ea4d0d1866e2177f6_pre.prefab
   firePoints:
   - ffPointPath: FFPoint
@@ -85,7 +97,14 @@ MonoBehaviour:
       overrideEnergyReloadSound:
         rid: -2
     dispersion: 0
-    bulletSound: {fileID: 11400000, guid: 1c107d664be3f8841b60f6a3a42b012f, type: 2}
+    fireSpread:
+      dispersion: 0
+      aimTime: 0
+      moveSpreadCoff: 0
+      traverseSpreadCoff: 0
+      gunSpreadCoff: 0
+      afterFiredCoff: 0
+      damagedCoff: 0
     fmodBulletSound: {fileID: 0}
     bulletData:
     - {fileID: 11400000, guid: 0a6b78f31fd50a24bb1687c383de23c5, type: 2}
@@ -109,6 +128,7 @@ MonoBehaviour:
       fireMinDelay: 0
     isOverrideGunMark: 0
     gunMarkLerp: 0
+    vehicleLuaBehaviors: []
   references:
     version: 2
     RefIds:

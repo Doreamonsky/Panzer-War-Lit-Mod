@@ -13,12 +13,22 @@ MonoBehaviour:
   m_Name: Template-Hull
   m_EditorClassIdentifier: 
   itemGUID: fb2d07c5-82db-4704-a186-da308281013a
+  editorAssetGuid: 
   displayName:
+    isLocalizeTable: 0
     defaultName: Template hull
     items: []
+    localizeTableKey: 
   description:
+    isLocalizeTable: 0
     defaultName: hull
     items: []
+    localizeTableKey: 
+  tag:
+    isLocalizeTable: 0
+    defaultName: 
+    items: []
+    localizeTableKey: 
   icon: {fileID: 21300000, guid: 95103e890613c134e990eb6cad2242d4, type: 3}
   is3DIcon: 0
   rank: 8
@@ -67,8 +77,6 @@ MonoBehaviour:
     engineAction: {fileID: 0}
     isSupportPhysicTrack: 0
     sharedEngineData: {fileID: 0}
-    vehicleEngineSoundData: {fileID: 11400000, guid: 6a760a31fab37084e8be6c6ec5edbff9,
-      type: 2}
     vehicleEngineFmodSoundData: {fileID: 0}
     engineTorqueCurve:
       serializedVersion: 2
@@ -137,7 +145,6 @@ MonoBehaviour:
   hydraulicAction: {fileID: 0}
   MechParameter:
     isMech: 0
-    walkClip: {fileID: 0}
     timeToFullyTurn: 0.5
     overridePlayWalkClip: 0
     hasWalkSoundEvent: 0
@@ -160,8 +167,14 @@ MonoBehaviour:
   CarControllerParameter:
     isCar: 0
     carControllerType: 0
+  LuaVehicleControllerParameter:
+    isLua: 0
+    luaControllableVehicle: {fileID: 0}
+  AircraftControllerParameter:
+    isAircraft: 0
   engineSmokeParams: []
   isCustomExplodeParticle: 0
   customExplodeParticles: []
   isOverrideCameraDistance: 0
   overrideCameraDistance: 0
+  IsConvexCollider: 1
