@@ -29,6 +29,10 @@ MonoBehaviour:
     ammunitionStoreType: 0
     ammunitionSortNameReversing: 0
     hasThermalVision: 0
+    thermalVisionProfile:
+      isCustomize: 0
+      resolution: 0.4
+      color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     overrideFireCrossData: {fileID: 0}
     isOverrideSightDistanceType: 0
     sightDistanceType: 1
@@ -139,6 +143,8 @@ MonoBehaviour:
     isLua: 0
     luaControllableVehicle: {fileID: 11400000, guid: 6af5f617ded76ad46888176d136292a7,
       type: 2}
+  AircraftControllerParameter:
+    isAircraft: 0
   sharedGunData: {fileID: 11400000, guid: 6b29954a2d8f40f4e85c637cbcdb0072, type: 2}
   TFParameter:
     fireState: 0
