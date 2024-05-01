@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ShanghaiWindy.Core;
+using ShanghaiWindy.Core.GameMode;
 using ShanghaiWindy.Core.Lua;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,8 @@ namespace ShanghaiWindy.Editor.PlayMode
 #if UNITY_EDITOR
                 foreach (var x in AssetDatabase.FindAssets($"t:{nameof(LuaGameModeInstanceData)}"))
                 {
-                    var asset = AssetDatabase.LoadAssetAtPath<LuaGameModeInstanceData>(AssetDatabase.GUIDToAssetPath(x));
+                    var asset =
+                        AssetDatabase.LoadAssetAtPath<LuaGameModeInstanceData>(AssetDatabase.GUIDToAssetPath(x));
                     _luaGameModeInstanceDatas.Add(asset.GetInstanceGameMode());
                 }
 #endif
@@ -42,12 +44,15 @@ namespace ShanghaiWindy.Editor.PlayMode
                 enterMode.onClick.AddListener(() =>
                 {
                     GameDataManager.PlayerTeam = TeamManager.Team.blue;
-                    
+
                     if (_curGameModeMod == null)
                     {
                         _curGameModeMod = _luaGameModeInstanceDatas[modeIndex];
                         Debug.Log($"Try running mode {_curGameModeMod.GetGameModeName("CN")}");
-                        _curGameModeMod.OnStartMode();
+                        GameModeManager.Instance.StartGameMode(new LuaGameMode()
+                        {
+                            GameMode = _curGameModeMod
+                        }, null);
                     }
                     else
                     {

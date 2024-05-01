@@ -18,14 +18,14 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         public override async UniTask EnterGame()
         {
+            DontDestroyOnLoad(gameObject.transform.root);
+            
             GameDataManager.DamageMode = DamageMode;
             GameDataManager.isCustomEditor = true;
 
             GameRoot.GameCoreConfigProvider = new GameCoreConfigCustomProvider(Config);
             SimpleResourceManager.Instance = new SimpleResourceManager(AssetBundleEntry.Instance.BundleManager);
 
-            await AssetBundleManager.AsyncHotFix();
-            AssetBundleManager.RunLuaEnvs();
 
             var externalDirs = new List<DirectoryInfo>
             {
@@ -51,19 +51,24 @@ namespace ShanghaiWindy.Editor.PlayMode
             SimpleResourceManager.Instance.Instantiate(AssetConst.RUNTIME_SUPPORT, runtimeSupportGo =>
             {
                 DontDestroyOnLoad(runtimeSupportGo);
-                AssetBundleManager.OnQueryed += () => { StartCoroutine(InitializeAsync()); };
+                AssetBundleManager.OnQueryed += InitializeAsync;
             });
         }
 
-        private IEnumerator InitializeAsync()
+        private async void InitializeAsync()
         {
-            yield return new WaitUntil(() => !AssetBundleManager.IsLoadingAB());
-            OnInit?.Invoke();
+            await AssetBundleManager.AsyncHotFix();
+            AssetBundleManager.LoadLuaEnvResources();
+
+            await UniTask.WaitWhile(AssetBundleManager.IsLoadingAB);
+            AssetBundleManager.RunLuaEnvs();
+
 
             Core.CommonDataManager.Instance.ApplySettings();
             PoolManager.Initialize();
 
             Debug.Log("Enter Game");
+            OnInit?.Invoke();
         }
     }
 }

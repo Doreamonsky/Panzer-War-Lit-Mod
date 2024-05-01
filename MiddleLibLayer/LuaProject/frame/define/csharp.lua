@@ -1,7 +1,216 @@
----@class ShanghaiWindy.Core.UIEnum
-local UIEnum = {}
+---@class Frontend.Runtime.Impl.GameImpl.Battle.AbstractNetBattleGameMode
+local AbstractNetBattleGameMode = {}
 
-return UIEnum
+---@instance
+---@function [AbstractNetBattleGameMode:SendAllTextMessage]
+---@return System.Void
+---@param text System.String
+function AbstractNetBattleGameMode:SendAllTextMessage(text) end
+---@instance
+---@function [AbstractNetBattleGameMode:SendTeammateTextMessage]
+---@return System.Void
+---@param text System.String
+function AbstractNetBattleGameMode:SendTeammateTextMessage(text) end
+---@instance
+---@function [AbstractNetBattleGameMode:PickVehicle]
+---@return System.Void
+---@param vehicleGuid System.String
+function AbstractNetBattleGameMode:PickVehicle(vehicleGuid) end
+---@instance
+---@function [AbstractNetBattleGameMode:GetPing]
+---@return System.Int32
+function AbstractNetBattleGameMode:GetPing() end
+---@instance
+---@function [AbstractNetBattleGameMode:IsMainPlayerLoaded]
+---@return System.Boolean
+function AbstractNetBattleGameMode:IsMainPlayerLoaded() end
+---@instance
+---@function [AbstractNetBattleGameMode:GetPlayerPosition]
+---@return UnityEngine.Vector3
+function AbstractNetBattleGameMode:GetPlayerPosition() end
+---@instance
+---@function [AbstractNetBattleGameMode:GetBattleMeta]
+---@return System.String
+function AbstractNetBattleGameMode:GetBattleMeta() end
+return AbstractNetBattleGameMode
+
+---@class Frontend.Runtime.Impl.GameImpl.Battle.Mode.CaptureZoneNetGameMode
+local CaptureZoneNetGameMode = {}
+
+---@instance
+---@function [CaptureZoneNetGameMode:PickCaptureZone]
+---@return System.Void
+---@param zoneName System.String
+function CaptureZoneNetGameMode:PickCaptureZone(zoneName) end
+---@instance
+---@function [CaptureZoneNetGameMode:SendAllTextMessage]
+---@return System.Void
+---@param text System.String
+function CaptureZoneNetGameMode:SendAllTextMessage(text) end
+---@instance
+---@function [CaptureZoneNetGameMode:SendTeammateTextMessage]
+---@return System.Void
+---@param text System.String
+function CaptureZoneNetGameMode:SendTeammateTextMessage(text) end
+---@instance
+---@function [CaptureZoneNetGameMode:PickVehicle]
+---@return System.Void
+---@param vehicleGuid System.String
+function CaptureZoneNetGameMode:PickVehicle(vehicleGuid) end
+---@instance
+---@function [CaptureZoneNetGameMode:GetPing]
+---@return System.Int32
+function CaptureZoneNetGameMode:GetPing() end
+---@instance
+---@function [CaptureZoneNetGameMode:IsMainPlayerLoaded]
+---@return System.Boolean
+function CaptureZoneNetGameMode:IsMainPlayerLoaded() end
+---@instance
+---@function [CaptureZoneNetGameMode:GetPlayerPosition]
+---@return UnityEngine.Vector3
+function CaptureZoneNetGameMode:GetPlayerPosition() end
+---@instance
+---@function [CaptureZoneNetGameMode:GetBattleMeta]
+---@return System.String
+function CaptureZoneNetGameMode:GetBattleMeta() end
+return CaptureZoneNetGameMode
+
+---@class Frontend.Runtime.Impl.GameImpl.Battle.Mode.ReplayNetGameMode
+local ReplayNetGameMode = {}
+
+---@instance
+---@function [ReplayNetGameMode:GetReportedPlayerNickName]
+---@return System.String
+function ReplayNetGameMode:GetReportedPlayerNickName() end
+---@instance
+---@function [ReplayNetGameMode:AgreeBan]
+---@return System.Void
+function ReplayNetGameMode:AgreeBan() end
+---@instance
+---@function [ReplayNetGameMode:DisagreeBan]
+---@return System.Void
+function ReplayNetGameMode:DisagreeBan() end
+---@instance
+---@function [ReplayNetGameMode:Ban]
+---@return System.Void
+function ReplayNetGameMode:Ban() end
+---@instance
+---@function [ReplayNetGameMode:IsShowBan]
+---@return System.Boolean
+function ReplayNetGameMode:IsShowBan() end
+---@instance
+---@function [ReplayNetGameMode:SendAllTextMessage]
+---@return System.Void
+---@param text System.String
+function ReplayNetGameMode:SendAllTextMessage(text) end
+---@instance
+---@function [ReplayNetGameMode:SendTeammateTextMessage]
+---@return System.Void
+---@param text System.String
+function ReplayNetGameMode:SendTeammateTextMessage(text) end
+---@instance
+---@function [ReplayNetGameMode:PickVehicle]
+---@return System.Void
+---@param vehicleGuid System.String
+function ReplayNetGameMode:PickVehicle(vehicleGuid) end
+---@instance
+---@function [ReplayNetGameMode:GetPing]
+---@return System.Int32
+function ReplayNetGameMode:GetPing() end
+---@instance
+---@function [ReplayNetGameMode:IsMainPlayerLoaded]
+---@return System.Boolean
+function ReplayNetGameMode:IsMainPlayerLoaded() end
+---@instance
+---@function [ReplayNetGameMode:GetPlayerPosition]
+---@return UnityEngine.Vector3
+function ReplayNetGameMode:GetPlayerPosition() end
+---@instance
+---@function [ReplayNetGameMode:GetBattleMeta]
+---@return System.String
+function ReplayNetGameMode:GetBattleMeta() end
+return ReplayNetGameMode
+
+---@class Frontend.Runtime.Impl.GameImpl.Battle.Mode.StandardWarNetGameMode
+local StandardWarNetGameMode = {}
+
+---@instance
+---@function [StandardWarNetGameMode:GetPlayerVehicleQueue]
+---@return System.Collections.Generic.List`1[[ShanghaiWindy.Core.VehicleInfo, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+function StandardWarNetGameMode:GetPlayerVehicleQueue() end
+---@instance
+---@function [StandardWarNetGameMode:GetVehicleUsedNumber]
+---@return System.Int32
+---@param vehicleGuid System.String
+function StandardWarNetGameMode:GetVehicleUsedNumber(vehicleGuid) end
+---@instance
+---@function [StandardWarNetGameMode:SendAllTextMessage]
+---@return System.Void
+---@param text System.String
+function StandardWarNetGameMode:SendAllTextMessage(text) end
+---@instance
+---@function [StandardWarNetGameMode:SendTeammateTextMessage]
+---@return System.Void
+---@param text System.String
+function StandardWarNetGameMode:SendTeammateTextMessage(text) end
+---@instance
+---@function [StandardWarNetGameMode:PickVehicle]
+---@return System.Void
+---@param vehicleGuid System.String
+function StandardWarNetGameMode:PickVehicle(vehicleGuid) end
+---@instance
+---@function [StandardWarNetGameMode:GetPing]
+---@return System.Int32
+function StandardWarNetGameMode:GetPing() end
+---@instance
+---@function [StandardWarNetGameMode:IsMainPlayerLoaded]
+---@return System.Boolean
+function StandardWarNetGameMode:IsMainPlayerLoaded() end
+---@instance
+---@function [StandardWarNetGameMode:GetPlayerPosition]
+---@return UnityEngine.Vector3
+function StandardWarNetGameMode:GetPlayerPosition() end
+---@instance
+---@function [StandardWarNetGameMode:GetBattleMeta]
+---@return System.String
+function StandardWarNetGameMode:GetBattleMeta() end
+return StandardWarNetGameMode
+
+---@class Frontend.Runtime.Impl.GameImpl.Battle.Mode.TotalWarNetGameMode
+local TotalWarNetGameMode = {}
+
+---@instance
+---@function [TotalWarNetGameMode:SendAllTextMessage]
+---@return System.Void
+---@param text System.String
+function TotalWarNetGameMode:SendAllTextMessage(text) end
+---@instance
+---@function [TotalWarNetGameMode:SendTeammateTextMessage]
+---@return System.Void
+---@param text System.String
+function TotalWarNetGameMode:SendTeammateTextMessage(text) end
+---@instance
+---@function [TotalWarNetGameMode:PickVehicle]
+---@return System.Void
+---@param vehicleGuid System.String
+function TotalWarNetGameMode:PickVehicle(vehicleGuid) end
+---@instance
+---@function [TotalWarNetGameMode:GetPing]
+---@return System.Int32
+function TotalWarNetGameMode:GetPing() end
+---@instance
+---@function [TotalWarNetGameMode:IsMainPlayerLoaded]
+---@return System.Boolean
+function TotalWarNetGameMode:IsMainPlayerLoaded() end
+---@instance
+---@function [TotalWarNetGameMode:GetPlayerPosition]
+---@return UnityEngine.Vector3
+function TotalWarNetGameMode:GetPlayerPosition() end
+---@instance
+---@function [TotalWarNetGameMode:GetBattleMeta]
+---@return System.String
+function TotalWarNetGameMode:GetBattleMeta() end
+return TotalWarNetGameMode
 
 ---@class ShanghaiWindy.Data.ZoneChain
 ---@field fromZone System.String
@@ -115,9 +324,17 @@ local VehicleInfo = {}
 ---@return System.String
 function VehicleInfo:GetDisplayName() end
 ---@instance
+---@function [VehicleInfo:GetDescription]
+---@return System.String
+function VehicleInfo:GetDescription() end
+---@instance
 ---@function [VehicleInfo:GetVehicleName]
 ---@return System.String
 function VehicleInfo:GetVehicleName() end
+---@instance
+---@function [VehicleInfo:GetLoadGUID]
+---@return System.String
+function VehicleInfo:GetLoadGUID() end
 ---@instance
 ---@function [VehicleInfo:GetRepairCost]
 ---@return System.Int32
@@ -139,10 +356,6 @@ function VehicleInfo:IsSupportModuleMode() end
 ---@function [VehicleInfo:GetRank]
 ---@return System.Int32
 function VehicleInfo:GetRank() end
----@instance
----@function [VehicleInfo:GetUUID]
----@return System.String
-function VehicleInfo:GetUUID() end
 return VehicleInfo
 
 ---@class ShanghaiWindy.Core.CaptureZoneTask
@@ -163,6 +376,7 @@ return BaseFireSystem
 ---@field basePlayerState ShanghaiWindy.Core.BasePlayerState @基础玩家状态类，用于处理玩家状态的改变，如受到伤害、击中反弹等事件。             Base player state class for handling changes in player states such as taking damage, ricocheting hits, etc.
 ---@field equipmentBuffDataList System.Collections.Generic.List`1[ShanghaiWindy.Core.EquipmentBuffData] @装备 Buff 数据列表             Equipment Buff Data List
 ---@field OnVehicleLoaded UnityEngine.Events.UnityEvent
+---@field OnVehiclePreLoaded UnityEngine.Events.UnityEvent
 ---@field OnVehicleDestroyed UnityEngine.Events.UnityEvent
 ---@field OnGameObjectDestroyed UnityEngine.Events.UnityEvent
 ---@field OnDamagedInternalModule ShanghaiWindy.Core.BaseInitSystem+DamagedInternalModule
@@ -296,7 +510,6 @@ return TeamManager
 ---@field canControl System.Boolean @是否可控制             Can Control
 ---@field useGravity System.Boolean @使用重力             Use Gravity
 ---@field projectile ShanghaiWindy.Core.ProjectileManager @投射物管理器             Projectile Manager
----@field calibratedPoint UnityEngine.Vector3 @校准点             Calibrated Point
 ---@field isPlayVFX System.Boolean @是否播放 VFX             Is Play VFX
 ---@field overrideVelocity UnityEngine.Vector3 @覆盖速度             Override Velocity
 ---@field bulletCountList System.Int32[]
@@ -307,7 +520,8 @@ return TankFire
 
 ---坦克初始化系统
 ---Tank Initialization System
----@class ShanghaiWindy.Core.TankInitSystem
+---@class ShanghaiWindy.Core.VehicleInitSystem
+---@field groundType ShanghaiWindy.Core.eGroundControlType @载具类型
 ---@field InstanceMesh UnityEngine.GameObject @实例网格             Instance Mesh
 ---@field vehicleTextData ShanghaiWindy.Core.VehicleTextData @车辆文本数据             Vehicle Text Data
 ---@field referenceManager ShanghaiWindy.Core.VehicleComponentsReferenceManager @车辆组件引用管理器             Vehicle Components Reference Manager
@@ -323,20 +537,21 @@ return TankFire
 ---@field CurMainTurretParam ShanghaiWindy.Core.MouseTurretParameter
 ---@field CurPlayerStateParam ShanghaiWindy.Core.PlayerStateParameter
 ---@field OnVehicleLoaded UnityEngine.Events.UnityEvent
+---@field OnVehiclePreLoaded UnityEngine.Events.UnityEvent
 ---@field OnVehicleDestroyed UnityEngine.Events.UnityEvent
 ---@field OnGameObjectDestroyed UnityEngine.Events.UnityEvent
 ---@field OnDamagedInternalModule ShanghaiWindy.Core.BaseInitSystem+DamagedInternalModule
 ---@field OwnerTeam ShanghaiWindy.Core.TeamManager+Team
 ---@field IsDestroyed System.Boolean
 ---@field IsLoaded System.Boolean
-local TankInitSystem = {}
+local VehicleInitSystem = {}
 
-return TankInitSystem
+return VehicleInitSystem
 
 ---车辆组件
 ---Vehicle Components
 ---@class ShanghaiWindy.Core.TankVehicleComponents
----@field vehicleInputController ShanghaiWindy.Core.VehicleInputController @车辆输入控制器             Vehicle Input Controller
+---@field vehicleInputController ShanghaiWindy.Core.BaseVehicleInputController @车辆输入控制器             Vehicle Input Controller
 ---@field tankTracksController ShanghaiWindy.Core.TankTracksController @坦克履带控制器             Tank Track Controller
 ---@field playerCamera ShanghaiWindy.Core.GroundCameraController @玩家相机控制器             Player Camera Controller
 ---@field mainCamera UnityEngine.Camera @主相机             Main Camera
@@ -346,8 +561,8 @@ return TankInitSystem
 ---@field selfExplosionList System.Collections.Generic.List`1[ShanghaiWindy.Core.VehicleSelfExplosionFireSystem] @自爆火力系统列表             Vehicle Self-Explosion Fire System List
 ---@field turretControllerList System.Collections.Generic.List`1[ShanghaiWindy.Core.TurretController] @炮塔控制器列表             Turret Controller List
 ---@field identity ShanghaiWindy.Core.Identity @身份信息             Identity
----@field tankState ShanghaiWindy.Core.TankState @坦克状态             Tank State
----@field playerState ShanghaiWindy.Core.TankPlayerState @坦克玩家状态             Tank Player State
+---@field baseVehicleState ShanghaiWindy.Core.BaseVehicleState @坦克状态             Tank State
+---@field playerState ShanghaiWindy.Core.VehiclePlayerState @坦克玩家状态             Tank Player State
 ---@field basePlayerState ShanghaiWindy.Core.BasePlayerState @基本玩家状态             Base Player State
 ---@field damageStickManager ShanghaiWindy.Core.VehicleDamageStickManager @车辆伤害棒管理器             Vehicle Damage Stick Manager
 ---@field HitBoxes System.Collections.Generic.List`1[ShanghaiWindy.Core.HitBox] @碰撞箱列表             Hit Box List
@@ -384,6 +599,34 @@ local TurretController = {}
 
 return TurretController
 
+---@class ShanghaiWindy.Core.UIPoolComponent
+local UIPoolComponent = {}
+
+---从对象池取物体
+---Get object from the pool
+---@instance
+---@function [UIPoolComponent:Get]
+---@return UnityEngine.GameObject
+---@param stayWorldPos System.Boolean
+function UIPoolComponent:Get(stayWorldPos) end
+---回收对象池物体
+---Return object back to the pool
+---@instance
+---@function [UIPoolComponent:Release]
+---@param instance UnityEngine.GameObject
+function UIPoolComponent:Release(instance) end
+---回收所以对象池物体
+---Return all the objects back to the pool
+---@instance
+---@function [UIPoolComponent:Clear]
+function UIPoolComponent:Clear() end
+---释放对象池
+---Dispose the pool
+---@instance
+---@function [UIPoolComponent:Dispose]
+function UIPoolComponent:Dispose() end
+return UIPoolComponent
+
 ---Lua 模组接口，用于定义模组的基本信息。
 ---Lua mod interface, providing basic information about the mod.
 ---@class ShanghaiWindy.Core.Lua.ILuaBase
@@ -391,6 +634,7 @@ return TurretController
 ---@field author System.String
 ---@field description System.String
 ---@field isPreview System.Boolean
+---@field isDefinitiveOnly System.Boolean
 local ILuaBase = {}
 
 return ILuaBase
@@ -509,8 +753,8 @@ local LuaBehaviorMono = {}
 ---@instance
 ---@function [LuaBehaviorMono:TryGetTankInitSystem]
 ---@return System.Boolean
----@param tankInitSystem ShanghaiWindy.Core.TankInitSystem&
-function LuaBehaviorMono:TryGetTankInitSystem(tankInitSystem) end
+---@param vehicleInitSystem ShanghaiWindy.Core.VehicleInitSystem&
+function LuaBehaviorMono:TryGetTankInitSystem(vehicleInitSystem) end
 ---@instance
 ---@function [LuaBehaviorMono:TryGetFlightInitSystem]
 ---@return System.Boolean
@@ -532,10 +776,10 @@ return BulletFiredInfo
 
 ---资源加载完成时的委托
 ---Asset Loaded Delegate
----@class ShanghaiWindy.Core.Delegate.AssetLoadedDelegate
-local AssetLoadedDelegate = {}
+---@class ShanghaiWindy.Core.Delegate.InstantiateNonPoolObjectDelegate
+local InstantiateNonPoolObjectDelegate = {}
 
-return AssetLoadedDelegate
+return InstantiateNonPoolObjectDelegate
 
 ---@class ShanghaiWindy.Core.Delegate.LoadPoolAssetDelegate
 local LoadPoolAssetDelegate = {}
@@ -667,14 +911,14 @@ return ArmyAPI
 ---@class ShanghaiWindy.Core.API.AssetAPI
 local AssetAPI = {}
 
----（弃用）加载资源包
----（Deprecated）Load Asset Bundle
+---实例化非对象池物体
+---Load non-pool asset
 ---@static
----@function [AssetAPI.LoadAssetBundle]
----@param abName System.String
----@param format System.String
----@param callBack ShanghaiWindy.Core.Delegate.AssetLoadedDelegate
-function AssetAPI.LoadAssetBundle(abName, format, callBack) end
+---@function [AssetAPI.InstantiateNonPoolObject]
+---@param id System.String
+---@param fileName System.String
+---@param callBack ShanghaiWindy.Core.Delegate.InstantiateNonPoolObjectDelegate
+function AssetAPI.InstantiateNonPoolObject(id, fileName, callBack) end
 ---从对象池加载资源
 ---Load asset from object pool
 ---@static
@@ -765,8 +1009,8 @@ function BuffAPI.RemoveBuff(vehicle, buffCaster, isInterrupt) end
 ---@function [BuffAPI.TryGetBuffReceiverAsTank]
 ---@return System.Boolean
 ---@param buffReceiver ShanghaiWindy.Core.IBuffReceiver
----@param tankInitSystem ShanghaiWindy.Core.TankInitSystem&
-function BuffAPI.TryGetBuffReceiverAsTank(buffReceiver, tankInitSystem) end
+---@param vehicleInitSystem ShanghaiWindy.Core.VehicleInitSystem&
+function BuffAPI.TryGetBuffReceiverAsTank(buffReceiver, vehicleInitSystem) end
 ---@static
 ---@function [BuffAPI.TryGetBuffReceiverAsFlight]
 ---@return System.Boolean
@@ -858,6 +1102,14 @@ function CaptureZoneAPI.AddCaptureZone(zoneName, point, radius) end
 ---@param team ShanghaiWindy.Core.TeamManager+Team
 ---@param delta System.Single
 function CaptureZoneAPI.CapturingZone(id, team, delta) end
+---@static
+---@function [CaptureZoneAPI.SetCapturingZoneStatus]
+---@return System.Void
+---@param id System.Int64
+---@param progress System.Single
+---@param capturingTeam ShanghaiWindy.Core.TeamManager+Team
+---@param stage ShanghaiWindy.Core.ECaptureStage
+function CaptureZoneAPI.SetCapturingZoneStatus(id, progress, capturingTeam, stage) end
 ---获取占领点
 ---Get capture zone
 ---@static
@@ -1192,6 +1444,20 @@ function GameObjectAPI.SetActive(go, isActive) end
 function GameObjectAPI.SetVisible(go, isVisible) end
 return GameObjectAPI
 
+---默认值输入
+---Default value input
+---@class ShanghaiWindy.Core.API.eDefaultValueInputType
+local eDefaultValueInputType = {}
+
+return eDefaultValueInputType
+
+---默认按键输入
+---Default button input
+---@class ShanghaiWindy.Core.API.eDefaultButtonInputType
+local eDefaultButtonInputType = {}
+
+return eDefaultButtonInputType
+
 ---输入处理 API
 ---Input Handler API
 ---@class ShanghaiWindy.Core.API.InputAPI
@@ -1236,6 +1502,16 @@ function InputAPI.UnregisterRemoveKeyInput(onKeyUnregistered) end
 ---@function [InputAPI.GetBindings]
 ---@return System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[ShanghaiWindy.Core.API.InputAPICache, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
 function InputAPI.GetBindings() end
+---@static
+---@function [InputAPI.GetDefaultValueInput]
+---@return System.Single
+---@param inputType ShanghaiWindy.Core.API.eDefaultValueInputType
+function InputAPI.GetDefaultValueInput(inputType) end
+---@static
+---@function [InputAPI.IsDefaultPressed]
+---@return System.Boolean
+---@param inputType ShanghaiWindy.Core.API.eDefaultButtonInputType
+function InputAPI.IsDefaultPressed(inputType) end
 return InputAPI
 
 ---Map api
@@ -1444,6 +1720,12 @@ function ModeAPI.EnableCountDown(countDown, countDownTitle, countDownDescription
 ---@function [ModeAPI.GetModeInstance]
 ---@return XLua.LuaTable
 function ModeAPI.GetModeInstance() end
+---获取 c# 游戏模式实例
+---Get the native game mode in c#
+---@static
+---@function [ModeAPI.GetNativeMode]
+---@return ShanghaiWindy.Core.GameMode.BaseGameMode
+function ModeAPI.GetNativeMode() end
 ---@static
 ---@function [ModeAPI.StartRecord]
 ---@return System.Void
@@ -1477,6 +1759,12 @@ function PointAPI.GetTeamBStartPoints() end
 ---@function [PointAPI.GetPatrolPoints]
 ---@return UnityEngine.GameObject[] 包含巡逻点的 GameObject 数组
 function PointAPI.GetPatrolPoints() end
+---设置是否开启地图边界
+---Toggle if map boundary open
+---@static
+---@function [PointAPI.ToggleMapBoundary]
+---@param state System.Boolean
+function PointAPI.ToggleMapBoundary(state) end
 return PointAPI
 
 ---随机 API
@@ -1666,7 +1954,7 @@ local TankAPI = {}
 ---@static
 ---@function [TankAPI.GetTankFireList]
 ---@return System.Collections.Generic.List`1[[ShanghaiWindy.Core.TankFire, Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]] 坦克火力系统列表 List of tank fire systems
----@param vehicle ShanghaiWindy.Core.TankInitSystem
+---@param vehicle ShanghaiWindy.Core.VehicleInitSystem
 function TankAPI.GetTankFireList(vehicle) end
 return TankAPI
 
@@ -1806,6 +2094,35 @@ function UIAPI.ShowUI(index) end
 ---@function [UIAPI.RemoveUI]
 ---@param index ShanghaiWindy.Core.UIEnum
 function UIAPI.RemoveUI(index) end
+---UI 对象池
+---UI Pool
+---@static
+---@function [UIAPI.GetUIPool]
+---@return ShanghaiWindy.Core.UIPoolComponent
+---@param prototype UnityEngine.GameObject
+function UIAPI.GetUIPool(prototype) end
+---@static
+---@function [UIAPI.ShowPopup]
+---@return System.Void
+---@param message System.String
+---@param hasCancel System.Boolean
+---@param callback ShanghaiWindy.Core.Delegate.UIAPIDelegate+OnPopupClick
+function UIAPI.ShowPopup(message, hasCancel, callback) end
+---获取本地化文字
+---Get localized content
+---@static
+---@function [UIAPI.GetLocalizedContent]
+---@return System.String
+---@param text System.String
+function UIAPI.GetLocalizedContent(text) end
+---格式化文本
+---Format string
+---@static
+---@function [UIAPI.FormatString]
+---@return System.String
+---@param format System.String
+---@param objects System.Object[]
+function UIAPI.FormatString(format, objects) end
 return UIAPI
 
 ---载具通用 API
@@ -1905,8 +2222,8 @@ function VehicleAPI.TryGetBaseInitSystemFromGameObject(gameObject, baseInitSyste
 ---@function [VehicleAPI.TryGetTankInitSystemFromGameObject]
 ---@return System.Boolean
 ---@param gameObject UnityEngine.GameObject
----@param tankInitSystem ShanghaiWindy.Core.TankInitSystem&
-function VehicleAPI.TryGetTankInitSystemFromGameObject(gameObject, tankInitSystem) end
+---@param vehicleInitSystem ShanghaiWindy.Core.VehicleInitSystem&
+function VehicleAPI.TryGetTankInitSystemFromGameObject(gameObject, vehicleInitSystem) end
 ---@static
 ---@function [VehicleAPI.TryGetFlightInitSystemFromGameObject]
 ---@return System.Boolean
@@ -1970,4 +2287,14 @@ function VehicleAPI.GetFilteredBotVehicles(minRank, maxRank, allowArtillery, veh
 ---@param callback ShanghaiWindy.Core.Delegate.OnVehicleThumbnailLoadedDelegate
 function VehicleAPI.LoadVehicleThumbnail(vehicleInfo, callback) end
 return VehicleAPI
+
+---@class ShanghaiWindy.Core.IControllableVehicle
+local IControllableVehicle = {}
+
+return IControllableVehicle
+
+---@class ShanghaiWindy.Core.UIEnum
+local UIEnum = {}
+
+return UIEnum
 

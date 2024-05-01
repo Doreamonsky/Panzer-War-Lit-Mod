@@ -2,12 +2,6 @@ title: 局内配置文件，用于自定义部分核心参数。
 description: 使用方法：将此文件的后缀 .default 删除，则此配置文件将会生效。
 # @Comment: 配置文件版本号 @Type: System.Int32
 verion: 1
-# @Comment: 瞄具倍率 @Type: ShanghaiWindy.Core.Data.Conf+ZoomFov
-zoomFOV:
-# @Comment: 最小 FOV @Type: System.Single
-  minFov: 4
-  # @Comment: 最大 FOV @Type: System.Single
-  maxFov: 35
 # @Comment: 击穿规则 @Type: ShanghaiWindy.Core.Data.Conf+PenetrateRule
 penetrateRule:
 # @Comment: 强制击穿口径倍率 @Type: System.Single

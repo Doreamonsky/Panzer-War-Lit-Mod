@@ -1,4 +1,8 @@
-UIEnum = CS.ShanghaiWindy.Core.UIEnum
+AbstractNetBattleGameMode = CS.Frontend.Runtime.Impl.GameImpl.Battle.AbstractNetBattleGameMode
+CaptureZoneNetGameMode = CS.Frontend.Runtime.Impl.GameImpl.Battle.Mode.CaptureZoneNetGameMode
+ReplayNetGameMode = CS.Frontend.Runtime.Impl.GameImpl.Battle.Mode.ReplayNetGameMode
+StandardWarNetGameMode = CS.Frontend.Runtime.Impl.GameImpl.Battle.Mode.StandardWarNetGameMode
+TotalWarNetGameMode = CS.Frontend.Runtime.Impl.GameImpl.Battle.Mode.TotalWarNetGameMode
 ZoneChain = CS.ShanghaiWindy.Data.ZoneChain
 ZoneCapturePoint = CS.ShanghaiWindy.Data.ZoneCapturePoint
 CaptureZone = CS.ShanghaiWindy.Data.CaptureZone
@@ -20,9 +24,10 @@ EIconPosition = CS.ShanghaiWindy.Core.EIconPosition
 AbstractBattlePlayer = CS.ShanghaiWindy.Core.AbstractBattlePlayer
 TeamManager = CS.ShanghaiWindy.Core.TeamManager
 TankFire = CS.ShanghaiWindy.Core.TankFire
-TankInitSystem = CS.ShanghaiWindy.Core.TankInitSystem
+VehicleInitSystem = CS.ShanghaiWindy.Core.VehicleInitSystem
 TankVehicleComponents = CS.ShanghaiWindy.Core.TankVehicleComponents
 TurretController = CS.ShanghaiWindy.Core.TurretController
+UIPoolComponent = CS.ShanghaiWindy.Core.UIPoolComponent
 ILuaBase = CS.ShanghaiWindy.Core.Lua.ILuaBase
 ILuaBehavior = CS.ShanghaiWindy.Core.Lua.ILuaBehavior
 ILuaBuffCaster = CS.ShanghaiWindy.Core.Lua.ILuaBuffCaster
@@ -31,7 +36,7 @@ ILuaControllableVehicle = CS.ShanghaiWindy.Core.Lua.ILuaControllableVehicle
 ILuaGameMode = CS.ShanghaiWindy.Core.Lua.ILuaGameMode
 LuaBehaviorMono = CS.ShanghaiWindy.Core.Lua.LuaBehaviorMono
 BulletFiredInfo = CS.ShanghaiWindy.Core.Data.BulletFiredInfo
-AssetLoadedDelegate = CS.ShanghaiWindy.Core.Delegate.AssetLoadedDelegate
+InstantiateNonPoolObjectDelegate = CS.ShanghaiWindy.Core.Delegate.InstantiateNonPoolObjectDelegate
 LoadPoolAssetDelegate = CS.ShanghaiWindy.Core.Delegate.LoadPoolAssetDelegate
 OnGameVehicleLoadedDelegate = CS.ShanghaiWindy.Core.Delegate.OnGameVehicleLoadedDelegate
 OnGameVehicleDestroyedDelegate = CS.ShanghaiWindy.Core.Delegate.OnGameVehicleDestroyedDelegate
@@ -82,6 +87,8 @@ FontAPI = CS.ShanghaiWindy.Core.API.FontAPI
 GameAPI = CS.ShanghaiWindy.Core.API.GameAPI
 --- @class ShanghaiWindy.Core.API.GameObjectAPI
 GameObjectAPI = CS.ShanghaiWindy.Core.API.GameObjectAPI
+eDefaultValueInputType = CS.ShanghaiWindy.Core.API.eDefaultValueInputType
+eDefaultButtonInputType = CS.ShanghaiWindy.Core.API.eDefaultButtonInputType
 --- @class ShanghaiWindy.Core.API.InputAPI
 InputAPI = CS.ShanghaiWindy.Core.API.InputAPI
 --- @class ShanghaiWindy.Core.API.MapAPI
@@ -116,3 +123,5 @@ TransformAPI = CS.ShanghaiWindy.Core.API.TransformAPI
 UIAPI = CS.ShanghaiWindy.Core.API.UIAPI
 --- @class ShanghaiWindy.Core.API.VehicleAPI
 VehicleAPI = CS.ShanghaiWindy.Core.API.VehicleAPI
+IControllableVehicle = CS.ShanghaiWindy.Core.IControllableVehicle
+UIEnum = CS.ShanghaiWindy.Core.UIEnum
