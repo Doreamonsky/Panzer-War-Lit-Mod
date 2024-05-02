@@ -19,7 +19,7 @@ namespace ShanghaiWindy.Editor.PlayMode
         public override async UniTask EnterGame()
         {
             DontDestroyOnLoad(gameObject.transform.root);
-            
+
             GameDataManager.DamageMode = DamageMode;
             GameDataManager.isCustomEditor = true;
 
@@ -67,8 +67,8 @@ namespace ShanghaiWindy.Editor.PlayMode
             Core.CommonDataManager.Instance.ApplySettings();
             PoolManager.Initialize();
 
-            Debug.Log("Enter Game");
             OnInit?.Invoke();
+            Debug.Log("<color=green>Enter game completed. 游戏加载已完毕</color>");
         }
     }
 }
