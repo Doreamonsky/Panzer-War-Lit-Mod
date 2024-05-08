@@ -32,6 +32,7 @@ namespace ShanghaiWindy.Editor.PlayMode
                 new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-RuntimeSupport/packages/"),
                 new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Official-SoundBank/packages/"),
                 new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-VFX-AdvancedEdition/packages/"),
+                new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Atlas/packages/"),
                 // new("Packages/com.shanghaiwindy.middlelayer/RuntimeRes/BuildPipline-Solider/packages/"),
             };
 
@@ -57,6 +58,11 @@ namespace ShanghaiWindy.Editor.PlayMode
 
         private async void InitializeAsync()
         {
+            var atlas = await SimpleResourceManager.Instance.InstantiateAsync(
+                "5deb8-30216def39f61bd43b202f002d69b2df.unity3d",
+                false, Vector3.zero, Quaternion.identity);
+            DontDestroyOnLoad(atlas);
+
             await AssetBundleManager.AsyncHotFix();
             AssetBundleManager.LoadLuaEnvResources();
 
