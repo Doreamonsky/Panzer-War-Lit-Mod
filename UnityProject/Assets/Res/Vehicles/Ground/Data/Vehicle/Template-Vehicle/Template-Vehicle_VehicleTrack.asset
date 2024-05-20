@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: -571282868, guid: 0512a3c011ce1c84db3d9ccc1f4d6d2e, type: 3}
   m_Name: Template-Vehicle_VehicleTrack
   m_EditorClassIdentifier: 
+  useTrackMeshList: 0
   TrackMesh: {fileID: 134124, guid: 5e31d507c764fac458daaf238944acad, type: 3}
   LeftTrackMesh: {fileID: 0}
+  rightTrackMeshes: []
+  leftTrackMeshes: []
   TrackDistance: 0.12
   SpringNode: 
   PairNodes: []
@@ -24,46 +27,53 @@ MonoBehaviour:
   lastWheelBoneYOffset: 0
   firstWheelBoneZOffset: 0.65
   lastWheelBoneZOffset: 0.65
-  hasTrackDeform: 0
-  trackDeformRadius: 0.5
   physicTrackDataGuid: 
   physicTrackOffSet: {x: 0, y: 0, z: 0}
-  AdvanceLeftBones:
-  - {x: 1.4033562, y: 0.07745075, z: 1.6523061}
-  - {x: 1.4033562, y: 0.07745072, z: 0.4209985}
-  - {x: 1.4033562, y: 0.07745075, z: -0.65039873}
-  - {x: 1.4033562, y: 0.07745075, z: -1.7537779}
-  - {x: 1.4033562, y: 0.07745087, z: -2.7985241}
-  - {x: 1.4033562, y: 0.47, z: -3.603}
-  - {x: 1.4033562, y: 0.723, z: -3.609}
-  - {x: 1.4033562, y: 1.129, z: -3.608}
-  - {x: 1.4033562, y: 1.176, z: -3.427}
-  - {x: 1.4033562, y: 1.176, z: -2.894}
-  - {x: 1.4033562, y: 1.176, z: -1.822}
-  - {x: 1.4033562, y: 1.176, z: 0.488}
-  - {x: 1.4033562, y: 1.176, z: 2.119}
-  - {x: 1.4033562, y: 0.988, z: 2.636}
-  - {x: 1.4033562, y: 0.711, z: 3.274}
-  - {x: 1.4033562, y: 0.456, z: 2.872}
-  - {x: 1.4033562, y: 0.262, z: 2.52}
-  AdvanceRightBones:
-  - {x: -1.4033562, y: 0.07745075, z: 1.6523061}
-  - {x: -1.4033562, y: 0.07745072, z: 0.4209985}
-  - {x: -1.4033562, y: 0.07745075, z: -0.65039873}
-  - {x: -1.4033562, y: 0.07745075, z: -1.7537779}
-  - {x: -1.4033562, y: 0.07745087, z: -2.7985241}
-  - {x: -1.4033562, y: 0.47, z: -3.603}
-  - {x: -1.4033562, y: 0.723, z: -3.609}
-  - {x: -1.4033562, y: 1.129, z: -3.608}
-  - {x: -1.4033562, y: 1.176, z: -3.427}
-  - {x: -1.4033562, y: 1.176, z: -2.894}
-  - {x: -1.4033562, y: 1.176, z: -1.822}
-  - {x: -1.4033562, y: 1.176, z: 0.488}
-  - {x: -1.4033562, y: 1.176, z: 2.119}
-  - {x: -1.4033562, y: 0.988, z: 2.636}
-  - {x: -1.4033562, y: 0.711, z: 3.274}
-  - {x: -1.4033562, y: 0.456, z: 2.872}
-  - {x: -1.4033562, y: 0.262, z: 2.52}
+  trackNodes:
+  - leftNode: {x: -1.4033562, y: 0.07745075, z: 1.6523061}
+    rightNode: {x: 1.4033562, y: 0.07745075, z: 1.6523061}
+  - leftNode: {x: -1.4033562, y: 0.07745072, z: 0.4209985}
+    rightNode: {x: 1.4033562, y: 0.07745072, z: 0.4209985}
+  - leftNode: {x: -1.4033562, y: 0.07745075, z: -0.65039873}
+    rightNode: {x: 1.4033562, y: 0.07745075, z: -0.65039873}
+  - leftNode: {x: -1.4033562, y: 0.07745075, z: -1.7537779}
+    rightNode: {x: 1.4033562, y: 0.07745075, z: -1.7537779}
+  - leftNode: {x: -1.4033562, y: 0.07745087, z: -2.7985241}
+    rightNode: {x: 1.4033562, y: 0.07745087, z: -2.7985241}
+  - leftNode: {x: -1.4033562, y: 0.47, z: -3.603}
+    rightNode: {x: 1.4033562, y: 0.47, z: -3.603}
+  - leftNode: {x: -1.4033562, y: 0.723, z: -3.609}
+    rightNode: {x: 1.4033562, y: 0.723, z: -3.609}
+  - leftNode: {x: -1.4033562, y: 1.129, z: -3.608}
+    rightNode: {x: 1.4033562, y: 1.129, z: -3.608}
+  - leftNode: {x: -1.4033562, y: 1.176, z: -3.427}
+    rightNode: {x: 1.4033562, y: 1.176, z: -3.427}
+  - leftNode: {x: -1.4033562, y: 1.176, z: -2.894}
+    rightNode: {x: 1.4033562, y: 1.176, z: -2.894}
+  - leftNode: {x: -1.4033562, y: 1.176, z: -1.822}
+    rightNode: {x: 1.4033562, y: 1.176, z: -1.822}
+  - leftNode: {x: -1.4033562, y: 1.176, z: 0.488}
+    rightNode: {x: 1.4033562, y: 1.176, z: 0.488}
+  - leftNode: {x: -1.4033562, y: 1.176, z: 2.119}
+    rightNode: {x: 1.4033562, y: 1.176, z: 2.119}
+  - leftNode: {x: -1.4033562, y: 0.988, z: 2.636}
+    rightNode: {x: 1.4033562, y: 0.988, z: 2.636}
+  - leftNode: {x: -1.4033562, y: 0.711, z: 3.274}
+    rightNode: {x: 1.4033562, y: 0.711, z: 3.274}
+  - leftNode: {x: -1.4033562, y: 0.456, z: 2.872}
+    rightNode: {x: 1.4033562, y: 0.456, z: 2.872}
+  - leftNode: {x: -1.4033562, y: 0.262, z: 2.52}
+    rightNode: {x: 1.4033562, y: 0.262, z: 2.52}
+  leftTrackKnot:
+    headTangentIn: -0.1
+    tailTangentIn: -0.1
+    headTangentOut: 0.2
+    tailTangentOut: 0.2
+  rightTrackKnot:
+    headTangentIn: -0.1
+    tailTangentIn: -0.1
+    headTangentOut: 0.2
+    tailTangentOut: 0.2
   LeftTrackCenter: {x: -1.4033562, y: 0.3, z: 0}
   RightTrackCenter: {x: 1.4033562, y: 0.3, z: 0}
   RelativeBones:
@@ -84,7 +94,3 @@ MonoBehaviour:
   - {x: 0, y: 0.411, z: 3.274}
   - {x: 0, y: 0.15599999, z: 2.872}
   - {x: 0, y: -0.038000017, z: 2.52}
-  leftTrackDeformCache: []
-  leftTrackInitalVerts: []
-  rightTrackDeformCache: []
-  rightTrackInitalVerts: []
