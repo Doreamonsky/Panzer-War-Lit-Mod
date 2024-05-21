@@ -13,13 +13,23 @@ MonoBehaviour:
   m_Name: DIY
   m_EditorClassIdentifier: 
   modName: Default Mod
+  localizedModName:
+    isLocalizeTable: 0
+    defaultName: 
+    items: []
+    localizeTableKey: 
   description: The Description of the mod
+  localizedDescription:
+    isLocalizeTable: 0
+    defaultName: 
+    items: []
+    localizeTableKey: 
   author: Your Name
   supportURL: https://yourWebSite.com
   modVersion: 1
-  testedGameVersion: 2021r2f1
-  buildTarget: Android
-  isPackModIOZip: 0
+  testedGameVersion: 2024.r1f1
+  buildTarget: StandaloneWindows64
+  shipTypes: 1
   isAuthorizeOwnerShip: 0
   packUuid: 
   guid: 0a4b0155-ab8e-4b12-8c28-f992a6a5110b
@@ -39,38 +49,12 @@ MonoBehaviour:
     - Build/Mod-BuildPipline/Android/BuildPipline-DIY/packages/packages.manifest
   - targetPlatform: StandaloneWindows64
     relatedAssets:
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/342080022643ffaa910e4ca275eada44a255f.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/342080022643ffaa910e4ca275eada44a255f.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420800ea19b85cedc8d479da74cf138780e4.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420800ea19b85cedc8d479da74cf138780e4.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420803f1ed60627d9da4db91c896a446a228.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420803f1ed60627d9da4db91c896a446a228.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/342081b40e7e7e0ba89145b9a323a7fee6837.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/342081b40e7e7e0ba89145b9a323a7fee6837.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208366f8f65cfb997a4da47b70bd519400c.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208366f8f65cfb997a4da47b70bd519400c.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420838ea8d97a2584c84da9a5796a5b55c7e.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420838ea8d97a2584c84da9a5796a5b55c7e.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420873d3b92f4daeff648b9115f4b6c13775.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420873d3b92f4daeff648b9115f4b6c13775.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420879c20167fcdd6154d92f80f73265332f.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420879c20167fcdd6154d92f80f73265332f.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420888b38ab277183dd478ba4f76940edb84.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/3420888b38ab277183dd478ba4f76940edb84.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208ad997db6adfd55a4d983b032c0fd4be4.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208ad997db6adfd55a4d983b032c0fd4be4.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208d8b8da401825e5645bcc29c8878c0b1d.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208d8b8da401825e5645bcc29c8878c0b1d.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208d965ba2b4aeecf24daba395b73e7faab.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208d965ba2b4aeecf24daba395b73e7faab.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e2d169bb142867747b174c816bd37371.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e2d169bb142867747b174c816bd37371.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e781be5be5d67854fa541e07ffa40dca.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e781be5be5d67854fa541e07ffa40dca.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e81ed4ece3ce4194daa7baf5fc2b045f.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208e81ed4ece3ce4194daa7baf5fc2b045f.unity3d.manifest
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208f28640fa97b50554dbf0d632b1af929a.unity3d
-    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/34208f28640fa97b50554dbf0d632b1af929a.unity3d.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-1b40e7e7e0ba89145b9a323a7fee6837.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-1b40e7e7e0ba89145b9a323a7fee6837.unity3d.manifest
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d
+    - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d.manifest
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/472d76261bf4442c8f8d2c79b0b6da93_pre.diy
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/472d76261bf4442c8f8d2c79b0b6da93_pre.diy.manifest
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/6ce18d3702754e1ea4d0d1866e2177f6_pre.diy
@@ -82,5 +66,41 @@ MonoBehaviour:
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/manifest.mark
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/packages
     - Build/Mod-BuildPipline/StandaloneWindows64/BuildPipline-DIY/packages/packages.manifest
+  modFileManifiests:
+  - n: 0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+    h: 40185cb5ece7ac5d06e054c110de4429
+    d: []
+  - n: 0a4b0-1b40e7e7e0ba89145b9a323a7fee6837.unity3d
+    h: 814d7c18e3718cffec8af10de5593c6a
+    d: []
+  - n: 0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d
+    h: 98467e87e513292d5804a69620ce955f
+    d:
+    - 0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+  - n: 472d76261bf4442c8f8d2c79b0b6da93_pre.diy
+    h: acf08dc161af124dbdf26919ddf20c4c
+    d:
+    - 0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+    - 0a4b0-1b40e7e7e0ba89145b9a323a7fee6837.unity3d
+    - 0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d
+  - n: 6ce18d3702754e1ea4d0d1866e2177f6_pre.diy
+    h: 0c810fb65a41ccbe4c7236aa1a3abc1e
+    d:
+    - 0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+    - 0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d
+  - n: 8c212748-b487-4f78-8044-3731a7130433.diyassemble
+    h: 793003dfc57feccce52b660c726c6047
+    d: []
+  - n: fb2d07c582db4704a186da308281013a_pre.diy
+    h: 5a774bddbb31b88375fa1e31b372cb27
+    d:
+    - 0a4b0-00389d55ea54b8e408687c41caeed3ac.unity3d
+    - 0a4b0-1b40e7e7e0ba89145b9a323a7fee6837.unity3d
+    - 0a4b0-38ea8d97a2584c84da9a5796a5b55c7e.unity3d
   isLoadManifest: 1
   luaScripts: []
+  createdTime: 133607463893523480
+  shipIsHidden: 0
+  shipClientVersion: 0
+  shipRenderPipline: 0
+  imgUrls: []
